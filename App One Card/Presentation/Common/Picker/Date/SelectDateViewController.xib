@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectDateViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAccept" destination="Z3u-73-FBZ" id="oad-fk-xkb"/>
+                <outlet property="lblTitle" destination="vV1-PT-alB" id="GK6-MK-8qq"/>
+                <outlet property="pickerItems" destination="4Ia-sv-piG" id="b9f-bJ-klJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="486" height="301"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z53-YO-aFe">
+                    <rect key="frame" x="0.0" y="0.0" width="486" height="301"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV1-PT-alB">
+                            <rect key="frame" x="24" y="24" width="438" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3u-73-FBZ" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="24" y="237" width="438" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="GFM-af-8bJ"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="clickAccept:" destination="-1" eventType="touchUpInside" id="BJ7-Ro-azy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cy-Y1-l94">
+                            <rect key="frame" x="448" y="24.666666666666668" width="14" height="14.000000000000004"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="14" id="A3V-J2-582"/>
+                                <constraint firstAttribute="height" constant="14" id="nNh-fH-bkC"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="clickCancel:" destination="-1" eventType="touchUpInside" id="jub-Bg-G8b"/>
+                            </connections>
+                        </button>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-sv-piG">
+                            <rect key="frame" x="24" y="63" width="438" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="hhF-Wu-OAB"/>
+                            </constraints>
+                        </datePicker>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Z3u-73-FBZ" secondAttribute="trailing" constant="24" id="Ddg-Nk-Qhj"/>
+                        <constraint firstAttribute="trailing" secondItem="7Cy-Y1-l94" secondAttribute="trailing" constant="24" id="MFu-4O-WEs"/>
+                        <constraint firstItem="4Ia-sv-piG" firstAttribute="top" secondItem="vV1-PT-alB" secondAttribute="bottom" constant="24" id="MNt-Bu-80b"/>
+                        <constraint firstAttribute="trailing" secondItem="vV1-PT-alB" secondAttribute="trailing" constant="24" id="O0H-X4-Svb"/>
+                        <constraint firstAttribute="bottom" secondItem="Z3u-73-FBZ" secondAttribute="bottom" constant="24" id="YtB-Od-9nA"/>
+                        <constraint firstAttribute="trailing" secondItem="4Ia-sv-piG" secondAttribute="trailing" constant="24" id="dNO-OR-Q9q"/>
+                        <constraint firstItem="Z3u-73-FBZ" firstAttribute="leading" secondItem="Z53-YO-aFe" secondAttribute="leading" constant="24" id="ger-7s-xpm"/>
+                        <constraint firstItem="7Cy-Y1-l94" firstAttribute="centerY" secondItem="vV1-PT-alB" secondAttribute="centerY" id="lJH-bP-qmd"/>
+                        <constraint firstItem="vV1-PT-alB" firstAttribute="leading" secondItem="Z53-YO-aFe" secondAttribute="leading" constant="24" id="osz-SJ-iC3"/>
+                        <constraint firstItem="vV1-PT-alB" firstAttribute="top" secondItem="Z53-YO-aFe" secondAttribute="top" constant="24" id="t7N-qS-Ao8"/>
+                        <constraint firstItem="4Ia-sv-piG" firstAttribute="leading" secondItem="Z53-YO-aFe" secondAttribute="leading" constant="24" id="ywd-tx-dIo"/>
+                        <constraint firstItem="Z3u-73-FBZ" firstAttribute="top" secondItem="4Ia-sv-piG" secondAttribute="bottom" constant="24" id="z5B-ag-W90"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Z53-YO-aFe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B9y-eP-7YK"/>
+                <constraint firstItem="Z53-YO-aFe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NJp-SB-arh"/>
+                <constraint firstAttribute="bottom" secondItem="Z53-YO-aFe" secondAttribute="bottom" id="r4W-ZJ-3XQ"/>
+                <constraint firstAttribute="trailing" secondItem="Z53-YO-aFe" secondAttribute="trailing" id="zfF-6z-2or"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="178.62595419847327" y="-174.29577464788733"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

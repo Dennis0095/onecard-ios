@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectCustomViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAccept" destination="vhV-rI-37U" id="eAL-6l-5Yb"/>
+                <outlet property="lblTitle" destination="LOO-zu-GTG" id="wjs-ny-u9P"/>
+                <outlet property="pickerItems" destination="mUy-kL-FMx" id="l6I-Cf-mEC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="540" height="292"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbd-NJ-dUm">
+                    <rect key="frame" x="0.0" y="0.0" width="540" height="292"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOO-zu-GTG">
+                            <rect key="frame" x="24" y="24" width="492" height="56"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUy-kL-FMx">
+                            <rect key="frame" x="24" y="104" width="492" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="llm-QL-oNN"/>
+                            </constraints>
+                        </pickerView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhV-rI-37U" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="24" y="228" width="492" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="zP9-cN-6TE"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="clickAccept:" destination="-1" eventType="touchUpInside" id="OrR-3r-ccG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQY-dR-fui">
+                            <rect key="frame" x="502" y="45" width="14" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="14" id="22m-vk-Aes"/>
+                                <constraint firstAttribute="height" constant="14" id="Nm0-z6-epc"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="clickCancel:" destination="-1" eventType="touchUpInside" id="2gA-17-9wR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LOO-zu-GTG" firstAttribute="top" secondItem="Hbd-NJ-dUm" secondAttribute="top" constant="24" id="66R-t3-deV"/>
+                        <constraint firstAttribute="trailing" secondItem="mUy-kL-FMx" secondAttribute="trailing" constant="24" id="NmA-Ou-h56"/>
+                        <constraint firstItem="LOO-zu-GTG" firstAttribute="leading" secondItem="Hbd-NJ-dUm" secondAttribute="leading" constant="24" id="QQA-tt-dTA"/>
+                        <constraint firstItem="yQY-dR-fui" firstAttribute="centerY" secondItem="LOO-zu-GTG" secondAttribute="centerY" id="TgD-4a-ha1"/>
+                        <constraint firstItem="mUy-kL-FMx" firstAttribute="top" secondItem="LOO-zu-GTG" secondAttribute="bottom" constant="24" id="aAy-SB-5Fa"/>
+                        <constraint firstAttribute="bottom" secondItem="vhV-rI-37U" secondAttribute="bottom" constant="24" id="abT-Xh-KBG"/>
+                        <constraint firstItem="mUy-kL-FMx" firstAttribute="leading" secondItem="Hbd-NJ-dUm" secondAttribute="leading" constant="24" id="jiI-G0-tOW"/>
+                        <constraint firstItem="vhV-rI-37U" firstAttribute="leading" secondItem="Hbd-NJ-dUm" secondAttribute="leading" constant="24" id="nYt-Ce-lvl"/>
+                        <constraint firstAttribute="trailing" secondItem="LOO-zu-GTG" secondAttribute="trailing" constant="24" id="rZh-Y3-w0v"/>
+                        <constraint firstAttribute="trailing" secondItem="yQY-dR-fui" secondAttribute="trailing" constant="24" id="u5D-jz-6OB"/>
+                        <constraint firstItem="vhV-rI-37U" firstAttribute="top" secondItem="mUy-kL-FMx" secondAttribute="bottom" constant="24" id="uKc-HT-bTq"/>
+                        <constraint firstAttribute="trailing" secondItem="vhV-rI-37U" secondAttribute="trailing" constant="24" id="z8n-hH-gJx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Hbd-NJ-dUm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="L65-xP-BDb"/>
+                <constraint firstAttribute="bottom" secondItem="Hbd-NJ-dUm" secondAttribute="bottom" id="Nyr-M9-cXu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hbd-NJ-dUm" secondAttribute="trailing" id="Yrv-Va-Jvu"/>
+                <constraint firstItem="Hbd-NJ-dUm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fTb-nW-c5e"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="248.85496183206106" y="-176.7605633802817"/>
+        </view>
+    </objects>
+</document>

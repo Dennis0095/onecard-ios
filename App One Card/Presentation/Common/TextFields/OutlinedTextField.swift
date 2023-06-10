@@ -97,9 +97,8 @@ class OutlinedTextField: UIView {
     
     var isSecureTextField: Bool = false {
         didSet {
-            //setImage(isChecked ? checkedImage : uncheckedImage, for: .normal)
             imgPassword.image = isSecureTextField ? UIImage(named: "password_show") : UIImage(named: "password_hide")
-            txt.isSecureTextEntry = isSecureTextField
+            txt.isSecureTextEntry = !isSecureTextField
         }
     }
     
@@ -192,6 +191,8 @@ class OutlinedTextField: UIView {
         self.status = status
         
         txt.setFont(UIFont.systemFont(ofSize: 14), Design.color(.grey100))
+        txt.isSecureTextEntry = isPassword!
+        
         setupView(isPassword: isPassword!)
     }
     

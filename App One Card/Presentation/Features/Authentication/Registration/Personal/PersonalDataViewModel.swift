@@ -9,7 +9,7 @@ import Foundation
 
 protocol PersonalDataViewModelProtocol {
     func nextStep()
-    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping DismissActionHandler)
+    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler)
 }
 
 class PersonalDataViewModel: PersonalDataViewModelProtocol {
@@ -19,7 +19,7 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
         router?.navigateToVerify()
     }
     
-    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping DismissActionHandler) {
+    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler) {
         router?.showDateList(selected: selected, action: action, presented: presented)
     }
 }

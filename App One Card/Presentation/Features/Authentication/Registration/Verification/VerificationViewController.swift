@@ -11,6 +11,7 @@ class VerificationViewController: UIViewController {
 
     @IBOutlet weak var txtCode: CodeVerificationTextField!
     @IBOutlet weak var imgBack: UIImageView!
+    @IBOutlet weak var btnNext: PrimaryFilledButton!
     
     private var viewModel: VerificationViewModelProtocol
     
@@ -27,6 +28,7 @@ class VerificationViewController: UIViewController {
         super.viewDidLoad()
         
         addActions()
+        btnNext.configure(text: Constants.next_btn, status: .enabled)
     }
 
     func addActions() {
@@ -36,12 +38,15 @@ class VerificationViewController: UIViewController {
         
         txtCode.configure()
         txtCode.didEnterLastDigit = { [weak self] code in
-            print(code)
-            
+
         }
     }
     
     @objc private func tapBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        viewModel.nextStep()
     }
 }

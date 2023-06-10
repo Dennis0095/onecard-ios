@@ -7,6 +7,15 @@
 
 import UIKit
 
+//class BackwardTextField: UITextField {
+//    var backspaceCalled: (() -> Void)?
+//
+//    override func deleteBackward() {
+//        super.deleteBackward()
+//        backspaceCalled?()
+//    }
+//}
+
 //class CodeVerificationTextField: UIView {
 //
 //    private lazy var viewContainer: UIView = {

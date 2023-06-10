@@ -8,7 +8,6 @@
 import UIKit
 
 typealias SelectCustomActionHandler = (_ item: SelectModel?) -> ()
-typealias DismissActionHandler = () -> ()
 
 class SelectCustomViewController: UIViewController {
     

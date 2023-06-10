@@ -109,7 +109,7 @@ class SelectTextField: UIView {
         }
     }
     
-    var action: (() -> Void)?
+    var action: VoidActionHandler?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

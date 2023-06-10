@@ -30,6 +30,22 @@ class AppRouter: Router {
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
+    func successfulRegistration(title: String, description: String, accept: VoidActionHandler?) {
+        let successfulViewController = SuccessfulViewController()
+        successfulViewController.titleSuccessful = title
+        successfulViewController.descriptionSuccessful = description
+        successfulViewController.buttonSuccessful = Constants.enter
+        successfulViewController.accept = accept
+        navigationController?.pushViewController(successfulViewController, animated: true)
+    }
+    
+    func navigateToLoginInformation() {
+        let viewModel = LoginInformationViewModel()
+        viewModel.router = self
+        let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
+        navigationController?.pushViewController(loginInformationViewController, animated: true)
+    }
+    
     func navigateToVerify() {
         let viewModel = VerificationViewModel()
         viewModel.router = self
@@ -45,9 +61,9 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToRegister() {
-        let membershipDataViewModel = MembershipDataViewModel()
-        membershipDataViewModel.router = self
-        let membershipDataViewController = MembershipDataViewController(membershipDataViewModel: membershipDataViewModel)
+        let viewModel = MembershipDataViewModel()
+        viewModel.router = self
+        let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(membershipDataViewController, animated: true)
     }
     
@@ -56,9 +72,9 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToLogin() {
-        let loginViewModel = LoginViewModel()
-        loginViewModel.router = self
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
+        let viewModel = LoginViewModel()
+        viewModel.router = self
+        let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)
         if let nav = navigationController {
@@ -66,7 +82,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         }
     }
     
-    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping DismissActionHandler) {
+    func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler) {
         let contentView = SelectDateViewController()
         contentView.textTitle = Constants.placeholder_birthday
         contentView.selectedItem = selected
@@ -79,7 +95,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         navigationController?.present(alertController, animated: true, completion: presented)
     }
     
-    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping DismissActionHandler) {
+    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
         let contentView = SelectCustomViewController()
         contentView.textTitle = Constants.placeholder_document_type
         contentView.items = list

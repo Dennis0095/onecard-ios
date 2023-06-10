@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
+                <outlet property="btnNext" destination="wJO-td-Tqn" id="Icg-6D-uTn"/>
                 <outlet property="imgBack" destination="fta-ok-LFw" id="XN2-0A-Umm"/>
                 <outlet property="txtCode" destination="5jA-Ic-bMU" id="Id3-YZ-lga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -117,6 +118,9 @@
                                 <constraint firstAttribute="height" constant="40" id="968-dv-qqB"/>
                             </constraints>
                             <buttonConfiguration key="configuration" style="plain"/>
+                            <connections>
+                                <action selector="next:" destination="-1" eventType="touchUpInside" id="3nX-EV-OGM"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

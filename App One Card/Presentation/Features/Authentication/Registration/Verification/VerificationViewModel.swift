@@ -8,9 +8,13 @@
 import Foundation
 
 protocol VerificationViewModelProtocol {
-    
+    func nextStep()
 }
 
 class VerificationViewModel: VerificationViewModelProtocol {
     var router: AuthenticationRouterDelegate?
+    
+    func nextStep() {
+        router?.navigateToLoginInformation()
+    }
 }

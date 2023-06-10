@@ -22,16 +22,15 @@ class MembershipDataViewController: UIViewController {
     
     var docTypeList: [SelectModel] = [
         SelectModel(id: 0, name: "DNI"),
-        SelectModel(id: 1, name: "CARNET DE EXTRANJERÍA"),
-        SelectModel(id: 2, name: "OTRO")
+        SelectModel(id: 1, name: "Carnet de extranjería")
     ]
     
     var selectedDocType: SelectModel?
     
-    private var membershipDataViewModel: MembershipDataViewModelProtocol
+    private var viewModel: MembershipDataViewModelProtocol
     
-    init(membershipDataViewModel: MembershipDataViewModelProtocol) {
-        self.membershipDataViewModel = membershipDataViewModel
+    init(viewModel: MembershipDataViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -56,7 +55,7 @@ class MembershipDataViewController: UIViewController {
         imgBack.addGestureRecognizer(tapBack)
         
         viewDocType.action = { [weak self] in
-            self?.membershipDataViewModel.showDocumentList(selected: self?.selectedDocType, list: self?.docTypeList ?? [], action: { item in
+            self?.viewModel.showDocumentList(selected: self?.selectedDocType, list: self?.docTypeList ?? [], action: { item in
                 if let item = item {
                     self?.selectedDocType = item
                     self?.viewDocType.setText(string: item.name)
@@ -73,7 +72,7 @@ class MembershipDataViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        membershipDataViewModel.nextStep()
+        viewModel.nextStep()
     }
     
 }

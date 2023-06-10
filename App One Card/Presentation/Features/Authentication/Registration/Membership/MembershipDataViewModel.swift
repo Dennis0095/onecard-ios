@@ -9,7 +9,7 @@ import Foundation
 
 protocol MembershipDataViewModelProtocol {
     func nextStep()
-    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping DismissActionHandler)
+    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler)
 }
 
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
@@ -19,7 +19,7 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
         router?.navigateToPersonalData()
     }
     
-    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping DismissActionHandler) {
+    func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
         router?.showDocumentList(selected: selected, list: list, action: action, presented: presented)
     }
 }

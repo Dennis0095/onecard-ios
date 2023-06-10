@@ -51,7 +51,11 @@
 		0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */; };
 		0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */; };
 		0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */; };
-		0D45B17C2A3060F400EFC7F4 /* BackwardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B17B2A3060F400EFC7F4 /* BackwardTextField.swift */; };
+		0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967452A33F0E20079D432 /* LoginInformationViewController.swift */; };
+		0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967462A33F0E20079D432 /* LoginInformationViewController.xib */; };
+		0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967492A33F0F40079D432 /* LoginInformationViewModel.swift */; };
+		0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967502A3401F50079D432 /* SuccessfulViewController.swift */; };
+		0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967512A3401F50079D432 /* SuccessfulViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,7 +105,11 @@
 		0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationViewController.xib; sourceTree = "<group>"; };
 		0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationTextField.swift; sourceTree = "<group>"; };
 		0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
-		0D45B17B2A3060F400EFC7F4 /* BackwardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackwardTextField.swift; sourceTree = "<group>"; };
+		0DB967452A33F0E20079D432 /* LoginInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewController.swift; sourceTree = "<group>"; };
+		0DB967462A33F0E20079D432 /* LoginInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginInformationViewController.xib; sourceTree = "<group>"; };
+		0DB967492A33F0F40079D432 /* LoginInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewModel.swift; sourceTree = "<group>"; };
+		0DB967502A3401F50079D432 /* SuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulViewController.swift; sourceTree = "<group>"; };
+		0DB967512A3401F50079D432 /* SuccessfulViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,7 @@
 		0D45B10D2A2E72E900EFC7F4 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0DB967542A34A9E20079D432 /* Menu */,
 				0D45B1162A2E928600EFC7F4 /* Authentication */,
 				0D45B10E2A2E749F00EFC7F4 /* Splash */,
 			);
@@ -251,6 +260,7 @@
 		0D45B1222A2EA71800EFC7F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0DB9674F2A33F5260079D432 /* Success */,
 				0D45B15E2A2FC97600EFC7F4 /* Picker */,
 				0D45B13F2A2ECD3000EFC7F4 /* TextFields */,
 				0D45B1322A2EAC2800EFC7F4 /* Extensions */,
@@ -315,7 +325,6 @@
 				0D45B1502A2EE84000EFC7F4 /* PaddedTextField.swift */,
 				0D45B1582A2FB3BD00EFC7F4 /* SelectTextField.swift */,
 				0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */,
-				0D45B17B2A3060F400EFC7F4 /* BackwardTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -353,6 +362,9 @@
 		0D45B1492A2EDEF400EFC7F4 /* LoginInformation */ = {
 			isa = PBXGroup;
 			children = (
+				0DB967452A33F0E20079D432 /* LoginInformationViewController.swift */,
+				0DB967462A33F0E20079D432 /* LoginInformationViewController.xib */,
+				0DB967492A33F0F40079D432 /* LoginInformationViewModel.swift */,
 			);
 			path = LoginInformation;
 			sourceTree = "<group>";
@@ -390,6 +402,22 @@
 				0D45B16E2A30372700EFC7F4 /* SelectModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0DB9674F2A33F5260079D432 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				0DB967502A3401F50079D432 /* SuccessfulViewController.swift */,
+				0DB967512A3401F50079D432 /* SuccessfulViewController.xib */,
+			);
+			path = Success;
+			sourceTree = "<group>";
+		};
+		0DB967542A34A9E20079D432 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,9 +483,11 @@
 				0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */,
 				0D45B11C2A2E92C100EFC7F4 /* LoginViewController.xib in Resources */,
 				0D45B16C2A30316900EFC7F4 /* SelectDateViewController.xib in Resources */,
+				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
 				0D45B14D2A2EE14100EFC7F4 /* PersonalDataViewController.xib in Resources */,
 				0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */,
+				0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */,
 				0D45B1122A2E74B700EFC7F4 /* SplashViewController.xib in Resources */,
 				0D45B1062A2E588D00EFC7F4 /* QA.plist in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
@@ -479,10 +509,13 @@
 				0D45B1312A2EABF500EFC7F4 /* Colors.swift in Sources */,
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
+				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D45B1572A2EFCBD00EFC7F4 /* ViewExtension.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
 				0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */,
 				0D45B1622A2FF77200EFC7F4 /* MembershipDataViewModel.swift in Sources */,
+				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
+				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
 				0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */,
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
@@ -491,7 +524,6 @@
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
 				0D45B1532A2EEA7200EFC7F4 /* StringExtension.swift in Sources */,
-				0D45B17C2A3060F400EFC7F4 /* BackwardTextField.swift in Sources */,
 				0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */,
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,

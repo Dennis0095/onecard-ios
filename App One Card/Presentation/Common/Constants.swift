@@ -22,5 +22,8 @@ class Constants {
     static let placeholder_ruc: String = "RUC de la empresa donde trabaja"
     static let placeholder_document_number: String = "Número de documento"
     static let placeholder_document_type: String = "Tipo de documento"
+    static let congratulations: String = "¡Felicidades!"
+    static let congratulations_description: String = "Ha creado su nuevo usuario y clave digital con éxito."
+    static let enter: String = "INGRESAR"
     static let error: String = "Error"
 }

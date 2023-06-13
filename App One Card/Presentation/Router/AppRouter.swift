@@ -21,8 +21,7 @@ class AppRouter: Router {
     }
     
     func start() {
-        let splashViewModel = SplashViewModel()
-        splashViewModel.router = self
+        let splashViewModel = SplashViewModel(router: self)
         let splashViewController = SplashViewController(splashViewModel: splashViewModel)
         window.rootViewController = splashViewController
         window.makeKeyAndVisible()
@@ -30,50 +29,35 @@ class AppRouter: Router {
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
-    func successfulRegistration(title: String, description: String, accept: VoidActionHandler?) {
-        let successfulViewController = SuccessfulViewController()
-        successfulViewController.titleSuccessful = title
-        successfulViewController.descriptionSuccessful = description
-        successfulViewController.buttonSuccessful = Constants.enter
-        successfulViewController.accept = accept
-        navigationController?.pushViewController(successfulViewController, animated: true)
-    }
-    
     func navigateToLoginInformation() {
-        let viewModel = LoginInformationViewModel()
-        viewModel.router = self
+        let viewModel = LoginInformationViewModel(router: self, successfulRouter: self)
         let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
         navigationController?.pushViewController(loginInformationViewController, animated: true)
     }
     
-    func navigateToVerify() {
-        let viewModel = VerificationViewModel()
-        viewModel.router = self
-        let verificationViewController = VerificationViewController(viewModel: viewModel)
-        navigationController?.pushViewController(verificationViewController, animated: true)
-    }
-    
     func navigateToPersonalData() {
-        let viewModel = PersonalDataViewModel()
-        viewModel.router = self
+        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(personalDataViewController, animated: true)
     }
     
     func navigateToRegister() {
-        let viewModel = MembershipDataViewModel()
-        viewModel.router = self
+        let viewModel = MembershipDataViewModel(router: self)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(membershipDataViewController, animated: true)
     }
     
     func navigateToHome() {
-        
+        let menu = MenuTabBarController(preferencesRouter: self)
+        navigationController = UINavigationController(rootViewController: menu)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        if let nav = navigationController {
+            window.switchRootViewController(to: nav)
+        }
     }
     
     func navigateToLogin() {
-        let viewModel = LoginViewModel()
-        viewModel.router = self
+        let viewModel = LoginViewModel(router: self)
         let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -107,5 +91,74 @@ extension AppRouter: AuthenticationRouterDelegate {
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
         alertController.view.tintColor = UIColor.white
         navigationController?.present(alertController, animated: true, completion: presented)
+    }
+}
+
+extension AppRouter: VerificationRouterDelegate {    
+    func navigateToVerification(navTitle: String, stepDescription: String , success: @escaping VoidActionHandler) {
+        let viewModel = VerificationViewModel()
+        viewModel.success = success
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription)
+        navigationController?.pushViewController(verificationViewController, animated: true)
+    }
+}
+
+extension AppRouter: SuccessfulRouterDelegate {
+    func navigateToSuccessfulScreen(title: String, description: String, button: String, accept: VoidActionHandler?) {
+        let successfulViewController = SuccessfulViewController()
+        successfulViewController.titleSuccessful = title
+        successfulViewController.descriptionSuccessful = description
+        successfulViewController.buttonSuccessful = button
+        successfulViewController.accept = accept
+        navigationController?.pushViewController(successfulViewController, animated: true)
+    }
+}
+
+extension AppRouter: PreferencesRouterDelegate {
+    func navigateToProfile() {
+        let viewModel = ProfileViewModel(router: self)
+        let profileViewController = ProfileViewController(viewModel: viewModel)
+        navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func navigateToQuestions() {
+        
+    }
+    
+    func navigateToContact() {
+        
+    }
+    
+    func logout() {
+        
+    }
+}
+
+extension AppRouter: ProfileRouterDelegate {
+    func toEditPassword() {
+        
+    }
+    
+    func toEditUser() {
+        let viewModel = EditUserViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self)
+        let editUserViewController = EditUserViewController(viewModel: viewModel)
+        navigationController?.pushViewController(editUserViewController, animated: true)
+    }
+    
+    func toEditMail() {
+        let viewModel = EditMailViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self)
+        let editMailViewController = EditMailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(editMailViewController, animated: true)
+    }
+    
+    func successfulEditProfile() {
+        if let viewControllers = navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if let profileViewController = viewController as? ProfileViewController {
+                    navigationController?.popToViewController(profileViewController, animated: true)
+                    break
+                }
+            }
+        }
     }
 }

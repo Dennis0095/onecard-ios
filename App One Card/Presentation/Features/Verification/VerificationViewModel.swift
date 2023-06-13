@@ -6,15 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 protocol VerificationViewModelProtocol {
-    func nextStep()
+    func successVerification()
 }
 
 class VerificationViewModel: VerificationViewModelProtocol {
-    var router: AuthenticationRouterDelegate?
+    private var cancellables = Set<AnyCancellable>()
+    var success: VoidActionHandler?
     
-    func nextStep() {
-        router?.navigateToLoginInformation()
+    func successVerification() {
+        if let action = success {
+            action()
+        }
     }
 }

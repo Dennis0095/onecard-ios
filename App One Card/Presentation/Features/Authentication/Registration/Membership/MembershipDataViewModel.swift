@@ -13,13 +13,17 @@ protocol MembershipDataViewModelProtocol {
 }
 
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
-    var router: AuthenticationRouterDelegate?
+    var router: AuthenticationRouterDelegate
+    
+    init(router: AuthenticationRouterDelegate) {
+        self.router = router
+    }
     
     func nextStep() {
-        router?.navigateToPersonalData()
+        router.navigateToPersonalData()
     }
     
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
-        router?.showDocumentList(selected: selected, list: list, action: action, presented: presented)
+        router.showDocumentList(selected: selected, list: list, action: action, presented: presented)
     }
 }

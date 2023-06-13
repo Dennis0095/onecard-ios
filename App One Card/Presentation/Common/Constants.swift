@@ -25,5 +25,8 @@ class Constants {
     static let congratulations: String = "¡Felicidades!"
     static let congratulations_description: String = "Ha creado su nuevo usuario y clave digital con éxito."
     static let enter: String = "INGRESAR"
+    static let tab_title_home: String = "Inicio"
+    static let tab_title_proms: String = "Promociones"
+    static let tab_title_prefs: String = "Preferencias"
     static let error: String = "Error"
 }

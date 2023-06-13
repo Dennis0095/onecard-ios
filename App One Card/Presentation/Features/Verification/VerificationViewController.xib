@@ -8,11 +8,21 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="btnNext" destination="wJO-td-Tqn" id="Icg-6D-uTn"/>
                 <outlet property="imgBack" destination="fta-ok-LFw" id="XN2-0A-Umm"/>
+                <outlet property="lblNavTitle" destination="1FL-jR-K4t" id="HJ1-qO-jmf"/>
+                <outlet property="lblStep" destination="X2t-2t-dow" id="6wY-74-PpC"/>
                 <outlet property="txtCode" destination="5jA-Ic-bMU" id="Id3-YZ-lga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,18 +42,18 @@
                                 <constraint firstAttribute="height" constant="24" id="hbn-Y9-lFh"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTRO DE USUARIO DIGITAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-jR-K4t">
-                            <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-jR-K4t">
+                            <rect key="frame" x="46" y="20" width="329" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                            <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3n2-VB-xoj">
                             <rect key="frame" x="0.0" y="40" width="393" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paso 3 de 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2t-2t-dow">
-                                    <rect key="frame" x="18" y="11.666666666666671" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2t-2t-dow">
+                                    <rect key="frame" x="18" y="20" width="357" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -61,32 +71,38 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese sus datos personales" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
                                     <rect key="frame" x="18" y="16" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el código que le hemos enviado al número 987 654 321. Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
                                     <rect key="frame" x="18" y="57" width="357" height="33.666666666666657"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.42352941179999998" green="0.43529411759999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el código que le hemos enviado al número 987 654 321. Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTr-iN-5aD">
-                                    <rect key="frame" x="18" y="210.66666666666669" width="357" height="33.666666666666657"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl5-7x-p0d">
+                                    <rect key="frame" x="18" y="90.666666666666657" width="357" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" red="0.15686274509803921" green="0.70588235294117641" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="5jA-Ic-bMU" customClass="CodeVerificationTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                    <rect key="frame" x="196.66666666666666" y="114.66666666666666" width="0.0" height="56"/>
+                                    <rect key="frame" x="196.66666666666666" y="131.66666666666669" width="0.0" height="56"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="wSe-5V-bWx"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el código que le hemos enviado al número 987 654 321. Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTr-iN-5aD">
+                                    <rect key="frame" x="18" y="227.66666666666669" width="357" height="33.666666666666686"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese el código que le hemos enviado al número 987 654 321. Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTB-jP-qRe">
-                                    <rect key="frame" x="18" y="248.33333333333329" width="357" height="33.666666666666657"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <rect key="frame" x="18" y="265.33333333333331" width="357" height="33.666666666666686"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.42352941179999998" green="0.43529411759999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -95,19 +111,22 @@
                                 <constraint firstAttribute="trailing" secondItem="gHa-p1-oqs" secondAttribute="trailing" constant="18" id="18M-Hw-w7q"/>
                                 <constraint firstItem="gHa-p1-oqs" firstAttribute="centerX" secondItem="A9G-2d-86R" secondAttribute="centerX" id="2Fh-6o-iN7"/>
                                 <constraint firstItem="ILC-n5-f37" firstAttribute="trailing" secondItem="gHa-p1-oqs" secondAttribute="trailing" id="3He-N7-IZ5"/>
+                                <constraint firstItem="hl5-7x-p0d" firstAttribute="leading" secondItem="A9G-2d-86R" secondAttribute="leading" constant="18" id="51I-dR-e0w"/>
                                 <constraint firstItem="ILC-n5-f37" firstAttribute="leading" secondItem="gHa-p1-oqs" secondAttribute="leading" id="5gs-Cr-iJT"/>
+                                <constraint firstAttribute="trailing" secondItem="hl5-7x-p0d" secondAttribute="trailing" constant="18" id="9a9-t5-4H3"/>
                                 <constraint firstItem="TTr-iN-5aD" firstAttribute="leading" secondItem="ILC-n5-f37" secondAttribute="leading" id="ClI-Gr-Qh9"/>
                                 <constraint firstItem="UTB-jP-qRe" firstAttribute="trailing" secondItem="TTr-iN-5aD" secondAttribute="trailing" id="Loz-Kz-joq"/>
                                 <constraint firstItem="TTr-iN-5aD" firstAttribute="trailing" secondItem="ILC-n5-f37" secondAttribute="trailing" id="cmj-HZ-umk"/>
                                 <constraint firstItem="5jA-Ic-bMU" firstAttribute="centerX" secondItem="A9G-2d-86R" secondAttribute="centerX" id="d0D-fI-oIw"/>
                                 <constraint firstItem="gHa-p1-oqs" firstAttribute="leading" secondItem="A9G-2d-86R" secondAttribute="leading" constant="18" id="eQW-iP-Hzv"/>
+                                <constraint firstItem="5jA-Ic-bMU" firstAttribute="top" secondItem="hl5-7x-p0d" secondAttribute="bottom" constant="24" id="eWP-ga-LcW"/>
+                                <constraint firstItem="hl5-7x-p0d" firstAttribute="top" secondItem="ILC-n5-f37" secondAttribute="bottom" id="eaL-UO-FkS"/>
                                 <constraint firstItem="UTB-jP-qRe" firstAttribute="top" secondItem="TTr-iN-5aD" secondAttribute="bottom" constant="4" id="fyW-Ny-i2r"/>
                                 <constraint firstItem="ILC-n5-f37" firstAttribute="top" secondItem="gHa-p1-oqs" secondAttribute="bottom" constant="24" id="iZm-bL-MLJ"/>
                                 <constraint firstItem="gHa-p1-oqs" firstAttribute="top" secondItem="A9G-2d-86R" secondAttribute="top" constant="16" id="on8-Vq-bi0"/>
                                 <constraint firstAttribute="bottom" secondItem="UTB-jP-qRe" secondAttribute="bottom" constant="40" id="pXT-YX-S2W"/>
                                 <constraint firstItem="TTr-iN-5aD" firstAttribute="top" secondItem="5jA-Ic-bMU" secondAttribute="bottom" constant="40" id="r60-Vo-HjR"/>
                                 <constraint firstItem="UTB-jP-qRe" firstAttribute="leading" secondItem="TTr-iN-5aD" secondAttribute="leading" id="rjH-w6-9BE"/>
-                                <constraint firstItem="5jA-Ic-bMU" firstAttribute="top" secondItem="ILC-n5-f37" secondAttribute="bottom" constant="24" id="sAW-V9-mxw"/>
                                 <constraint firstItem="5jA-Ic-bMU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A9G-2d-86R" secondAttribute="leading" constant="18" id="tZK-2a-pex"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5jA-Ic-bMU" secondAttribute="trailing" constant="18" id="vkt-jy-gWA"/>
                             </constraints>
@@ -117,7 +136,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="968-dv-qqB"/>
                             </constraints>
-                            <buttonConfiguration key="configuration" style="plain"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <connections>
                                 <action selector="next:" destination="-1" eventType="touchUpInside" id="3nX-EV-OGM"/>
                             </connections>

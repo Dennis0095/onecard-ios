@@ -13,13 +13,19 @@ protocol LoginInformationViewModelProtocol {
 }
 
 class LoginInformationViewModel: LoginInformationViewModelProtocol {
-    var router: AuthenticationRouterDelegate?
+    var router: AuthenticationRouterDelegate
+    var successfulRouter: SuccessfulRouterDelegate
+    
+    init(router: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate) {
+        self.router = router
+        self.successfulRouter = successfulRouter
+    }
     
     func successfulRegister(accept: VoidActionHandler?) {
-        router?.successfulRegistration(title: Constants.congratulations, description: Constants.congratulations_description, accept: accept)
+        successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.enter, accept: accept)
     }
     
     func toLogin() {
-        router?.navigateToLogin()
+        router.navigateToLogin()
     }
 }

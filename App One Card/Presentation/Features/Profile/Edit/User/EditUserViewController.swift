@@ -1,21 +1,20 @@
 //
-//  VerificationViewController.swift
+//  EditUserViewController.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 6/06/23.
+//  Created by Paolo Arambulo on 12/06/23.
 //
 
 import UIKit
 
-class VerificationViewController: UIViewController {
-
-    @IBOutlet weak var txtCode: CodeVerificationTextField!
-    @IBOutlet weak var imgBack: UIImageView!
+class EditUserViewController: UIViewController {
+    @IBOutlet weak var txtUser: OutlinedTextField!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
+    @IBOutlet weak var imgBack: UIImageView!
     
-    private var viewModel: VerificationViewModelProtocol
+    private var viewModel: EditUserViewModelProtocol
     
-    init(viewModel: VerificationViewModelProtocol) {
+    init(viewModel: EditUserViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,20 +25,16 @@ class VerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         addActions()
+        txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
     }
-
+    
     func addActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
-        
-        txtCode.configure()
-        txtCode.didEnterLastDigit = { [weak self] code in
-
-        }
     }
     
     @objc private func tapBack() {
@@ -47,6 +42,6 @@ class VerificationViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        viewModel.nextStep()
+        viewModel.successfulEdit()
     }
 }

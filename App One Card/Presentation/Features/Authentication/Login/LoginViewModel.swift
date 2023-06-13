@@ -9,12 +9,21 @@ import Foundation
 
 protocol LoginViewModelProtocol {
     func toRegister()
+    func toHome()
 }
 
 class LoginViewModel: LoginViewModelProtocol {
-    var router: AuthenticationRouterDelegate?
+    var router: AuthenticationRouterDelegate
+    
+    init(router: AuthenticationRouterDelegate) {
+        self.router = router
+    }
     
     func toRegister() {
-        router?.navigateToRegister()
+        router.navigateToRegister()
+    }
+    
+    func toHome() {
+        router.navigateToHome()
     }
 }

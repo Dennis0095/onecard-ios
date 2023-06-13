@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */; };
+		0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */; };
+		0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */; };
+		0D3A80222A3794D500C32F39 /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80122A3794D400C32F39 /* Gotham-XLightItalic.otf */; };
+		0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80132A3794D400C32F39 /* Gotham-UltraItalic.otf */; };
+		0D3A80242A3794D500C32F39 /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80142A3794D400C32F39 /* Gotham-Thin.otf */; };
+		0D3A80252A3794D500C32F39 /* Gotham-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80152A3794D400C32F39 /* Gotham-ThinItalic.otf */; };
+		0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80162A3794D400C32F39 /* Gotham-Medium.otf */; };
+		0D3A80272A3794D500C32F39 /* Gotham-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80172A3794D400C32F39 /* Gotham-BoldItalic.otf */; };
+		0D3A80282A3794D500C32F39 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80182A3794D500C32F39 /* Gotham-Book.otf */; };
+		0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80192A3794D500C32F39 /* Gotham-Light.otf */; };
+		0D3A802A2A3794D500C32F39 /* Gotham-Ultra.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801A2A3794D500C32F39 /* Gotham-Ultra.otf */; };
+		0D3A802B2A3794D500C32F39 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801B2A3794D500C32F39 /* Gotham-Black.otf */; };
+		0D3A802C2A3794D500C32F39 /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801C2A3794D500C32F39 /* Gotham-MediumItalic.otf */; };
+		0D3A802D2A3794D500C32F39 /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801D2A3794D500C32F39 /* Gotham-BookItalic.otf */; };
+		0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801E2A3794D500C32F39 /* Gotham-XLight.otf */; };
 		0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */; };
 		0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B0E82A2E4EA600EFC7F4 /* SceneDelegate.swift */; };
 		0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0EF2A2E4EAC00EFC7F4 /* Assets.xcassets */; };
@@ -51,14 +67,55 @@
 		0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */; };
 		0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */; };
 		0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */; };
+		0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */; };
+		0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */; };
+		0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */; };
+		0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */; };
+		0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC92A369DF2007D37D3 /* ProfileViewModel.swift */; };
+		0D904CCD2A369DFF007D37D3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CCB2A369DFF007D37D3 /* ProfileViewController.swift */; };
+		0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CCC2A369DFF007D37D3 /* ProfileViewController.xib */; };
+		0D904CD12A3771E6007D37D3 /* VerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CD02A3771E6007D37D3 /* VerificationRouter.swift */; };
 		0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967452A33F0E20079D432 /* LoginInformationViewController.swift */; };
 		0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967462A33F0E20079D432 /* LoginInformationViewController.xib */; };
 		0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967492A33F0F40079D432 /* LoginInformationViewModel.swift */; };
 		0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967502A3401F50079D432 /* SuccessfulViewController.swift */; };
 		0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967512A3401F50079D432 /* SuccessfulViewController.xib */; };
+		0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967572A34EC040079D432 /* MenuTabBarController.swift */; };
+		0DB9675D2A34EF250079D432 /* MenuTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9675C2A34EF250079D432 /* MenuTabBar.swift */; };
+		0DB967602A34F4220079D432 /* MenuTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9675F2A34F4220079D432 /* MenuTabBar.xib */; };
+		0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967612A34FA970079D432 /* MenuTabBarItem.swift */; };
+		0DB967642A34FAA00079D432 /* MenuTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967632A34FAA00079D432 /* MenuTabBarItem.xib */; };
+		0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967662A35238C0079D432 /* HomeViewController.swift */; };
+		0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967672A35238C0079D432 /* HomeViewController.xib */; };
+		0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9676D2A353A340079D432 /* PreferencesViewController.swift */; };
+		0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9676E2A353A340079D432 /* PreferencesViewController.xib */; };
+		0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */; };
+		0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC78BB22A37D1DA0097CCE5 /* EditMailViewController.xib */; };
+		0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB52A37D3330097CCE5 /* EditMailViewModel.swift */; };
+		0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB72A37D49F0097CCE5 /* ProfileRouter.swift */; };
+		0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB92A37D60A0097CCE5 /* SuccessfulRouter.swift */; };
+		0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BBD2A37EA8A0097CCE5 /* EditUserViewController.swift */; };
+		0DC78BC02A37EA8A0097CCE5 /* EditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC78BBE2A37EA8A0097CCE5 /* EditUserViewController.xib */; };
+		0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BC12A37EA980097CCE5 /* EditUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
+		0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
+		0D3A80122A3794D400C32F39 /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
+		0D3A80132A3794D400C32F39 /* Gotham-UltraItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraItalic.otf"; sourceTree = "<group>"; };
+		0D3A80142A3794D400C32F39 /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
+		0D3A80152A3794D400C32F39 /* Gotham-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-ThinItalic.otf"; sourceTree = "<group>"; };
+		0D3A80162A3794D400C32F39 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		0D3A80172A3794D400C32F39 /* Gotham-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BoldItalic.otf"; sourceTree = "<group>"; };
+		0D3A80182A3794D500C32F39 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		0D3A80192A3794D500C32F39 /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
+		0D3A801A2A3794D500C32F39 /* Gotham-Ultra.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Ultra.otf"; sourceTree = "<group>"; };
+		0D3A801B2A3794D500C32F39 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		0D3A801C2A3794D500C32F39 /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
+		0D3A801D2A3794D500C32F39 /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
+		0D3A801E2A3794D500C32F39 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		0D45B0E32A2E4EA600EFC7F4 /* DEV App One Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DEV App One Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D45B0E82A2E4EA600EFC7F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +162,36 @@
 		0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationViewController.xib; sourceTree = "<group>"; };
 		0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationTextField.swift; sourceTree = "<group>"; };
 		0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
+		0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesTableViewCell.xib; sourceTree = "<group>"; };
+		0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
+		0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesRouter.swift; sourceTree = "<group>"; };
+		0D904CC92A369DF2007D37D3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		0D904CCB2A369DFF007D37D3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0D904CCC2A369DFF007D37D3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		0D904CD02A3771E6007D37D3 /* VerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationRouter.swift; sourceTree = "<group>"; };
 		0DB967452A33F0E20079D432 /* LoginInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewController.swift; sourceTree = "<group>"; };
 		0DB967462A33F0E20079D432 /* LoginInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginInformationViewController.xib; sourceTree = "<group>"; };
 		0DB967492A33F0F40079D432 /* LoginInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInformationViewModel.swift; sourceTree = "<group>"; };
 		0DB967502A3401F50079D432 /* SuccessfulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulViewController.swift; sourceTree = "<group>"; };
 		0DB967512A3401F50079D432 /* SuccessfulViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessfulViewController.xib; sourceTree = "<group>"; };
+		0DB967572A34EC040079D432 /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
+		0DB9675C2A34EF250079D432 /* MenuTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBar.swift; sourceTree = "<group>"; };
+		0DB9675F2A34F4220079D432 /* MenuTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTabBar.xib; sourceTree = "<group>"; };
+		0DB967612A34FA970079D432 /* MenuTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarItem.swift; sourceTree = "<group>"; };
+		0DB967632A34FAA00079D432 /* MenuTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTabBarItem.xib; sourceTree = "<group>"; };
+		0DB967662A35238C0079D432 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0DB967672A35238C0079D432 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		0DB9676D2A353A340079D432 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		0DB9676E2A353A340079D432 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMailViewController.swift; sourceTree = "<group>"; };
+		0DC78BB22A37D1DA0097CCE5 /* EditMailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMailViewController.xib; sourceTree = "<group>"; };
+		0DC78BB52A37D3330097CCE5 /* EditMailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMailViewModel.swift; sourceTree = "<group>"; };
+		0DC78BB72A37D49F0097CCE5 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		0DC78BB92A37D60A0097CCE5 /* SuccessfulRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulRouter.swift; sourceTree = "<group>"; };
+		0DC78BBD2A37EA8A0097CCE5 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		0DC78BBE2A37EA8A0097CCE5 /* EditUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserViewController.xib; sourceTree = "<group>"; };
+		0DC78BC12A37EA980097CCE5 /* EditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +205,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D3A800E2A3794BF00C32F39 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A801B2A3794D500C32F39 /* Gotham-Black.otf */,
+				0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */,
+				0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */,
+				0D3A80172A3794D400C32F39 /* Gotham-BoldItalic.otf */,
+				0D3A80182A3794D500C32F39 /* Gotham-Book.otf */,
+				0D3A801D2A3794D500C32F39 /* Gotham-BookItalic.otf */,
+				0D3A80192A3794D500C32F39 /* Gotham-Light.otf */,
+				0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */,
+				0D3A80162A3794D400C32F39 /* Gotham-Medium.otf */,
+				0D3A801C2A3794D500C32F39 /* Gotham-MediumItalic.otf */,
+				0D3A80142A3794D400C32F39 /* Gotham-Thin.otf */,
+				0D3A80152A3794D400C32F39 /* Gotham-ThinItalic.otf */,
+				0D3A801A2A3794D500C32F39 /* Gotham-Ultra.otf */,
+				0D3A80132A3794D400C32F39 /* Gotham-UltraItalic.otf */,
+				0D3A801E2A3794D500C32F39 /* Gotham-XLight.otf */,
+				0D3A80122A3794D400C32F39 /* Gotham-XLightItalic.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		0D45B0DA2A2E4EA600EFC7F4 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +292,7 @@
 		0D45B10B2A2E5ECC00EFC7F4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0D904CCF2A377035007D37D3 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -201,6 +307,11 @@
 		0D45B10D2A2E72E900EFC7F4 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0DB9674F2A33F5260079D432 /* Success */,
+				0D45B1482A2EDEE900EFC7F4 /* Verification */,
+				0D904CC82A369D74007D37D3 /* Profile */,
+				0DB967652A35237D0079D432 /* Home */,
+				0DB9676C2A353A210079D432 /* Preferences */,
 				0DB967542A34A9E20079D432 /* Menu */,
 				0D45B1162A2E928600EFC7F4 /* Authentication */,
 				0D45B10E2A2E749F00EFC7F4 /* Splash */,
@@ -221,6 +332,11 @@
 		0D45B1132A2E758600EFC7F4 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				0DC78BB92A37D60A0097CCE5 /* SuccessfulRouter.swift */,
+				0DC78BB72A37D49F0097CCE5 /* ProfileRouter.swift */,
+				0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */,
+				0D904CD02A3771E6007D37D3 /* VerificationRouter.swift */,
+				0D45B15F2A2FF18500EFC7F4 /* AuthenticationRouter.swift */,
 				0D45B1142A2E759100EFC7F4 /* AppRouter.swift */,
 			);
 			path = Router;
@@ -231,7 +347,6 @@
 			children = (
 				0D45B1182A2E92A100EFC7F4 /* Registration */,
 				0D45B1172A2E929800EFC7F4 /* Login */,
-				0D45B15F2A2FF18500EFC7F4 /* AuthenticationRouter.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -250,7 +365,6 @@
 			isa = PBXGroup;
 			children = (
 				0D45B1492A2EDEF400EFC7F4 /* LoginInformation */,
-				0D45B1482A2EDEE900EFC7F4 /* Verification */,
 				0D45B1472A2EDEE000EFC7F4 /* Personal */,
 				0D45B1462A2EDED000EFC7F4 /* Membership */,
 			);
@@ -260,7 +374,8 @@
 		0D45B1222A2EA71800EFC7F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0DB9674F2A33F5260079D432 /* Success */,
+				0D3A800E2A3794BF00C32F39 /* Font */,
+				0DB9675B2A34EF150079D432 /* TabBar */,
 				0D45B15E2A2FC97600EFC7F4 /* Picker */,
 				0D45B13F2A2ECD3000EFC7F4 /* TextFields */,
 				0D45B1322A2EAC2800EFC7F4 /* Extensions */,
@@ -404,6 +519,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0D904CBE2A364402007D37D3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */,
+				0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0D904CC82A369D74007D37D3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0DC78BB02A37D1CA0097CCE5 /* Edit */,
+				0D904CC92A369DF2007D37D3 /* ProfileViewModel.swift */,
+				0D904CCB2A369DFF007D37D3 /* ProfileViewController.swift */,
+				0D904CCC2A369DFF007D37D3 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0D904CCF2A377035007D37D3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		0DB9674F2A33F5260079D432 /* Success */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,8 +558,77 @@
 		0DB967542A34A9E20079D432 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				0DB967572A34EC040079D432 /* MenuTabBarController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		0DB9675B2A34EF150079D432 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0DB9675E2A34F3C40079D432 /* Item */,
+				0DB9675F2A34F4220079D432 /* MenuTabBar.xib */,
+				0DB9675C2A34EF250079D432 /* MenuTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0DB9675E2A34F3C40079D432 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				0DB967612A34FA970079D432 /* MenuTabBarItem.swift */,
+				0DB967632A34FAA00079D432 /* MenuTabBarItem.xib */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		0DB967652A35237D0079D432 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0DB967662A35238C0079D432 /* HomeViewController.swift */,
+				0DB967672A35238C0079D432 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0DB9676C2A353A210079D432 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				0D904CBE2A364402007D37D3 /* Cell */,
+				0DB9676D2A353A340079D432 /* PreferencesViewController.swift */,
+				0DB9676E2A353A340079D432 /* PreferencesViewController.xib */,
+				0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		0DC78BB02A37D1CA0097CCE5 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				0DC78BBC2A37EA710097CCE5 /* User */,
+				0DC78BBB2A37EA690097CCE5 /* Mail */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		0DC78BBB2A37EA690097CCE5 /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */,
+				0DC78BB22A37D1DA0097CCE5 /* EditMailViewController.xib */,
+				0DC78BB52A37D3330097CCE5 /* EditMailViewModel.swift */,
+			);
+			path = Mail;
+			sourceTree = "<group>";
+		};
+		0DC78BBC2A37EA710097CCE5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				0DC78BBD2A37EA8A0097CCE5 /* EditUserViewController.swift */,
+				0DC78BBE2A37EA8A0097CCE5 /* EditUserViewController.xib */,
+				0DC78BC12A37EA980097CCE5 /* EditUserViewModel.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,19 +689,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */,
+				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
+				0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */,
+				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
 				0D45B15D2A2FC97100EFC7F4 /* SelectCustomViewController.xib in Resources */,
+				0D3A80222A3794D500C32F39 /* Gotham-XLightItalic.otf in Resources */,
 				0D45B0F32A2E4EAC00EFC7F4 /* LaunchScreen.storyboard in Resources */,
+				0D3A80242A3794D500C32F39 /* Gotham-Thin.otf in Resources */,
 				0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */,
 				0D45B11C2A2E92C100EFC7F4 /* LoginViewController.xib in Resources */,
+				0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */,
 				0D45B16C2A30316900EFC7F4 /* SelectDateViewController.xib in Resources */,
+				0D3A80282A3794D500C32F39 /* Gotham-Book.otf in Resources */,
+				0DC78BC02A37EA8A0097CCE5 /* EditUserViewController.xib in Resources */,
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
+				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
+				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
+				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
+				0D3A802A2A3794D500C32F39 /* Gotham-Ultra.otf in Resources */,
+				0D3A802B2A3794D500C32F39 /* Gotham-Black.otf in Resources */,
 				0D45B14D2A2EE14100EFC7F4 /* PersonalDataViewController.xib in Resources */,
 				0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */,
+				0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */,
+				0DB967642A34FAA00079D432 /* MenuTabBarItem.xib in Resources */,
 				0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */,
+				0D3A80252A3794D500C32F39 /* Gotham-ThinItalic.otf in Resources */,
+				0D3A802D2A3794D500C32F39 /* Gotham-BookItalic.otf in Resources */,
 				0D45B1122A2E74B700EFC7F4 /* SplashViewController.xib in Resources */,
+				0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */,
 				0D45B1062A2E588D00EFC7F4 /* QA.plist in Resources */,
+				0DB967602A34F4220079D432 /* MenuTabBar.xib in Resources */,
+				0D3A802C2A3794D500C32F39 /* Gotham-MediumItalic.otf in Resources */,
+				0D3A80272A3794D500C32F39 /* Gotham-BoldItalic.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
+				0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */,
+				0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,25 +736,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB9675D2A34EF250079D432 /* MenuTabBar.swift in Sources */,
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
 				0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */,
 				0D45B14C2A2EE14100EFC7F4 /* PersonalDataViewController.swift in Sources */,
+				0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */,
 				0D45B11B2A2E92C100EFC7F4 /* LoginViewController.swift in Sources */,
 				0D45B1552A2EEB9700EFC7F4 /* TextFieldExtension.swift in Sources */,
+				0D904CD12A3771E6007D37D3 /* VerificationRouter.swift in Sources */,
 				0D45B1312A2EABF500EFC7F4 /* Colors.swift in Sources */,
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
+				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D45B1572A2EFCBD00EFC7F4 /* ViewExtension.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
+				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
+				0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */,
+				0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */,
 				0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */,
 				0D45B1622A2FF77200EFC7F4 /* MembershipDataViewModel.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
+				0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */,
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
 				0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */,
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
+				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
@@ -528,15 +772,23 @@
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
+				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
+				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
 				0D45B16B2A30316900EFC7F4 /* SelectDateViewController.swift in Sources */,
 				0D45B16F2A30372700EFC7F4 /* SelectModel.swift in Sources */,
+				0D904CCD2A369DFF007D37D3 /* ProfileViewController.swift in Sources */,
 				0D45B1602A2FF18500EFC7F4 /* AuthenticationRouter.swift in Sources */,
+				0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */,
+				0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */,
+				0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */,
+				0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */,
 				0D45B1662A3024DC00EFC7F4 /* PersonalDataViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
+				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

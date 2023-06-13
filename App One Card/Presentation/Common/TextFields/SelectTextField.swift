@@ -35,7 +35,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey100)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,7 +55,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey60)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -65,7 +65,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -250,7 +250,7 @@ class SelectTextField: UIView {
         isPlaceholderOnTop = true
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont.systemFont(ofSize: 12)
+        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 12)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.topAnchor.constraint(equalTo: self.viewContainer.topAnchor, constant: -8),
@@ -272,7 +272,7 @@ class SelectTextField: UIView {
         isPlaceholderOnTop = false
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont.systemFont(ofSize: 14)
+        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 14)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),

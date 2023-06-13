@@ -34,6 +34,7 @@ class OutlinedTextField: UIView {
         let textfield = PaddedTextField()
         textfield.paddingLeft = 15
         //textfield.paddingRight = 15
+        textfield.font = UIFont(name: "Gotham-Book", size: 14)
         textfield.translatesAutoresizingMaskIntoConstraints = false
         return textfield
     }()
@@ -43,7 +44,7 @@ class OutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey60)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,8 +53,8 @@ class OutlinedTextField: UIView {
         let label = UILabel()
         label.numberOfLines = 1
         label.text = ""
-        label.textColor = .red//Design.color(.primary60)
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .red
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -190,7 +191,7 @@ class OutlinedTextField: UIView {
         self.errorMessage = errorMessage
         self.status = status
         
-        txt.setFont(UIFont.systemFont(ofSize: 14), Design.color(.grey100))
+        //txt.setFont(UIFont(name: "Gotham-Book", size: 14)!, Design.color(.grey100))
         txt.isSecureTextEntry = isPassword!
         
         setupView(isPassword: isPassword!)
@@ -257,7 +258,7 @@ class OutlinedTextField: UIView {
         isPlaceholderOnTop = true
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont.systemFont(ofSize: 12)
+        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 12)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.topAnchor.constraint(equalTo: self.viewContainer.topAnchor, constant: -8),
@@ -279,7 +280,7 @@ class OutlinedTextField: UIView {
         isPlaceholderOnTop = false
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont.systemFont(ofSize: 14)
+        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 14)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),

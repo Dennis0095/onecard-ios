@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
         btnRegister.configure(text: Constants.login_register_btn)
     }
     @IBAction func login(_ sender: Any) {
+        viewModel.toHome()
     }
     
     @IBAction func register(_ sender: Any) {

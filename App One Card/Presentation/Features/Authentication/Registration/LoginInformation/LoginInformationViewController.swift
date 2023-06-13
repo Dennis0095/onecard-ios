@@ -12,8 +12,10 @@ class LoginInformationViewController: UIViewController {
     @IBOutlet weak var txtUser: OutlinedTextField!
     @IBOutlet weak var txtPassword: OutlinedTextField!
     @IBOutlet weak var txtConfirmPassword: OutlinedTextField!
-    private var viewModel: LoginInformationViewModelProtocol
+    @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
+    
+    private var viewModel: LoginInformationViewModelProtocol
     
     init(viewModel: LoginInformationViewModelProtocol) {
         self.viewModel = viewModel
@@ -31,6 +33,18 @@ class LoginInformationViewController: UIViewController {
         txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
         txtConfirmPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
+        
+        addActions()
+    }
+    
+    func addActions() {
+        let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
+        imgBack.isUserInteractionEnabled = true
+        imgBack.addGestureRecognizer(tapBack)
+    }
+    
+    @objc private func tapBack() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func next(_ sender: Any) {

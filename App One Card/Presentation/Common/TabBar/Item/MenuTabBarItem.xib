@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuTabBarItem" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="e4l-pi-Cl9"/>
+                <outlet property="imgItem" destination="WZ3-Z9-xst" id="CcT-pK-QhQ"/>
+                <outlet property="lblTitle" destination="Swe-kH-peR" id="jKk-3n-UVz"/>
+                <outlet property="viewMenu" destination="0YS-LK-vax" id="8VX-Oe-0Kw"/>
+                <outlet property="viewSelected" destination="gX2-Ux-RV0" id="sDc-av-nq6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YS-LK-vax">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="66"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WZ3-Z9-xst">
+                            <rect key="frame" x="48" y="8" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="a3g-KK-Jmb"/>
+                                <constraint firstAttribute="height" constant="24" id="kbA-3W-tDy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swe-kH-peR">
+                            <rect key="frame" x="10" y="36" width="100" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gX2-Ux-RV0">
+                            <rect key="frame" x="30" y="56" width="60" height="2"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="oah-98-YG0"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Swe-kH-peR" secondAttribute="trailing" constant="10" id="6gh-do-0Uq"/>
+                        <constraint firstItem="Swe-kH-peR" firstAttribute="centerX" secondItem="WZ3-Z9-xst" secondAttribute="centerX" id="GmK-y1-D5R"/>
+                        <constraint firstItem="WZ3-Z9-xst" firstAttribute="centerX" secondItem="0YS-LK-vax" secondAttribute="centerX" id="Hde-Q9-6VK"/>
+                        <constraint firstItem="gX2-Ux-RV0" firstAttribute="leading" secondItem="0YS-LK-vax" secondAttribute="leading" constant="30" id="KdR-Vw-8UQ"/>
+                        <constraint firstItem="Swe-kH-peR" firstAttribute="top" secondItem="WZ3-Z9-xst" secondAttribute="bottom" constant="4" id="VI9-3e-w48"/>
+                        <constraint firstItem="Swe-kH-peR" firstAttribute="leading" secondItem="0YS-LK-vax" secondAttribute="leading" constant="10" id="Z5N-3l-NXo"/>
+                        <constraint firstAttribute="bottom" secondItem="gX2-Ux-RV0" secondAttribute="bottom" constant="8" id="eA2-NJ-2f9"/>
+                        <constraint firstAttribute="trailing" secondItem="gX2-Ux-RV0" secondAttribute="trailing" constant="30" id="guL-zV-8bI"/>
+                        <constraint firstItem="WZ3-Z9-xst" firstAttribute="top" secondItem="0YS-LK-vax" secondAttribute="top" constant="8" id="psT-Ly-imR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0YS-LK-vax" secondAttribute="bottom" id="LdU-fO-LVg"/>
+                <constraint firstItem="0YS-LK-vax" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PS4-oi-8K7"/>
+                <constraint firstItem="0YS-LK-vax" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="owK-Qa-iGv"/>
+                <constraint firstAttribute="trailing" secondItem="0YS-LK-vax" secondAttribute="trailing" id="q3J-fM-jXU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-129.7709923664122" y="-190.84507042253523"/>
+        </view>
+    </objects>
+</document>

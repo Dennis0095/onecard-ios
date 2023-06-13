@@ -12,9 +12,9 @@ protocol AuthenticationRouterDelegate: Router {
     func navigateToLogin()
     func navigateToRegister()
     func navigateToPersonalData()
-    func navigateToVerify()
+    //func navigateToVerify()
     func navigateToLoginInformation()
-    func successfulRegistration(title: String, description: String, accept: VoidActionHandler?)
+    //func successfulRegistration(title: String, description: String, accept: VoidActionHandler?)
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler)
     func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler)
 }

@@ -7,6 +7,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
@@ -39,7 +47,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ouz-41-n1a">
-                            <rect key="frame" x="16" y="268" width="361" height="210.33333333333337"/>
+                            <rect key="frame" x="16" y="268" width="361" height="207"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="a34-D8-iy9" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="56"/>
@@ -62,9 +70,9 @@
                                             <buttonConfiguration key="configuration" style="plain"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recordar usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcr-GH-d18">
-                                            <rect key="frame" x="26" y="-1" width="335" height="20.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="26" y="0.6666666666666714" width="335" height="17"/>
+                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                            <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -86,23 +94,23 @@
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="62X-XB-ig2"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olvidé mi usuario o clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nJ-li-MTW">
-                                    <rect key="frame" x="0.0" y="190" width="361" height="20.333333333333343"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olvidé mi clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nJ-li-MTW">
+                                    <rect key="frame" x="0.0" y="190" width="361" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" red="0.15686274509803921" green="0.70588235294117641" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="12S-Ex-bkE">
-                            <rect key="frame" x="16" y="528.33333333333337" width="361" height="100"/>
+                            <rect key="frame" x="16" y="525" width="361" height="100"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa2-Xy-zbh" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="KlU-iV-7ch"/>
                                     </constraints>
-                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <connections>
                                         <action selector="login:" destination="-1" eventType="touchUpInside" id="xLs-Wb-v5z"/>
                                     </connections>
@@ -112,8 +120,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Mtv-oT-I0r"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <connections>
                                         <action selector="register:" destination="-1" eventType="touchUpInside" id="a3Q-vu-Bie"/>
                                     </connections>

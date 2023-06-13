@@ -14,7 +14,12 @@ protocol SplashViewModelProtocol {
 }
 
 class SplashViewModel: SplashViewModelProtocol {
-    var router: AuthenticationRouterDelegate?
+    var router: AuthenticationRouterDelegate
+    
+    init(router: AuthenticationRouterDelegate) {
+        self.router = router
+    }
+    
     var isLoggedIn: Bool = false
     
     func validateLoginStatus() {
@@ -23,7 +28,7 @@ class SplashViewModel: SplashViewModelProtocol {
         if isLoggedIn {
             
         } else {
-            router?.navigateToLogin()
+            router.navigateToLogin()
         }
     }
     

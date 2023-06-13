@@ -585,6 +585,7 @@
 		0DB967652A35237D0079D432 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0DC78BC32A3815C80097CCE5 /* Movements */,
 				0DB967662A35238C0079D432 /* HomeViewController.swift */,
 				0DB967672A35238C0079D432 /* HomeViewController.xib */,
 			);
@@ -629,6 +630,13 @@
 				0DC78BC12A37EA980097CCE5 /* EditUserViewModel.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		0DC78BC32A3815C80097CCE5 /* Movements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

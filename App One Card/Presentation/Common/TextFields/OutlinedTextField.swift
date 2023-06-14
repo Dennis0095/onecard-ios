@@ -30,7 +30,7 @@ class OutlinedTextField: UIView {
         return view
     }()
     
-    private lazy var txt: PaddedTextField = {
+    public lazy var txt: PaddedTextField = {
         let textfield = PaddedTextField()
         textfield.paddingLeft = 15
         //textfield.paddingRight = 15

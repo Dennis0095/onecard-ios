@@ -98,7 +98,7 @@ extension AppRouter: VerificationRouterDelegate {
     func navigateToVerification(navTitle: String, stepDescription: String , success: @escaping VoidActionHandler) {
         let viewModel = VerificationViewModel()
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription)
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, number: "999222333")
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }

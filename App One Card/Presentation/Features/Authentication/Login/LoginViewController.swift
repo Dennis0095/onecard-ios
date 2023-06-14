@@ -7,12 +7,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     @IBOutlet weak var txtUser: OutlinedTextField!
     @IBOutlet weak var txtPassword: OutlinedTextField!
     @IBOutlet weak var btnLogin: PrimaryFilledButton!
     @IBOutlet weak var btnRegister: PrimaryOutlineButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private var viewModel: LoginViewModelProtocol
     
@@ -25,14 +26,27 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func initView() {
         txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
         txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
         btnLogin.configure(text: Constants.login_btn, status: .enabled)
         btnRegister.configure(text: Constants.login_register_btn)
+        
+        connectFields(textFields: txtUser.txt, txtPassword.txt)
     }
+    
+    override func manageScroll() {
+        self.baseScrollView = scrollView
+    }
+    
+    override func setActions() {
+        [txtUser, txtPassword].forEach {
+            $0.selectTextField = { textField in
+                self.selectedTextField = textField
+            }
+        }
+    }
+    
     @IBAction func login(_ sender: Any) {
         viewModel.toHome()
     }

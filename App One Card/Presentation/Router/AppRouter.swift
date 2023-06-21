@@ -10,6 +10,7 @@ import UIKit
 
 protocol Router {
     func start()
+    func showMessageError()
 }
 
 class AppRouter: Router {
@@ -26,9 +27,22 @@ class AppRouter: Router {
         window.rootViewController = splashViewController
         window.makeKeyAndVisible()
     }
+    
+    func showMessageError() {
+        let view = AlertErrorViewController()
+        view.modalPresentationStyle = .custom
+        view.transitioningDelegate = (navigationController?.topViewController as? BaseViewController)
+        navigationController?.present(view, animated: true, completion: nil)
+    }
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
+    func navigateToActivateUser() {
+        let viewModel = WelcomeActivateViewModel(router: self)
+        let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)
+        navigationController?.pushViewController(welcomeActivateViewController, animated: true)
+    }
+    
     func navigateToLoginInformation() {
         let viewModel = LoginInformationViewModel(router: self, successfulRouter: self)
         let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
@@ -130,7 +144,15 @@ extension AppRouter: PreferencesRouterDelegate {
     }
     
     func logout() {
+        navigationController = nil
         
+        let viewModel = LoginViewModel(router: self)
+        let loginViewController = LoginViewController(viewModel: viewModel)
+        navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        if let nav = navigationController {
+            window.switchRootViewController(to: nav)
+        }
     }
 }
 

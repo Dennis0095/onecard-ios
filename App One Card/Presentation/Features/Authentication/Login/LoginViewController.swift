@@ -45,10 +45,29 @@ class LoginViewController: BaseViewController {
                 self.selectedTextField = textField
             }
         }
+        
+        txtUser.listenChanges = { [weak self] text in
+            self?.viewModel.username = text
+        }
+        
+        txtPassword.listenChanges = { [weak self] text in
+            self?.viewModel.password = text
+        }
+    }
+    
+    private func validateFields() {
+        
     }
     
     @IBAction func login(_ sender: Any) {
-        viewModel.toHome()
+        self.viewModel.formValidation()
+        
+//        if (txtUser.txt.text ?? "").isEmpty || (txtPassword.txt.text ?? "").isEmpty {
+//            viewModel.showError()
+//        } else {
+//            viewModel.toHome()
+//        }
+        //viewModel.toActivateUser()
     }
     
     @IBAction func register(_ sender: Any) {

@@ -68,7 +68,8 @@ extension PreferencesViewController: UITableViewDelegate {
             viewModel.toProfile()
         case 1: break
         case 2: break
-        case 3: break
+        case 3:
+            viewModel.logout()
         default: break
         }
     }

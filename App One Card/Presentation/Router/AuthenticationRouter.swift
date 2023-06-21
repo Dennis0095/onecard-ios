@@ -10,6 +10,7 @@ import Foundation
 protocol AuthenticationRouterDelegate: Router {
     func navigateToHome()
     func navigateToLogin()
+    func navigateToActivateUser()
     func navigateToRegister()
     func navigateToPersonalData()
     //func navigateToVerify()

@@ -102,3 +102,59 @@ class BaseViewController: UIViewController {
     
     open func setActions() {}
 }
+
+extension BaseViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return BottomSheetPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+class BottomSheetPresentationController: UIPresentationController {
+    private let dimmingView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
+        view.alpha = 0
+        return view
+    }()
+
+    override var frameOfPresentedViewInContainerView: CGRect {
+        guard let containerView = containerView else { return CGRect.zero }
+
+        let safeAreaInsets = containerView.safeAreaInsets
+        let presentedViewHeight = presentingViewController.view.frame.height
+
+        return CGRect(x: 0, y: containerView.bounds.height - presentedViewHeight - safeAreaInsets.bottom,
+                      width: containerView.bounds.width, height: presentedViewHeight)
+    }
+
+    override func presentationTransitionWillBegin() {
+        guard let containerView = containerView else { return }
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideDimmingView))
+        dimmingView.isUserInteractionEnabled = true
+        dimmingView.addGestureRecognizer(tap)
+
+        dimmingView.frame = containerView.bounds
+        containerView.addSubview(dimmingView)
+
+        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _ in
+            self?.dimmingView.alpha = 1
+        }, completion: nil)
+    }
+
+    override func dismissalTransitionWillBegin() {
+        presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _ in
+            self?.dimmingView.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.dimmingView.removeFromSuperview()
+        })
+    }
+
+    override func containerViewWillLayoutSubviews() {
+        presentedView?.frame = frameOfPresentedViewInContainerView
+    }
+
+    @objc func hideDimmingView() {
+        self.presentedViewController.dismiss(animated: true)
+    }
+}

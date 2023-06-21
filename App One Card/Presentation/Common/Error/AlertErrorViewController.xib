@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertErrorViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAccept" destination="rdH-RY-EJV" id="z1f-Jl-Djf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackground" destination="3mN-RT-geW" id="PAk-Qg-Ckr"/>
+                <outlet property="viewContainer" destination="os1-VC-a3z" id="xT1-OP-Plz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="441" height="453"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-RT-geW">
+                    <rect key="frame" x="0.0" y="59" width="441" height="360"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="os1-VC-a3z">
+                    <rect key="frame" x="20" y="177" width="401" height="222"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kY-x4-Tgi">
+                            <rect key="frame" x="0.0" y="0.0" width="401" height="4"/>
+                            <color key="backgroundColor" name="blue_primary"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="4" id="oyl-lo-zgp"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="PMz-Mv-8M2">
+                            <rect key="frame" x="180.66666666666666" y="32" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Lgi-vE-E6V"/>
+                                <constraint firstAttribute="height" constant="40" id="sHm-X7-RrB"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos faltantes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3P-Mt-4jP">
+                            <rect key="frame" x="24" y="82" width="353" height="17"/>
+                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, ingresa todos los datos solicitados." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4q-wO-pmd">
+                            <rect key="frame" x="24" y="109" width="353" height="17"/>
+                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                            <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdH-RY-EJV" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="24" y="150" width="353" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="vuf-af-vqc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="clickAccept:" destination="-1" eventType="touchUpInside" id="MrB-MN-MNz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="q3P-Mt-4jP" firstAttribute="top" secondItem="PMz-Mv-8M2" secondAttribute="bottom" constant="10" id="542-gg-PV1"/>
+                        <constraint firstItem="q3P-Mt-4jP" firstAttribute="leading" secondItem="os1-VC-a3z" secondAttribute="leading" constant="24" id="8Ya-9V-u9f"/>
+                        <constraint firstItem="PMz-Mv-8M2" firstAttribute="centerX" secondItem="os1-VC-a3z" secondAttribute="centerX" id="E5p-Mt-bVf"/>
+                        <constraint firstItem="PMz-Mv-8M2" firstAttribute="top" secondItem="8kY-x4-Tgi" secondAttribute="bottom" constant="28" id="JfZ-N5-H0M"/>
+                        <constraint firstItem="I4q-wO-pmd" firstAttribute="top" secondItem="q3P-Mt-4jP" secondAttribute="bottom" constant="10" id="KGf-cy-Kqr"/>
+                        <constraint firstAttribute="bottom" secondItem="rdH-RY-EJV" secondAttribute="bottom" constant="32" id="YdA-UJ-URb"/>
+                        <constraint firstItem="rdH-RY-EJV" firstAttribute="leading" secondItem="os1-VC-a3z" secondAttribute="leading" constant="24" id="bUw-z4-bX2"/>
+                        <constraint firstAttribute="trailing" secondItem="rdH-RY-EJV" secondAttribute="trailing" constant="24" id="ewP-Jw-DcD"/>
+                        <constraint firstItem="I4q-wO-pmd" firstAttribute="leading" secondItem="os1-VC-a3z" secondAttribute="leading" constant="24" id="gWx-WN-8tE"/>
+                        <constraint firstItem="8kY-x4-Tgi" firstAttribute="leading" secondItem="os1-VC-a3z" secondAttribute="leading" id="gd8-zR-K2y"/>
+                        <constraint firstItem="rdH-RY-EJV" firstAttribute="top" secondItem="I4q-wO-pmd" secondAttribute="bottom" constant="24" id="mGE-mX-BNv"/>
+                        <constraint firstAttribute="trailing" secondItem="q3P-Mt-4jP" secondAttribute="trailing" constant="24" id="myg-7q-DOC"/>
+                        <constraint firstItem="8kY-x4-Tgi" firstAttribute="top" secondItem="os1-VC-a3z" secondAttribute="top" id="nS6-xp-pEq"/>
+                        <constraint firstAttribute="trailing" secondItem="I4q-wO-pmd" secondAttribute="trailing" constant="24" id="q5Z-R4-CTf"/>
+                        <constraint firstAttribute="trailing" secondItem="8kY-x4-Tgi" secondAttribute="trailing" id="yYx-nu-KLL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Bsm-xb-PW6"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3mN-RT-geW" firstAttribute="leading" secondItem="Bsm-xb-PW6" secondAttribute="leading" id="IFt-Le-Ndg"/>
+                <constraint firstItem="Bsm-xb-PW6" firstAttribute="bottom" secondItem="3mN-RT-geW" secondAttribute="bottom" id="K1t-yQ-zcQ"/>
+                <constraint firstItem="os1-VC-a3z" firstAttribute="leading" secondItem="Bsm-xb-PW6" secondAttribute="leading" constant="20" id="T4z-yi-8W1"/>
+                <constraint firstItem="Bsm-xb-PW6" firstAttribute="trailing" secondItem="3mN-RT-geW" secondAttribute="trailing" id="XXY-PS-wiT"/>
+                <constraint firstItem="Bsm-xb-PW6" firstAttribute="trailing" secondItem="os1-VC-a3z" secondAttribute="trailing" constant="20" id="a44-BU-GMn"/>
+                <constraint firstItem="os1-VC-a3z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Bsm-xb-PW6" secondAttribute="top" id="aAv-6u-8Cj"/>
+                <constraint firstItem="Bsm-xb-PW6" firstAttribute="bottom" secondItem="os1-VC-a3z" secondAttribute="bottom" constant="20" id="kG1-Cc-K6N"/>
+                <constraint firstItem="Bsm-xb-PW6" firstAttribute="top" secondItem="3mN-RT-geW" secondAttribute="top" id="o66-lJ-ZSg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="129.00763358778624" y="-103.87323943661973"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="calendar" width="24" height="24"/>
+        <namedColor name="blue_primary">
+            <color red="0.15686274509803921" green="0.70588235294117652" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

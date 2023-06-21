@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Bold.otf">
+            <string>Gotham-Bold</string>
+        </array>
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeActivateViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnActivate" destination="RQ4-Ys-Im0" id="HlE-JT-wDf"/>
+                <outlet property="btnLater" destination="8Cf-nw-dwN" id="iwt-tc-fNm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rD-KN-77z">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_activate" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-ZJ-jVy">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="490.66666666666669"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-TB-zgs">
+                            <rect key="frame" x="18" y="702" width="357" height="96"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ4-Ys-Im0" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="pjq-TI-O6A"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="activate:" destination="-1" eventType="touchUpInside" id="I7G-rz-mox"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-nw-dwN" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="56" width="357" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="QIF-HL-eva"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="later:" destination="-1" eventType="touchUpInside" id="0f7-kG-nWe"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCZ-ub-UcS">
+                            <rect key="frame" x="0.0" y="490.66666666666669" width="393" height="211.33333333333331"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO ANDRÉS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
+                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="16.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" name="blue_accent"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
+                                    <rect key="frame" x="18" y="72.333333333333314" width="357" height="65.333333333333314"/>
+                                    <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece Diners One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" name="grey80"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ZSW-ou-Qka" secondAttribute="trailing" constant="18" id="Bf0-qb-Wfb"/>
+                                <constraint firstAttribute="bottom" secondItem="ZSW-ou-Qka" secondAttribute="bottom" constant="32" id="S7U-Wh-1sJ"/>
+                                <constraint firstItem="osA-ZS-XuL" firstAttribute="leading" secondItem="ZCZ-ub-UcS" secondAttribute="leading" constant="18" id="SO4-MC-4O1"/>
+                                <constraint firstItem="ZSW-ou-Qka" firstAttribute="leading" secondItem="ZCZ-ub-UcS" secondAttribute="leading" constant="18" id="VcM-Wr-Vpa"/>
+                                <constraint firstItem="osA-ZS-XuL" firstAttribute="top" secondItem="ZCZ-ub-UcS" secondAttribute="top" constant="32" id="WqK-wQ-mUu"/>
+                                <constraint firstAttribute="trailing" secondItem="osA-ZS-XuL" secondAttribute="trailing" constant="18" id="Ysg-eC-Ewy"/>
+                                <constraint firstItem="ZSW-ou-Qka" firstAttribute="top" secondItem="osA-ZS-XuL" secondAttribute="bottom" constant="24" id="uC0-XM-3v6"/>
+                                <constraint firstItem="osA-ZS-XuL" firstAttribute="centerX" secondItem="ZCZ-ub-UcS" secondAttribute="centerX" id="zGQ-KH-xy4"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="zc2-TB-zgs" firstAttribute="top" secondItem="ZCZ-ub-UcS" secondAttribute="bottom" id="7hc-7t-170"/>
+                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" id="85J-Ee-Le7"/>
+                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="centerX" secondItem="8rD-KN-77z" secondAttribute="centerX" id="RZp-w8-B6N"/>
+                        <constraint firstItem="8zB-ZJ-jVy" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" id="WnX-q1-VcZ"/>
+                        <constraint firstAttribute="trailing" secondItem="zc2-TB-zgs" secondAttribute="trailing" constant="18" id="axZ-V8-RIN"/>
+                        <constraint firstItem="8zB-ZJ-jVy" firstAttribute="centerX" secondItem="8rD-KN-77z" secondAttribute="centerX" id="gU2-e5-6zZ"/>
+                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="top" secondItem="8zB-ZJ-jVy" secondAttribute="bottom" id="iXN-Wo-PJx"/>
+                        <constraint firstAttribute="trailing" secondItem="ZCZ-ub-UcS" secondAttribute="trailing" id="kjP-bj-OcQ"/>
+                        <constraint firstItem="8zB-ZJ-jVy" firstAttribute="height" secondItem="8rD-KN-77z" secondAttribute="height" multiplier="0.6" id="oOK-4s-UwA"/>
+                        <constraint firstAttribute="trailing" secondItem="8zB-ZJ-jVy" secondAttribute="trailing" id="sfR-kr-daY"/>
+                        <constraint firstItem="zc2-TB-zgs" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" constant="18" id="uan-6B-ey5"/>
+                        <constraint firstItem="8zB-ZJ-jVy" firstAttribute="top" secondItem="8rD-KN-77z" secondAttribute="top" id="uma-xK-Zv0"/>
+                        <constraint firstAttribute="bottom" secondItem="zc2-TB-zgs" secondAttribute="bottom" constant="20" id="vZ4-4s-ddA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8rD-KN-77z" secondAttribute="bottom" id="3Bc-JS-rUK"/>
+                <constraint firstItem="8rD-KN-77z" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="QIn-BM-lKx"/>
+                <constraint firstItem="8rD-KN-77z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eOR-Kx-E0y"/>
+                <constraint firstItem="8rD-KN-77z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mQf-9P-UzT"/>
+                <constraint firstItem="8rD-KN-77z" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wHi-aQ-vd8"/>
+            </constraints>
+            <point key="canvasLocation" x="-77.099236641221367" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_activate" width="375" height="465"/>
+        <namedColor name="blue_accent">
+            <color red="0.0" green="0.47843137254901963" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey80">
+            <color red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,13 +7,14 @@
 
 import UIKit
 
-class MembershipDataViewController: UIViewController {
+class MembershipDataViewController: BaseViewController {
     
     @IBOutlet weak var viewDocType: SelectTextField!
     @IBOutlet weak var viewDocNumber: OutlinedTextField!
     @IBOutlet weak var viewRuc: OutlinedTextField!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var imgBack: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private lazy var docTypePickerView: UIPickerView = {
         let view = UIPickerView()
@@ -40,16 +41,18 @@ class MembershipDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func initView() {
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down"))
         viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: Constants.error, status: .activated)
         viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: Constants.error, status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
-        addActions()
+        connectFields(textFields: viewDocNumber.txt, viewRuc.txt)
     }
     
-    func addActions() {
+    override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
@@ -65,6 +68,10 @@ class MembershipDataViewController: UIViewController {
                 self?.viewDocType.status = .focused
             })
         }
+    }
+    
+    override func manageScroll() {
+        self.baseScrollView = scrollView
     }
     
     @objc private func tapBack() {

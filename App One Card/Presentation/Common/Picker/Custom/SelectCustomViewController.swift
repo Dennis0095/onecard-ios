@@ -67,13 +67,21 @@ extension SelectCustomViewController: UIPickerViewDelegate, UIPickerViewDataSour
         return items.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let item = items[row]
-        return item.name
-    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let item = items[row]
         selectedItem = item
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let label = (view as? UILabel) ?? UILabel()
+
+           label.textColor = .black
+           label.textAlignment = .center
+           label.font = UIFont(name: "Gotham-Book", size: 20)
+
+        label.text = items[row].name
+
+        return label
     }
 }

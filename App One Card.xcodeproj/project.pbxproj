@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */; };
+		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
 		0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */; };
 		0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */; };
 		0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */; };
@@ -102,9 +104,14 @@
 		0DC78BD02A396EFC0097CCE5 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DC78BCF2A396EFC0097CCE5 /* loading.json */; };
 		0DC78BD32A396F300097CCE5 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BD12A396F300097CCE5 /* Loading.swift */; };
 		0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC78BD22A396F300097CCE5 /* Loading.xib */; };
+		0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */; };
+		0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */; };
+		0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorViewController.swift; sourceTree = "<group>"; };
+		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
 		0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
 		0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
@@ -201,6 +208,9 @@
 		0DC78BCF2A396EFC0097CCE5 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		0DC78BD12A396F300097CCE5 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		0DC78BD22A396F300097CCE5 /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
+		0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewController.swift; sourceTree = "<group>"; };
+		0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeActivateViewController.xib; sourceTree = "<group>"; };
+		0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +225,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D243B882A3A4758004E87D3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */,
+				0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		0D3A800E2A3794BF00C32F39 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +375,7 @@
 		0D45B1162A2E928600EFC7F4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				0DFC4CDE2A426FAF0011AA97 /* Activate */,
 				0D45B1182A2E92A100EFC7F4 /* Registration */,
 				0D45B1172A2E929800EFC7F4 /* Login */,
 			);
@@ -385,6 +405,7 @@
 		0D45B1222A2EA71800EFC7F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0D243B882A3A4758004E87D3 /* Error */,
 				0DC78BD52A396F340097CCE5 /* Loading */,
 				0DC78BCE2A396EE10097CCE5 /* Animations */,
 				0D3A800E2A3794BF00C32F39 /* Font */,
@@ -677,6 +698,16 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		0DFC4CDE2A426FAF0011AA97 /* Activate */ = {
+			isa = PBXGroup;
+			children = (
+				0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */,
+				0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */,
+				0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */,
+			);
+			path = Activate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -755,9 +786,11 @@
 				0D45B16C2A30316900EFC7F4 /* SelectDateViewController.xib in Resources */,
 				0D3A80282A3794D500C32F39 /* Gotham-Book.otf in Resources */,
 				0DC78BC02A37EA8A0097CCE5 /* EditUserViewController.xib in Resources */,
+				0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */,
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
+				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
@@ -792,6 +825,7 @@
 			files = (
 				0DB9675D2A34EF250079D432 /* MenuTabBar.swift in Sources */,
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
+				0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */,
 				0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */,
 				0D45B14C2A2EE14100EFC7F4 /* PersonalDataViewController.swift in Sources */,
 				0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */,
@@ -827,8 +861,10 @@
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
+				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
 				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
+				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
 				0D45B16B2A30316900EFC7F4 /* SelectDateViewController.swift in Sources */,

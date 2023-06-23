@@ -16,12 +16,16 @@ class VerificationViewController: BaseViewController {
     @IBOutlet weak var lblStep: UILabel!
     @IBOutlet weak var lblNumber: UILabel!
     @IBOutlet weak var lblCount: UILabel!
+    @IBOutlet weak var lblTitleDescription: UILabel!
     @IBOutlet weak var btnResend: UIButton!
+    @IBOutlet weak var viewStep: UIView!
     
     private var viewModel: VerificationViewModelProtocol
     private var number: String
+    private var titleDescription: String?
     private var navTitle: String
-    private var step: String
+    private var buttonTitle: String
+    private var step: String?
     private var timer: Timer?
     
     private var countTimer: Int = 60 {
@@ -30,11 +34,13 @@ class VerificationViewController: BaseViewController {
         }
     }
     
-    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String, number: String) {
+    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, number: String, buttonTitle: String) {
         self.viewModel = viewModel
+        self.titleDescription = titleDescription
         self.navTitle = navTitle
         self.step = step
         self.number = number
+        self.buttonTitle = buttonTitle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,7 +54,7 @@ class VerificationViewController: BaseViewController {
         setNumberLabel()
         setCountLabel()
         txtCode.configure()
-        btnNext.configure(text: Constants.next_btn, status: .enabled)
+        btnNext.configure(text: buttonTitle, status: .enabled)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,6 +107,9 @@ class VerificationViewController: BaseViewController {
     private func configure() {
         lblNavTitle.text = navTitle
         lblStep.text = step
+        
+        lblTitleDescription.isHidden = titleDescription == nil
+        viewStep.isHidden = step == nil
     }
     
     @objc

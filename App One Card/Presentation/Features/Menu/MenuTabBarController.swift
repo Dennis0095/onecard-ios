@@ -17,10 +17,14 @@ class MenuTabBarController: UITabBarController {
         return tabBar
     }()
     
+    var homeRouter: HomeRouterDelegate
     var preferencesRouter: PreferencesRouterDelegate
+    var successfulRouter: SuccessfulRouterDelegate
     
-    init(preferencesRouter: PreferencesRouterDelegate) {
+    init(homeRouter: HomeRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate) {
+        self.homeRouter = homeRouter
         self.preferencesRouter = preferencesRouter
+        self.successfulRouter = successfulRouter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,15 +41,15 @@ class MenuTabBarController: UITabBarController {
     }
     
     private func setupView() {
-        let viewController1 = HomeViewController()
+        let homeViewController = setupHome()
         
-        let viewController2 = HomeViewController()
+        let promViewController = UIViewController()
         
         let preferencesViewModel = PreferencesViewModel()
         preferencesViewModel.router = preferencesRouter
         let preferencesViewController = PreferencesViewController(viewModel: preferencesViewModel)
         
-        viewControllers = [viewController1, viewController2, preferencesViewController]
+        viewControllers = [homeViewController, promViewController, preferencesViewController]
         
         view.addSubview(menuTabBar)
         
@@ -63,6 +67,12 @@ class MenuTabBarController: UITabBarController {
         }
     }
 
+    private func setupHome() -> HomeViewController {
+        let viewModel = HomeViewModel(router: homeRouter, successfulRouter: successfulRouter)
+        let home = HomeViewController(viewModel: viewModel)
+        return home
+    }
+    
     private func addActions() {
         menuTabBar.action = { [weak self] index in
             self?.selectedIndex = index

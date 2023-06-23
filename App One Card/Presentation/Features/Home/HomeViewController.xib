@@ -26,6 +26,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewCardLock" destination="HVp-dx-JKO" id="3bI-6C-9Wk"/>
+                <outlet property="viewChangePin" destination="GTS-ia-ppp" id="bxj-o2-yij"/>
+                <outlet property="viewConfigureCard" destination="eXW-MV-1CC" id="3eb-29-cWX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

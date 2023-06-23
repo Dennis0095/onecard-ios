@@ -13,6 +13,8 @@
 		0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF32A44BADC00411486 /* PinViewController.xib */; };
 		0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */; };
 		0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */; };
+		0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */; };
+		0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EE002A45DD5E00411486 /* HomeRouter.swift */; };
 		0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */; };
 		0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */; };
 		0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */; };
@@ -120,6 +122,8 @@
 		0D35EDF32A44BADC00411486 /* PinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardNumber.xib; sourceTree = "<group>"; };
 		0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNumber.swift; sourceTree = "<group>"; };
+		0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0D35EE002A45DD5E00411486 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
 		0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				0D904CD02A3771E6007D37D3 /* VerificationRouter.swift */,
 				0D45B15F2A2FF18500EFC7F4 /* AuthenticationRouter.swift */,
 				0D45B1142A2E759100EFC7F4 /* AppRouter.swift */,
+				0D35EE002A45DD5E00411486 /* HomeRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -646,9 +651,9 @@
 		0DB967652A35237D0079D432 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0DC78BC32A3815C80097CCE5 /* Movements */,
 				0DB967662A35238C0079D432 /* HomeViewController.swift */,
 				0DB967672A35238C0079D432 /* HomeViewController.xib */,
+				0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -691,13 +696,6 @@
 				0DC78BC12A37EA980097CCE5 /* EditUserViewModel.swift */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		0DC78BC32A3815C80097CCE5 /* Movements */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Movements;
 			sourceTree = "<group>";
 		};
 		0DC78BC42A38B4F40097CCE5 /* Base */ = {
@@ -896,6 +894,7 @@
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
 				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
+				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
@@ -909,6 +908,7 @@
 				0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */,
 				0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */,
 				0D45B1662A3024DC00EFC7F4 /* PersonalDataViewModel.swift in Sources */,
+				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,

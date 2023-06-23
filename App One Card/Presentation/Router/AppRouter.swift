@@ -67,7 +67,7 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToHome() {
-        let menu = MenuTabBarController(preferencesRouter: self)
+        let menu = MenuTabBarController(homeRouter: self, preferencesRouter: self, successfulRouter: self)
         navigationController = UINavigationController(rootViewController: menu)
         navigationController?.setNavigationBarHidden(true, animated: true)
         if let nav = navigationController {
@@ -117,7 +117,7 @@ extension AppRouter: VerificationRouterDelegate {
     func navigateToVerification(navTitle: String, stepDescription: String , success: @escaping VoidActionHandler) {
         let viewModel = VerificationViewModel()
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, number: "999222333")
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese sus datos personales", number: "999222333", buttonTitle: Constants.next_btn)
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }
@@ -187,5 +187,18 @@ extension AppRouter: ProfileRouterDelegate {
                 }
             }
         }
+    }
+}
+
+extension AppRouter: HomeRouterDelegate {
+    func successfulCardBlock() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func navigateToCardBlock(navTitle: String, success: @escaping VoidActionHandler) {
+        let viewModel = VerificationViewModel()
+        viewModel.success = success
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: "******333", buttonTitle: "BLOQUEAR")
+        navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }

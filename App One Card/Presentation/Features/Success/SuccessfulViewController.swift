@@ -24,7 +24,13 @@ class SuccessfulViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configure()
         btnSuccessful.configure(text: buttonSuccessful ?? Constants.enter, status: .enabled)
+    }
+    
+    func configure() {
+        lblTitle.text = titleSuccessful
+        lblDescription.text = descriptionSuccessful
     }
     
     @IBAction func ok(_ sender: Any) {

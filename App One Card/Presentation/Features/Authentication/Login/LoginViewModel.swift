@@ -47,7 +47,7 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func formValidation() {
         Loading.shared.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             Loading.shared.hide()
             if self.username.isEmpty || self.password.isEmpty {
                 self.router.showMessageError()

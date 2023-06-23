@@ -33,7 +33,6 @@ class OutlinedTextField: UIView {
     public lazy var txt: PaddedTextField = {
         let textfield = PaddedTextField()
         textfield.paddingLeft = 15
-        //textfield.paddingRight = 15
         textfield.font = UIFont(name: "Gotham-Book", size: 14)
         textfield.translatesAutoresizingMaskIntoConstraints = false
         return textfield
@@ -78,13 +77,17 @@ class OutlinedTextField: UIView {
     internal var keyBoardType: UIKeyboardType = .default
     internal var hasError: Bool = false
     internal var isPlaceholderOnTop: Bool = false
-    internal var errorMessage: String?
+    internal var errorMessage: String? {
+        didSet {
+            lblError.text = errorMessage
+        }
+    }
     internal var isValid: Bool = false {
         didSet {
             if errorMessage != nil {
                 hasError = !isValid
             }
-            changeStatus(status: isValid ? .focused : .error)
+            changeStatus(status: isValid ? .activated : .errorUnfocused)
         }
     }
     
@@ -95,6 +98,11 @@ class OutlinedTextField: UIView {
     }
     internal var listenChanges: ((_ text: String) -> Void)?
     internal var selectTextField: ((_ textField: UITextField?) -> Void)?
+    internal var text: String = "" {
+        didSet {
+            txt.text = text
+        }
+    }
     
     var isSecureTextField: Bool = false {
         didSet {
@@ -169,19 +177,19 @@ class OutlinedTextField: UIView {
             lblPlaceholder.bottomAnchor.constraint(equalTo: self.viewPlaceholder.bottomAnchor),
             
             lblError.topAnchor.constraint(equalTo: self.viewError.topAnchor),
-            lblError.leadingAnchor.constraint(greaterThanOrEqualTo: self.viewError.leadingAnchor),
+            lblError.leadingAnchor.constraint(equalTo: self.viewError.leadingAnchor),
             lblError.trailingAnchor.constraint(equalTo: self.viewError.trailingAnchor),
             lblError.bottomAnchor.constraint(equalTo: self.viewError.bottomAnchor),
         ])
         
         txt.paddingRight = isPassword ? (34 + 15) : 15
         
-        viewError.isHidden = true
+        //viewError.isHidden = true
     }
     
     func configure(placeholder: String? = "", errorMessage: String? = nil, status: OutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false) {
         lblPlaceholder.text = placeholder
-        lblError.text = errorMessage
+        //lblError.text = errorMessage
         
         if let type = type {
             self.keyBoardType = type
@@ -189,12 +197,12 @@ class OutlinedTextField: UIView {
         }
         
         self.errorMessage = errorMessage
-        self.status = status
         
         //txt.setFont(UIFont(name: "Gotham-Book", size: 14)!, Design.color(.grey100))
         txt.isSecureTextEntry = isPassword!
         
         setupView(isPassword: isPassword!)
+        self.status = status
     }
     
     func setHeader(header: String) {
@@ -203,6 +211,24 @@ class OutlinedTextField: UIView {
     
     func changeStatus(status: OutlinedTextFieldStatus) {
         switch status {
+        case .activatedWithMessage:
+            alpha = 1.0
+            txt.backgroundColor = .white
+            txt.textColor = Design.color(.grey100)
+            txt.layer.borderColor = Design.color(.grey20).cgColor
+            viewPlaceholder.backgroundColor = .white
+            txt.isEnabled = false
+            
+            if errorMessage != nil {
+                lblError.textColor = #colorLiteral(red: 0.568627451, green: 0.5764705882, blue: 0.5803921569, alpha: 1)
+                lblError.isHidden = false
+            }
+            
+            if text.isEmpty {
+                showPlaceholderOnCenter()
+            } else {
+                showPlaceholderOnTop()
+            }
         case .activated:
             alpha = 1.0
             lblPlaceholder.textColor = Design.color(.grey60)
@@ -213,7 +239,8 @@ class OutlinedTextField: UIView {
             txt.isEnabled = true
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                //viewError.isHidden = true
+                lblError.isHidden = true
             }
         case .focused:
             alpha = 1.0
@@ -225,7 +252,8 @@ class OutlinedTextField: UIView {
             txt.isEnabled = true
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                //viewError.isHidden = true
+                lblError.isHidden = true
             }
         case .disabled:
             alpha = 0.6
@@ -237,19 +265,36 @@ class OutlinedTextField: UIView {
             txt.isEnabled = false
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                //viewError.isHidden = true
+                lblError.isHidden = true
             }
-        case .error:
+        case .errorUnfocused:
             alpha = 1.0
             txt.backgroundColor = .white
             txt.textColor = Design.color(.grey100)
+            txt.layer.borderColor = Design.color(.grey20).cgColor
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = true
             
             if errorMessage != nil {
-                lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
-                txt.layer.borderColor = UIColor.red.cgColor
-                viewError.isHidden = false
+                //lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
+                //txt.layer.borderColor = UIColor.red.cgColor
+                //viewError.isHidden = false
+                lblError.isHidden = false
+            }
+        case .errorFocused:
+            alpha = 1.0
+            txt.backgroundColor = .white
+            txt.textColor = Design.color(.grey100)
+            txt.layer.borderColor = Design.color(.primary).cgColor
+            viewPlaceholder.backgroundColor = .white
+            txt.isEnabled = true
+            
+            if errorMessage != nil {
+                //lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
+                //txt.layer.borderColor = UIColor.red.cgColor
+                //viewError.isHidden = false
+                lblError.isHidden = false
             }
         }
     }
@@ -309,7 +354,8 @@ class OutlinedTextField: UIView {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if let changes = listenChanges {
             let trimText = (textField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            self.isValid = !trimText.isEmpty
+            self.text = trimText
+            //self.isValid = !trimText.isEmpty
             changes(trimText)
         }
     }
@@ -326,7 +372,7 @@ extension OutlinedTextField: UITextFieldDelegate {
         }
         
         if hasError {
-            status = .error
+            status = .errorUnfocused
         } else {
             status = .activated
         }
@@ -342,7 +388,7 @@ extension OutlinedTextField: UITextFieldDelegate {
         }
         
         if hasError {
-            status = .error
+            status = .errorFocused
         } else {
             status = .focused
         }
@@ -375,5 +421,7 @@ enum OutlinedTextFieldStatus {
     case activated
     case focused
     case disabled
-    case error
+    case errorUnfocused
+    case errorFocused
+    case activatedWithMessage
 }

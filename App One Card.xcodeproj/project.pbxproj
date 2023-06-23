@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */; };
 		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
+		0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDF22A44BADC00411486 /* PinViewController.swift */; };
+		0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF32A44BADC00411486 /* PinViewController.xib */; };
+		0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */; };
+		0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */; };
 		0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */; };
 		0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */; };
 		0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */; };
@@ -112,6 +116,10 @@
 /* Begin PBXFileReference section */
 		0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorViewController.swift; sourceTree = "<group>"; };
 		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
+		0D35EDF22A44BADC00411486 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		0D35EDF32A44BADC00411486 /* PinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
+		0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardNumber.xib; sourceTree = "<group>"; };
+		0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNumber.swift; sourceTree = "<group>"; };
 		0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
 		0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
 		0D3A80112A3794D400C32F39 /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
@@ -232,6 +240,24 @@
 				0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		0D35EDF12A44BAD100411486 /* Pin */ = {
+			isa = PBXGroup;
+			children = (
+				0D35EDF22A44BADC00411486 /* PinViewController.swift */,
+				0D35EDF32A44BADC00411486 /* PinViewController.xib */,
+			);
+			path = Pin;
+			sourceTree = "<group>";
+		};
+		0D35EDF82A44BC9700411486 /* ButtonKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */,
+				0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */,
+			);
+			path = ButtonKeyboard;
 			sourceTree = "<group>";
 		};
 		0D3A800E2A3794BF00C32F39 /* Font */ = {
@@ -405,6 +431,7 @@
 		0D45B1222A2EA71800EFC7F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0D35EDF82A44BC9700411486 /* ButtonKeyboard */,
 				0D243B882A3A4758004E87D3 /* Error */,
 				0DC78BD52A396F340097CCE5 /* Loading */,
 				0DC78BCE2A396EE10097CCE5 /* Animations */,
@@ -701,6 +728,7 @@
 		0DFC4CDE2A426FAF0011AA97 /* Activate */ = {
 			isa = PBXGroup;
 			children = (
+				0D35EDF12A44BAD100411486 /* Pin */,
 				0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */,
 				0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */,
 				0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */,
@@ -773,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */,
+				0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
 				0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
@@ -792,6 +821,7 @@
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
+				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
 				0D3A802A2A3794D500C32F39 /* Gotham-Ultra.otf in Resources */,
@@ -853,12 +883,14 @@
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
+				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
 				0D45B1532A2EEA7200EFC7F4 /* StringExtension.swift in Sources */,
 				0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */,
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
+				0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,

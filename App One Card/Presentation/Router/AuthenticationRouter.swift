@@ -13,6 +13,7 @@ protocol AuthenticationRouterDelegate: Router {
     func navigateToActivateUser()
     func navigateToRegister()
     func navigateToPersonalData()
+    func navigateToPin()
     //func navigateToVerify()
     func navigateToLoginInformation()
     //func successfulRegistration(title: String, description: String, accept: VoidActionHandler?)

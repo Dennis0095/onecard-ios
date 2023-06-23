@@ -37,6 +37,11 @@ class AppRouter: Router {
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
+    func navigateToPin() {
+        let viewController = PinViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func navigateToActivateUser() {
         let viewModel = WelcomeActivateViewModel(router: self)
         let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)

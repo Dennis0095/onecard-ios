@@ -30,4 +30,6 @@ enum Regex: String{
     case containNumber = ".*[0-9]+.*"
     case containSpecialCharacter = ".*[!&^%$#@()/]+.*"
     case decimal = "^\\d*\\.?\\d*$"
+    case contain8numbers = "^\\d{8}$"
+    case contain11numbers = "^\\d{11}$"
 }

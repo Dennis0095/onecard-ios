@@ -65,7 +65,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "Gotham-Book", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -103,7 +103,7 @@ class SelectTextField: UIView {
 //        }
 //    }
 
-    internal var status: OutlinedTextFieldStatus = .activated {
+    internal var status: SelectTextFieldStatus = .activated {
         didSet {
             changeStatus(status: status)
         }
@@ -178,7 +178,7 @@ class SelectTextField: UIView {
         imgSelect.addGestureRecognizer(tap)
     }
     
-    func configure(placeholder: String? = "", errorMessage: String? = nil, status: OutlinedTextFieldStatus, imageSelect: UIImage) {
+    func configure(placeholder: String? = "", errorMessage: String? = nil, status: SelectTextFieldStatus, imageSelect: UIImage) {
         lblPlaceholder.text = placeholder
         lblError.text = errorMessage
         
@@ -189,11 +189,20 @@ class SelectTextField: UIView {
     
     func setText(string: String) {
         self.text = string
-        self.status = .activated
     }
     
-    func changeStatus(status: OutlinedTextFieldStatus) {
+    func changeStatus(status: SelectTextFieldStatus) {
         switch status {
+        case .defaultData:
+            alpha = 1.0
+            lblPlaceholder.textColor = Design.color(.grey60)
+            viewSelected.layer.borderColor = Design.color(.grey20).cgColor
+            
+            if errorMessage != nil {
+                viewError.isHidden = true
+            }
+
+            showPlaceholderOnTop()
         case .activated:
             alpha = 1.0
             lblPlaceholder.textColor = Design.color(.grey60)
@@ -302,4 +311,5 @@ enum SelectTextFieldStatus {
     case focused
     case disabled
     case error
+    case defaultData
 }

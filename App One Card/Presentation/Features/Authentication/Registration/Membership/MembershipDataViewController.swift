@@ -16,17 +16,10 @@ class MembershipDataViewController: BaseViewController {
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private lazy var docTypePickerView: UIPickerView = {
-        let view = UIPickerView()
-        return view
-    }()
-    
     var docTypeList: [SelectModel] = [
         SelectModel(id: 0, name: "DNI"),
         SelectModel(id: 1, name: "Carnet de extranjería")
     ]
-    
-    var selectedDocType: SelectModel?
     
     private var viewModel: MembershipDataViewModelProtocol
     
@@ -44,11 +37,16 @@ class MembershipDataViewController: BaseViewController {
     }
     
     override func initView() {
+        viewModel.docType = docTypeList.first
+        
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down"))
-        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: Constants.error, status: .activated)
-        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: Constants.error, status: .activated)
+        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: "Ingrese su número de documento", status: .activated, type: .numberPad)
+        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: "Ingrese el RUC", status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
+        viewDocType.setText(string: viewModel.docType?.name ?? "DNI")
+        viewDocType.status = .defaultData
+
         connectFields(textFields: viewDocNumber.txt, viewRuc.txt)
     }
     
@@ -58,9 +56,9 @@ class MembershipDataViewController: BaseViewController {
         imgBack.addGestureRecognizer(tapBack)
         
         viewDocType.action = { [weak self] in
-            self?.viewModel.showDocumentList(selected: self?.selectedDocType, list: self?.docTypeList ?? [], action: { item in
+            self?.viewModel.showDocumentList(selected: self?.viewModel.docType, list: self?.docTypeList ?? [], action: { item in
                 if let item = item {
-                    self?.selectedDocType = item
+                    self?.viewModel.docType = item
                     self?.viewDocType.setText(string: item.name)
                 }
                 self?.viewDocType.status = .activated
@@ -68,10 +66,32 @@ class MembershipDataViewController: BaseViewController {
                 self?.viewDocType.status = .focused
             })
         }
+        
+        [viewDocNumber, viewRuc].forEach {
+            $0.selectTextField = { textField in
+                self.selectedTextField = textField
+            }
+        }
+        
+        [viewDocNumber, viewRuc].forEach {
+            $0.listenChanges = { [weak self] text in
+                
+            }
+        }
     }
     
     override func manageScroll() {
         self.baseScrollView = scrollView
+    }
+    
+    private func validate() -> Bool {
+        viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su número de documento." : "Debe contener 8 números."
+        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingrese el RUC." : "Debe contener 11 números."
+        
+        viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
+        viewRuc.isValid = viewRuc.text.validateString(withRegex: .contain11numbers)
+        
+        return viewDocNumber.isValid && viewRuc.isValid
     }
     
     @objc private func tapBack() {
@@ -79,7 +99,7 @@ class MembershipDataViewController: BaseViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        viewModel.nextStep()
+        viewModel.formValidation(isValid: validate())
     }
     
 }

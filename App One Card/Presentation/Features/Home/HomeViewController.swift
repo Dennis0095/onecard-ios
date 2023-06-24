@@ -31,6 +31,9 @@ class HomeViewController: BaseViewController {
     }
 
     override func setActions() {
+        let tapConfigureCardLock = UITapGestureRecognizer(target: self, action: #selector(tapConfigureCardLock))
+        viewConfigureCard.addGestureRecognizer(tapConfigureCardLock)
+        
         let tapCardLock = UITapGestureRecognizer(target: self, action: #selector(tapCardLock))
         viewCardLock.addGestureRecognizer(tapCardLock)
     }
@@ -38,5 +41,10 @@ class HomeViewController: BaseViewController {
     @objc
     func tapCardLock() {
         viewModel.toCardLock()
+    }
+    
+    @objc
+    func tapConfigureCardLock() {
+        viewModel.toConfigureCard()
     }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrequentQuestionsViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="imgBack" destination="9Se-8p-sBY" id="tRK-Ge-Owb"/>
+                <outlet property="tbQuestions" destination="3ya-ga-kTh" id="9Q0-Iy-kJW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UP-cq-gdg">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hY-Da-Zpo">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left" translatesAutoresizingMaskIntoConstraints="NO" id="9Se-8p-sBY">
+                                    <rect key="frame" x="18" y="8" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="KeK-Xe-9Tx"/>
+                                        <constraint firstAttribute="width" constant="24" id="aqt-Ky-LRH"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREGUNTAS FRECUENTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tt-uh-Cdh">
+                                    <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" name="grey100"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="9Se-8p-sBY" firstAttribute="leading" secondItem="2hY-Da-Zpo" secondAttribute="leading" constant="18" id="DaG-Fd-IZc"/>
+                                <constraint firstItem="5tt-uh-Cdh" firstAttribute="centerY" secondItem="9Se-8p-sBY" secondAttribute="centerY" id="HcK-nT-j1l"/>
+                                <constraint firstItem="9Se-8p-sBY" firstAttribute="top" secondItem="2hY-Da-Zpo" secondAttribute="top" constant="8" id="UAy-tP-h6q"/>
+                                <constraint firstItem="5tt-uh-Cdh" firstAttribute="leading" secondItem="9Se-8p-sBY" secondAttribute="trailing" constant="4" id="e3q-Rl-uU6"/>
+                                <constraint firstAttribute="bottom" secondItem="9Se-8p-sBY" secondAttribute="bottom" constant="8" id="mJ0-i0-gwh"/>
+                                <constraint firstAttribute="trailing" secondItem="5tt-uh-Cdh" secondAttribute="trailing" constant="18" id="q27-eh-XaO"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3ya-ga-kTh">
+                            <rect key="frame" x="0.0" y="40" width="393" height="719"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3ya-ga-kTh" secondAttribute="trailing" id="87x-o1-ZGQ"/>
+                        <constraint firstItem="3ya-ga-kTh" firstAttribute="top" secondItem="2hY-Da-Zpo" secondAttribute="bottom" id="amo-P7-ucq"/>
+                        <constraint firstAttribute="bottom" secondItem="3ya-ga-kTh" secondAttribute="bottom" id="icU-dm-oEO"/>
+                        <constraint firstItem="2hY-Da-Zpo" firstAttribute="top" secondItem="4UP-cq-gdg" secondAttribute="top" id="mgI-gp-uL9"/>
+                        <constraint firstAttribute="trailing" secondItem="2hY-Da-Zpo" secondAttribute="trailing" id="nau-j7-gmO"/>
+                        <constraint firstItem="2hY-Da-Zpo" firstAttribute="leading" secondItem="4UP-cq-gdg" secondAttribute="leading" id="vra-ZU-AXG"/>
+                        <constraint firstItem="3ya-ga-kTh" firstAttribute="leading" secondItem="4UP-cq-gdg" secondAttribute="leading" id="z3R-6Z-mk9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4UP-cq-gdg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1oY-ZV-hhw"/>
+                <constraint firstItem="4UP-cq-gdg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="57F-Qq-Nfq"/>
+                <constraint firstItem="4UP-cq-gdg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Qcr-gx-aff"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4UP-cq-gdg" secondAttribute="bottom" id="c3E-NV-dIp"/>
+            </constraints>
+            <point key="canvasLocation" x="-5.343511450381679" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow_left" width="25" height="25"/>
+        <namedColor name="grey100">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

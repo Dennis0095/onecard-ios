@@ -9,5 +9,7 @@ import Foundation
 
 protocol HomeRouterDelegate: Router {
     func navigateToCardBlock(navTitle: String, success: @escaping VoidActionHandler)
+    func navigateToConfigureCard()
     func successfulCardBlock()
+    func successfulConfigureCard()
 }

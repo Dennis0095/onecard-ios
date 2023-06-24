@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Book.otf">
+            <string>Gotham-Book</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigureCardViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSave" destination="lcb-wk-CtS" id="YYC-ta-yjE"/>
+                <outlet property="imgBack" destination="lbb-2v-ief" id="onf-RW-xM5"/>
+                <outlet property="tbConfigureCard" destination="Apf-E3-StK" id="LX8-98-dw8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOQ-16-XTA">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZo-Av-uVp">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_left_white" translatesAutoresizingMaskIntoConstraints="NO" id="lbb-2v-ief">
+                                    <rect key="frame" x="18" y="8" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="MM5-05-fGZ"/>
+                                        <constraint firstAttribute="width" constant="24" id="aFm-RO-TE2"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIGURAR TARJETA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-HC-fUv">
+                                    <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
+                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="uG9-HC-fUv" secondAttribute="trailing" constant="18" id="2JY-cQ-ezI"/>
+                                <constraint firstItem="lbb-2v-ief" firstAttribute="top" secondItem="TZo-Av-uVp" secondAttribute="top" constant="8" id="8ij-gF-9k2"/>
+                                <constraint firstItem="lbb-2v-ief" firstAttribute="leading" secondItem="TZo-Av-uVp" secondAttribute="leading" constant="18" id="K0x-0R-3bg"/>
+                                <constraint firstItem="uG9-HC-fUv" firstAttribute="leading" secondItem="lbb-2v-ief" secondAttribute="trailing" constant="4" id="UAT-lZ-dqf"/>
+                                <constraint firstItem="uG9-HC-fUv" firstAttribute="centerY" secondItem="lbb-2v-ief" secondAttribute="centerY" id="diI-mh-kj5"/>
+                                <constraint firstAttribute="bottom" secondItem="lbb-2v-ief" secondAttribute="bottom" constant="8" id="z5V-YY-Myq"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Apf-E3-StK">
+                            <rect key="frame" x="0.0" y="40" width="393" height="643"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-wk-CtS" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="18" y="703" width="357" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="smm-Qm-Qmd"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="save:" destination="-1" eventType="touchUpInside" id="dVB-DI-Gda"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Apf-E3-StK" firstAttribute="leading" secondItem="LOQ-16-XTA" secondAttribute="leading" id="QX3-q6-sep"/>
+                        <constraint firstItem="Apf-E3-StK" firstAttribute="top" secondItem="TZo-Av-uVp" secondAttribute="bottom" id="UFw-sK-wjr"/>
+                        <constraint firstItem="lcb-wk-CtS" firstAttribute="leading" secondItem="LOQ-16-XTA" secondAttribute="leading" constant="18" id="c7M-JD-Ik4"/>
+                        <constraint firstItem="TZo-Av-uVp" firstAttribute="top" secondItem="LOQ-16-XTA" secondAttribute="top" id="jwk-RO-rwf"/>
+                        <constraint firstAttribute="trailing" secondItem="Apf-E3-StK" secondAttribute="trailing" id="l6I-Hf-vYb"/>
+                        <constraint firstItem="TZo-Av-uVp" firstAttribute="leading" secondItem="LOQ-16-XTA" secondAttribute="leading" id="qYn-aY-4Ie"/>
+                        <constraint firstAttribute="trailing" secondItem="lcb-wk-CtS" secondAttribute="trailing" constant="18" id="uKQ-cG-qir"/>
+                        <constraint firstItem="lcb-wk-CtS" firstAttribute="top" secondItem="Apf-E3-StK" secondAttribute="bottom" constant="20" id="vEM-mj-ztS"/>
+                        <constraint firstAttribute="bottom" secondItem="lcb-wk-CtS" secondAttribute="bottom" constant="16" id="vg1-Tc-qf4"/>
+                        <constraint firstAttribute="trailing" secondItem="TZo-Av-uVp" secondAttribute="trailing" id="z98-hq-uV4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="blue_dark"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LOQ-16-XTA" secondAttribute="trailing" id="4BK-1x-czY"/>
+                <constraint firstItem="LOQ-16-XTA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ibl-Js-RZp"/>
+                <constraint firstItem="LOQ-16-XTA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="drO-AU-RTg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LOQ-16-XTA" secondAttribute="bottom" id="kwf-8D-hfu"/>
+            </constraints>
+            <point key="canvasLocation" x="49.618320610687022" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow_left_white" width="25" height="25"/>
+        <namedColor name="blue_dark">
+            <color red="0.0" green="0.33725490196078434" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

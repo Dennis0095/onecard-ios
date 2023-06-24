@@ -53,6 +53,7 @@ class LoginViewModel: LoginViewModelProtocol {
                 self.router.showMessageError()
             } else {
                 self.router.navigateToHome()
+                //self.router.navigateToActivateUser()
             }
         }
     }

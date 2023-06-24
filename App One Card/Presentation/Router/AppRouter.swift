@@ -141,7 +141,8 @@ extension AppRouter: PreferencesRouterDelegate {
     }
     
     func navigateToQuestions() {
-        
+        let viewController = FrequentQuestionsViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func navigateToContact() {
@@ -191,6 +192,10 @@ extension AppRouter: ProfileRouterDelegate {
 }
 
 extension AppRouter: HomeRouterDelegate {
+    func successfulConfigureCard() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     func successfulCardBlock() {
         navigationController?.popToRootViewController(animated: true)
     }
@@ -200,5 +205,11 @@ extension AppRouter: HomeRouterDelegate {
         viewModel.success = success
         let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: "******333", buttonTitle: "BLOQUEAR")
         navigationController?.pushViewController(verificationViewController, animated: true)
+    }
+    
+    func navigateToConfigureCard() {
+        let viewModel = ConfigureCardViewModel(router: self, successfulRouter: self)
+        let viewController = ConfigureCardViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeViewModelProtocol {
     func toCardLock()
+    func toConfigureCard()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -26,5 +27,9 @@ class HomeViewModel: HomeViewModelProtocol {
                 self?.router.successfulCardBlock()
             })
         })
+    }
+    
+    func toConfigureCard() {
+        router.navigateToConfigureCard()
     }
 }

@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */; };
 		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
+		0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474052A4667CD0075E147 /* ConfigureCardViewController.swift */; };
+		0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474062A4667CD0075E147 /* ConfigureCardViewController.xib */; };
+		0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */; };
+		0D24740E2A466A5B0075E147 /* ConfigureCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D24740C2A466A5B0075E147 /* ConfigureCardTableViewCell.swift */; };
+		0D24740F2A466A5B0075E147 /* ConfigureCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D24740D2A466A5B0075E147 /* ConfigureCardTableViewCell.xib */; };
+		0D2474132A467BF80075E147 /* FrequentQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474112A467BF80075E147 /* FrequentQuestionsViewController.swift */; };
+		0D2474142A467BF80075E147 /* FrequentQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474122A467BF80075E147 /* FrequentQuestionsViewController.xib */; };
+		0D2474182A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */; };
+		0D2474192A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */; };
 		0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDF22A44BADC00411486 /* PinViewController.swift */; };
 		0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF32A44BADC00411486 /* PinViewController.xib */; };
 		0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */; };
@@ -118,6 +127,15 @@
 /* Begin PBXFileReference section */
 		0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorViewController.swift; sourceTree = "<group>"; };
 		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
+		0D2474052A4667CD0075E147 /* ConfigureCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardViewController.swift; sourceTree = "<group>"; };
+		0D2474062A4667CD0075E147 /* ConfigureCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigureCardViewController.xib; sourceTree = "<group>"; };
+		0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardViewModel.swift; sourceTree = "<group>"; };
+		0D24740C2A466A5B0075E147 /* ConfigureCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardTableViewCell.swift; sourceTree = "<group>"; };
+		0D24740D2A466A5B0075E147 /* ConfigureCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigureCardTableViewCell.xib; sourceTree = "<group>"; };
+		0D2474112A467BF80075E147 /* FrequentQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentQuestionsViewController.swift; sourceTree = "<group>"; };
+		0D2474122A467BF80075E147 /* FrequentQuestionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsViewController.xib; sourceTree = "<group>"; };
+		0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentQuestionsTableViewCell.swift; sourceTree = "<group>"; };
+		0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsTableViewCell.xib; sourceTree = "<group>"; };
 		0D35EDF22A44BADC00411486 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		0D35EDF32A44BADC00411486 /* PinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardNumber.xib; sourceTree = "<group>"; };
@@ -244,6 +262,45 @@
 				0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		0D2474042A4667B70075E147 /* Configure Card */ = {
+			isa = PBXGroup;
+			children = (
+				0D24740B2A4669EC0075E147 /* Cell */,
+				0D2474052A4667CD0075E147 /* ConfigureCardViewController.swift */,
+				0D2474062A4667CD0075E147 /* ConfigureCardViewController.xib */,
+				0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */,
+			);
+			path = "Configure Card";
+			sourceTree = "<group>";
+		};
+		0D24740B2A4669EC0075E147 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0D24740C2A466A5B0075E147 /* ConfigureCardTableViewCell.swift */,
+				0D24740D2A466A5B0075E147 /* ConfigureCardTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0D2474102A467B5B0075E147 /* Frequent Questions */ = {
+			isa = PBXGroup;
+			children = (
+				0D2474152A467D710075E147 /* Cell */,
+				0D2474112A467BF80075E147 /* FrequentQuestionsViewController.swift */,
+				0D2474122A467BF80075E147 /* FrequentQuestionsViewController.xib */,
+			);
+			path = "Frequent Questions";
+			sourceTree = "<group>";
+		};
+		0D2474152A467D710075E147 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */,
+				0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0D35EDF12A44BAD100411486 /* Pin */ = {
@@ -651,6 +708,7 @@
 		0DB967652A35237D0079D432 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0D2474042A4667B70075E147 /* Configure Card */,
 				0DB967662A35238C0079D432 /* HomeViewController.swift */,
 				0DB967672A35238C0079D432 /* HomeViewController.xib */,
 				0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */,
@@ -661,6 +719,7 @@
 		0DB9676C2A353A210079D432 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				0D2474102A467B5B0075E147 /* Frequent Questions */,
 				0D904CBE2A364402007D37D3 /* Cell */,
 				0DB9676D2A353A340079D432 /* PreferencesViewController.swift */,
 				0DB9676E2A353A340079D432 /* PreferencesViewController.xib */,
@@ -817,6 +876,7 @@
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
+				0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
@@ -829,13 +889,16 @@
 				0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */,
 				0DB967642A34FAA00079D432 /* MenuTabBarItem.xib in Resources */,
 				0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */,
+				0D2474192A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib in Resources */,
 				0D3A80252A3794D500C32F39 /* Gotham-ThinItalic.otf in Resources */,
 				0D3A802D2A3794D500C32F39 /* Gotham-BookItalic.otf in Resources */,
 				0D45B1122A2E74B700EFC7F4 /* SplashViewController.xib in Resources */,
 				0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */,
+				0D24740F2A466A5B0075E147 /* ConfigureCardTableViewCell.xib in Resources */,
 				0DC78BD02A396EFC0097CCE5 /* loading.json in Resources */,
 				0D45B1062A2E588D00EFC7F4 /* QA.plist in Resources */,
 				0DB967602A34F4220079D432 /* MenuTabBar.xib in Resources */,
+				0D2474142A467BF80075E147 /* FrequentQuestionsViewController.xib in Resources */,
 				0D3A802C2A3794D500C32F39 /* Gotham-MediumItalic.otf in Resources */,
 				0D3A80272A3794D500C32F39 /* Gotham-BoldItalic.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
@@ -855,6 +918,7 @@
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
 				0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */,
 				0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */,
+				0D2474182A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift in Sources */,
 				0D45B14C2A2EE14100EFC7F4 /* PersonalDataViewController.swift in Sources */,
 				0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */,
 				0DC78BC62A38B5110097CCE5 /* BaseViewController.swift in Sources */,
@@ -878,10 +942,12 @@
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
 				0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */,
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
+				0D24740E2A466A5B0075E147 /* ConfigureCardTableViewCell.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
+				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
@@ -897,6 +963,7 @@
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
+				0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
 				0D45B16B2A30316900EFC7F4 /* SelectDateViewController.swift in Sources */,
 				0D45B16F2A30372700EFC7F4 /* SelectModel.swift in Sources */,
@@ -904,6 +971,7 @@
 				0D45B1602A2FF18500EFC7F4 /* AuthenticationRouter.swift in Sources */,
 				0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */,
 				0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */,
+				0D2474132A467BF80075E147 /* FrequentQuestionsViewController.swift in Sources */,
 				0DC78BD32A396F300097CCE5 /* Loading.swift in Sources */,
 				0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */,
 				0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */,

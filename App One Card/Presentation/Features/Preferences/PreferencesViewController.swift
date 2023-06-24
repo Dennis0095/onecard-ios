@@ -66,7 +66,8 @@ extension PreferencesViewController: UITableViewDelegate {
         switch item.id {
         case 0:
             viewModel.toProfile()
-        case 1: break
+        case 1:
+            viewModel.toQuestions()
         case 2: break
         case 3:
             viewModel.logout()

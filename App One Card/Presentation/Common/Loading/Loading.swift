@@ -59,6 +59,8 @@ class Loading: UIViewController {
     
     func hide() {
         lottieAnimationView?.stop()
-        self.dismiss(animated: false)
+        DispatchQueue.main.async {
+            self.dismiss(animated: false)
+        }
     }
 }

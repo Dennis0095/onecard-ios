@@ -61,8 +61,11 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToRegister() {
-        let viewModel = MembershipDataViewModel(router: self)
+        let repository = ExampleDataRepository()
+        let useCase = ExampleUseCase(exampleRepository: repository)
+        let viewModel = MembershipDataViewModel(router: self, exampleUseCase: useCase)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
+        //interactor.membershipDataView = membershipDataViewController
         navigationController?.pushViewController(membershipDataViewController, animated: true)
     }
     

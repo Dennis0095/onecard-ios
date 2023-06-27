@@ -17,8 +17,11 @@ class MembershipDataViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var docTypeList: [SelectModel] = [
-        SelectModel(id: 0, name: "DNI"),
-        SelectModel(id: 1, name: "Carnet de extranjería")
+        SelectModel(id: 1, name: "DNI"),
+        SelectModel(id: 2, name: "CARNET EXTRANJERÍA"),
+        SelectModel(id: 3, name: "PASAPORTE"),
+        SelectModel(id: 5, name: "RUC"),
+        SelectModel(id: 7, name: "PTP")
     ]
     
     private var viewModel: MembershipDataViewModelProtocol
@@ -26,6 +29,10 @@ class MembershipDataViewController: BaseViewController {
     init(viewModel: MembershipDataViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    deinit {
+        viewModel.cancelRequests()
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +67,12 @@ class MembershipDataViewController: BaseViewController {
                 if let item = item {
                     self?.viewModel.docType = item
                     self?.viewDocType.setText(string: item.name)
+                    switch item.id {
+                    case 3:
+                        self?.viewDocNumber.txt.keyboardType = .namePhonePad
+                    default:
+                        self?.viewDocNumber.txt.keyboardType = .numberPad
+                    }
                 }
                 self?.viewDocType.status = .activated
             }, presented: {
@@ -85,10 +98,26 @@ class MembershipDataViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su número de documento." : "Debe contener 8 números."
-        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingrese el RUC." : "Debe contener 11 números."
+        switch viewModel.docType?.id {
+        case 1:
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su número de documento." : "Debe contener 8 números."
+            viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
+        case 2:
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su carnet de extranjería." : "Debe contener entre 9 a 12 números."
+            viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12numbers)
+        case 3:
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su pasaporte." : "Debe contener entre 9 a 12 caracteres."
+            viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12characters)
+        case 5:
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su RUC." : "Debe contener 11 números."
+            viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain11numbers)
+        case 7:
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su permiso temporal de permanencia." : "Debe contener 9 números.."
+            viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9numbers)
+        default: break
+        }
         
-        viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
+        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingrese el RUC." : "Debe contener 11 números."
         viewRuc.isValid = viewRuc.text.validateString(withRegex: .contain11numbers)
         
         return viewDocNumber.isValid && viewRuc.isValid
@@ -99,7 +128,8 @@ class MembershipDataViewController: BaseViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        viewModel.formValidation(isValid: validate())
+        if validate() {
+            viewModel.validateUser()
+        }
     }
-    
 }

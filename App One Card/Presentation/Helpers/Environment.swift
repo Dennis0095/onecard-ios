@@ -8,14 +8,14 @@
 import Foundation
 
 public enum PlistKey: String {
-    case BaseUrl = "base_url"
-
-//    func value() -> String {
-//        switch self {
-//        case .InkafarmaURL:
-//            return "inkafarma_url"
-//        }
-//    }
+    case baseUrl
+    
+    func value() -> String {
+        switch self {
+        case .baseUrl:
+            return "base_url"
+        }
+    }
 }
 
 public class Environment {
@@ -27,19 +27,13 @@ public class Environment {
             fatalError("Plist file not found")
         }
     }()
-  
+    
     public func configuration(_ key: PlistKey) -> String {
-        if let str = infoDict[key.rawValue] as? String {
+        if let str = infoDict[key.value()] as? String {
             return str
         } else {
             return ""
         }
     }
-    
-//    func googleServiceInfo(key: String) -> Any? {
-//        let plistURL = Bundle.main.url(forResource: "GoogleService-Info", withExtension: "plist")!
-//        let dictionary = NSDictionary(contentsOf: plistURL)
-//        return dictionary?[key]
-//    }
 }
 

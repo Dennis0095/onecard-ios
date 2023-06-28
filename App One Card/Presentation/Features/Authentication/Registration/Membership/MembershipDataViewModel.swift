@@ -48,7 +48,7 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
         }
         
         let request = ValidateAffiliationRequest(documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
-        userUseCase.validateUser(request: request) { result in
+        userUseCase.validateAffiliation(request: request) { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {

@@ -9,6 +9,7 @@ import Foundation
 
 enum Route {
     case validateAffiliation
+    case validatePersonalData
     case sendOTP
     case validateOTP
     
@@ -16,6 +17,8 @@ enum Route {
         switch self {
         case .validateAffiliation:
             return "/dcp-app/backend/api/rest/txn-mix-admin/validar-afiliacion-thb"
+        case .validatePersonalData:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/validar-datos-personales-thb"
         case .sendOTP:
             return "/dcp-app/backend/api/rest/txn-mix-admin/enviar-otp"
         case .validateOTP:

@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol UserUseCaseProtocol {
-    func validateUser(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void)
+    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void)
+    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataEntity, CustomError>) -> Void)
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -24,8 +25,36 @@ class UserUseCase: UserUseCaseProtocol {
        cancelRequests()
     }
     
-    func validateUser(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void) {
-        //return userRepository.validateAffiliation(request: request)
+    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataEntity, CustomError>) -> Void) {
+        let cancellable = userRepository.validatePersonalData(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    completion(.failure(error))
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                if response.validExpiration == "1" {
+                    if response.exists == "1" {
+                        let error = CustomError(title: title, description: description)
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(response))
+                    }
+                } else {
+                    let error = CustomError(title: title, description: description)
+                    completion(.failure(error))
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
+    }
+    
+    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void) {
         let cancellable = userRepository.validateAffiliation(request: request)
             .sink { publisher in
                 switch publisher {

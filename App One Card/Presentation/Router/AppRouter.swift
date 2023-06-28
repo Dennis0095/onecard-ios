@@ -57,7 +57,9 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest) {
-        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, beforeRequest: beforeRequest)
+        let repository = UserDataRepository()
+        let useCase = UserUseCase(userRepository: repository)
+        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, beforeRequest: beforeRequest, userUseCase: useCase)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(personalDataViewController, animated: true)
     }

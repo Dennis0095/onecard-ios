@@ -120,6 +120,8 @@
 		0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967672A35238C0079D432 /* HomeViewController.xib */; };
 		0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9676D2A353A340079D432 /* PreferencesViewController.swift */; };
 		0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9676E2A353A340079D432 /* PreferencesViewController.xib */; };
+		0DC44F0D2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */; };
+		0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift */; };
 		0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */; };
 		0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC78BB22A37D1DA0097CCE5 /* EditMailViewController.xib */; };
 		0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB52A37D3330097CCE5 /* EditMailViewModel.swift */; };
@@ -254,6 +256,8 @@
 		0DB967672A35238C0079D432 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		0DB9676D2A353A340079D432 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		0DB9676E2A353A340079D432 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePersonalDataRequest.swift; sourceTree = "<group>"; };
+		0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePersonaDataEntity.swift; sourceTree = "<group>"; };
 		0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMailViewController.swift; sourceTree = "<group>"; };
 		0DC78BB22A37D1DA0097CCE5 /* EditMailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMailViewController.xib; sourceTree = "<group>"; };
 		0DC78BB52A37D3330097CCE5 /* EditMailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMailViewModel.swift; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				0D243F252A47F03500399600 /* ExampleEntity.swift */,
 				0D6B91702A4B92F70045D149 /* SendOTPEntity.swift */,
 				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationEntity.swift */,
+				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -702,6 +707,7 @@
 			children = (
 				0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */,
 				0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */,
+				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1025,6 +1031,7 @@
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
 				0D45B1532A2EEA7200EFC7F4 /* StringExtension.swift in Sources */,
 				0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */,
+				0DC44F0D2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift in Sources */,
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
 				0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */,
 				0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */,
 				0D45B1662A3024DC00EFC7F4 /* PersonalDataViewModel.swift in Sources */,
+				0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
 				0D6B91752A4B9E3E0045D149 /* ValidateAffiliationEntity.swift in Sources */,

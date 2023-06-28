@@ -10,4 +10,5 @@ import Combine
 
 protocol UserRepository {
     func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationEntity, Error>
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataEntity, Error>
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalDataViewController: UIViewController {
+class PersonalDataViewController: BaseViewController {
 
     @IBOutlet weak var txtName: OutlinedTextField!
     @IBOutlet weak var txtLastName: OutlinedTextField!
@@ -30,20 +30,16 @@ class PersonalDataViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func initView() {
         txtName.configure(placeholder: Constants.placeholder_name, errorMessage: Constants.error, status: .activated)
         txtLastName.configure(placeholder: Constants.placeholder_last_name, errorMessage: Constants.error, status: .activated)
         txtBirthday.configure(placeholder: Constants.placeholder_birthday, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "calendar"))
         txtPhone.configure(placeholder: Constants.placeholder_phone, errorMessage: Constants.error, status: .activated, type: .numberPad)
         txtEmail.configure(placeholder: Constants.placeholder_email, errorMessage: Constants.error, status: .activated, type: .emailAddress)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
-        
-        addActions()
     }
-    
-    func addActions() {
+
+    override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
@@ -67,7 +63,6 @@ class PersonalDataViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        viewModel.nextStep()
+        viewModel.validateFields()
     }
-    
 }

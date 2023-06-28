@@ -11,8 +11,8 @@
 		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
 		0D243F222A47EF6F00399600 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F212A47EF6F00399600 /* APIClient.swift */; };
 		0D243F262A47F03500399600 /* ExampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F252A47F03500399600 /* ExampleEntity.swift */; };
-		0D243F2A2A47FB5B00399600 /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F292A47FB5B00399600 /* ExampleRepository.swift */; };
-		0D243F2C2A47FF6100399600 /* ExampleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F2B2A47FF6100399600 /* ExampleUseCase.swift */; };
+		0D243F2A2A47FB5B00399600 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F292A47FB5B00399600 /* UserRepository.swift */; };
+		0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F2B2A47FF6100399600 /* UserUseCase.swift */; };
 		0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474052A4667CD0075E147 /* ConfigureCardViewController.swift */; };
 		0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474062A4667CD0075E147 /* ConfigureCardViewController.xib */; };
 		0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */; };
@@ -88,6 +88,13 @@
 		0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */; };
 		0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */; };
 		0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */; };
+		0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */; };
+		0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */; };
+		0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */; };
+		0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */; };
+		0D6B91712A4B92F70045D149 /* SendOTPEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91702A4B92F70045D149 /* SendOTPEntity.swift */; };
+		0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */; };
+		0D6B91752A4B9E3E0045D149 /* ValidateAffiliationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91742A4B9E3E0045D149 /* ValidateAffiliationEntity.swift */; };
 		0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */; };
 		0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */; };
 		0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */; };
@@ -136,8 +143,8 @@
 		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
 		0D243F212A47EF6F00399600 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0D243F252A47F03500399600 /* ExampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleEntity.swift; sourceTree = "<group>"; };
-		0D243F292A47FB5B00399600 /* ExampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepository.swift; sourceTree = "<group>"; };
-		0D243F2B2A47FF6100399600 /* ExampleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUseCase.swift; sourceTree = "<group>"; };
+		0D243F292A47FB5B00399600 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		0D243F2B2A47FF6100399600 /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCase.swift; sourceTree = "<group>"; };
 		0D2474052A4667CD0075E147 /* ConfigureCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardViewController.swift; sourceTree = "<group>"; };
 		0D2474062A4667CD0075E147 /* ConfigureCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigureCardViewController.xib; sourceTree = "<group>"; };
 		0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +222,13 @@
 		0D45B1732A30400000EFC7F4 /* VerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationViewController.xib; sourceTree = "<group>"; };
 		0D45B1772A3042F600EFC7F4 /* CodeVerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationTextField.swift; sourceTree = "<group>"; };
 		0D45B1792A304B5300EFC7F4 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPUseCase.swift; sourceTree = "<group>"; };
+		0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPRepository.swift; sourceTree = "<group>"; };
+		0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPRequest.swift; sourceTree = "<group>"; };
+		0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPDataRepository.swift; sourceTree = "<group>"; };
+		0D6B91702A4B92F70045D149 /* SendOTPEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPEntity.swift; sourceTree = "<group>"; };
+		0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAffiliationRequest.swift; sourceTree = "<group>"; };
+		0D6B91742A4B9E3E0045D149 /* ValidateAffiliationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAffiliationEntity.swift; sourceTree = "<group>"; };
 		0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesTableViewCell.xib; sourceTree = "<group>"; };
 		0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
@@ -281,7 +295,10 @@
 		0D243F232A47EF9000399600 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0D6B916B2A4B90120045D149 /* Request */,
 				0D243F252A47F03500399600 /* ExampleEntity.swift */,
+				0D6B91702A4B92F70045D149 /* SendOTPEntity.swift */,
+				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -289,7 +306,8 @@
 		0D243F242A47EF9E00399600 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				0D243F2B2A47FF6100399600 /* ExampleUseCase.swift */,
+				0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */,
+				0D243F2B2A47FF6100399600 /* UserUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -440,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA061D62A495EF40096DCD1 /* ExampleDataRepository.swift */,
+				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -678,6 +697,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0D6B916B2A4B90120045D149 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */,
+				0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		0D904CBE2A364402007D37D3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,7 +729,8 @@
 		0D904CCF2A377035007D37D3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				0D243F292A47FB5B00399600 /* ExampleRepository.swift */,
+				0D243F292A47FB5B00399600 /* UserRepository.swift */,
+				0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -964,11 +993,14 @@
 				0D904CD12A3771E6007D37D3 /* VerificationRouter.swift in Sources */,
 				0D45B1312A2EABF500EFC7F4 /* Colors.swift in Sources */,
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
+				0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */,
+				0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D45B1572A2EFCBD00EFC7F4 /* ViewExtension.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
+				0D6B91712A4B92F70045D149 /* SendOTPEntity.swift in Sources */,
 				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
 				0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */,
 				0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */,
@@ -987,6 +1019,7 @@
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
+				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
 				0D243F222A47EF6F00399600 /* APIClient.swift in Sources */,
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
@@ -999,10 +1032,11 @@
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
 				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
-				0D243F2C2A47FF6100399600 /* ExampleUseCase.swift in Sources */,
+				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
+				0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */,
 				0DA061D72A495EF40096DCD1 /* ExampleDataRepository.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */,
@@ -1021,10 +1055,12 @@
 				0D45B1662A3024DC00EFC7F4 /* PersonalDataViewModel.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
-				0D243F2A2A47FB5B00399600 /* ExampleRepository.swift in Sources */,
+				0D6B91752A4B9E3E0045D149 /* ValidateAffiliationEntity.swift in Sources */,
+				0D243F2A2A47FB5B00399600 /* UserRepository.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
+				0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

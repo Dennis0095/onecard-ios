@@ -12,7 +12,7 @@ protocol AuthenticationRouterDelegate: Router {
     func navigateToLogin()
     func navigateToActivateUser()
     func navigateToRegister()
-    func navigateToPersonalData()
+    func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest)
     func navigateToPin()
     //func navigateToVerify()
     func navigateToLoginInformation()

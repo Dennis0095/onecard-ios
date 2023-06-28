@@ -42,7 +42,7 @@ class LoginViewModel: LoginViewModelProtocol {
     }
     
     func showError() {
-        router.showMessageError()
+        router.showMessageError(title: "Error", description: "Descripción del error")
     }
     
     func formValidation() {
@@ -50,7 +50,7 @@ class LoginViewModel: LoginViewModelProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             Loading.shared.hide()
             if self.username.isEmpty || self.password.isEmpty {
-                self.router.showMessageError()
+                self.router.showMessageError(title: "Error", description: "Completa datos")
             } else {
                 self.router.navigateToHome()
                 //self.router.navigateToActivateUser()

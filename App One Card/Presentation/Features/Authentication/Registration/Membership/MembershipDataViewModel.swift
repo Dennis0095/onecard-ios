@@ -9,27 +9,33 @@ import Foundation
 import Combine
 
 protocol MembershipDataViewModelProtocol {
-    var docType: SelectModel? { get set }
-    //var docNumber: String { get set }
-    //var docRuc: String { get set }
+    var documentTypeList: [SelectModel] { get set }
+    var documentType: SelectModel? { get set }
+    var documentNumber: String? { get set }
+    var companyRUC: String? { get set }
     
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler)
     func validateUser()
-    func cancelRequests()
 }
 
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
     private let router: AuthenticationRouterDelegate
-    private let exampleUseCase: ExampleUseCase
-    private var cancellables = Set<AnyCancellable>()
+    private let userUseCase: UserUseCase
     
-    var docType: SelectModel?
-    //var docNumber: String = ""
-    //var docRuc: String = ""
+    var documentTypeList: [SelectModel] = [
+        SelectModel(id: "1", name: "DNI"),
+        SelectModel(id: "2", name: "CARNET EXTRANJERÍA"),
+        SelectModel(id: "3", name: "PASAPORTE"),
+        SelectModel(id: "5", name: "RUC"),
+        SelectModel(id: "7", name: "PTP")
+    ]
+    var documentType: SelectModel?
+    var documentNumber: String?
+    var companyRUC: String?
     
-    init(router: AuthenticationRouterDelegate, exampleUseCase: ExampleUseCase) {
+    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCase) {
         self.router = router
-        self.exampleUseCase = exampleUseCase
+        self.userUseCase = userUseCase
     }
     
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
@@ -37,24 +43,22 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
     }
     
     func validateUser() {
-        let cancellable = exampleUseCase.validateUser()
-            .sink { completion in
-                switch completion {
-                case .finished: break
-                case .failure(_):
-                    self.router.showMessageError()
-                }
-            } receiveValue: { example in
+        guard let documentTypeId = documentType?.id, let documentNumber = self.documentNumber, let companyRUC = self.companyRUC else {
+            return
+        }
+        
+        let request = ValidateAffiliationRequest(documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
+        userUseCase.validateUser(request: request) { result in
+            switch result {
+            case .success(_):
                 DispatchQueue.main.async {
-                    self.router.navigateToPersonalData()
+                    self.router.navigateToPersonalData(beforeRequest: request)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.router.showMessageError(title: error.title, description: error.description)
                 }
             }
-        
-        cancellable.store(in: &cancellables)
-    }
-    
-    func cancelRequests() {
-        cancellables.forEach { $0.cancel() }
-        cancellables.removeAll()
+        }
     }
 }

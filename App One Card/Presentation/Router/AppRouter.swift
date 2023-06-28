@@ -10,7 +10,7 @@ import UIKit
 
 protocol Router {
     func start()
-    func showMessageError()
+    func showMessageError(title: String, description: String)
 }
 
 class AppRouter: Router {
@@ -28,8 +28,10 @@ class AppRouter: Router {
         window.makeKeyAndVisible()
     }
     
-    func showMessageError() {
+    func showMessageError(title: String, description: String) {
         let view = AlertErrorViewController()
+        view.titleError = title
+        view.descriptionError = description
         view.modalPresentationStyle = .custom
         view.transitioningDelegate = (navigationController?.topViewController as? BaseViewController)
         navigationController?.present(view, animated: true, completion: nil)
@@ -54,16 +56,16 @@ extension AppRouter: AuthenticationRouterDelegate {
         navigationController?.pushViewController(loginInformationViewController, animated: true)
     }
     
-    func navigateToPersonalData() {
-        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self)
+    func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest) {
+        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, beforeRequest: beforeRequest)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(personalDataViewController, animated: true)
     }
     
     func navigateToRegister() {
-        let repository = ExampleDataRepository()
-        let useCase = ExampleUseCase(exampleRepository: repository)
-        let viewModel = MembershipDataViewModel(router: self, exampleUseCase: useCase)
+        let repository = UserDataRepository()
+        let useCase = UserUseCase(userRepository: repository)
+        let viewModel = MembershipDataViewModel(router: self, userUseCase: useCase)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
         //interactor.membershipDataView = membershipDataViewController
         navigationController?.pushViewController(membershipDataViewController, animated: true)

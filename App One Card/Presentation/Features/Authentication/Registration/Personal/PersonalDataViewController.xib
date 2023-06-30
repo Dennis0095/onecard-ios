@@ -78,7 +78,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese sus datos de contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp9-Kl-q8e">
-                                    <rect key="frame" x="18" y="313" width="357" height="17"/>
+                                    <rect key="frame" x="18" y="293" width="357" height="17"/>
                                     <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -110,7 +110,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8V5-Du-goy">
-                                    <rect key="frame" x="18" y="354" width="357" height="136"/>
+                                    <rect key="frame" x="18" y="334" width="357" height="136"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-UR-ue0" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
@@ -140,7 +140,7 @@
                                 <constraint firstItem="Heb-m6-ElF" firstAttribute="leading" secondItem="w9f-J4-N4p" secondAttribute="leading" constant="18" id="PQ9-aL-J7B"/>
                                 <constraint firstItem="ih0-L3-TsR" firstAttribute="centerX" secondItem="w9f-J4-N4p" secondAttribute="centerX" id="cZn-mE-tGm"/>
                                 <constraint firstItem="8V5-Du-goy" firstAttribute="leading" secondItem="w9f-J4-N4p" secondAttribute="leading" constant="18" id="hy7-UA-7ga"/>
-                                <constraint firstItem="tp9-Kl-q8e" firstAttribute="top" secondItem="Heb-m6-ElF" secondAttribute="bottom" constant="40" id="p2z-bB-kFr"/>
+                                <constraint firstItem="tp9-Kl-q8e" firstAttribute="top" secondItem="Heb-m6-ElF" secondAttribute="bottom" constant="20" id="p2z-bB-kFr"/>
                                 <constraint firstItem="ih0-L3-TsR" firstAttribute="leading" secondItem="w9f-J4-N4p" secondAttribute="leading" constant="18" id="rTl-1o-7gR"/>
                                 <constraint firstAttribute="trailing" secondItem="ih0-L3-TsR" secondAttribute="trailing" constant="18" id="wBC-VY-7xK"/>
                                 <constraint firstAttribute="bottom" secondItem="8V5-Du-goy" secondAttribute="bottom" id="ytg-UR-a8Z"/>

@@ -65,7 +65,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 12)
+        label.font = UIFont(name: "Gotham-Book", size: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -86,7 +86,11 @@ class SelectTextField: UIView {
     
     internal var hasError: Bool = false
     internal var isPlaceholderOnTop: Bool = false
-    internal var errorMessage: String?
+    internal var errorMessage: String? {
+        didSet {
+            lblError.text = errorMessage
+        }
+    }
     
     internal var text: String = "" {
         didSet {
@@ -94,15 +98,15 @@ class SelectTextField: UIView {
         }
     }
     
-//    internal var isValid: Bool = false {
-//        didSet {
-//            if errorMessage != nil {
-//                hasError = !isValid
-//            }
-//            changeStatus(status: isValid ? .focused : .error)
-//        }
-//    }
-
+    internal var isValid: Bool = false {
+        didSet {
+            if errorMessage != nil {
+                hasError = !isValid
+            }
+            changeStatus(status: isValid ? .activated : .error)
+        }
+    }
+    
     internal var status: SelectTextFieldStatus = .activated {
         didSet {
             changeStatus(status: status)
@@ -164,12 +168,12 @@ class SelectTextField: UIView {
             lblPlaceholder.bottomAnchor.constraint(equalTo: self.viewPlaceholder.bottomAnchor),
             
             lblError.topAnchor.constraint(equalTo: self.viewError.topAnchor),
-            lblError.leadingAnchor.constraint(greaterThanOrEqualTo: self.viewError.leadingAnchor),
+            lblError.leadingAnchor.constraint(equalTo: self.viewError.leadingAnchor),
             lblError.trailingAnchor.constraint(equalTo: self.viewError.trailingAnchor),
             lblError.bottomAnchor.constraint(equalTo: self.viewError.bottomAnchor),
         ])
         
-        viewError.isHidden = true
+        //viewError.isHidden = true
     }
     
     func addActions() {
@@ -180,7 +184,7 @@ class SelectTextField: UIView {
     
     func configure(placeholder: String? = "", errorMessage: String? = nil, status: SelectTextFieldStatus, imageSelect: UIImage) {
         lblPlaceholder.text = placeholder
-        lblError.text = errorMessage
+        //lblError.text = errorMessage
         
         self.errorMessage = errorMessage
         self.status = status
@@ -195,21 +199,23 @@ class SelectTextField: UIView {
         switch status {
         case .defaultData:
             alpha = 1.0
+            viewPlaceholder.backgroundColor = .white
             lblPlaceholder.textColor = Design.color(.grey60)
             viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                lblError.isHidden = true
             }
 
             showPlaceholderOnTop()
         case .activated:
             alpha = 1.0
+            viewPlaceholder.backgroundColor = .white
             lblPlaceholder.textColor = Design.color(.grey60)
             viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                lblError.isHidden = true
             }
             
             if text.isEmpty {
@@ -217,11 +223,12 @@ class SelectTextField: UIView {
             }
         case .focused:
             alpha = 1.0
+            viewPlaceholder.backgroundColor = .white
             viewSelected.layer.borderColor = Design.color(.primary).cgColor
             lblPlaceholder.textColor = Design.color(.grey100)
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                lblError.isHidden = true
             }
             
             if text.isEmpty {
@@ -229,11 +236,12 @@ class SelectTextField: UIView {
             }
         case .disabled:
             alpha = 0.6
+            viewPlaceholder.backgroundColor = .white
             lblPlaceholder.textColor = Design.color(.grey60)
             viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
-                viewError.isHidden = true
+                lblError.isHidden = true
             }
             
             if text.isEmpty {
@@ -242,15 +250,28 @@ class SelectTextField: UIView {
         case .error:
             alpha = 1.0
             viewPlaceholder.backgroundColor = .white
+            lblPlaceholder.textColor = Design.color(.grey60)
+            viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
-                lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
-                viewSelected.layer.borderColor = UIColor.red.cgColor
-                viewError.isHidden = false
+                lblError.isHidden = false
             }
             
             if text.isEmpty {
                 showPlaceholderOnCenter()
+            }
+        case .errorFocused:
+            alpha = 1.0
+            viewPlaceholder.backgroundColor = .white
+            lblPlaceholder.textColor = Design.color(.grey100)
+            viewSelected.layer.borderColor = Design.color(.primary).cgColor
+            
+            if errorMessage != nil {
+                lblError.isHidden = false
+            }
+
+            if text.isEmpty {
+                showPlaceholderOnTop()
             }
         }
     }
@@ -311,5 +332,6 @@ enum SelectTextFieldStatus {
     case focused
     case disabled
     case error
+    case errorFocused
     case defaultData
 }

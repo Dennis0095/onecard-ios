@@ -10,7 +10,7 @@ import Foundation
 protocol PersonalDataViewModelProtocol {
     var name: String? { get set }
     var lastName: String? { get set }
-    var birtdDay: String? { get set }
+    var birthday: String? { get set }
     var cellphone: String? { get set }
     var email: String? { get set }
     
@@ -22,7 +22,7 @@ protocol PersonalDataViewModelProtocol {
 class PersonalDataViewModel: PersonalDataViewModelProtocol {
     var name: String?
     var lastName: String?
-    var birtdDay: String?
+    var birthday: String?
     var cellphone: String?
     var email: String?
     
@@ -49,17 +49,19 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
     }
     
     func validateFields() {
-        guard let name = name, let lastName = self.lastName, let birtdDay = self.birtdDay, let cellphone = self.cellphone, let email = self.email else {
+        guard let name = name, let lastName = self.lastName, let birthday = self.birthday, let cellphone = self.cellphone, let email = self.email else {
             return
         }
-        
-        let request = ValidatePersonalDataRequest(documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC, name: name, lastName: lastName, birthday: birtdDay, cellphone: cellphone, email: email)
+
+        let request = ValidatePersonalDataRequest(documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC, name: name, lastName: lastName, birthday: birthday, cellphone: cellphone, email: email)
         
         userUseCase.validatePersonalData(request: request) { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.router.navigateToLoginInformation()
+                    self.verificationRouter.navigateToVerification(navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] in
+                        self?.router.navigateToLoginInformation()
+                    }
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

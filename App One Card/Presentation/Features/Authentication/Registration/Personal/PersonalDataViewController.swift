@@ -44,18 +44,51 @@ class PersonalDataViewController: BaseViewController {
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
         
-        txtBirthday.action = { [weak self] in
-            self?.viewModel.showDateList(selected: self?.selectedDate, action: { date in
+        txtBirthday.action = {
+            self.viewModel.showDateList(selected: self.selectedDate, action: { date in
                 if let date = date {
-                    self?.selectedDate = date
+                    self.selectedDate = date
                     let strDate = DateUtils.shared.getFormattedDate(date: date, outputFormat: "dd/MM/yyyy")
-                    self?.txtBirthday.setText(string: strDate)
+                    self.txtBirthday.setText(string: strDate)
+                    self.viewModel.birthday = strDate
                 }
-                self?.txtBirthday.status = .activated
+                self.txtBirthday.status = self.txtBirthday.isValid ? .activated : .error
             }, presented: {
-                self?.txtBirthday.status = .focused
+                self.txtBirthday.status = self.txtBirthday.isValid ? .focused : .errorFocused
             })
         }
+        
+        txtName.listenChanges = { [weak self] text in
+            self?.viewModel.name = text
+        }
+        
+        txtLastName.listenChanges = { [weak self] text in
+            self?.viewModel.lastName = text
+        }
+        
+        txtPhone.listenChanges = { [weak self] text in
+            self?.viewModel.cellphone = text
+        }
+        
+        txtEmail.listenChanges = { [weak self] text in
+            self?.viewModel.email = text
+        }
+    }
+    
+    private func validate() -> Bool {
+        txtName.errorMessage = txtName.text.isEmpty ? "Ingrese sus nombres." : "Debe contener solo letras."
+        txtLastName.errorMessage = txtLastName.text.isEmpty ? "Ingrese sus apellidos." : "Debe contener solo letras."
+        txtBirthday.errorMessage = "Ingrese su fecha de nacimiento"
+        txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingrese su número de celular." : "Debe contener 9 números."
+        txtEmail.errorMessage = txtEmail.text.isEmpty ? "Ingrese su correo electrónico." : "Ingrese un correo válido."
+        
+        txtName.isValid = txtName.text.validateString(withRegex: .onlyLetters)
+        txtLastName.isValid = txtLastName.text.validateString(withRegex: .onlyLetters)
+        txtBirthday.isValid = !txtBirthday.text.isEmpty
+        txtPhone.isValid = txtPhone.text.validateString(withRegex: .contain9numbers)
+        txtEmail.isValid = txtEmail.text.validateString(withRegex: .email)
+        
+        return txtName.isValid && txtLastName.isValid && txtBirthday.isValid && txtPhone.isValid && txtEmail.isValid
     }
     
     @objc private func tapBack() {
@@ -63,6 +96,8 @@ class PersonalDataViewController: BaseViewController {
     }
     
     @IBAction func next(_ sender: Any) {
-        viewModel.validateFields()
+        if validate() {
+            viewModel.validateFields()
+        }
     }
 }

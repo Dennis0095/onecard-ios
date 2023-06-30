@@ -35,4 +35,5 @@ enum Regex: String{
     case contain9to12numbers = "^\\d{9,12}$"
     case contain9to12characters = "^.{9,12}$"
     case contain11numbers = "^\\d{11}$"
+    case onlyLetters = "^[a-zA-Z]+$"
 }

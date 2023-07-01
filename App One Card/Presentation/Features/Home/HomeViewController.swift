@@ -12,6 +12,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var viewCardLock: UIView!
     @IBOutlet weak var viewConfigureCard: UIView!
     @IBOutlet weak var viewChangePin: UIView!
+    @IBOutlet weak var lblAmount: UILabel!
     
     private var viewModel: HomeViewModelProtocol
     
@@ -27,6 +28,12 @@ class HomeViewController: BaseViewController {
     override func initView() {
         [viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
             view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
+        }
+        
+        viewModel.balanceInquiry()
+        
+        HomeObserver.shared.listenAmountChanges = { amount in
+            self.lblAmount.text = amount
         }
     }
 

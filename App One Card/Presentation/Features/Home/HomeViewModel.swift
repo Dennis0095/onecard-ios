@@ -10,15 +10,19 @@ import Foundation
 protocol HomeViewModelProtocol {
     func toCardLock()
     func toConfigureCard()
+    func balanceInquiry()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     
-    init(router: HomeRouterDelegate, successfulRouter: SuccessfulRouterDelegate) {
+    private let balanceUseCase: BalanceUseCaseProtocol
+    
+    init(router: HomeRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol) {
         self.router = router
         self.successfulRouter = successfulRouter
+        self.balanceUseCase = balanceUseCase
     }
     
     func toCardLock() {
@@ -32,4 +36,55 @@ class HomeViewModel: HomeViewModelProtocol {
     func toConfigureCard() {
         router.navigateToConfigureCard()
     }
+    
+    func balanceInquiry() {
+        let request = BalanceInquiryRequest(segCode: "12345687910111213140")
+        
+        balanceUseCase.inquiry(request: request) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "")
+                    HomeObserver.shared.updateAmount(amount: balance)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.router.showMessageError(title: error.title, description: error.description) {
+                        if error.actionAfterFailure {
+                            self.balanceInquiry()
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
+enum Currency {
+    case Dolars
+    case Soles
+    
+    var type: String {
+        switch self {
+        case .Dolars:
+            return "840"
+        case .Soles:
+            return "604"
+        }
+    }
+}
+
+
+//enum SignStandard: String {
+//    case C = "840"
+//    case D = "604"
+//
+//    var type: String {
+//        switch self {
+//        case .C:
+//            return "840"
+//        case .D:
+//            return "604"
+//        }
+//    }
+//}

@@ -43,6 +43,12 @@
 		0D3A802C2A3794D500C32F39 /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801C2A3794D500C32F39 /* Gotham-MediumItalic.otf */; };
 		0D3A802D2A3794D500C32F39 /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801D2A3794D500C32F39 /* Gotham-BookItalic.otf */; };
 		0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A801E2A3794D500C32F39 /* Gotham-XLight.otf */; };
+		0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41E92A5065D600C2546A /* BalanceInquiryRequest.swift */; };
+		0D3E41EC2A50661200C2546A /* BalanceInquiryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41EB2A50661200C2546A /* BalanceInquiryEntity.swift */; };
+		0D3E41EE2A506AD800C2546A /* BalanceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41ED2A506AD800C2546A /* BalanceUseCase.swift */; };
+		0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */; };
+		0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */; };
+		0D3E41F42A50882E00C2546A /* HomeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3E41F32A50882E00C2546A /* HomeObserver.swift */; };
 		0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */; };
 		0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B0E82A2E4EA600EFC7F4 /* SceneDelegate.swift */; };
 		0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0EF2A2E4EAC00EFC7F4 /* Assets.xcassets */; };
@@ -180,6 +186,12 @@
 		0D3A801C2A3794D500C32F39 /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
 		0D3A801D2A3794D500C32F39 /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
 		0D3A801E2A3794D500C32F39 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
+		0D3E41E92A5065D600C2546A /* BalanceInquiryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInquiryRequest.swift; sourceTree = "<group>"; };
+		0D3E41EB2A50661200C2546A /* BalanceInquiryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceInquiryEntity.swift; sourceTree = "<group>"; };
+		0D3E41ED2A506AD800C2546A /* BalanceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUseCase.swift; sourceTree = "<group>"; };
+		0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRepository.swift; sourceTree = "<group>"; };
+		0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceDataRepository.swift; sourceTree = "<group>"; };
+		0D3E41F32A50882E00C2546A /* HomeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObserver.swift; sourceTree = "<group>"; };
 		0D45B0E32A2E4EA600EFC7F4 /* DEV App One Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DEV App One Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D45B0E82A2E4EA600EFC7F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +323,7 @@
 				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataEntity.swift */,
 				0DDE79192A4FC3C400A52DEB /* ValidateOTPEntity.swift */,
 				0D842E4E2A4FD6EF0059A906 /* UserRegisterEntity.swift */,
+				0D3E41EB2A50661200C2546A /* BalanceInquiryEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -320,6 +333,7 @@
 			children = (
 				0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */,
 				0D243F2B2A47FF6100399600 /* UserUseCase.swift */,
+				0D3E41ED2A506AD800C2546A /* BalanceUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -471,6 +485,7 @@
 			children = (
 				0DA061D62A495EF40096DCD1 /* UserDataRepository.swift */,
 				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
+				0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -717,6 +732,7 @@
 				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
 				0DDE79172A4FC37300A52DEB /* ValidateOTPRequest.swift */,
 				0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */,
+				0D3E41E92A5065D600C2546A /* BalanceInquiryRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -746,6 +762,7 @@
 			children = (
 				0D243F292A47FB5B00399600 /* UserRepository.swift */,
 				0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */,
+				0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -793,6 +810,7 @@
 				0DB967662A35238C0079D432 /* HomeViewController.swift */,
 				0DB967672A35238C0079D432 /* HomeViewController.xib */,
 				0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */,
+				0D3E41F32A50882E00C2546A /* HomeObserver.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1016,12 +1034,14 @@
 				0D45B1572A2EFCBD00EFC7F4 /* ViewExtension.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
 				0D6B91712A4B92F70045D149 /* SendOTPEntity.swift in Sources */,
+				0D3E41EE2A506AD800C2546A /* BalanceUseCase.swift in Sources */,
 				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
 				0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */,
 				0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */,
 				0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */,
 				0D45B1622A2FF77200EFC7F4 /* MembershipDataViewModel.swift in Sources */,
 				0DA061D52A49569F0096DCD1 /* LoaderDisplayingView.swift in Sources */,
+				0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
 				0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */,
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
@@ -1035,6 +1055,8 @@
 				0D842E4F2A4FD6EF0059A906 /* UserRegisterEntity.swift in Sources */,
 				0DDE79182A4FC37300A52DEB /* ValidateOTPRequest.swift in Sources */,
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
+				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
+				0D3E41EC2A50661200C2546A /* BalanceInquiryEntity.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
 				0DDE791A2A4FC3C400A52DEB /* ValidateOTPEntity.swift in Sources */,
 				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
@@ -1049,9 +1071,11 @@
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
+				0D3E41F42A50882E00C2546A /* HomeObserver.swift in Sources */,
 				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
 				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,
+				0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,

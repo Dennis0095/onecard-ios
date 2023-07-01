@@ -41,6 +41,35 @@ extension String {
         let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
         return maskedEmail
     }
+    
+    func parseAmountToCurrency(type: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        switch type {
+        case "840":
+            formatter.currencyCode = "USD"
+            formatter.currencySymbol = "$"
+        case "604":
+            formatter.currencyCode = "PEN"
+            formatter.currencySymbol = "S/."
+        default: break
+        }
+        
+        var string = String(self.dropFirst(6))
+        let dotIndex = string.index(string.endIndex, offsetBy: -2)
+        string.insert(".", at: dotIndex)
+        
+        if let amount = Double(string) {
+            if let formattedString = formatter.string(from: NSNumber(value: amount)) {
+                return formattedString
+            } else {
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
 }
 
 enum Regex: String{

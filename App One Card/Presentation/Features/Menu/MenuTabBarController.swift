@@ -68,7 +68,9 @@ class MenuTabBarController: UITabBarController {
     }
 
     private func setupHome() -> HomeViewController {
-        let viewModel = HomeViewModel(router: homeRouter, successfulRouter: successfulRouter)
+        let repository = BalanceDataRepository()
+        let useCase = BalanceUseCase(balanceRepository: repository)
+        let viewModel = HomeViewModel(router: homeRouter, successfulRouter: successfulRouter, balanceUseCase: useCase)
         let home = HomeViewController(viewModel: viewModel)
         return home
     }

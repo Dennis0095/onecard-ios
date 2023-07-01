@@ -33,7 +33,7 @@ class PersonalDataViewController: BaseViewController {
     override func initView() {
         txtName.configure(placeholder: Constants.placeholder_name, errorMessage: Constants.error, status: .activated)
         txtLastName.configure(placeholder: Constants.placeholder_last_name, errorMessage: Constants.error, status: .activated)
-        txtBirthday.configure(placeholder: Constants.placeholder_birthday, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "calendar"))
+        txtBirthday.configure(placeholder: Constants.placeholder_birthday, status: .activated, imageSelect: #imageLiteral(resourceName: "calendar"))
         txtPhone.configure(placeholder: Constants.placeholder_phone, errorMessage: Constants.error, status: .activated, type: .numberPad)
         txtEmail.configure(placeholder: Constants.placeholder_email, errorMessage: Constants.error, status: .activated, type: .emailAddress)
         btnNext.configure(text: Constants.next_btn, status: .enabled)

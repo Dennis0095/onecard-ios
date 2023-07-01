@@ -10,7 +10,7 @@ import UIKit
 typealias SelectDateActionHandler = (_ item: Date?) -> ()
 
 class SelectDateViewController: UIViewController {
-
+    
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnAccept: PrimaryFilledButton!
     @IBOutlet weak var pickerItems: UIDatePicker!
@@ -21,15 +21,16 @@ class SelectDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         lblTitle.text = textTitle
         
         pickerItems.locale = Locale.current
         pickerItems.date = selectedItem ?? Date()
-        
+        pickerItems.maximumDate = Date()
+
         btnAccept.configure(text: Constants.accept, status: .enabled)
     }
-
+    
     @IBAction func clickCancel(_ sender: Any) {
         if let actionHandler = self.actionHandler {
             actionHandler(nil)

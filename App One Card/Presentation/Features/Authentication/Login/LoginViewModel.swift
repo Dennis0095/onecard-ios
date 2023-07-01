@@ -46,15 +46,11 @@ class LoginViewModel: LoginViewModelProtocol {
     }
     
     func formValidation() {
-        Loading.shared.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            Loading.shared.hide()
-            if self.username.isEmpty || self.password.isEmpty {
-                self.router.showMessageError(title: "Error", description: "Completa datos", completion: nil)
-            } else {
-                self.router.navigateToHome()
-                //self.router.navigateToActivateUser()
-            }
+        if self.username.isEmpty || self.password.isEmpty {
+            self.router.showMessageError(title: "Error", description: "Completa datos", completion: nil)
+        } else {
+            self.router.navigateToHome()
+            //self.router.navigateToActivateUser()
         }
     }
 }

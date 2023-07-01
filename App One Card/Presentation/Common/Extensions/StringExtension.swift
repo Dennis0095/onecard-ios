@@ -18,7 +18,6 @@ extension String {
             let matches = expression.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
             return matches.count > 0
         } catch {
-            print("Invalid regular expression: \(error)")
             return false
         }
     }

@@ -20,7 +20,6 @@ class PinViewController: BaseViewController {
     
     override func setActions() {
         keyboardButtons.actionButton = { number in
-            print(self.pin.count < 4)
             if self.pin.count < 4 {
                 self.pin.append(number)
                 self.txtPin.setText(text: self.pin)

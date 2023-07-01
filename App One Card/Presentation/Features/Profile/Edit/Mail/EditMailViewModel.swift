@@ -23,7 +23,7 @@ class EditMailViewModel: EditMailViewModelProtocol {
     }
     
     func successfulEdit() {
-        verificationRouter.navigateToVerification(navTitle: "EDITAR CORREO", stepDescription: "Paso 2 de 2", success: { [weak self] in
+        verificationRouter.navigateToVerification(email: "", number: "", navTitle: "EDITAR CORREO", stepDescription: "Paso 2 de 2", success: { [weak self] idOtp in
             self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su correo electrónico con éxito.", button: "REGRESAR", accept: {
                 self?.profileRouter.successfulEditProfile()
             })

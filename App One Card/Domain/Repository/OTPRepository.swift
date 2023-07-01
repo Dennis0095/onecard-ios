@@ -10,5 +10,5 @@ import Combine
 
 protocol OTPRepository {
     func send(request: SendOTPRequest) -> AnyPublisher<SendOTPEntity, Error>
-    //func validate() -> AnyPublisher<ExampleEntity, Error>
+    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPEntity, Error>
 }

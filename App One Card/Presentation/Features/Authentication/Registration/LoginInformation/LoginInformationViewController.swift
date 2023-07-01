@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginInformationViewController: UIViewController {
+class LoginInformationViewController: BaseViewController {
 
     @IBOutlet weak var txtUser: OutlinedTextField!
     @IBOutlet weak var txtPassword: OutlinedTextField!
@@ -26,30 +26,53 @@ class LoginInformationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func initView() {
         txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
         txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
         txtConfirmPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
-        addActions()
+        txtPassword.txt.textContentType = .oneTimeCode
+        txtConfirmPassword.txt.textContentType = .oneTimeCode
     }
     
-    func addActions() {
+    override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
+        
+        txtUser.listenChanges = { [weak self] text in
+            self?.viewModel.username = text
+        }
+        
+        txtPassword.listenChanges = { [weak self] text in
+            self?.viewModel.password = text
+        }
+        
+        txtConfirmPassword.listenChanges = { [weak self] text in
+            self?.viewModel.passwordOk = text
+        }
     }
     
     @objc private func tapBack() {
         self.navigationController?.popViewController(animated: true)
     }
     
+    private func validate() -> Bool {
+        txtUser.errorMessage = txtUser.text.isEmpty ? "Debe ingresar su usuario." : "Debe contener números y letras."
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : "Debe contener números y letras."
+        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su clave." : "Las claves no coinciden."
+        
+        txtUser.isValid = txtUser.text.validateString(withRegex: .alphanumeric)
+        txtPassword.isValid = txtPassword.text.validateString(withRegex: .alphanumeric)
+        txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty
+
+        return txtUser.isValid && txtPassword.isValid && txtConfirmPassword.isValid
+    }
+    
     @IBAction func next(_ sender: Any) {
-        viewModel.successfulRegister { [weak self] in
-            self?.viewModel.toLogin()
+        if validate() {
+            viewModel.registerUser()
         }
     }
 }

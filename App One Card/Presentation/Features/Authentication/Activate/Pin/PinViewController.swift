@@ -23,7 +23,7 @@ class PinViewController: BaseViewController {
             print(self.pin.count < 4)
             if self.pin.count < 4 {
                 self.pin.append(number)
-                self.txtPin.text = self.pin
+                self.txtPin.setText(text: self.pin)
                 self.txtPin.status = .activatedWithMessage
             }
         }
@@ -31,7 +31,7 @@ class PinViewController: BaseViewController {
         keyboardButtons.actionClear = {
             if self.pin.count > 0 {
                 self.pin.removeLast()
-                self.txtPin.text = self.pin
+                self.txtPin.setText(text: self.pin)
                 self.txtPin.status = .activatedWithMessage
             }
         }

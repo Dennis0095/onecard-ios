@@ -98,11 +98,13 @@ class OutlinedTextField: UIView {
     }
     internal var listenChanges: ((_ text: String) -> Void)?
     internal var selectTextField: ((_ textField: UITextField?) -> Void)?
-    internal var text: String = "" {
-        didSet {
-            txt.text = text
-        }
-    }
+//    internal var text: String = "" {
+//        didSet {
+//            txt.text = text
+//        }
+//    }
+    
+    internal var text: String = ""
     
     var isSecureTextField: Bool = false {
         didSet {
@@ -205,8 +207,9 @@ class OutlinedTextField: UIView {
         self.status = status
     }
     
-    func setHeader(header: String) {
-        lblPlaceholder.text = header
+    func setText(text: String) {
+        self.text = text
+        txt.text = text
     }
     
     func changeStatus(status: OutlinedTextFieldStatus) {
@@ -354,7 +357,7 @@ class OutlinedTextField: UIView {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if let changes = listenChanges {
             let trimText = (textField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            self.text = trimText
+            self.text = textField.text ?? ""
             //self.isValid = !trimText.isEmpty
             changes(trimText)
         }

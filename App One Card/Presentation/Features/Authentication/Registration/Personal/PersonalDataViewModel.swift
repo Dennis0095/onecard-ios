@@ -14,7 +14,6 @@ protocol PersonalDataViewModelProtocol {
     var cellphone: String? { get set }
     var email: String? { get set }
     
-    //func nextStep()
     func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler)
     func validateFields()
 }
@@ -26,23 +25,22 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
     var cellphone: String?
     var email: String?
     
-    private var router: AuthenticationRouterDelegate
-    private var verificationRouter: VerificationRouterDelegate
-    private var beforeRequest: ValidateAffiliationRequest
+    private let router: AuthenticationRouterDelegate
+    private let verificationRouter: VerificationRouterDelegate
     private let userUseCase: UserUseCase
     
-    init(router: AuthenticationRouterDelegate, verificationRouter: VerificationRouterDelegate, beforeRequest: ValidateAffiliationRequest, userUseCase: UserUseCase) {
+    private let documentType: String
+    private let documentNumber: String
+    private let companyRUC: String
+    
+    init(router: AuthenticationRouterDelegate, verificationRouter: VerificationRouterDelegate, userUseCase: UserUseCase, documentType: String, documentNumber: String, companyRUC: String) {
         self.router = router
         self.verificationRouter = verificationRouter
-        self.beforeRequest = beforeRequest
+        self.documentType = documentType
+        self.documentNumber = documentNumber
+        self.companyRUC = companyRUC
         self.userUseCase = userUseCase
     }
-    
-//    func nextStep() {
-//        verificationRouter.navigateToVerification(navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4", success: { [weak self] in
-//            self?.router.navigateToLoginInformation()
-//        })
-//    }
     
     func showDateList(selected: Date?, action: @escaping SelectDateActionHandler, presented: @escaping VoidActionHandler) {
         router.showDateList(selected: selected, action: action, presented: presented)
@@ -53,19 +51,23 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
             return
         }
 
-        let request = ValidatePersonalDataRequest(documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC, name: name, lastName: lastName, birthday: birthday, cellphone: cellphone, email: email)
+        let request = ValidatePersonalDataRequest(documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, name: name, lastName: lastName, birthday: birthday, cellphone: cellphone, email: email)
         
         userUseCase.validatePersonalData(request: request) { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self.verificationRouter.navigateToVerification(navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] in
-                        self?.router.navigateToLoginInformation()
+                    self.verificationRouter.navigateToVerification(email: email, number: cellphone, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] otpId in
+                        self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
                     }
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description)
+                    self.router.showMessageError(title: error.title, description: error.description) {
+                        if error.timeExpired {
+                            self.router.timeExpiredRegister()
+                        }
+                    }
                 }
             }
         }

@@ -22,6 +22,25 @@ extension String {
             return false
         }
     }
+    
+    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
+        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
+        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
+        let maskedString = self.enumerated().map { index, char in
+            if index < startIndex.encodedOffset {
+                return "*"
+            } else {
+                return String(char)
+            }
+        }
+        return maskedString.joined()
+    }
+    
+    func maskEmailFirstCharacters() -> String {
+        let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex
+        let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
+        return maskedEmail
+    }
 }
 
 enum Regex: String{
@@ -35,5 +54,6 @@ enum Regex: String{
     case contain9to12numbers = "^\\d{9,12}$"
     case contain9to12characters = "^.{9,12}$"
     case contain11numbers = "^\\d{11}$"
-    case onlyLetters = "^[a-zA-Z]+$"
+    case name = "^[A-Za-z\\s'-]+$"
+    case alphanumeric = "^[a-zA-Z0-9]+$"
 }

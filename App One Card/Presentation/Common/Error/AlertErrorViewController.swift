@@ -17,6 +17,7 @@ class AlertErrorViewController: UIViewController {
     
     var titleError: String?
     var descriptionError: String?
+    var accept: VoidActionHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,11 @@ class AlertErrorViewController: UIViewController {
     }
     
     @IBAction func clickAccept(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true) {
+            if let completion = self.accept {
+                completion()
+            }
+        }
     }
     
 }

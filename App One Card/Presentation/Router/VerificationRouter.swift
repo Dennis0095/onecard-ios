@@ -8,5 +8,5 @@
 import Foundation
 
 protocol VerificationRouterDelegate: Router {
-    func navigateToVerification(navTitle: String, stepDescription: String , success: @escaping VoidActionHandler)
+    func navigateToVerification(email: String, number: String, navTitle: String, stepDescription: String , success: @escaping VerificationActionHandler)
 }

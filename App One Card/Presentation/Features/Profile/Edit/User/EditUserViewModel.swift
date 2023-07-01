@@ -23,7 +23,7 @@ class EditUserViewModel: EditUserViewModelProtocol {
     }
     
     func successfulEdit() {
-        verificationRouter.navigateToVerification(navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 2 de 2", success: { [weak self] in
+        verificationRouter.navigateToVerification(email: "", number: "", navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 2 de 2", success: { [weak self] idOtp in
             self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "REGRESAR", accept: {
                 self?.profileRouter.successfulEditProfile()
             })

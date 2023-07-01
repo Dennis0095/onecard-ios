@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRouterDelegate: Router {
-    func navigateToCardBlock(navTitle: String, success: @escaping VoidActionHandler)
+    func navigateToCardBlock(email: String, number: String, navTitle: String, success: @escaping VerificationActionHandler)
     func navigateToConfigureCard()
     func successfulCardBlock()
     func successfulConfigureCard()

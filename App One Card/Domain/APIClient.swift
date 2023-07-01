@@ -18,6 +18,7 @@ enum APIError: Error {
 struct CustomError: LocalizedError {
     let title: String
     let description: String
+    var timeExpired: Bool = false
 }
 
 enum Method: String {

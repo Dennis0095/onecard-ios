@@ -56,7 +56,7 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description)
+                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
                 }
             }
         }

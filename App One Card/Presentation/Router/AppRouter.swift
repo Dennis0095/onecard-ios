@@ -10,7 +10,7 @@ import UIKit
 
 protocol Router {
     func start()
-    func showMessageError(title: String, description: String)
+    func showMessageError(title: String, description: String, completion: VoidActionHandler?)
 }
 
 class AppRouter: Router {
@@ -28,10 +28,11 @@ class AppRouter: Router {
         window.makeKeyAndVisible()
     }
     
-    func showMessageError(title: String, description: String) {
+    func showMessageError(title: String, description: String, completion: VoidActionHandler?) {
         let view = AlertErrorViewController()
         view.titleError = title
         view.descriptionError = description
+        view.accept = completion
         view.modalPresentationStyle = .custom
         view.transitioningDelegate = (navigationController?.topViewController as? BaseViewController)
         navigationController?.present(view, animated: true, completion: nil)
@@ -39,6 +40,17 @@ class AppRouter: Router {
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
+    func timeExpiredRegister() {
+        if let viewControllers = navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if let membershipDataViewController = viewController as? MembershipDataViewController {
+                    navigationController?.popToViewController(membershipDataViewController, animated: true)
+                    break
+                }
+            }
+        }
+    }
+    
     func navigateToPin() {
         let viewController = PinViewController()
         navigationController?.pushViewController(viewController, animated: true)
@@ -50,8 +62,10 @@ extension AppRouter: AuthenticationRouterDelegate {
         navigationController?.pushViewController(welcomeActivateViewController, animated: true)
     }
     
-    func navigateToLoginInformation() {
-        let viewModel = LoginInformationViewModel(router: self, successfulRouter: self)
+    func navigateToLoginInformation(otpId: String, documentType: String, documentNumber: String, companyRUC: String) {
+        let repository = UserDataRepository()
+        let useCase = UserUseCase(userRepository: repository)
+        let viewModel = LoginInformationViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
         navigationController?.pushViewController(loginInformationViewController, animated: true)
     }
@@ -59,7 +73,7 @@ extension AppRouter: AuthenticationRouterDelegate {
     func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest) {
         let repository = UserDataRepository()
         let useCase = UserUseCase(userRepository: repository)
-        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, beforeRequest: beforeRequest, userUseCase: useCase)
+        let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
         navigationController?.pushViewController(personalDataViewController, animated: true)
     }
@@ -121,10 +135,12 @@ extension AppRouter: AuthenticationRouterDelegate {
 }
 
 extension AppRouter: VerificationRouterDelegate {    
-    func navigateToVerification(navTitle: String, stepDescription: String , success: @escaping VoidActionHandler) {
-        let viewModel = VerificationViewModel()
+    func navigateToVerification(email: String, number: String, navTitle: String, stepDescription: String , success: @escaping VerificationActionHandler) {
+        let repository = OTPDataRepository()
+        let useCase = OTPUseCase(otpRepository: repository)
+        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese sus datos personales", number: "999222333", buttonTitle: Constants.next_btn)
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese sus datos personales", number: number, email: email, buttonTitle: Constants.next_btn)
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }
@@ -207,10 +223,12 @@ extension AppRouter: HomeRouterDelegate {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func navigateToCardBlock(navTitle: String, success: @escaping VoidActionHandler) {
-        let viewModel = VerificationViewModel()
+    func navigateToCardBlock(email: String, number: String, navTitle: String, success: @escaping VerificationActionHandler) {
+        let repository = OTPDataRepository()
+        let useCase = OTPUseCase(otpRepository: repository)
+        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: "******333", buttonTitle: "BLOQUEAR")
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR")
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
     

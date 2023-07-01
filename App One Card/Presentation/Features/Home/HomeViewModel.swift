@@ -22,7 +22,7 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func toCardLock() {
-        router.navigateToCardBlock(navTitle: "BLOQUEO DE TARJETA", success: { [weak self] in
+        router.navigateToCardBlock(email: "", number: "", navTitle: "BLOQUEO DE TARJETA", success: { [weak self] idOtp in
             self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "REGRESAR", accept: {
                 self?.router.successfulCardBlock()
             })

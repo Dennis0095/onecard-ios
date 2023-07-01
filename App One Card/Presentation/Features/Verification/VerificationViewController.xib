@@ -26,10 +26,11 @@
             <connections>
                 <outlet property="btnNext" destination="wJO-td-Tqn" id="Icg-6D-uTn"/>
                 <outlet property="btnResend" destination="9EJ-sX-Tqd" id="r2b-Mu-bRC"/>
+                <outlet property="btnSendCode" destination="bDH-YO-7lT" id="MKa-SN-4CI"/>
                 <outlet property="imgBack" destination="fta-ok-LFw" id="XN2-0A-Umm"/>
                 <outlet property="lblCount" destination="UTB-jP-qRe" id="HM5-3H-BWF"/>
+                <outlet property="lblDescription" destination="ILC-n5-f37" id="kZj-lI-yXz"/>
                 <outlet property="lblNavTitle" destination="1FL-jR-K4t" id="HJ1-qO-jmf"/>
-                <outlet property="lblNumber" destination="ILC-n5-f37" id="khT-PD-cZN"/>
                 <outlet property="lblStep" destination="X2t-2t-dow" id="6wY-74-PpC"/>
                 <outlet property="lblTitleDescription" destination="gHa-p1-oqs" id="820-1g-NfH"/>
                 <outlet property="txtCode" destination="5jA-Ic-bMU" id="Id3-YZ-lga"/>
@@ -99,16 +100,16 @@
                             <rect key="frame" x="0.0" y="80" width="393" height="603"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Rqi-F0-yZa">
-                                    <rect key="frame" x="18" y="15.999999999999986" width="357" height="253.66666666666663"/>
+                                    <rect key="frame" x="18" y="16" width="357" height="265.66666666666669"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese sus datos personales" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
-                                            <rect key="frame" x="0.0" y="0.0" width="203" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese su código de verificación" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
+                                            <rect key="frame" x="0.0" y="0.0" width="233" height="17"/>
                                             <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                             <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-fu-nlh">
-                                            <rect key="frame" x="0.0" y="41" width="328" height="50.666666666666657"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-fu-nlh">
+                                            <rect key="frame" x="0.0" y="41" width="328" height="62.666666666666657"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingrese el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
                                                     <rect key="frame" x="0.0" y="0.0" width="328" height="33.666666666666664"/>
@@ -116,16 +117,21 @@
                                                     <color key="textColor" red="0.42352941179999998" green="0.43529411759999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviar al correo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl5-7x-p0d">
-                                                    <rect key="frame" x="0.0" y="33.666666666666657" width="328" height="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDH-YO-7lT">
+                                                    <rect key="frame" x="0.0" y="33.666666666666657" width="111" height="29"/>
                                                     <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
-                                                    <color key="textColor" red="0.15686274509803921" green="0.70588235294117641" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Enviar al correo">
+                                                        <color key="titleColor" name="blue_primary"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="send:" destination="-1" eventType="touchUpInside" id="d3l-vD-Gmn"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u7t-yE-mpn">
-                                            <rect key="frame" x="0.0" y="115.66666666666669" width="50" height="76"/>
+                                            <rect key="frame" x="0.0" y="127.66666666666669" width="50" height="76"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="5jA-Ic-bMU" customClass="CodeVerificationTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
@@ -145,7 +151,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-Fa-fWL">
-                                            <rect key="frame" x="0.0" y="215.66666666666669" width="293.66666666666669" height="38"/>
+                                            <rect key="frame" x="0.0" y="227.66666666666669" width="293.66666666666669" height="38"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No recibiste el código?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTr-iN-5aD">
                                                     <rect key="frame" x="0.0" y="0.0" width="293.66666666666669" height="17"/>

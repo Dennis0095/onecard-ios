@@ -13,7 +13,7 @@ struct SendOTPEntity: Codable {
     let sendOtpSms: String?
     let sendOtpEmail: String?
     let success: String?
-    let idOTP: String?
+    let otpId: String?
     
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
@@ -21,6 +21,6 @@ struct SendOTPEntity: Codable {
         case sendOtpSms = "ENVIO_OTP_SMS"
         case sendOtpEmail = "ENVIO_OTP_EMAIL"
         case success = "EXITO"
-        case idOTP = "ID_OTP"
+        case otpId = "ID_OTP"
     }
 }

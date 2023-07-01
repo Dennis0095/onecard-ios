@@ -82,8 +82,8 @@ class PersonalDataViewController: BaseViewController {
         txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingrese su número de celular." : "Debe contener 9 números."
         txtEmail.errorMessage = txtEmail.text.isEmpty ? "Ingrese su correo electrónico." : "Ingrese un correo válido."
         
-        txtName.isValid = txtName.text.validateString(withRegex: .onlyLetters)
-        txtLastName.isValid = txtLastName.text.validateString(withRegex: .onlyLetters)
+        txtName.isValid = txtName.text.validateString(withRegex: .name)
+        txtLastName.isValid = txtLastName.text.validateString(withRegex: .name)
         txtBirthday.isValid = !txtBirthday.text.isEmpty
         txtPhone.isValid = txtPhone.text.validateString(withRegex: .contain9numbers)
         txtEmail.isValid = txtEmail.text.validateString(withRegex: .email)

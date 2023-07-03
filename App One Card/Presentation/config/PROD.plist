@@ -21,5 +21,7 @@
 	</dict>
 	<key>base_url</key>
 	<string>urlbaseprod</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

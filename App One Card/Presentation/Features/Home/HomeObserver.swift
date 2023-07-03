@@ -12,7 +12,11 @@ protocol HomeObserverProtocol {
     var amountPublisher: Published<String?>.Publisher { get }
     var listenAmountChanges: ((_ amount: String) -> Void)? { get }
     
+    var movementsPublisher: Published<[MovementEntity]?>.Publisher { get }
+    var listenMovementsChanges: ((_ movements: [MovementEntity]) -> Void)? { get }
+    
     func updateAmount(amount: String?)
+    func updateMovements(movements: [MovementEntity]?)
     func bindPublishers()
 }
 
@@ -23,7 +27,11 @@ class HomeObserver: HomeObserverProtocol {
     var amountPublisher: Published<String?>.Publisher { $amount }
     var listenAmountChanges: ((_ amount: String) -> Void)?
     
+    var movementsPublisher: Published<[MovementEntity]?>.Publisher { $movements }
+    var listenMovementsChanges: ((_ movements: [MovementEntity]) -> Void)?
+    
     @Published private var amount: String?
+    @Published private var movements: [MovementEntity]?
     private var cancellables: Set<AnyCancellable> = []
     
     private init() {
@@ -34,6 +42,10 @@ class HomeObserver: HomeObserverProtocol {
         self.amount = amount
     }
     
+    func updateMovements(movements: [MovementEntity]?) {
+        self.movements = movements
+    }
+    
     func bindPublishers() {
         amountPublisher
             .receive(on: DispatchQueue.main)
@@ -41,6 +53,17 @@ class HomeObserver: HomeObserverProtocol {
                 if let amount = amount {
                     if let action = self?.listenAmountChanges {
                         action(amount)
+                    }
+                }
+            }
+            .store(in: &cancellables)
+        
+        movementsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] movements in
+                if let movements = movements {
+                    if let action = self?.listenMovementsChanges {
+                        action(movements)
                     }
                 }
             }

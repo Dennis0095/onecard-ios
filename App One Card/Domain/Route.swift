@@ -8,6 +8,7 @@
 import Foundation
 
 enum Route {
+    case consultMovements
     case balanceInquiry
     case validateAffiliation
     case validatePersonalData
@@ -29,6 +30,8 @@ enum Route {
             return "/dcp-app/backend/api/rest/txn-mix-admin/validar-otp"
         case .balanceInquiry:
             return "/dcp-app/simphub/api/rest/txn-admin/consulta-saldo"
+        case .consultMovements:
+            return "/dcp-app/simphub/api/rest/txn-admin/consulta-movimientos"
         }
     }
 }

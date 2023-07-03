@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,6 +20,7 @@
             <connections>
                 <outlet property="btnNext" destination="NgQ-T7-fc1" id="ftj-lg-Du6"/>
                 <outlet property="imgBack" destination="VgE-kj-A5T" id="Fzp-dQ-bSm"/>
+                <outlet property="scrollView" destination="PjV-2k-zwm" id="553-Mf-s6K"/>
                 <outlet property="txtConfirmPassword" destination="mZC-Yp-CeO" id="ltd-YP-JS0"/>
                 <outlet property="txtPassword" destination="Mvw-kv-yWU" id="ja8-x0-dPl"/>
                 <outlet property="txtUser" destination="i3J-AV-Pku" id="lYx-tl-xXP"/>
@@ -43,7 +43,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTRO DE USUARIO DIGITAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u28-bX-jDf">
-                            <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
+                            <rect key="frame" x="46" y="11.999999999999998" width="329" height="16.333333333333329"/>
                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                             <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                             <rect key="frame" x="0.0" y="40" width="393" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paso 4 de 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nn-m6-RGc">
-                                    <rect key="frame" x="18" y="11.666666666666671" width="357" height="17"/>
+                                    <rect key="frame" x="18" y="11.999999999999998" width="357" height="16.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -70,13 +70,13 @@
                             <rect key="frame" x="0.0" y="80" width="393" height="603"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea un usuario y clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12N-ex-bxm">
-                                    <rect key="frame" x="18" y="16" width="357" height="17"/>
+                                    <rect key="frame" x="18" y="15.999999999999998" width="357" height="16.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="JyJ-XU-Swg">
-                                    <rect key="frame" x="18" y="57" width="357" height="216"/>
+                                    <rect key="frame" x="18" y="56.333333333333343" width="357" height="216.00000000000003"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="i3J-AV-Pku" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
@@ -86,14 +86,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="Mvw-kv-yWU" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="80" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="79.999999999999972" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="2IZ-4g-QmJ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="mZC-Yp-CeO" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="160" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="159.99999999999997" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="cNR-N0-PBh"/>
@@ -102,7 +102,7 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al continuar acepta los Términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Gl-KYK">
-                                    <rect key="frame" x="18" y="316" width="357" height="17"/>
+                                    <rect key="frame" x="18" y="315.33333333333331" width="357" height="16.333333333333314"/>
                                     <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                     <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -133,7 +133,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="NgQ-T7-fc1" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" constant="18" id="38b-De-gje"/>
                         <constraint firstItem="u5S-gM-myv" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" id="39n-6N-rCc"/>
@@ -166,8 +166,5 @@
     </objects>
     <resources>
         <image name="arrow_left" width="25" height="25"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

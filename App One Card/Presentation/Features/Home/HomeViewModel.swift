@@ -11,18 +11,22 @@ protocol HomeViewModelProtocol {
     func toCardLock()
     func toConfigureCard()
     func balanceInquiry()
+    func consultMovements()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
+    var movementsViewModel = MovementsViewModel()
     
     private let balanceUseCase: BalanceUseCaseProtocol
+    private let movementUseCase: MovementUseCaseProtocol
     
-    init(router: HomeRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol) {
+    init(router: HomeRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol) {
         self.router = router
         self.successfulRouter = successfulRouter
         self.balanceUseCase = balanceUseCase
+        self.movementUseCase = movementUseCase
     }
     
     func toCardLock() {
@@ -46,6 +50,27 @@ class HomeViewModel: HomeViewModelProtocol {
                 DispatchQueue.main.async {
                     let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "")
                     HomeObserver.shared.updateAmount(amount: balance)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.router.showMessageError(title: error.title, description: error.description) {
+                        if error.actionAfterFailure {
+                            self.balanceInquiry()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func consultMovements() {
+        let request = ConsultMovementsRequest(segCode: "12345687910111213140")
+        
+        movementUseCase.consult(request: request) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    HomeObserver.shared.updateMovements(movements: response.clientMovements)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

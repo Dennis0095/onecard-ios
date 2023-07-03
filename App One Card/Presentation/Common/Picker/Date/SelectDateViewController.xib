@@ -61,6 +61,7 @@
                         </button>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="4Ia-sv-piG">
                             <rect key="frame" x="24" y="63" width="438" height="150"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="hhF-Wu-OAB"/>
                             </constraints>

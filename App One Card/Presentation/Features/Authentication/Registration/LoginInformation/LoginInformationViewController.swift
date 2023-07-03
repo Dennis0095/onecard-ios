@@ -14,6 +14,7 @@ class LoginInformationViewController: BaseViewController {
     @IBOutlet weak var txtConfirmPassword: OutlinedTextField!
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private var viewModel: LoginInformationViewModelProtocol
     
@@ -34,12 +35,20 @@ class LoginInformationViewController: BaseViewController {
         
         txtPassword.txt.textContentType = .oneTimeCode
         txtConfirmPassword.txt.textContentType = .oneTimeCode
+        
+        connectFields(textFields: txtUser.txt, txtPassword.txt, txtConfirmPassword.txt)
     }
     
     override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
+        
+        [txtUser, txtPassword, txtConfirmPassword].forEach {
+            $0.selectTextField = { textField in
+                self.selectedTextField = textField
+            }
+        }
         
         txtUser.listenChanges = { [weak self] text in
             self?.viewModel.username = text
@@ -52,6 +61,10 @@ class LoginInformationViewController: BaseViewController {
         txtConfirmPassword.listenChanges = { [weak self] text in
             self?.viewModel.passwordOk = text
         }
+    }
+    
+    override func manageScroll() {
+        self.baseScrollView = scrollView
     }
     
     @objc private func tapBack() {

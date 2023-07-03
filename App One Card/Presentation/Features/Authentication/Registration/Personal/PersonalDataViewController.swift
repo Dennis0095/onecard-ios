@@ -16,6 +16,7 @@ class PersonalDataViewController: BaseViewController {
     @IBOutlet weak var txtEmail: OutlinedTextField!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var imgBack: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var selectedDate: Date?
     
@@ -37,12 +38,20 @@ class PersonalDataViewController: BaseViewController {
         txtPhone.configure(placeholder: Constants.placeholder_phone, errorMessage: Constants.error, status: .activated, type: .numberPad)
         txtEmail.configure(placeholder: Constants.placeholder_email, errorMessage: Constants.error, status: .activated, type: .emailAddress)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
+        
+        connectFields(textFields: txtName.txt, txtLastName.txt, txtPhone.txt, txtEmail.txt)
     }
 
     override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
+        
+        [txtName, txtLastName, txtPhone, txtEmail].forEach {
+            $0.selectTextField = { textField in
+                self.selectedTextField = textField
+            }
+        }
         
         txtBirthday.action = {
             self.viewModel.showDateList(selected: self.selectedDate, action: { date in
@@ -73,6 +82,10 @@ class PersonalDataViewController: BaseViewController {
         txtEmail.listenChanges = { [weak self] text in
             self?.viewModel.email = text
         }
+    }
+    
+    override func manageScroll() {
+        self.baseScrollView = scrollView
     }
     
     private func validate() -> Bool {

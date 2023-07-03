@@ -18,4 +18,18 @@ class DateUtils {
         formatter.locale = Locale.current
         return formatter.string(from: date)
     }
+    
+    func parseDate(string: String, format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.date(from: string)
+    }
+    
+    func parseDateToString(string: String, format: String, outputFormat: String) -> String {
+        if let parseDate = parseDate(string: string, format: format) {
+            return getFormattedDate(date: parseDate, outputFormat: outputFormat)
+        } else {
+            return ""
+        }
+    }
 }

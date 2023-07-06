@@ -228,7 +228,7 @@ extension AppRouter: HomeRouterDelegate {
         let useCase = OTPUseCase(otpRepository: repository)
         let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR")
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
     

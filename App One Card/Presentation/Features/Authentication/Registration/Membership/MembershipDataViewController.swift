@@ -41,6 +41,7 @@ class MembershipDataViewController: BaseViewController {
         
         viewDocType.setText(string: viewModel.documentType?.name ?? "DNI")
         viewDocType.status = .defaultData
+        viewDocNumber.setPlaceholder(placeholder: viewModel.documentType?.name ?? "DNI")
 
         connectFields(textFields: viewDocNumber.txt, viewRuc.txt)
     }
@@ -55,6 +56,7 @@ class MembershipDataViewController: BaseViewController {
                 if let item = item {
                     self?.viewModel.documentType = item
                     self?.viewDocType.setText(string: item.name)
+                    self?.viewDocNumber.setPlaceholder(placeholder: item.name)
                     switch item.id {
                     case "3":
                         self?.viewDocNumber.txt.keyboardType = .namePhonePad

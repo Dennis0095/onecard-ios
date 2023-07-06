@@ -48,7 +48,7 @@ class HomeViewModel: HomeViewModelProtocol {
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "")
+                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
                     HomeObserver.shared.updateAmount(amount: balance)
                 }
             case .failure(let error):

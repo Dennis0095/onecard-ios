@@ -41,17 +41,21 @@ extension String {
         return maskedEmail
     }
     
-    func parseAmountToCurrency(type: String) -> String {
+    func parseAmountToCurrency(type: String, sign: String) -> String {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        //formatter.numberStyle = .currency
+        
+        var currencySymbol = ""
         
         switch type {
         case "840":
-            formatter.currencyCode = "USD"
-            formatter.currencySymbol = "$"
+            //formatter.currencyCode = "USD"
+            //formatter.currencySymbol = "$\(sign == "D" ? " -" : " ")"
+            currencySymbol = "$\(sign == "D" ? " -" : " ")"
         case "604":
-            formatter.currencyCode = "PEN"
-            formatter.currencySymbol = "S/."
+            //formatter.currencyCode = "PEN"
+            //formatter.currencySymbol = "S/\(sign == "D" ? " -" : " ")"
+            currencySymbol = "S/\(sign == "D" ? " -" : " ")"
         default: break
         }
         
@@ -59,15 +63,16 @@ extension String {
         let dotIndex = string.index(string.endIndex, offsetBy: -2)
         string.insert(".", at: dotIndex)
         
-        if let amount = Double(string) {
-            if let formattedString = formatter.string(from: NSNumber(value: amount)) {
-                return formattedString
-            } else {
-                return ""
-            }
-        } else {
-            return ""
-        }
+//        if let amount = Double(string) {
+//            if let formattedString = formatter.string(from: NSNumber(value: amount)) {
+//                return currencySymbol + formattedString
+//            } else {
+//                return ""
+//            }
+//        } else {
+//            return ""
+//        }
+        return currencySymbol + string
     }
 }
 

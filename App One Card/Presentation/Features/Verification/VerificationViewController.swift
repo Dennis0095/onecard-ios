@@ -29,6 +29,7 @@ class VerificationViewController: BaseViewController {
     private var titleDescription: String?
     private var navTitle: String
     private var buttonTitle: String
+    private var maskPhoneEmail: Bool
     private var step: String?
     private var timer = Timer()
     
@@ -45,7 +46,7 @@ class VerificationViewController: BaseViewController {
         }
     }
     
-    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, number: String, email: String, buttonTitle: String) {
+    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, number: String, email: String, buttonTitle: String, maskPhoneEmail: Bool = false) {
         self.viewModel = viewModel
         self.titleDescription = titleDescription
         self.navTitle = navTitle
@@ -53,6 +54,7 @@ class VerificationViewController: BaseViewController {
         self.number = number
         self.email = email
         self.buttonTitle = buttonTitle
+        self.maskPhoneEmail = maskPhoneEmail
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -92,8 +94,17 @@ class VerificationViewController: BaseViewController {
     }
     
     private func setDescription() {
-        let maskedPhoneNumber = number.maskPhoneNumber(lastVisibleDigitsCount: 3)
-        let maskedEmail = email.maskEmailFirstCharacters()
+        var outputString = ""
+
+        for (index, character) in number.enumerated() {
+            if index > 0 && index % 3 == 0 {
+                outputString += " "
+            }
+            outputString.append(character)
+        }
+        
+        let maskedPhoneNumber = maskPhoneEmail ? number.maskPhoneNumber(lastVisibleDigitsCount: 3) : outputString
+        let maskedEmail = maskPhoneEmail ? email.maskEmailFirstCharacters() : email
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)

@@ -207,6 +207,10 @@ class OutlinedTextField: UIView {
         self.status = status
     }
     
+    func setPlaceholder(placeholder: String) {
+        lblPlaceholder.text = placeholder
+    }
+    
     func setText(text: String) {
         self.text = text
         txt.text = text

@@ -8,7 +8,7 @@
 import Combine
 
 protocol UserRepository {
-    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationEntity, Error>
-    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataEntity, Error>
-    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterEntity, Error>
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error>
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error>
+    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
 }

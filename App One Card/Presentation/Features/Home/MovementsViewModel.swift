@@ -8,7 +8,7 @@
 import UIKit
 
 class MovementsViewModel: NSObject, UITableViewDelegate, UITableViewDataSource {
-    var movements: [MovementEntity]?
+    var movements: [MovementResponse]?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movements?.count ?? 0

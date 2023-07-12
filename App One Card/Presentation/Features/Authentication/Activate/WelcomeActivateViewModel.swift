@@ -8,8 +8,7 @@
 import Foundation
 
 protocol WelcomeActivateViewModelProtocol {
-
-    func toPin()
+    func toCardActivation()
     func toChangePin()
     func toConfirmPin()
     func toHome()
@@ -17,21 +16,35 @@ protocol WelcomeActivateViewModelProtocol {
 
 class WelcomeActivateViewModel: WelcomeActivateViewModelProtocol {
     var router: AuthenticationRouterDelegate
+    var successfulRouter: SuccessfulRouterDelegate
     
-    init(router: AuthenticationRouterDelegate) {
+    init(router: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate) {
         self.router = router
+        self.successfulRouter = successfulRouter
     }
     
-    func toPin() {
-        
+    func toCardActivation() {
+        router.navigateToPin { _ in
+            self.router.navigateToNewPin { newPin in
+                self.router.navigateToConfirmPin(newPin: newPin) { _ in
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: Constants.accept) {
+                        self.router.navigateToHome()
+                    }
+                }
+            }
+        }
     }
     
     func toChangePin() {
-        
+//        router.navigateToNewPin { _ in
+//
+//        }
     }
-    
+
     func toConfirmPin() {
-        
+//        router.navigateToConfirmPin { _ in
+//
+//        }
     }
     
     func toHome() {

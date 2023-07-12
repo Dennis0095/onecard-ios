@@ -8,5 +8,5 @@
 import Combine
 
 protocol BalanceRepository {
-    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryEntity, Error>
+    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, Error>
 }

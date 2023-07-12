@@ -35,7 +35,7 @@ class WelcomeActivateViewController: UIViewController {
     }
     
     @IBAction func activate(_ sender: Any) {
-        viewModel.toPin()
+        viewModel.toCardActivation()
     }
     
     @IBAction func later(_ sender: Any) {

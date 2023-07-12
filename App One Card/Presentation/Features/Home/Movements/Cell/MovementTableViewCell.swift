@@ -24,7 +24,7 @@ class MovementTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(movement: MovementEntity?) {
+    func setData(movement: MovementResponse?) {
         if let m = movement {
             lblDescription.text = m.transactionDescription ?? ""
             lblDate.text = DateUtils.shared.parseDateToString(string: m.transactionDate ?? "", format: "yyyy-MM-dd", outputFormat: "d MMM")

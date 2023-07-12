@@ -1,5 +1,5 @@
 //
-//  UserRegisterEntity.swift
+//  UserRegisterResponse.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 30/06/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserRegisterEntity: Codable {
+struct UserRegisterResponse: Codable {
     let rc: String?
     let rcDesc: String?
     let validUser: String?

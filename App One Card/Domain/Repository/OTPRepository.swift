@@ -8,6 +8,6 @@
 import Combine
 
 protocol OTPRepository {
-    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPEntity, Error>
-    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPEntity, Error>
+    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error>
+    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error>
 }

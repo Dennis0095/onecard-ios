@@ -58,16 +58,10 @@ class LoginViewController: BaseViewController {
     private func validateFields() {
         
     }
-    
+    //
     @IBAction func login(_ sender: Any) {
-        self.viewModel.formValidation()
-        
-//        if (txtUser.txt.text ?? "").isEmpty || (txtPassword.txt.text ?? "").isEmpty {
-//            viewModel.showError()
-//        } else {
-//            viewModel.toHome()
-//        }
-        //viewModel.toActivateUser()
+        //self.viewModel.formValidation()
+        self.viewModel.toActivateUser()
     }
     
     @IBAction func register(_ sender: Any) {

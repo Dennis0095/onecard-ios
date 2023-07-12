@@ -8,9 +8,9 @@
 import Combine
 
 protocol UserUseCaseProtocol {
-    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void)
-    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataEntity, CustomError>) -> Void)
-    func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterEntity, CustomError>) -> Void)
+    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void)
+    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void)
+    func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void)
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -25,7 +25,7 @@ class UserUseCase: UserUseCaseProtocol {
        cancelRequests()
     }
     
-    func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterEntity, CustomError>) -> Void) {
+    func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void) {
         let cancellable = userRepository.userRegister(request: request)
             .sink { publisher in
                 switch publisher {
@@ -63,7 +63,7 @@ class UserUseCase: UserUseCaseProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataEntity, CustomError>) -> Void) {
+    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void) {
         let cancellable = userRepository.validatePersonalData(request: request)
             .sink { publisher in
                 switch publisher {
@@ -92,7 +92,7 @@ class UserUseCase: UserUseCaseProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationEntity, CustomError>) -> Void) {
+    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void) {
         let cancellable = userRepository.validateAffiliation(request: request)
             .sink { publisher in
                 switch publisher {

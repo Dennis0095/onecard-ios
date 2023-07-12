@@ -51,13 +51,42 @@ extension AppRouter: AuthenticationRouterDelegate {
         }
     }
     
-    func navigateToPin() {
-        let viewController = PinViewController()
+    func navigateToConfirmPin(newPin: String, success: @escaping PinActionHandler) {
+        let cardRepository = CardDataRepository()
+        let keyRepository = KeyDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .cardActivation)
+        viewModel.success = success
+        viewModel.newPin = newPin
+        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func navigateToNewPin(success: @escaping PinActionHandler) {
+        let cardRepository = CardDataRepository()
+        let keyRepository = KeyDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .reassign)
+        viewModel.success = success
+        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func navigateToPin(success: @escaping PinActionHandler) {
+        let cardRepository = CardDataRepository()
+        let keyRepository = KeyDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
+        viewModel.success = success
+        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func navigateToActivateUser() {
-        let viewModel = WelcomeActivateViewModel(router: self)
+        let viewModel = WelcomeActivateViewModel(router: self, successfulRouter: self)
         let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)
         navigationController?.pushViewController(welcomeActivateViewController, animated: true)
     }
@@ -140,7 +169,7 @@ extension AppRouter: VerificationRouterDelegate {
         let useCase = OTPUseCase(otpRepository: repository)
         let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese sus datos personales", number: number, email: email, buttonTitle: Constants.next_btn)
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", number: number, email: email, buttonTitle: Constants.next_btn)
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }

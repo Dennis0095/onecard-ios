@@ -15,6 +15,8 @@ class FrequentQuestionsTableViewCell: UITableViewCell {
     @IBOutlet weak var viewSeparator: UIView!
     @IBOutlet weak var imgBreakDown: UIImageView!
     
+    public var handleBreakDown: VoidActionHandler?
+    
     var isLast: Bool = false {
         didSet {
             viewSeparator.isHidden = isLast
@@ -48,5 +50,8 @@ class FrequentQuestionsTableViewCell: UITableViewCell {
     @objc
     private func tapBreakDown() {
         lblDescription.isHidden = !lblDescription.isHidden
+        if let action = handleBreakDown {
+            action()
+        }
     }
 }

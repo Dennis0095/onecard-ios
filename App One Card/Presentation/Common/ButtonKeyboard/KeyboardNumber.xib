@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +11,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardNumber" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
+                <outlet property="btnEight" destination="Xc7-Px-r3c" id="pOR-8f-cQv"/>
+                <outlet property="btnFive" destination="AU3-7L-RSe" id="69W-vl-A2R"/>
+                <outlet property="btnFour" destination="0pC-pc-DJ2" id="Qje-f2-C8q"/>
+                <outlet property="btnNine" destination="akB-wu-G1O" id="YNB-Rz-6Mu"/>
+                <outlet property="btnOne" destination="d8s-xb-DgD" id="NrL-ri-zNV"/>
+                <outlet property="btnSeven" destination="ljH-0l-e3q" id="ZJr-QZ-7Mo"/>
+                <outlet property="btnSix" destination="kyW-DV-ryD" id="BMY-qR-uJa"/>
+                <outlet property="btnThree" destination="4Mw-EZ-MbV" id="gft-Mf-Ycc"/>
+                <outlet property="btnTwo" destination="iM7-mg-avy" id="RX3-eD-E5z"/>
+                <outlet property="btnZero" destination="GYi-zg-ysO" id="Fpm-zf-cCJ"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="YDx-MZ-Kwg"/>
             </connections>
         </placeholder>

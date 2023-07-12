@@ -1,5 +1,5 @@
 //
-//  SendOTPEntity.swift
+//  SendOTPResponse.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 27/06/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SendOTPEntity: Codable {
+struct SendOTPResponse: Codable {
     let rc: String?
     let rcDesc: String?
     let sendOtpSms: String?

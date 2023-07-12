@@ -1,5 +1,5 @@
 //
-//  MovementEntity.swift
+//  MovementResponse.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 3/07/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovementEntity: Codable {
+struct MovementResponse: Codable {
     let processDate: String?
     let transactionDate: String?
     let transactionHour: String?

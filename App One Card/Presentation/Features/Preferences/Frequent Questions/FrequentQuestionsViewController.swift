@@ -52,8 +52,16 @@ extension FrequentQuestionsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.handleBreakDown = {
+            self.tbQuestions.beginUpdates()
+            self.tbQuestions.endUpdates()
+        }
+        
         return cell
     }
+    
+//    tableView.beginUpdates()
+//    tableView.endUpdates()
 }
 
 extension FrequentQuestionsViewController: UITableViewDelegate { }

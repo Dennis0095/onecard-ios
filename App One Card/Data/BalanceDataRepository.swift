@@ -8,7 +8,7 @@
 import Combine
 
 class BalanceDataRepository: BalanceRepository {
-    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryEntity, Error> {
+    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, Error> {
         return APIClient.callAPI(route: .balanceInquiry, method: .post, request: request, showLoading: true)
     }
 }

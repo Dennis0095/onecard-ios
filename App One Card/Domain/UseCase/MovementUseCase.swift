@@ -8,7 +8,7 @@
 import Combine
 
 protocol MovementUseCaseProtocol {
-    func consult(request: ConsultMovementsRequest, completion: @escaping (Result<ConsultMovementsEntity, CustomError>) -> Void)
+    func consult(request: ConsultMovementsRequest, completion: @escaping (Result<ConsultMovementsResponse, CustomError>) -> Void)
 }
 
 class MovementUseCase: MovementUseCaseProtocol {
@@ -23,7 +23,7 @@ class MovementUseCase: MovementUseCaseProtocol {
         cancelRequests()
     }
     
-    func consult(request: ConsultMovementsRequest, completion: @escaping (Result<ConsultMovementsEntity, CustomError>) -> Void) {
+    func consult(request: ConsultMovementsRequest, completion: @escaping (Result<ConsultMovementsResponse, CustomError>) -> Void) {
         let cancellable = movementRepository.consult(request: request)
             .sink { publisher in
                 switch publisher {

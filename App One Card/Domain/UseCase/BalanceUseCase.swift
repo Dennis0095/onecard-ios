@@ -8,7 +8,7 @@
 import Combine
 
 protocol BalanceUseCaseProtocol {
-    func inquiry(request: BalanceInquiryRequest, completion: @escaping (Result<BalanceInquiryEntity, CustomError>) -> Void)
+    func inquiry(request: BalanceInquiryRequest, completion: @escaping (Result<BalanceInquiryResponse, CustomError>) -> Void)
 }
 
 class BalanceUseCase: BalanceUseCaseProtocol {
@@ -23,7 +23,7 @@ class BalanceUseCase: BalanceUseCaseProtocol {
         cancelRequests()
     }
     
-    func inquiry(request: BalanceInquiryRequest, completion: @escaping (Result<BalanceInquiryEntity, CustomError>) -> Void) {
+    func inquiry(request: BalanceInquiryRequest, completion: @escaping (Result<BalanceInquiryResponse, CustomError>) -> Void) {
         let cancellable = balanceRepository.inquiry(request: request)
             .sink { publisher in
                 switch publisher {

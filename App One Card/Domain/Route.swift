@@ -15,6 +15,9 @@ enum Route {
     case userRegister
     case sendOTP
     case validateOTP
+    case validateKey
+    case reassignKey
+    case cardActivation
     
     var description: String {
         switch self {
@@ -32,6 +35,12 @@ enum Route {
             return "/dcp-app/simphub/api/rest/txn-admin/consulta-saldo"
         case .consultMovements:
             return "/dcp-app/simphub/api/rest/txn-admin/consulta-movimientos"
+        case .validateKey:
+            return "/dcp-app/simphub/api/rest/txn-admin/valida-clave"
+        case .reassignKey:
+            return "/dcp-app/simphub/api/rest/txn-admin/reasigna-clave"
+        case .cardActivation:
+            return "/dcp-app/simphub/api/rest/txn-admin/activacion-tarjeta"
         }
     }
 }

@@ -8,8 +8,8 @@
 import Combine
 
 protocol OTPUseCaseProtocol {
-    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPEntity, CustomError>) -> Void)
-    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPEntity, CustomError>) -> Void)
+    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPResponse, CustomError>) -> Void)
+    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPResponse, CustomError>) -> Void)
 }
 
 class OTPUseCase: OTPUseCaseProtocol {
@@ -24,7 +24,7 @@ class OTPUseCase: OTPUseCaseProtocol {
        cancelRequests()
     }
     
-    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPEntity, CustomError>) -> Void) {
+    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPResponse, CustomError>) -> Void) {
         let cancellable = otpRepository.send(request: request)
             .sink { publisher in
                 switch publisher {
@@ -40,7 +40,7 @@ class OTPUseCase: OTPUseCaseProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPEntity, CustomError>) -> Void) {
+    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPResponse, CustomError>) -> Void) {
         let cancellable = otpRepository.validate(request: request)
             .sink { publisher in
                 switch publisher {

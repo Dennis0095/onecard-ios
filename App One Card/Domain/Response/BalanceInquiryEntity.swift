@@ -1,5 +1,5 @@
 //
-//  BalanceInquiryEntity.swift
+//  BalanceInquiryResponse.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 1/07/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BalanceInquiryEntity: Codable {
+struct BalanceInquiryResponse: Codable {
     let rc: String?
     let description: String?
     let currency: String?

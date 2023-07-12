@@ -12,11 +12,11 @@ protocol HomeObserverProtocol {
     var amountPublisher: Published<String?>.Publisher { get }
     var listenAmountChanges: ((_ amount: String) -> Void)? { get }
     
-    var movementsPublisher: Published<[MovementEntity]?>.Publisher { get }
-    var listenMovementsChanges: ((_ movements: [MovementEntity]) -> Void)? { get }
+    var movementsPublisher: Published<[MovementResponse]?>.Publisher { get }
+    var listenMovementsChanges: ((_ movements: [MovementResponse]) -> Void)? { get }
     
     func updateAmount(amount: String?)
-    func updateMovements(movements: [MovementEntity]?)
+    func updateMovements(movements: [MovementResponse]?)
     func bindPublishers()
 }
 
@@ -27,11 +27,11 @@ class HomeObserver: HomeObserverProtocol {
     var amountPublisher: Published<String?>.Publisher { $amount }
     var listenAmountChanges: ((_ amount: String) -> Void)?
     
-    var movementsPublisher: Published<[MovementEntity]?>.Publisher { $movements }
-    var listenMovementsChanges: ((_ movements: [MovementEntity]) -> Void)?
+    var movementsPublisher: Published<[MovementResponse]?>.Publisher { $movements }
+    var listenMovementsChanges: ((_ movements: [MovementResponse]) -> Void)?
     
     @Published private var amount: String?
-    @Published private var movements: [MovementEntity]?
+    @Published private var movements: [MovementResponse]?
     private var cancellables: Set<AnyCancellable> = []
     
     private init() {
@@ -42,7 +42,7 @@ class HomeObserver: HomeObserverProtocol {
         self.amount = amount
     }
     
-    func updateMovements(movements: [MovementEntity]?) {
+    func updateMovements(movements: [MovementResponse]?) {
         self.movements = movements
     }
     

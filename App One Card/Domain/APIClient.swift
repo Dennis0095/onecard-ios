@@ -33,7 +33,7 @@ protocol BaseRequest: Codable { }
 
 class APIClient {
     private var cancellable: AnyCancellable?
-    static func callAPI<T: Decodable>(route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil, showLoading: Bool = false) -> AnyPublisher<T, Error> {
+    static func callAPI<T: Decodable>(baseUrl: String? = nil, route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil, showLoading: Bool = false) -> AnyPublisher<T, Error> {
         
         if showLoading {
             DispatchQueue.main.async {
@@ -41,7 +41,8 @@ class APIClient {
             }
         }
         
-        let urlString = Environment().configuration(.baseUrl) + route.description
+        let urlString = (baseUrl != nil ? baseUrl! : Environment().configuration(.baseUrl)) + route.description
+        
         guard let url = urlString.asUrl else {
             if showLoading {
                 DispatchQueue.main.async {

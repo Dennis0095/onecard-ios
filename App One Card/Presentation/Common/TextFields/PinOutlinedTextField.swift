@@ -1,13 +1,13 @@
 //
-//  OutlinedTextField.swift
+//  PinOutlinedTextField.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 5/06/23.
+//  Created by Paolo Arambulo on 9/07/23.
 //
 
 import UIKit
 
-class OutlinedTextField: UIView {
+class PinOutlinedTextField: UIView {
     
     private let viewContainer: UIView = {
         let view = UIView()
@@ -95,7 +95,7 @@ class OutlinedTextField: UIView {
         }
     }
     
-    internal var status: OutlinedTextFieldStatus = .activated {
+    internal var status: PinOutlinedTextFieldStatus = .activated {
         didSet {
             changeStatus(status: status)
         }
@@ -105,9 +105,18 @@ class OutlinedTextField: UIView {
     
     internal var selectTextField: ((_ textField: UITextField?) -> Void)?
     
-    internal var text: String = ""
+    internal var text: String = "" {
+        didSet {
+            if text.isEmpty {
+                showPlaceholderOnCenter()
+            } else {
+                showPlaceholderOnTop()
+            }
+            txt.text = text
+        }
+    }
     
-    var isSecureTextField: Bool = false {
+    internal var isSecureTextField: Bool = false {
         didSet {
             imgPassword.image = isSecureTextField ? UIImage(named: "password_show") : UIImage(named: "password_hide")
             txt.isSecureTextEntry = !isSecureTextField
@@ -125,9 +134,9 @@ class OutlinedTextField: UIView {
     }
     
     func addActions() {
-        let tapViewPlaceholder = UITapGestureRecognizer(target: self, action: #selector(tapViewPlaceholder))
-        viewPlaceholder.isUserInteractionEnabled = true
-        viewPlaceholder.addGestureRecognizer(tapViewPlaceholder)
+        //        let tapViewPlaceholder = UITapGestureRecognizer(target: self, action: #selector(tapViewPlaceholder))
+        //        viewPlaceholder.isUserInteractionEnabled = true
+        //        viewPlaceholder.addGestureRecognizer(tapViewPlaceholder)
         
         let tapPassword = UITapGestureRecognizer(target: self, action: #selector(imgPasswordTapped))
         imgPassword.isUserInteractionEnabled = true
@@ -136,8 +145,8 @@ class OutlinedTextField: UIView {
     
     func setupView(isPassword: Bool) {
         txt.layer.borderWidth = 1
-        txt.delegate = self
-        txt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        //txt.delegate = self
+        //txt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         self.addSubview(stackInput)
         self.stackInput.addArrangedSubview(viewContainer)
@@ -156,7 +165,7 @@ class OutlinedTextField: UIView {
             stackInput.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackInput.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackInput.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                        
+            
             imgPassword.heightAnchor.constraint(equalToConstant: 24),
             imgPassword.widthAnchor.constraint(equalToConstant: 24),
             imgPassword.trailingAnchor.constraint(equalTo: self.viewContainer.trailingAnchor, constant: -15),
@@ -184,9 +193,11 @@ class OutlinedTextField: UIView {
         ])
         
         txt.paddingRight = isPassword ? (34 + 15) : 15
+        
+        //viewError.isHidden = true
     }
     
-    func configure(placeholder: String? = "", errorMessage: String? = nil, status: OutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false) {
+    func configure(placeholder: String? = "", errorMessage: String? = nil, status: PinOutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false) {
         lblPlaceholder.text = placeholder
         
         if let type = type {
@@ -205,12 +216,12 @@ class OutlinedTextField: UIView {
         lblPlaceholder.text = placeholder
     }
     
-    func setText(text: String) {
-        self.text = text
-        txt.text = text
-    }
+    //    func setText(text: String) {
+    //        self.text = text
+    //        txt.text = text
+    //    }
     
-    func changeStatus(status: OutlinedTextFieldStatus) {
+    func changeStatus(status: PinOutlinedTextFieldStatus) {
         switch status {
         case .activated:
             alpha = 1.0
@@ -222,21 +233,8 @@ class OutlinedTextField: UIView {
             txt.isEnabled = true
             
             if errorMessage != nil {
-                //viewError.isHidden = true
-                lblError.isHidden = true
-            }
-        case .focused:
-            alpha = 1.0
-            txt.layer.borderColor = Design.color(.primary).cgColor
-            lblPlaceholder.textColor = Design.color(.grey100)
-            txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
-            viewPlaceholder.backgroundColor = .white
-            txt.isEnabled = true
-            
-            if errorMessage != nil {
-                //viewError.isHidden = true
-                lblError.isHidden = true
+                lblError.textColor = #colorLiteral(red: 0.568627451, green: 0.5764705882, blue: 0.5803921569, alpha: 1)
+                lblError.isHidden = false
             }
         case .disabled:
             alpha = 0.6
@@ -249,6 +247,7 @@ class OutlinedTextField: UIView {
             
             if errorMessage != nil {
                 //viewError.isHidden = true
+                lblError.textColor = #colorLiteral(red: 0.568627451, green: 0.5764705882, blue: 0.5803921569, alpha: 1)
                 lblError.isHidden = true
             }
         case .errorUnfocused:
@@ -263,24 +262,9 @@ class OutlinedTextField: UIView {
                 //lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
                 //txt.layer.borderColor = UIColor.red.cgColor
                 //viewError.isHidden = false
-                //lblError.isHidden = false
+                lblError.textColor = .red
+                lblError.isHidden = false
             }
-            lblError.isHidden = false
-        case .errorFocused:
-            alpha = 1.0
-            txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
-            txt.layer.borderColor = Design.color(.primary).cgColor
-            viewPlaceholder.backgroundColor = .white
-            txt.isEnabled = true
-            
-            if errorMessage != nil {
-                //lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
-                //txt.layer.borderColor = UIColor.red.cgColor
-                //viewError.isHidden = false
-                //lblError.isHidden = false
-            }
-            lblError.isHidden = false
         }
     }
     
@@ -328,81 +312,84 @@ class OutlinedTextField: UIView {
         }
     }
     
-    @objc private func tapViewPlaceholder() {
-        if !isPlaceholderOnTop {
-            isPlaceholderOnTop = true
-            
-            txt.becomeFirstResponder()
-        }
-    }
+    //    @objc private func tapViewPlaceholder() {
+    //        if !isPlaceholderOnTop {
+    //            isPlaceholderOnTop = true
+    //
+    //            txt.becomeFirstResponder()
+    //        }
+    //    }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if let changes = listenChanges {
-            let trimText = (textField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            self.text = textField.text ?? ""
-            changes(trimText)
-        }
-    }
+    //    @objc func textFieldDidChange(_ textField: UITextField) {
+    //        if let changes = listenChanges {
+    //            let trimText = (textField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+    //            self.text = textField.text ?? ""
+    //            //self.isValid = !trimText.isEmpty
+    //            changes(trimText)
+    //        }
+    //    }
     
     @objc private func imgPasswordTapped() {
         isSecureTextField.toggle()
     }
 }
 
-extension OutlinedTextField: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let changes = selectTextField {
-            changes(nil)
-        }
-        
-        if hasError {
-            status = .errorUnfocused
-        } else {
-            status = .activated
-        }
-        
-        if (textField.text ?? "").isEmpty {
-            showPlaceholderOnCenter()
-        }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let changes = selectTextField {
-            changes(textField)
-        }
-        
-        if hasError {
-            status = .errorFocused
-        } else {
-            status = .focused
-        }
-        
-        showPlaceholderOnTop()
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        switch keyBoardType {
-        case .numberPad:
-            let allowedCharacters = CharacterSet.decimalDigits
-            let characterSet = CharacterSet(charactersIn: string)
-            
-            return allowedCharacters.isSuperset(of: characterSet)
-        case .decimalPad:
-            guard let currentText = textField.text else {
-                return true
-            }
-            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
-            return updatedText.validateString(withRegex: .decimal)
-        default:
-            return true
-        }
-    }
-}
+//extension PinOutlinedTextField: UITextFieldDelegate {
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if let changes = selectTextField {
+//            changes(nil)
+//        }
+//
+//        if hasError {
+//            status = .errorUnfocused
+//        } else {
+//            status = .activated
+//        }
+//
+//        if (textField.text ?? "").isEmpty {
+//            showPlaceholderOnCenter()
+//        }
+//    }
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        if let changes = selectTextField {
+//            changes(textField)
+//        }
+//
+//        if hasError {
+//            status = .errorFocused
+//        } else {
+//            status = .focused
+//        }
+//
+//        if (textField.text ?? "").isEmpty {
+//            showPlaceholderOnTop()
+//        }
+//    }
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        switch keyBoardType {
+//        case .numberPad:
+//            let allowedCharacters = CharacterSet.decimalDigits
+//            let characterSet = CharacterSet(charactersIn: string)
+//
+//            return allowedCharacters.isSuperset(of: characterSet)
+//        case .decimalPad:
+//            guard let currentText = textField.text else {
+//                return true
+//            }
+//            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+//            return updatedText.validateString(withRegex: .decimal)
+//        default:
+//            return true
+//        }
+//    }
+//}
 
-enum OutlinedTextFieldStatus {
-    case activated//Initial/Default state
-    case focused
+enum PinOutlinedTextFieldStatus {
+    case activated
+    //case focused
     case disabled
     case errorUnfocused
-    case errorFocused
 }
+

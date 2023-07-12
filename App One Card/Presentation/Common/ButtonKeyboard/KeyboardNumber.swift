@@ -12,6 +12,16 @@ import UIKit
 class KeyboardNumber: UIView {
 
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var btnOne: UIButton!
+    @IBOutlet weak var btnTwo: UIButton!
+    @IBOutlet weak var btnThree: UIButton!
+    @IBOutlet weak var btnFour: UIButton!
+    @IBOutlet weak var btnFive: UIButton!
+    @IBOutlet weak var btnSix: UIButton!
+    @IBOutlet weak var btnSeven: UIButton!
+    @IBOutlet weak var btnEight: UIButton!
+    @IBOutlet weak var btnNine: UIButton!
+    @IBOutlet weak var btnZero: UIButton!
     
     var actionButton: ButtonActionHandler?
     var actionClear: VoidActionHandler?
@@ -31,6 +41,10 @@ class KeyboardNumber: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        [btnZero, btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine].forEach { button in
+            button?.layer.cornerRadius = 32
+        }
     }
     
     @IBAction func one(_ sender: Any) {

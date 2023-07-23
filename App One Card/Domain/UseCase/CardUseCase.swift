@@ -13,7 +13,6 @@ protocol CardUseCaseProtocol {
     func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, Error>
     func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error>
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error>
-    func statusMock() -> AnyPublisher<CardStatusResponse, Error>
 }
 
 class CardUseCase: CardUseCaseProtocol {
@@ -57,9 +56,5 @@ class CardUseCase: CardUseCaseProtocol {
     
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error> {
         return cardRepository.changeCardOnlineShoppingStatus(request: request)
-    }
-    
-    func statusMock() -> AnyPublisher<CardStatusResponse, Error> {
-        return cardRepository.statusMock()
     }
 }

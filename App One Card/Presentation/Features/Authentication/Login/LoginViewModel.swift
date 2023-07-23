@@ -18,6 +18,7 @@ protocol LoginViewModelProtocol {
     func toHome()
     func toActivateUser()
     func login()
+    func getStatusCard()
 }
 
 protocol LoginViewModelDelegate: LoaderDisplaying {
@@ -63,7 +64,7 @@ class LoginViewModel: LoginViewModelProtocol {
                     switch result {
                     case .success(let response):
                         if response.success == "1" {
-                            self.delegate?.toActivateUser()
+                            //self.delegate?.toActivateUser()
                         } else {
                             self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
                         }
@@ -73,6 +74,10 @@ class LoginViewModel: LoginViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func getStatusCard() {
+        
     }
 }
 

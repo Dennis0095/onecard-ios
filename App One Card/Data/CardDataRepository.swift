@@ -27,10 +27,4 @@ class CardDataRepository: CardRepository {
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error> {
         return APIClient.callAPI(route: .changeCardOnlineShoppingStatus, method: .post, request: request)
     }
-    
-    func statusMock() -> AnyPublisher<CardStatusResponse, Error> {
-        return APIClient.callAPI(baseUrl: "https://demo7545010.mockable.io/statusCard", route: .without, method: .get)
-    }
 }
-
-struct VoidResponse: Codable {}

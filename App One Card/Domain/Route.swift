@@ -8,6 +8,7 @@
 import Foundation
 
 enum Route {
+    case login
     case consultMovements
     case balanceInquiry
     case validateAffiliation
@@ -18,9 +19,16 @@ enum Route {
     case validateKey
     case reassignKey
     case cardActivation
+    case cardStatus
+    case cardOnlineShoppingStatus
+    case cardLock
+    case changeCardOnlineShoppingStatus
+    case without
     
     var description: String {
         switch self {
+        case .login:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/inicia-sesion"
         case .validateAffiliation:
             return "/dcp-app/backend/api/rest/txn-mix-admin/validar-afiliacion-thb"
         case .validatePersonalData:
@@ -32,15 +40,25 @@ enum Route {
         case .validateOTP:
             return "/dcp-app/backend/api/rest/txn-mix-admin/validar-otp"
         case .balanceInquiry:
-            return "/dcp-app/simphub/api/rest/txn-admin/consulta-saldo"
+            return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-saldo"
         case .consultMovements:
-            return "/dcp-app/simphub/api/rest/txn-admin/consulta-movimientos"
+            return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-movimientos"
         case .validateKey:
-            return "/dcp-app/simphub/api/rest/txn-admin/valida-clave"
+            return "/dcp-app/simphubwriter/api/rest/txn-admin/valida-clave"
         case .reassignKey:
-            return "/dcp-app/simphub/api/rest/txn-admin/reasigna-clave"
+            return "/dcp-app/simphubwriter/api/rest/txn-admin/reasigna-clave"
         case .cardActivation:
-            return "/dcp-app/simphub/api/rest/txn-admin/activacion-tarjeta"
+            return "/dcp-app/simphubwriter/api/rest/txn-admin/activacion-tarjeta"
+        case .cardStatus:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/consulta-estado-tarjeta"
+        case .cardOnlineShoppingStatus:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/consulta-boton-codseg"
+        case .cardLock:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/bloqueo-tarjeta"
+        case .changeCardOnlineShoppingStatus:
+            return "/dcp-app/backend/api/rest/txn-mix-admin/boton-codseg"
+        case .without:
+            return ""
         }
     }
 }

@@ -48,6 +48,6 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func editPassword(_ sender: Any) {
-        
+        viewModel.toEditPassword()
     }
 }

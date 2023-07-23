@@ -114,3 +114,7 @@ class PersonalDataViewController: BaseViewController {
         }
     }
 }
+
+extension PersonalDataViewController: PersonalDataViewModelDelegate {
+    
+}

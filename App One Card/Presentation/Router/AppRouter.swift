@@ -10,7 +10,8 @@ import UIKit
 
 protocol Router {
     func start()
-    func showMessageError(title: String, description: String, completion: VoidActionHandler?)
+    func backToHome()
+    //func showMessageError(title: String, description: String, completion: VoidActionHandler?)
 }
 
 class AppRouter: Router {
@@ -28,15 +29,19 @@ class AppRouter: Router {
         window.makeKeyAndVisible()
     }
     
-    func showMessageError(title: String, description: String, completion: VoidActionHandler?) {
-        let view = AlertErrorViewController()
-        view.titleError = title
-        view.descriptionError = description
-        view.accept = completion
-        view.modalPresentationStyle = .custom
-        view.transitioningDelegate = (navigationController?.topViewController as? BaseViewController)
-        navigationController?.present(view, animated: true, completion: nil)
+    func backToHome() {
+        navigationController?.popToRootViewController(animated: true)
     }
+    
+//    func showMessageError(title: String, description: String, completion: VoidActionHandler?) {
+//        let view = AlertErrorViewController()
+//        view.titleError = title
+//        view.descriptionError = description
+//        view.accept = completion
+//        view.modalPresentationStyle = .custom
+//        view.transitioningDelegate = (navigationController?.topViewController as? BaseViewController)
+//        navigationController?.present(view, animated: true, completion: nil)
+//    }
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
@@ -52,43 +57,55 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToConfirmPin(newPin: String, success: @escaping PinActionHandler) {
-        let cardRepository = CardDataRepository()
-        let keyRepository = KeyDataRepository()
-        let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
-        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .cardActivation)
-        viewModel.success = success
-        viewModel.newPin = newPin
-        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
-        navigationController?.pushViewController(viewController, animated: true)
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .cardActivation)
+            viewModel.success = success
+            viewModel.newPin = newPin
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func navigateToNewPin(success: @escaping PinActionHandler) {
-        let cardRepository = CardDataRepository()
-        let keyRepository = KeyDataRepository()
-        let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
-        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .reassign)
-        viewModel.success = success
-        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
-        navigationController?.pushViewController(viewController, animated: true)
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .nothing)
+            viewModel.success = success
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
     }
     
     func navigateToPin(success: @escaping PinActionHandler) {
-        let cardRepository = CardDataRepository()
-        let keyRepository = KeyDataRepository()
-        let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let keyUseCase = KeyUseCase(keyRepository: keyRepository)
-        let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
-        viewModel.success = success
-        let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
-        navigationController?.pushViewController(viewController, animated: true)
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
+            viewModel.success = success
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func navigateToActivateUser() {
-        let viewModel = WelcomeActivateViewModel(router: self, successfulRouter: self)
-        let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)
-        navigationController?.pushViewController(welcomeActivateViewController, animated: true)
+        DispatchQueue.main.async {
+            let viewModel = WelcomeActivateViewModel(router: self, successfulRouter: self)
+            let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)
+            self.navigationController?.pushViewController(welcomeActivateViewController, animated: true)
+        }
     }
     
     func navigateToLoginInformation(otpId: String, documentType: String, documentNumber: String, companyRUC: String) {
@@ -96,6 +113,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         let useCase = UserUseCase(userRepository: repository)
         let viewModel = LoginInformationViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
+        viewModel.delegate = loginInformationViewController
         navigationController?.pushViewController(loginInformationViewController, animated: true)
     }
     
@@ -104,6 +122,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         let useCase = UserUseCase(userRepository: repository)
         let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
+        viewModel.delegate = personalDataViewController
         navigationController?.pushViewController(personalDataViewController, animated: true)
     }
     
@@ -113,25 +132,35 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = MembershipDataViewModel(router: self, userUseCase: useCase)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
         //interactor.membershipDataView = membershipDataViewController
+        viewModel.delegate = membershipDataViewController
         navigationController?.pushViewController(membershipDataViewController, animated: true)
     }
     
     func navigateToHome() {
-        let menu = MenuTabBarController(homeRouter: self, preferencesRouter: self, successfulRouter: self)
-        navigationController = UINavigationController(rootViewController: menu)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        if let nav = navigationController {
-            window.switchRootViewController(to: nav)
+        let menu = MenuTabBarController(homeRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
+        self.navigationController = UINavigationController(rootViewController: menu)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        if let nav = self.navigationController {
+            DispatchQueue.main.async {
+                self.window.switchRootViewController(to: nav)
+            }
         }
     }
     
     func navigateToLogin() {
-        let viewModel = LoginViewModel(router: self)
+        let userRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userRepository)
+        let cardRepository = CardDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
+        viewModel.delegate = loginViewController
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)
         if let nav = navigationController {
-            window.switchRootViewController(to: nav)
+            DispatchQueue.main.async {
+                self.window.switchRootViewController(to: nav)
+            }
         }
     }
     
@@ -170,6 +199,7 @@ extension AppRouter: VerificationRouterDelegate {
         let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
         let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", number: number, email: email, buttonTitle: Constants.next_btn)
+        viewModel.delegate = verificationViewController
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
 }
@@ -181,13 +211,15 @@ extension AppRouter: SuccessfulRouterDelegate {
         successfulViewController.descriptionSuccessful = description
         successfulViewController.buttonSuccessful = button
         successfulViewController.accept = accept
-        navigationController?.pushViewController(successfulViewController, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(successfulViewController, animated: true)
+        }
     }
 }
 
 extension AppRouter: PreferencesRouterDelegate {
     func navigateToProfile() {
-        let viewModel = ProfileViewModel(router: self)
+        let viewModel = ProfileViewModel(router: self, verificationRouter: self)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         navigationController?.pushViewController(profileViewController, animated: true)
     }
@@ -197,14 +229,14 @@ extension AppRouter: PreferencesRouterDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func navigateToContact() {
-        
-    }
-    
     func logout() {
         navigationController = nil
         
-        let viewModel = LoginViewModel(router: self)
+        let userRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userRepository)
+        let cardRepository = CardDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -216,7 +248,9 @@ extension AppRouter: PreferencesRouterDelegate {
 
 extension AppRouter: ProfileRouterDelegate {
     func toEditPassword() {
-        
+        let viewModel = ChangePasswordViewModel(profileRouter: self, successfulRouter: self)
+        let changePasswordViewController = ChangePasswordViewController(viewModel: viewModel)
+        navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     
     func toEditUser() {
@@ -244,6 +278,54 @@ extension AppRouter: ProfileRouterDelegate {
 }
 
 extension AppRouter: HomeRouterDelegate {
+    func modalCardBlock() {
+        
+    }
+    
+    func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler) {
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .reassign)
+            viewModel.success = success
+            viewModel.newPin = newPin
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func navigateToInputNewPin(success: @escaping PinActionHandler) {
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .nothing)
+            viewModel.success = success
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    }
+    
+    func navigateToInputCurrentPin(success: @escaping PinActionHandler) {
+        DispatchQueue.main.async {
+            let cardRepository = CardDataRepository()
+            let keyRepository = KeyDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let keyUseCase = KeyUseCase(keyRepository: keyRepository)
+            let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
+            viewModel.success = success
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 1 de 3", titleDescription: "Ingrese su PIN actual", buttonTitle: Constants.next_btn, placeholder: "PIN actual")
+            viewModel.delegate = viewController
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     func successfulConfigureCard() {
         navigationController?.popToRootViewController(animated: true)
     }
@@ -258,12 +340,19 @@ extension AppRouter: HomeRouterDelegate {
         let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
         viewModel.success = success
         let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
+        viewModel.delegate = verificationViewController
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
     
     func navigateToConfigureCard() {
-        let viewModel = ConfigureCardViewModel(router: self, successfulRouter: self)
-        let viewController = ConfigureCardViewController(viewModel: viewModel)
+        let repository = CardDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: repository)
+        let viewModel = ConfigureCardViewModel(router: self, successfulRouter: self, cardUseCase: cardUseCase)
+        let configureCardDelegateDataSource = ConfigureCardDelegateDataSource(viewModel: viewModel)
+        let viewController = ConfigureCardViewController(viewModel: viewModel, configureCardDelegateDataSource: configureCardDelegateDataSource)
+        viewModel.delegate = viewController
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+extension AppRouter: PromotionsRouterDelegate {}

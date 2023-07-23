@@ -18,10 +18,15 @@ protocol MembershipDataViewModelProtocol {
     func validateUser()
 }
 
+protocol MembershipDataViewModelDelegate: LoaderDisplaying {
+    
+}
+
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
     private let router: AuthenticationRouterDelegate
     private let userUseCase: UserUseCase
     
+    var delegate: MembershipDataViewModelDelegate?
     var documentTypeList: [SelectModel] = [
         SelectModel(id: "1", name: "DNI"),
         SelectModel(id: "2", name: "CARNET EXTRANJERÍA"),
@@ -47,16 +52,18 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
             return
         }
         
+        delegate?.showLoader()
+        
         let request = ValidateAffiliationRequest(documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
         userUseCase.validateAffiliation(request: request) { result in
             switch result {
             case .success(_):
-                DispatchQueue.main.async {
+                self.delegate?.hideLoader {
                     self.router.navigateToPersonalData(beforeRequest: request)
                 }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+                self.delegate?.hideLoader {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         }

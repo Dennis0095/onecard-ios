@@ -19,6 +19,8 @@ class ConfigureCardTableViewCell: UITableViewCell {
             viewSeparator.isHidden = isLast
         }
     }
+    var switchIsOn: Bool = false
+    var listenChanges: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,14 +33,39 @@ class ConfigureCardTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(title: String, description: String? = nil, isLast: Bool) {
+    func setData(configure: ConfigureResponse, isLast: Bool) {
         self.isLast = isLast
-        lblTitle.text = title
+        lblTitle.text = configure.title
         
-        if let _ = description {
-            lblDescription.text = description
+        if let _ = configure.message {
+            lblDescription.text = configure.message
             lblDescription.isHidden = false
         }
+        
+        switchCell.setOn(configure.isOn ?? false, animated: true)
+        
+        if configure.enable ?? false {
+            self.contentView.alpha = 1
+            isUserInteractionEnabled = true
+        } else {
+            self.contentView.alpha = 0.35
+            isUserInteractionEnabled = false
+        }
     }
+    
+    @IBAction func switchCardConfigure(_ sender: UISwitch) {
+        if sender.isOn {
+            switchIsOn = true
+            if let changes = listenChanges {
+                changes(true)
+            }
+        } else {
+            switchIsOn = false
+            if let changes = listenChanges {
+                changes(false)
+            }
+        }
+    }
+    
     
 }

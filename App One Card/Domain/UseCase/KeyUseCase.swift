@@ -8,7 +8,7 @@
 import Combine
 
 protocol KeyUseCaseProtocol {
-    func reassign(request: ValidateKeyRequest, completion: @escaping (Result<ReassignKeyResponse, CustomError>) -> Void)
+    func reassign(request: ValidateKeyRequest) -> AnyPublisher<ReassignKeyResponse, Error>
     func validate(request: ValidateKeyRequest, completion: @escaping (Result<ValidateKeyResponse, CustomError>) -> Void)
 }
 
@@ -40,20 +40,21 @@ class KeyUseCase: KeyUseCaseProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func reassign(request: ValidateKeyRequest, completion: @escaping (Result<ReassignKeyResponse, CustomError>) -> Void) {
-        let cancellable = keyRepository.reassign(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                completion(.success(response))
-            }
-        
-        cancellable.store(in: &cancellables)
+    func reassign(request: ValidateKeyRequest) -> AnyPublisher<ReassignKeyResponse, Error> {
+//        let cancellable = keyRepository.reassign(request: request)
+//            .sink { publisher in
+//                switch publisher {
+//                case .finished: break
+//                case .failure(let error):
+//                    let error = CustomError(title: "Error", description: error.localizedDescription)
+//                    completion(.failure(error))
+//                }
+//            } receiveValue: { response in
+//                completion(.success(response))
+//            }
+//
+//        cancellable.store(in: &cancellables)
+        return keyRepository.reassign(request: request)
     }
     
     func cancelRequests() {

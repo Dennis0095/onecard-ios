@@ -9,7 +9,7 @@ import Foundation
 
 struct CardActivationResponse: Codable {
     let rc: String?
-    let rcDesc: String??
+    let rcDesc: String?
     
     enum CodingKeys: String, CodingKey {
         case rc = "RC"

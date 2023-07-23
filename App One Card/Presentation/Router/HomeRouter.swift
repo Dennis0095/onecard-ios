@@ -8,6 +8,10 @@
 import Foundation
 
 protocol HomeRouterDelegate: Router {
+    func modalCardBlock()
+    func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler)
+    func navigateToInputNewPin(success: @escaping PinActionHandler)
+    func navigateToInputCurrentPin(success: @escaping PinActionHandler)
     func navigateToCardBlock(email: String, number: String, navTitle: String, success: @escaping VerificationActionHandler)
     func navigateToConfigureCard()
     func successfulCardBlock()

@@ -1,0 +1,14 @@
+<svg width="149" height="149" viewBox="0 0 149 149" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="74.5" cy="74.5" r="74" fill="url(#paint0_linear_2564_2361)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M72 93.2739C85.393 93.2739 96.2524 82.4073 96.2524 69C96.2524 55.5927 85.393 44.7261 72 44.7261C58.607 44.7261 47.7476 55.5927 47.7476 69C47.7476 82.4073 58.607 93.2739 72 93.2739ZM72 94.7739C86.2226 94.7739 97.7524 83.2345 97.7524 69C97.7524 54.7654 86.2226 43.2261 72 43.2261C57.7774 43.2261 46.2476 54.7654 46.2476 69C46.2476 83.2345 57.7774 94.7739 72 94.7739Z" fill="#B9B9B9"/>
+<path d="M70.7784 60.1045V67.2689C70.7784 68.9257 72.1215 70.2689 73.7784 70.2689H75.1309" stroke="#B9B9B9" stroke-width="1.5" stroke-linecap="round"/>
+<ellipse cx="60.9644" cy="60.9131" rx="2.21186" ry="2.76714" fill="#B5B7B8"/>
+<ellipse cx="82.7666" cy="60.9136" rx="2.21186" ry="2.76714" fill="#B5B7B8"/>
+<path d="M81.6607 80.8359C80.6864 78.9121 77.3792 75.0803 71.9443 75.1435C66.5095 75.2068 63.1495 78.9648 62.1489 80.8359" stroke="#B9B9B9" stroke-width="1.5" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_2564_2361" x1="74.5" y1="0.5" x2="74.5" y2="110.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#DAE7ED" stop-opacity="0.44"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>

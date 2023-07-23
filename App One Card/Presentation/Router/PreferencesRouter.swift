@@ -10,6 +10,5 @@ import Foundation
 protocol PreferencesRouterDelegate: Router {
     func navigateToProfile()
     func navigateToQuestions()
-    func navigateToContact()
     func logout()
 }

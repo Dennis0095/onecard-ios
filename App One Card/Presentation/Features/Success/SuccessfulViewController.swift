@@ -25,7 +25,7 @@ class SuccessfulViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         configure()
-        btnSuccessful.configure(text: buttonSuccessful ?? Constants.enter, status: .enabled)
+        btnSuccessful.configure(text: buttonSuccessful ?? Constants.login_btn, status: .enabled)
     }
     
     func configure() {

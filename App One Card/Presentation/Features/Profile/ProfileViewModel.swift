@@ -15,9 +15,11 @@ protocol ProfileViewModelProtocol {
 
 class ProfileViewModel: ProfileViewModelProtocol {
     var router: ProfileRouterDelegate
+    var verificationRouter: VerificationRouterDelegate
     
-    init(router: ProfileRouterDelegate) {
+    init(router: ProfileRouterDelegate, verificationRouter: VerificationRouterDelegate) {
         self.router = router
+        self.verificationRouter = verificationRouter
     }
     
     func toEditMail() {
@@ -25,7 +27,13 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func toEditUser() {
-        router.toEditUser()
+        //router.toEditUser()
+        verificationRouter.navigateToVerification(email: "arambulotech@gmail.com", number: "982221121", navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", success: { [weak self] idOtp in
+//            self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "REGRESAR", accept: {
+//                self?.profileRouter.successfulEditProfile()
+//            })
+            self?.router.toEditUser()
+        })
     }
     
     func toEditPassword() {

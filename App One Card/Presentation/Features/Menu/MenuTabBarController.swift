@@ -19,12 +19,14 @@ class MenuTabBarController: UITabBarController {
     
     var homeRouter: HomeRouterDelegate
     var preferencesRouter: PreferencesRouterDelegate
+    var promotionsRouter: PromotionsRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     
-    init(homeRouter: HomeRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate) {
+    init(homeRouter: HomeRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate, promotionsRouter: PromotionsRouterDelegate) {
         self.homeRouter = homeRouter
         self.preferencesRouter = preferencesRouter
         self.successfulRouter = successfulRouter
+        self.promotionsRouter = promotionsRouter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,7 +45,7 @@ class MenuTabBarController: UITabBarController {
     private func setupView() {
         let homeViewController = setupHome()
         
-        let promViewController = UIViewController()
+        let promViewController = setupPromotions()
         
         let preferencesViewModel = PreferencesViewModel()
         preferencesViewModel.router = preferencesRouter
@@ -73,8 +75,18 @@ class MenuTabBarController: UITabBarController {
         let movementRepository = MovementDataRepository()
         let movementUseCase = MovementUseCase(movementRepository: movementRepository)
         let viewModel = HomeViewModel(router: homeRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase)
-        let home = HomeViewController(viewModel: viewModel)
+        let movementsViewModel = MovementsViewModel()
+        let movementsDelegateDataSource = MovementsDelegateDataSource(viewModel: movementsViewModel)
+        let home = HomeViewController(viewModel: viewModel, movementsViewModel: movementsViewModel, movementsDelegateDataSource: movementsDelegateDataSource)
         return home
+    }
+    
+    private func setupPromotions() -> PromotionsViewController {
+        let viewModel = PromotionListMockViewModel(router: promotionsRouter)
+        let promotionsDelegateDataSource = PromotionsDelegateDataSource(viewModel: viewModel)
+        let promotions = PromotionsViewController(viewModel: viewModel, promotionsDelegateDataSource: promotionsDelegateDataSource)
+        viewModel.delegate = promotions
+        return promotions
     }
     
     private func addActions() {

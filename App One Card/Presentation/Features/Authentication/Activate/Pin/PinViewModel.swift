@@ -6,24 +6,31 @@
 //
 
 import Foundation
+import Combine
 
 protocol PinViewModelProtocol {
     var pin: String { get set }
     var newPin: String { get set }
     var pinStep: PinStep { get set }
+    var delegate: PinViewModelDelegate? { get set }
     
     func nextStep()
     func validate()
-    func reassign()
+    func reassign(isCardActivation: Bool)
     func cardActivation()
 }
 
+protocol PinViewModelDelegate: LoaderDisplaying {}
+
 class PinViewModel: PinViewModelProtocol {
+    var delegate: PinViewModelDelegate?
     var success: PinActionHandler?
     var router: AuthenticationRouterDelegate
     
     private let cardUseCase: CardUseCase
     private let keyUseCase: KeyUseCase
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var pin: String = ""
     var newPin: String = ""
@@ -41,21 +48,26 @@ class PinViewModel: PinViewModelProtocol {
         case .validate:
             validate()
         case .reassign:
-            reassign()
+            reassign(isCardActivation: false)
         case .cardActivation:
-            cardActivation()
+            reassign(isCardActivation: true)
+        case .nothing:
+            if let success = self.success {
+                success(self.pin)
+            }
         }
     }
     
     func validate() {
-        let request = ValidateKeyRequest(segCode: "", pin: "", tLocal: "")
+        let request = ValidateKeyRequest(segCode: "20230214000000000001", pin: "1234", tLocal: "20230511")
         
+        self.delegate?.showLoader()
         keyUseCase.validate(request: request) { result in
             switch result {
             case .success(let response):
-                DispatchQueue.main.async {
+                self.delegate?.hideLoader {
                     if response.rc == "447" {
-                        self.router.showMessageError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", completion: nil)
+                        self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
                     } else if response.rc == "0" {
                         if let success = self.success {
                             success(self.pin)
@@ -63,58 +75,83 @@ class PinViewModel: PinViewModelProtocol {
                     }
                 }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+                self.delegate?.hideLoader {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         }
     }
     
-    func reassign() {
+    func reassign(isCardActivation: Bool) {
+        self.delegate?.showLoader()
+        
         let request = ValidateKeyRequest(segCode: "", pin: "", tLocal: "")
         
-        keyUseCase.reassign(request: request) { result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
+        let cancellable = keyUseCase.reassign(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
                     if response.rc == "0" {
-                        if let success = self.success {
-                            success(self.pin)
+                        if isCardActivation {
+                            self.cardActivation()
+                        } else {
+                            if let success = self.success {
+                                success(self.pin)
+                            }
+                        }
+                    } else {
+                        let error = CustomError(title: "Error", description: "Ocurrió un error")
+                        self.delegate?.hideLoader {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
-                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
     
     func cardActivation() {
-        let request = CardActivationRequest(segCode: "")
+        self.delegate?.showLoader()
         
-        cardUseCase.activation(request: request) { result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
+        let request = CardActivationRequest(segCode: "")
+        let cancellable = cardUseCase.activation(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
                     if response.rc == "0" {
                         if let success = self.success {
                             success(self.pin)
                         }
+                    } else {
+                        self.delegate?.showError(title: "Error", description: "Ocurrio un error inesperado", onAccept: nil)
                     }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
-                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
+
 }
 
 enum PinStep {
     case validate
     case reassign
     case cardActivation
+    case nothing
 }

@@ -11,14 +11,23 @@ protocol LoginInformationViewModelProtocol {
     var username: String? { get set }
     var password: String? { get set }
     var passwordOk: String? { get set }
-    //func successfulRegister(accept: VoidActionHandler?)
+    var delegate: LoginInformationViewModelDelegate? { get set }
+    
     func registerUser()
+    func navigateToSuccessfulScreen()
+    func timeExpiredRegister()
+}
+
+protocol LoginInformationViewModelDelegate: LoaderDisplaying {
+    func successRegister()
+    func timeExpired()
 }
 
 class LoginInformationViewModel: LoginInformationViewModelProtocol {
     var username: String?
     var password: String?
     var passwordOk: String?
+    var delegate: LoginInformationViewModelDelegate?
     
     private let router: AuthenticationRouterDelegate
     private let successfulRouter: SuccessfulRouterDelegate
@@ -38,6 +47,16 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
         self.documentNumber = documentNumber
         self.companyRUC = companyRUC
     }
+    
+    func navigateToSuccessfulScreen() {
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn) {
+            self.router.navigateToLogin()
+        }
+    }
+    
+    func timeExpiredRegister() {
+        self.router.timeExpiredRegister()
+    }
 
     func registerUser() {
         guard let username = self.username, let password = self.password, let passwordOk = self.passwordOk else {
@@ -49,17 +68,11 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
         userUseCase.userRegister(request: request) { result in
             switch result {
             case .success(_):
-                DispatchQueue.main.async {
-                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.enter) {
-                        self.router.navigateToLogin()
-                    }
-                }
+                self.delegate?.successRegister()
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description) {
-                        if error.timeExpired {
-                            self.router.timeExpiredRegister()
-                        }
+                self.delegate?.showError(title: error.title, description: error.description) {
+                    if error.timeExpired {
+                        self.delegate?.timeExpired()
                     }
                 }
             }

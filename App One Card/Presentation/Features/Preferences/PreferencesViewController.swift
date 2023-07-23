@@ -68,7 +68,8 @@ extension PreferencesViewController: UITableViewDelegate {
             viewModel.toProfile()
         case 1:
             viewModel.toQuestions()
-        case 2: break
+        case 2:
+            viewModel.toContact(phoneNumber: "016151111")
         case 3:
             viewModel.logout()
         default: break

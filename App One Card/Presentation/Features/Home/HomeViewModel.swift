@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewModelProtocol {
     func toCardLock()
     func toConfigureCard()
+    func toChangePin()
     func balanceInquiry()
     func consultMovements()
 }
@@ -41,6 +42,18 @@ class HomeViewModel: HomeViewModelProtocol {
         router.navigateToConfigureCard()
     }
     
+    func toChangePin() {
+        router.navigateToInputCurrentPin { _ in
+            self.router.navigateToInputNewPin { newPin in
+                self.router.navigateToInputPinConfirmation(newPin: newPin) { _ in
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: "REGRESAR") {
+                        self.router.backToHome()
+                    }
+                }
+            }
+        }
+    }
+    
     func balanceInquiry() {
         let request = BalanceInquiryRequest(segCode: "12345687910111213140")
         
@@ -53,11 +66,11 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description) {
-                        if error.actionAfterFailure {
-                            self.balanceInquiry()
-                        }
-                    }
+//                    self.router.showMessageError(title: error.title, description: error.description) {
+//                        if error.actionAfterFailure {
+//                            self.balanceInquiry()
+//                        }
+//                    }
                 }
             }
         }
@@ -74,11 +87,11 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description) {
-                        if error.actionAfterFailure {
-                            self.balanceInquiry()
-                        }
-                    }
+//                    self.router.showMessageError(title: error.title, description: error.description) {
+//                        if error.actionAfterFailure {
+//                            self.balanceInquiry()
+//                        }
+//                    }
                 }
             }
         }

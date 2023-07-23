@@ -89,3 +89,13 @@ class LoginInformationViewController: BaseViewController {
         }
     }
 }
+
+extension LoginInformationViewController: LoginInformationViewModelDelegate {
+    func successRegister() {
+        viewModel.navigateToSuccessfulScreen()
+    }
+    
+    func timeExpired() {
+        viewModel.timeExpiredRegister()
+    }
+}

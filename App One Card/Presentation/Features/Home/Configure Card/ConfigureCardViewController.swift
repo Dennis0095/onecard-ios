@@ -11,12 +11,16 @@ class ConfigureCardViewController: BaseViewController {
     
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var tbConfigureCard: UITableView!
+    @IBOutlet weak var viewError: UIView!
+    @IBOutlet weak var viewConfigure: UIView!
     @IBOutlet weak var btnSave: PrimaryFilledButton!
     
     private var viewModel: ConfigureCardViewModelProtocol
+    private var configureCardDelegateDataSource: ConfigureCardDelegateDataSource
     
-    init(viewModel: ConfigureCardViewModelProtocol) {
+    init(viewModel: ConfigureCardViewModelProtocol, configureCardDelegateDataSource: ConfigureCardDelegateDataSource) {
         self.viewModel = viewModel
+        self.configureCardDelegateDataSource = configureCardDelegateDataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,12 +29,17 @@ class ConfigureCardViewController: BaseViewController {
     }
     
     override func initView() {
-        tbConfigureCard.delegate = self
-        tbConfigureCard.dataSource = self
+        viewError.isHidden = true
+        viewConfigure.isHidden = true
+        
+        tbConfigureCard.delegate = configureCardDelegateDataSource
+        tbConfigureCard.dataSource = configureCardDelegateDataSource
         
         tbConfigureCard.register(UINib(nibName: "ConfigureCardTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfigureCardTableViewCell")
         
-        btnSave.configure(text: "GUARDAR CAMBIOS", status: .enabled)
+        btnSave.configure(text: "GUARDAR CAMBIOS", status: .disabled)
+        
+        viewModel.getCardStatusAndOnlineShoppingStatus()
     }
     
     override func setActions() {
@@ -49,26 +58,21 @@ class ConfigureCardViewController: BaseViewController {
     }
 }
 
-extension ConfigureCardViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+extension ConfigureCardViewController: ConfigureCardViewModelDelegate {
+    func changeStatus() {
+        DispatchQueue.main.async {
+            self.tbConfigureCard.reloadData()
+            self.btnSave.status = self.viewModel.existsChanges() ? .enabled : .disabled
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tbConfigureCard.dequeueReusableCell(withIdentifier: "ConfigureCardTableViewCell", for: indexPath) as? ConfigureCardTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        switch indexPath.row {
-        case 0:
-            cell.configure(title: "APAGAR y PRENDER TARJETA", description: "Recuerde que no podrá hacer uso de su tarjeta mientras esté apagada.", isLast: (2 - 1) == indexPath.row)
-        case 1:
-            cell.configure(title: "Compras por internet", isLast: (2 - 1) == indexPath.row)
-        default: break
-        }
-        
-        return cell
+    func successGetStatus() {
+        viewConfigure.isHidden = false
+        viewError.isHidden = true
+    }
+    
+    func failureGetStatus() {
+        viewError.isHidden = false
+        viewConfigure.isHidden = true
     }
 }
-
-extension ConfigureCardViewController: UITableViewDelegate { }

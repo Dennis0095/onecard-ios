@@ -47,9 +47,9 @@ class PinViewController: BaseViewController {
     }
     
     override func initView() {
-        configure()
-        txtPin.configure(placeholder: "PIN de la tarjeta", errorMessage: "Debe tener 4 dígitos.", status: .activated, isPassword: true)
+        txtPin.configure(placeholder: "", errorMessage: "Debe tener 4 dígitos.", status: .activated, isPassword: true)
         btnNext.configure(text: buttonTitle, status: .enabled)
+        configure()
     }
     
     override func setActions() {
@@ -107,3 +107,5 @@ class PinViewController: BaseViewController {
         }
     }
 }
+
+extension PinViewController: PinViewModelDelegate {}

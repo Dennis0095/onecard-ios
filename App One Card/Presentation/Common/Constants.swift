@@ -24,7 +24,6 @@ class Constants {
     static let placeholder_document_type: String = "Tipo de documento"
     static let congratulations: String = "¡Felicidades!"
     static let congratulations_description: String = "Ha creado su nuevo usuario y clave digital con éxito."
-    static let enter: String = "INGRESAR"
     static let tab_title_home: String = "Inicio"
     static let tab_title_proms: String = "Promociones"
     static let tab_title_prefs: String = "Preferencias"
@@ -32,4 +31,8 @@ class Constants {
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"
+    
+    //MARK: Login error
+    static let login_error_incomplete_data: String = "Por favor, ingresa todos los datos solicitados."
+    
 }

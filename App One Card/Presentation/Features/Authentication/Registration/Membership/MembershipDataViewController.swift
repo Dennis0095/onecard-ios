@@ -124,4 +124,9 @@ class MembershipDataViewController: BaseViewController {
             viewModel.validateUser()
         }
     }
+    
+}
+
+extension MembershipDataViewController: MembershipDataViewModelDelegate {
+    
 }

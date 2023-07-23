@@ -11,15 +11,23 @@ import Combine
 protocol VerificationViewModelProtocol {
     var otpId: String? { get set }
     var code: String? { get set }
+    var wasShownViewVerification: Bool { get set }
     
     func sendOTP(toNumber: Bool, number: String, email: String)
     func validateOTP()
+}
+
+protocol VerificationViewModelDelegate: LoaderDisplaying {
+    func successSendOtp()
+    func failureSendOtp()
 }
 
 class VerificationViewModel: VerificationViewModelProtocol {
     var otpId: String?
     var code: String?
     var success: VerificationActionHandler?
+    var delegate: VerificationViewModelDelegate?
+    var wasShownViewVerification: Bool = false
     
     private let otpUseCase: OTPUseCase
     private let router: Router
@@ -30,13 +38,25 @@ class VerificationViewModel: VerificationViewModelProtocol {
     }
     
     func sendOTP(toNumber: Bool, number: String, email: String) {
+        delegate?.showLoader()
+        
         let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
         
         otpUseCase.send(request: request) { result in
-            switch result {
-            case .success(let response):
-                self.otpId = response.otpId
-            case .failure(_): break
+            self.delegate?.hideLoader {
+                switch result {
+                case .success(let response):
+                    self.otpId = response.otpId
+                    if !self.wasShownViewVerification {
+                        self.delegate?.successSendOtp()
+                    }
+                case .failure(let error):
+                    if !self.wasShownViewVerification {
+                        self.delegate?.failureSendOtp()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
             }
         }
     }
@@ -46,19 +66,24 @@ class VerificationViewModel: VerificationViewModelProtocol {
             return
         }
         
+        delegate?.showLoader()
+        
         let request = ValidateOTPRequest(otpId: otp, otpCode: code)
-
         otpUseCase.validate(request: request) { result in
-            switch result {
-            case .success(_):
-                DispatchQueue.main.async {
+            self.delegate?.hideLoader {
+                switch result {
+                case .success(_):
+//                    DispatchQueue.main.async {
+//
+//                    }
                     if let action = self.success {
                         action(otp)
                     }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        //self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+                    }
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         }

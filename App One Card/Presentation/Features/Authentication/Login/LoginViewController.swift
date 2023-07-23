@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: BaseViewController {
-
+    
     @IBOutlet weak var txtUser: OutlinedTextField!
     @IBOutlet weak var txtPassword: OutlinedTextField!
     @IBOutlet weak var btnLogin: PrimaryFilledButton!
@@ -53,18 +53,27 @@ class LoginViewController: BaseViewController {
         txtPassword.listenChanges = { [weak self] text in
             self?.viewModel.password = text
         }
+        
+        viewModel.username = "A"
+        viewModel.password = "A"
     }
     
-    private func validateFields() {
-        
-    }
-    //
     @IBAction func login(_ sender: Any) {
-        //self.viewModel.formValidation()
-        self.viewModel.toActivateUser()
+        viewModel.login()
     }
     
     @IBAction func register(_ sender: Any) {
         viewModel.toRegister()
+    }
+    
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func successLogin() {
+        viewModel.toHome()
+    }
+    
+    func toActivateUser() {
+        viewModel.toActivateUser()
     }
 }

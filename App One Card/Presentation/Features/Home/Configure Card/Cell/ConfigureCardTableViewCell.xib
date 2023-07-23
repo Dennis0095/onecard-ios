@@ -44,6 +44,9 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-W8-nEb">
                                                 <rect key="frame" x="354" y="0.0" width="51" height="73"/>
                                                 <color key="onTintColor" name="blue_primary"/>
+                                                <connections>
+                                                    <action selector="switchCardConfigure:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Yrd-jg-iku"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>

@@ -27,9 +27,9 @@ class AlertErrorViewController: UIViewController {
     }
     
     func addActions() {
-        let tapHidden = UITapGestureRecognizer(target: self, action: #selector(hiddenAlert))
-        viewBackground.isUserInteractionEnabled = true
-        viewBackground.addGestureRecognizer(tapHidden)
+//        let tapHidden = UITapGestureRecognizer(target: self, action: #selector(hiddenAlert))
+//        viewBackground.isUserInteractionEnabled = true
+//        viewBackground.addGestureRecognizer(tapHidden)
     }
     
     func setupView() {
@@ -44,10 +44,10 @@ class AlertErrorViewController: UIViewController {
         btnAccept.configure(text: Constants.accept, status: .enabled)
     }
     
-    @objc
-    func hiddenAlert() {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
+//    @objc
+//    func hiddenAlert() {
+//        self.presentingViewController?.dismiss(animated: true, completion: nil)
+//    }
     
     @IBAction func clickAccept(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true) {

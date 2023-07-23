@@ -51,16 +51,19 @@ class Loading: UIViewController {
         }
         
         self.modalPresentationStyle = .overFullScreen
-        keyWindow.rootViewController?.present(self, animated: false) { }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.lottieAnimationView?.play()
+        keyWindow.rootViewController?.present(self, animated: false) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.lottieAnimationView?.play()
+            }
         }
     }
     
-    func hide() {
+    func hide(completion: VoidActionHandler? = nil) {
         lottieAnimationView?.stop()
         DispatchQueue.main.async {
-            self.dismiss(animated: false)
+            self.dismiss(animated: false) {
+                completion?()
+            }
         }
     }
 }

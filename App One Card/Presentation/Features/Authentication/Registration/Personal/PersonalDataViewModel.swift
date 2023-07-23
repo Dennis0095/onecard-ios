@@ -18,12 +18,15 @@ protocol PersonalDataViewModelProtocol {
     func validateFields()
 }
 
+protocol PersonalDataViewModelDelegate: LoaderDisplaying {}
+
 class PersonalDataViewModel: PersonalDataViewModelProtocol {
     var name: String?
     var lastName: String?
     var birthday: String?
     var cellphone: String?
     var email: String?
+    var delegate: PersonalDataViewModelDelegate?
     
     private let router: AuthenticationRouterDelegate
     private let verificationRouter: VerificationRouterDelegate
@@ -50,25 +53,27 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
         guard let name = name, let lastName = self.lastName, let birthday = self.birthday, let cellphone = self.cellphone, let email = self.email else {
             return
         }
+        
+        delegate?.showLoader()
 
         let request = ValidatePersonalDataRequest(documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, name: name, lastName: lastName, birthday: birthday, cellphone: cellphone, email: email)
         
         userUseCase.validatePersonalData(request: request) { result in
-            switch result {
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.verificationRouter.navigateToVerification(email: email, number: cellphone, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] otpId in
-                        self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.router.showMessageError(title: error.title, description: error.description) {
-                        if error.timeExpired {
-                            self.router.timeExpiredRegister()
+                switch result {
+                case .success(_):
+                    self.delegate?.hideLoader {
+                        self.verificationRouter.navigateToVerification(email: email, number: cellphone, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] otpId in
+                            self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
                         }
                     }
-                }
+                case .failure(let error):
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            if error.timeExpired {
+                                self.router.timeExpiredRegister()
+                            }
+                        }
+                    }
             }
         }
     }

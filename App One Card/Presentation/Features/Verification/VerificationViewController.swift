@@ -22,6 +22,12 @@ class VerificationViewController: BaseViewController {
     @IBOutlet weak var btnResend: UIButton!
     @IBOutlet weak var viewStep: UIView!
     @IBOutlet weak var btnSendCode: UIButton!
+    @IBOutlet weak var viewError: UIView!
+    @IBOutlet weak var viewVerification: UIView!
+    @IBOutlet weak var imgError: UIImageView!
+    @IBOutlet weak var lblTitleError: UILabel!
+    @IBOutlet weak var lblMessageError: UILabel!
+    @IBOutlet weak var btnRetry: PrimaryFilledButton!
     
     private var viewModel: VerificationViewModelProtocol
     private var number: String
@@ -63,12 +69,19 @@ class VerificationViewController: BaseViewController {
     }
     
     override func initView() {
+        viewError.isHidden = true
+        viewVerification.isHidden = true
+        
         configure()
         setCount()
         txtCode.configure()
         btnNext.configure(text: buttonTitle, status: .enabled)
+        btnRetry.configure(text: "VOLVER A INTENTAR", status: .enabled)
         sendToNumber = true
-        sendOTP()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.sendOTP()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -160,7 +173,7 @@ class VerificationViewController: BaseViewController {
     
     private func sendOTP() {
         viewModel.sendOTP(toNumber: sendToNumber, number: number, email: email)
-        resetTime()
+        //resetTime()
     }
     
     @IBAction func resend(_ sender: Any) {
@@ -176,5 +189,22 @@ class VerificationViewController: BaseViewController {
     @IBAction func send(_ sender: Any) {
         sendToNumber = !sendToNumber
         sendOTP()
+    }
+    
+    @IBAction func tryAgain(_ sender: Any) {
+        sendOTP()
+    }
+}
+
+extension VerificationViewController: VerificationViewModelDelegate {
+    func successSendOtp() {
+        viewVerification.isHidden = false
+        viewError.isHidden = true
+        resetTime()
+    }
+    
+    func failureSendOtp() {
+        viewError.isHidden = false
+        viewVerification.isHidden = true
     }
 }

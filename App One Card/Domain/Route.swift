@@ -28,7 +28,7 @@ enum Route {
     var description: String {
         switch self {
         case .login:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/inicia-sesion"
+            return "/txn-admin-auth/login"
         case .validateAffiliation:
             return "/dcp-app/backend/api/rest/txn-mix-admin/validar-afiliacion-thb"
         case .validatePersonalData:
@@ -50,7 +50,7 @@ enum Route {
         case .cardActivation:
             return "/dcp-app/simphubwriter/api/rest/txn-admin/activacion-tarjeta"
         case .cardStatus:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/consulta-estado-tarjeta"
+            return "/busqueda/txn-data/consulta-estado-tarjeta"
         case .cardOnlineShoppingStatus:
             return "/dcp-app/backend/api/rest/txn-mix-admin/consulta-boton-codseg"
         case .cardLock:

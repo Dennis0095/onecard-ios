@@ -30,9 +30,10 @@ class PreferencesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(item: PreferenceItem, isLast: Bool) {
+    func configure(item: PreferenceItem, isLast: Bool, image: UIImage) {
         self.isLast = isLast
         lblTitle.text = item.title
+        imgPreference.image = image
     }
     
 }

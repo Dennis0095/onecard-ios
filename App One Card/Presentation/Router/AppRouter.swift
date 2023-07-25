@@ -137,7 +137,7 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
     
     func navigateToHome() {
-        let menu = MenuTabBarController(homeRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
+        let menu = MenuTabBarController(homeRouter: self, authRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
         self.navigationController = UINavigationController(rootViewController: menu)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         if let nav = self.navigationController {
@@ -152,7 +152,11 @@ extension AppRouter: AuthenticationRouterDelegate {
         let userUseCase = UserUseCase(userRepository: userRepository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+        let userLocalRepository = UserLocalDataRepository()
+        let userLocalUseCase = UserLocalUseCase(userLocalRepository: userLocalRepository)
+        let cardLocalRepository = CardLocalDataRepository()
+        let cardLocalUseCase = CardLocalUseCase(cardLocalRepository: cardLocalRepository)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, userLocalUseCase: userLocalUseCase, cardUseCase: cardUseCase, cardLocalUseCase: cardLocalUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
         viewModel.delegate = loginViewController
         navigationController = UINavigationController(rootViewController: loginViewController)
@@ -236,7 +240,11 @@ extension AppRouter: PreferencesRouterDelegate {
         let userUseCase = UserUseCase(userRepository: userRepository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+        let userLocalRepository = UserLocalDataRepository()
+        let userLocalUseCase = UserLocalUseCase(userLocalRepository: userLocalRepository)
+        let cardLocalRepository = CardLocalDataRepository()
+        let cardLocalUseCase = CardLocalUseCase(cardLocalRepository: cardLocalRepository)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, userLocalUseCase: userLocalUseCase, cardUseCase: cardUseCase, cardLocalUseCase: cardLocalUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -278,8 +286,12 @@ extension AppRouter: ProfileRouterDelegate {
 }
 
 extension AppRouter: HomeRouterDelegate {
-    func modalCardBlock() {
-        
+    func confirmCardLock(accept: VoidActionHandler?) {
+        let view = CardLockModalViewController()
+        view.accept = accept
+        view.modalPresentationStyle = .overFullScreen
+        view.modalTransitionStyle = .crossDissolve
+        navigationController?.present(view, animated: true, completion: nil)
     }
     
     func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler) {
@@ -337,11 +349,13 @@ extension AppRouter: HomeRouterDelegate {
     func navigateToCardBlock(email: String, number: String, navTitle: String, success: @escaping VerificationActionHandler) {
         let repository = OTPDataRepository()
         let useCase = OTPUseCase(otpRepository: repository)
-        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
+        let cardRepository = CardDataRepository()
+        let cardUseCase = CardUseCase(cardRepository: cardRepository)
+        let viewModel = CardLockViewModel(router: self, otpUseCase: useCase, cardUseCase: cardUseCase)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
-        viewModel.delegate = verificationViewController
-        navigationController?.pushViewController(verificationViewController, animated: true)
+        let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
+        viewModel.delegate = cardLockViewController
+        navigationController?.pushViewController(cardLockViewController, animated: true)
     }
     
     func navigateToConfigureCard() {

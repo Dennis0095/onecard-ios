@@ -27,4 +27,8 @@ class CardDataRepository: CardRepository {
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error> {
         return APIClient.callAPI(route: .changeCardOnlineShoppingStatus, method: .post, request: request)
     }
+    
+    func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error> {
+        return APIClient.callAPI(route: .cardLock, method: .post, request: request)
+    }
 }

@@ -8,7 +8,7 @@
 import Combine
 
 protocol UserUseCaseProtocol {
-    func login(request: LoginRequest, completion: @escaping (Result<LoginResponse, CustomError>) -> Void)
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, Error>
     func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void)
     func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void)
     func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void)
@@ -26,20 +26,8 @@ class UserUseCase: UserUseCaseProtocol {
        cancelRequests()
     }
     
-    func login(request: LoginRequest, completion: @escaping (Result<LoginResponse, CustomError>) -> Void) {
-        let cancellable = userRepository.login(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                completion(.success(response))
-            }
-        
-        cancellable.store(in: &cancellables)
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, Error> {
+        return userRepository.login(request: request)
     }
     
     func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void) {

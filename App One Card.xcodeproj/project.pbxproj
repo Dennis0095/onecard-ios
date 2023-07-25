@@ -188,6 +188,23 @@
 		0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF183EF2A6908BB004A0621 /* ChangePasswordViewController.xib */; };
 		0DF183F32A696D1C004A0621 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183F22A696D1C004A0621 /* ChangePasswordViewModel.swift */; };
 		0DF183F52A6972D1004A0621 /* MovementsDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183F42A6972D1004A0621 /* MovementsDelegateDataSource.swift */; };
+		0DFA7C7F2A6D8ADF0031178B /* UserLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */; };
+		0DFA7C822A6D8B190031178B /* UserLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */; };
+		0DFA7C862A6D8F0A0031178B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C852A6D8F0A0031178B /* User.swift */; };
+		0DFA7C8B2A6D99EE0031178B /* UserLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C8A2A6D99EE0031178B /* UserLocalUseCase.swift */; };
+		0DFA7C8E2A6D9EAF0031178B /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 0DFA7C8D2A6D9EAF0031178B /* JWTDecode */; };
+		0DFA7C912A6DA2650031178B /* UserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C902A6DA2650031178B /* UserObserver.swift */; };
+		0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C922A6DA5280031178B /* CardObserver.swift */; };
+		0DFA7C952A6DA64F0031178B /* CardLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */; };
+		0DFA7C972A6DA6790031178B /* CardLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */; };
+		0DFA7C992A6DA6B00031178B /* CardLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C982A6DA6B00031178B /* CardLocalUseCase.swift */; };
+		0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C9A2A6DB9D50031178B /* CardLockViewController.swift */; };
+		0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA7C9B2A6DB9D50031178B /* CardLockViewController.xib */; };
+		0DFA7C9F2A6DBC660031178B /* CardLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C9E2A6DBC660031178B /* CardLockViewModel.swift */; };
+		0DFA7CA22A6DC7E60031178B /* CardLockModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7CA02A6DC7E60031178B /* CardLockModalViewController.swift */; };
+		0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA7CA12A6DC7E60031178B /* CardLockModalViewController.xib */; };
+		0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7CA42A6DEAAD0031178B /* CardLockRequest.swift */; };
+		0DFA7CA72A6DEAB50031178B /* CardLockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */; };
 		0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */; };
 		0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */; };
 		0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */; };
@@ -376,6 +393,22 @@
 		0DF183EF2A6908BB004A0621 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		0DF183F22A696D1C004A0621 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		0DF183F42A6972D1004A0621 /* MovementsDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsDelegateDataSource.swift; sourceTree = "<group>"; };
+		0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalDataRepository.swift; sourceTree = "<group>"; };
+		0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalRepository.swift; sourceTree = "<group>"; };
+		0DFA7C852A6D8F0A0031178B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0DFA7C8A2A6D99EE0031178B /* UserLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalUseCase.swift; sourceTree = "<group>"; };
+		0DFA7C902A6DA2650031178B /* UserObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObserver.swift; sourceTree = "<group>"; };
+		0DFA7C922A6DA5280031178B /* CardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardObserver.swift; sourceTree = "<group>"; };
+		0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalDataRepository.swift; sourceTree = "<group>"; };
+		0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalRepository.swift; sourceTree = "<group>"; };
+		0DFA7C982A6DA6B00031178B /* CardLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalUseCase.swift; sourceTree = "<group>"; };
+		0DFA7C9A2A6DB9D50031178B /* CardLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockViewController.swift; sourceTree = "<group>"; };
+		0DFA7C9B2A6DB9D50031178B /* CardLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardLockViewController.xib; sourceTree = "<group>"; };
+		0DFA7C9E2A6DBC660031178B /* CardLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockViewModel.swift; sourceTree = "<group>"; };
+		0DFA7CA02A6DC7E60031178B /* CardLockModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockModalViewController.swift; sourceTree = "<group>"; };
+		0DFA7CA12A6DC7E60031178B /* CardLockModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardLockModalViewController.xib; sourceTree = "<group>"; };
+		0DFA7CA42A6DEAAD0031178B /* CardLockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockRequest.swift; sourceTree = "<group>"; };
+		0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockResponse.swift; sourceTree = "<group>"; };
 		0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewController.swift; sourceTree = "<group>"; };
 		0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeActivateViewController.xib; sourceTree = "<group>"; };
 		0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewModel.swift; sourceTree = "<group>"; };
@@ -386,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DFA7C8E2A6D9EAF0031178B /* JWTDecode in Frameworks */,
 				0DC78BCD2A396EC10097CCE5 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +456,7 @@
 				0D65EA1C2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift */,
 				0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */,
 				0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */,
+				0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -429,6 +464,7 @@
 		0D243F242A47EF9E00399600 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				0DFA7C892A6D99CF0031178B /* Local */,
 				0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */,
 				0D243F2B2A47FF6100399600 /* UserUseCase.swift */,
 				0D3E41ED2A506AD800C2546A /* BalanceUseCase.swift */,
@@ -439,7 +475,7 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		0D2474042A4667B70075E147 /* Configure Card */ = {
+		0D2474042A4667B70075E147 /* ConfigureCard */ = {
 			isa = PBXGroup;
 			children = (
 				0D24740B2A4669EC0075E147 /* Cell */,
@@ -448,7 +484,7 @@
 				0D2474092A4667E40075E147 /* ConfigureCardViewModel.swift */,
 				0D65EA142A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift */,
 			);
-			path = "Configure Card";
+			path = ConfigureCard;
 			sourceTree = "<group>";
 		};
 		0D24740B2A4669EC0075E147 /* Cell */ = {
@@ -573,6 +609,7 @@
 		0D45B10A2A2E5DB400EFC7F4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0DFA7C8F2A6DA25A0031178B /* Observers */,
 				0D45B16D2A30371C00EFC7F4 /* Model */,
 				0D45B1222A2EA71800EFC7F4 /* Common */,
 				0D45B1132A2E758600EFC7F4 /* Router */,
@@ -586,6 +623,8 @@
 		0D45B10B2A2E5ECC00EFC7F4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0D243F232A47EF9000399600 /* Response */,
+				0DFA7C7D2A6D8AAD0031178B /* Local */,
 				0DA061D62A495EF40096DCD1 /* UserDataRepository.swift */,
 				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
 				0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */,
@@ -599,9 +638,9 @@
 		0D45B10C2A2E5ECF00EFC7F4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				0DFA7C842A6D8EFE0031178B /* Entities */,
 				0D904CCF2A377035007D37D3 /* Repository */,
 				0D243F242A47EF9E00399600 /* UseCase */,
-				0D243F232A47EF9000399600 /* Response */,
 				0D243F212A47EF6F00399600 /* APIClient.swift */,
 				0DA061D82A496DF10096DCD1 /* Route.swift */,
 			);
@@ -850,6 +889,7 @@
 				0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */,
 				0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */,
 				0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */,
+				0DFA7CA42A6DEAAD0031178B /* CardLockRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -877,6 +917,7 @@
 		0D904CCF2A377035007D37D3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				0DFA7C802A6D8AE80031178B /* Local */,
 				0D243F292A47FB5B00399600 /* UserRepository.swift */,
 				0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */,
 				0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */,
@@ -926,9 +967,9 @@
 		0DB967652A35237D0079D432 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0DF183F62A6978EC004A0621 /* Card Block */,
+				0DF183F62A6978EC004A0621 /* CardLock */,
 				0DD692A12A524DDA001D0BB9 /* Movements */,
-				0D2474042A4667B70075E147 /* Configure Card */,
+				0D2474042A4667B70075E147 /* ConfigureCard */,
 				0DB967662A35238C0079D432 /* HomeViewController.swift */,
 				0DB967672A35238C0079D432 /* HomeViewController.xib */,
 				0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */,
@@ -1054,19 +1095,68 @@
 			path = Password;
 			sourceTree = "<group>";
 		};
-		0DF183F62A6978EC004A0621 /* Card Block */ = {
+		0DF183F62A6978EC004A0621 /* CardLock */ = {
 			isa = PBXGroup;
 			children = (
 				0DF183F72A6978F3004A0621 /* Modal */,
+				0DFA7C9A2A6DB9D50031178B /* CardLockViewController.swift */,
+				0DFA7C9B2A6DB9D50031178B /* CardLockViewController.xib */,
+				0DFA7C9E2A6DBC660031178B /* CardLockViewModel.swift */,
 			);
-			path = "Card Block";
+			path = CardLock;
 			sourceTree = "<group>";
 		};
 		0DF183F72A6978F3004A0621 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				0DFA7CA02A6DC7E60031178B /* CardLockModalViewController.swift */,
+				0DFA7CA12A6DC7E60031178B /* CardLockModalViewController.xib */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		0DFA7C7D2A6D8AAD0031178B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */,
+				0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		0DFA7C802A6D8AE80031178B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */,
+				0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		0DFA7C842A6D8EFE0031178B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA7C852A6D8F0A0031178B /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		0DFA7C892A6D99CF0031178B /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA7C8A2A6D99EE0031178B /* UserLocalUseCase.swift */,
+				0DFA7C982A6DA6B00031178B /* CardLocalUseCase.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		0DFA7C8F2A6DA25A0031178B /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				0DFA7C902A6DA2650031178B /* UserObserver.swift */,
+				0DFA7C922A6DA5280031178B /* CardObserver.swift */,
+			);
+			path = Observers;
 			sourceTree = "<group>";
 		};
 		0DFC4CDE2A426FAF0011AA97 /* Activate */ = {
@@ -1098,6 +1188,7 @@
 			name = "App One Card";
 			packageProductDependencies = (
 				0DC78BCC2A396EC10097CCE5 /* Lottie */,
+				0DFA7C8D2A6D9EAF0031178B /* JWTDecode */,
 			);
 			productName = "App One Card";
 			productReference = 0D45B0E32A2E4EA600EFC7F4 /* DEV App One Card.app */;
@@ -1129,6 +1220,7 @@
 			mainGroup = 0D45B0DA2A2E4EA600EFC7F4;
 			packageReferences = (
 				0DC78BCB2A396EC00097CCE5 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				0DFA7C8C2A6D9EAF0031178B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
 			);
 			productRefGroup = 0D45B0E42A2E4EA600EFC7F4 /* Products */;
 			projectDirPath = "";
@@ -1149,6 +1241,7 @@
 				0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
 				0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */,
+				0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
 				0D45B15D2A2FC97100EFC7F4 /* SelectCustomViewController.xib in Resources */,
 				0D3A80222A3794D500C32F39 /* Gotham-XLightItalic.otf in Resources */,
@@ -1169,6 +1262,7 @@
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
+				0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */,
 				0DD692A62A524E16001D0BB9 /* MovementTableViewCell.xib in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
 				0D3A802A2A3794D500C32F39 /* Gotham-Ultra.otf in Resources */,
@@ -1222,6 +1316,7 @@
 				0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */,
 				0DC78BC62A38B5110097CCE5 /* BaseViewController.swift in Sources */,
 				0D45B11B2A2E92C100EFC7F4 /* LoginViewController.swift in Sources */,
+				0DFA7CA22A6DC7E60031178B /* CardLockModalViewController.swift in Sources */,
 				0D45B1552A2EEB9700EFC7F4 /* TextFieldExtension.swift in Sources */,
 				0D904CD12A3771E6007D37D3 /* VerificationRouter.swift in Sources */,
 				0D45B1312A2EABF500EFC7F4 /* Colors.swift in Sources */,
@@ -1232,6 +1327,7 @@
 				0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
+				0DFA7C952A6DA64F0031178B /* CardLocalDataRepository.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D65EA172A6B032000819637 /* CardStatusRequest.swift in Sources */,
 				0DD692B42A529C19001D0BB9 /* MovementDataRepository.swift in Sources */,
@@ -1240,6 +1336,7 @@
 				0DC882582A6457A000DAD073 /* LoaderDisplaying.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
 				0D6B91712A4B92F70045D149 /* SendOTPResponse.swift in Sources */,
+				0DFA7C9F2A6DBC660031178B /* CardLockViewModel.swift in Sources */,
 				0D3E41EE2A506AD800C2546A /* BalanceUseCase.swift in Sources */,
 				0DF183E52A68D655004A0621 /* PromotionsRouter.swift in Sources */,
 				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
@@ -1266,16 +1363,20 @@
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
 				0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */,
+				0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
+				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
 				0D842E4F2A4FD6EF0059A906 /* UserRegisterResponse.swift in Sources */,
+				0DFA7C912A6DA2650031178B /* UserObserver.swift in Sources */,
 				0DDE79182A4FC37300A52DEB /* ValidateOTPRequest.swift in Sources */,
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
+				0DFA7C972A6DA6790031178B /* CardLocalRepository.swift in Sources */,
 				0DDE791A2A4FC3C400A52DEB /* ValidateOTPResponse.swift in Sources */,
 				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
 				0D243F222A47EF6F00399600 /* APIClient.swift in Sources */,
@@ -1295,6 +1396,7 @@
 				0D65EA152A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift in Sources */,
 				0D65EA212A6CF5FE00819637 /* TemporaryCardLockResponse.swift in Sources */,
 				0DF183E72A68D8DA004A0621 /* PromotionsDelegateDataSource.swift in Sources */,
+				0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
 				0D65EA1F2A6CF5F000819637 /* TemporaryCardLockRequest.swift in Sources */,
 				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,
@@ -1302,6 +1404,7 @@
 				0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */,
 				0D65EA272A6D00D100819637 /* ChangeCardOnlineShoppingStatusRequest.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
+				0DFA7C8B2A6D99EE0031178B /* UserLocalUseCase.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
@@ -1311,6 +1414,7 @@
 				0DD692AC2A528C29001D0BB9 /* ConsultMovementsRequest.swift in Sources */,
 				0D8D9F762A5DE1B300E6C8C6 /* CardActivationResponse.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
+				0DFA7CA72A6DEAB50031178B /* CardLockResponse.swift in Sources */,
 				0D6DA4F92A5E526B00AC6BB5 /* CardDataRepository.swift in Sources */,
 				0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
@@ -1318,6 +1422,7 @@
 				0D8D9F6C2A5DDBC700E6C8C6 /* KeyRepository.swift in Sources */,
 				0D45B16F2A30372700EFC7F4 /* SelectModel.swift in Sources */,
 				0D904CCD2A369DFF007D37D3 /* ProfileViewController.swift in Sources */,
+				0DFA7C862A6D8F0A0031178B /* User.swift in Sources */,
 				0D45B1602A2FF18500EFC7F4 /* AuthenticationRouter.swift in Sources */,
 				0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */,
 				0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */,
@@ -1330,10 +1435,13 @@
 				0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
+				0DFA7C992A6DA6B00031178B /* CardLocalUseCase.swift in Sources */,
 				0D6B91752A4B9E3E0045D149 /* ValidateAffiliationResponse.swift in Sources */,
 				0D243F2A2A47FB5B00399600 /* UserRepository.swift in Sources */,
+				0DFA7C7F2A6D8ADF0031178B /* UserLocalDataRepository.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
+				0DFA7C822A6D8B190031178B /* UserLocalRepository.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 				0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */,
 				0D842E4D2A4FD6490059A906 /* UserRegisterRequest.swift in Sources */,
@@ -1905,6 +2013,14 @@
 				kind = branch;
 			};
 		};
+		0DFA7C8C2A6D9EAF0031178B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1912,6 +2028,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DC78BCB2A396EC00097CCE5 /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		0DFA7C8D2A6D9EAF0031178B /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DFA7C8C2A6D9EAF0031178B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
+			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

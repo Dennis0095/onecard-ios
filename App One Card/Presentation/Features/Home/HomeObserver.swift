@@ -24,14 +24,15 @@ class HomeObserver: HomeObserverProtocol {
         
     static let shared = HomeObserver()
     
+    @Published private var amount: String?
+    @Published private var movements: [MovementResponse]?
+    
     var amountPublisher: Published<String?>.Publisher { $amount }
     var listenAmountChanges: ((_ amount: String) -> Void)?
     
     var movementsPublisher: Published<[MovementResponse]?>.Publisher { $movements }
     var listenMovementsChanges: ((_ movements: [MovementResponse]) -> Void)?
     
-    @Published private var amount: String?
-    @Published private var movements: [MovementResponse]?
     private var cancellables: Set<AnyCancellable> = []
     
     private init() {

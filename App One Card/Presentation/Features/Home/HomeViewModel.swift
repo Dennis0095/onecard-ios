@@ -11,31 +11,36 @@ protocol HomeViewModelProtocol {
     func toCardLock()
     func toConfigureCard()
     func toChangePin()
+    func toCardActivation()
     func balanceInquiry()
     func consultMovements()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
+    var authRouter: AuthenticationRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     var movementsViewModel = MovementsViewModel()
     
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
     
-    init(router: HomeRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol) {
+    init(router: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol) {
         self.router = router
         self.successfulRouter = successfulRouter
         self.balanceUseCase = balanceUseCase
         self.movementUseCase = movementUseCase
+        self.authRouter = authRouter
     }
     
     func toCardLock() {
-        router.navigateToCardBlock(email: "", number: "", navTitle: "BLOQUEO DE TARJETA", success: { [weak self] idOtp in
-            self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "REGRESAR", accept: {
-                self?.router.successfulCardBlock()
+        router.confirmCardLock {
+            self.router.navigateToCardBlock(email: "arambulotech@gmail.com", number: "987654321", navTitle: "BLOQUEO DE TARJETA", success: { [weak self] idOtp in
+                self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "REGRESAR", accept: {
+                    self?.router.successfulCardBlock()
+                })
             })
-        })
+        }
     }
     
     func toConfigureCard() {
@@ -47,6 +52,18 @@ class HomeViewModel: HomeViewModelProtocol {
             self.router.navigateToInputNewPin { newPin in
                 self.router.navigateToInputPinConfirmation(newPin: newPin) { _ in
                     self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: "REGRESAR") {
+                        self.router.backToHome()
+                    }
+                }
+            }
+        }
+    }
+    
+    func toCardActivation() {
+        authRouter.navigateToPin { _ in
+            self.authRouter.navigateToNewPin { newPin in
+                self.authRouter.navigateToConfirmPin(newPin: newPin) { _ in
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: Constants.accept) {
                         self.router.backToHome()
                     }
                 }

@@ -18,12 +18,14 @@ class MenuTabBarController: UITabBarController {
     }()
     
     var homeRouter: HomeRouterDelegate
+    var authRouter: AuthenticationRouterDelegate
     var preferencesRouter: PreferencesRouterDelegate
     var promotionsRouter: PromotionsRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     
-    init(homeRouter: HomeRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate, promotionsRouter: PromotionsRouterDelegate) {
+    init(homeRouter: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate, promotionsRouter: PromotionsRouterDelegate) {
         self.homeRouter = homeRouter
+        self.authRouter = authRouter
         self.preferencesRouter = preferencesRouter
         self.successfulRouter = successfulRouter
         self.promotionsRouter = promotionsRouter
@@ -74,7 +76,7 @@ class MenuTabBarController: UITabBarController {
         let useCase = BalanceUseCase(balanceRepository: repository)
         let movementRepository = MovementDataRepository()
         let movementUseCase = MovementUseCase(movementRepository: movementRepository)
-        let viewModel = HomeViewModel(router: homeRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase)
+        let viewModel = HomeViewModel(router: homeRouter, authRouter: authRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase)
         let movementsViewModel = MovementsViewModel()
         let movementsDelegateDataSource = MovementsDelegateDataSource(viewModel: movementsViewModel)
         let home = HomeViewController(viewModel: viewModel, movementsViewModel: movementsViewModel, movementsDelegateDataSource: movementsDelegateDataSource)

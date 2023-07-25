@@ -34,10 +34,10 @@ class PreferencesViewController: UIViewController {
         tbPreferences.register(UINib(nibName: "PreferencesTableViewCell", bundle: nil), forCellReuseIdentifier: "PreferencesTableViewCell")
         
         preferencesList = [
-            PreferenceItem(id: 0, image: "", title: "Mi perfil"),
-            PreferenceItem(id: 1, image: "", title: "Preguntas frecuentes"),
-            PreferenceItem(id: 2, image: "", title: "Contáctanos"),
-            PreferenceItem(id: 3, image: "", title: "Cerrar sesión"),
+            PreferenceItem(id: 0, image: #imageLiteral(resourceName: "ic_profile.svg"), title: "Mi perfil"),
+            PreferenceItem(id: 1, image: #imageLiteral(resourceName: "ic_question.svg"), title: "Preguntas frecuentes"),
+            PreferenceItem(id: 2, image: #imageLiteral(resourceName: "ic_phone.svg"), title: "Contáctanos"),
+            PreferenceItem(id: 3, image: #imageLiteral(resourceName: "ic_logout.svg"), title: "Cerrar sesión"),
         ]
     }
 }
@@ -53,7 +53,7 @@ extension PreferencesViewController: UITableViewDataSource {
         }
         
         let item = preferencesList[indexPath.row]
-        cell.configure(item: item, isLast: (preferencesList.count - 1) == indexPath.row)
+        cell.configure(item: item, isLast: (preferencesList.count - 1) == indexPath.row, image: item.image)
         
         return cell
     }
@@ -79,6 +79,6 @@ extension PreferencesViewController: UITableViewDelegate {
 
 struct PreferenceItem {
     let id: Int
-    let image: String
+    let image: UIImage
     let title: String
 }

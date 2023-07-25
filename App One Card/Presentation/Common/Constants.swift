@@ -35,4 +35,8 @@ class Constants {
     //MARK: Login error
     static let login_error_incomplete_data: String = "Por favor, ingresa todos los datos solicitados."
     
+    //MARK: Keys User Defaults
+    static let keyToken = "token"
+    static let keyUser = "user"
+    static let keyCardStatus = "cardStatus"
 }

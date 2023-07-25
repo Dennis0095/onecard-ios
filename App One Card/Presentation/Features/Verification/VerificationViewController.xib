@@ -81,7 +81,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIM-fK-Bb1">
                             <rect key="frame" x="0.0" y="40" width="393" height="719"/>
                             <subviews>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-oh-SUz">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUO-oh-SUz">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ra3-gQ-yja">
@@ -241,7 +241,7 @@
                                         <constraint firstAttribute="trailing" secondItem="ra3-gQ-yja" secondAttribute="trailing" id="wVK-co-fDc"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-rF-RjJ">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-rF-RjJ">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-h8-vaG">

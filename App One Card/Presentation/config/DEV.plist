@@ -20,8 +20,8 @@
 		</dict>
 	</dict>
 	<key>base_url</key>
-	<string>https://pruebas.odybank.com.pe/gsp-ws</string>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
+	<string>https://pruebas.odybank.com.pe/gsp-ws/dcp-app/api</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

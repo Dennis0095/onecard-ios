@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRouterDelegate: Router {
-    func modalCardBlock()
+    func confirmCardLock(accept: VoidActionHandler?)
     func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler)
     func navigateToInputNewPin(success: @escaping PinActionHandler)
     func navigateToInputCurrentPin(success: @escaping PinActionHandler)

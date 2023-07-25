@@ -12,6 +12,7 @@ protocol CardUseCaseProtocol {
     func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, Error>
     func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, Error>
     func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error>
+    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error>
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error>
 }
 
@@ -26,22 +27,6 @@ class CardUseCase: CardUseCaseProtocol {
         return cardRepository.activation(request: request)
     }
     
-//    func activation(request: CardActivationRequest, completion: @escaping (Result<CardActivationResponse, CustomError>) -> Void) {
-//        let cancellable = cardRepository.activation(request: request)
-//            .sink { publisher in
-//                switch publisher {
-//                case .finished: break
-//                case .failure(let error):
-//                    let error = CustomError(title: "Error", description: error.localizedDescription)
-//                    completion(.failure(error))
-//                }
-//            } receiveValue: { response in
-//                completion(.success(response))
-//            }
-//
-//        cancellable.store(in: &cancellables)
-//    }
-    
     func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, Error> {
         return cardRepository.status(request: request)
     }
@@ -52,6 +37,10 @@ class CardUseCase: CardUseCaseProtocol {
     
     func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error> {
         return cardRepository.temporaryLock(request: request)
+    }
+    
+    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error> {
+        return cardRepository.lock(request: request)
     }
     
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error> {

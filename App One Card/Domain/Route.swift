@@ -14,6 +14,7 @@ enum Route {
     case validateAffiliation
     case validatePersonalData
     case userRegister
+    case consultUserData
     case sendOTP
     case validateOTP
     case validateKey
@@ -57,6 +58,8 @@ enum Route {
             return "/dcp-app/backend/api/rest/txn-mix-admin/bloqueo-tarjeta"
         case .changeCardOnlineShoppingStatus:
             return "/dcp-app/backend/api/rest/txn-mix-admin/boton-codseg"
+        case .consultUserData:
+            return "/txn-sec/consulta-datos-usuario"
         case .without:
             return ""
         }

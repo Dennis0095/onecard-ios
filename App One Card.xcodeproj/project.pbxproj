@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0A60F32A7046A7005B447E /* ConsultUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F22A7046A7005B447E /* ConsultUserDataResponse.swift */; };
+		0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */; };
+		0D0A60F72A70996E005B447E /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F62A70996D005B447E /* UserSessionManager.swift */; };
+		0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F82A7099C1005B447E /* CardSessionManager.swift */; };
 		0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */; };
 		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
 		0D243F222A47EF6F00399600 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F212A47EF6F00399600 /* APIClient.swift */; };
@@ -188,15 +192,11 @@
 		0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF183EF2A6908BB004A0621 /* ChangePasswordViewController.xib */; };
 		0DF183F32A696D1C004A0621 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183F22A696D1C004A0621 /* ChangePasswordViewModel.swift */; };
 		0DF183F52A6972D1004A0621 /* MovementsDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183F42A6972D1004A0621 /* MovementsDelegateDataSource.swift */; };
-		0DFA7C7F2A6D8ADF0031178B /* UserLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */; };
-		0DFA7C822A6D8B190031178B /* UserLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */; };
 		0DFA7C862A6D8F0A0031178B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C852A6D8F0A0031178B /* User.swift */; };
 		0DFA7C8B2A6D99EE0031178B /* UserLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C8A2A6D99EE0031178B /* UserLocalUseCase.swift */; };
 		0DFA7C8E2A6D9EAF0031178B /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 0DFA7C8D2A6D9EAF0031178B /* JWTDecode */; };
 		0DFA7C912A6DA2650031178B /* UserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C902A6DA2650031178B /* UserObserver.swift */; };
 		0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C922A6DA5280031178B /* CardObserver.swift */; };
-		0DFA7C952A6DA64F0031178B /* CardLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */; };
-		0DFA7C972A6DA6790031178B /* CardLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */; };
 		0DFA7C992A6DA6B00031178B /* CardLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C982A6DA6B00031178B /* CardLocalUseCase.swift */; };
 		0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA7C9A2A6DB9D50031178B /* CardLockViewController.swift */; };
 		0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA7C9B2A6DB9D50031178B /* CardLockViewController.xib */; };
@@ -211,6 +211,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0A60F22A7046A7005B447E /* ConsultUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultUserDataResponse.swift; sourceTree = "<group>"; };
+		0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultUserDataRequest.swift; sourceTree = "<group>"; };
+		0D0A60F62A70996D005B447E /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
+		0D0A60F82A7099C1005B447E /* CardSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSessionManager.swift; sourceTree = "<group>"; };
 		0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorViewController.swift; sourceTree = "<group>"; };
 		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
 		0D243F212A47EF6F00399600 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -393,14 +397,10 @@
 		0DF183EF2A6908BB004A0621 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		0DF183F22A696D1C004A0621 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		0DF183F42A6972D1004A0621 /* MovementsDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsDelegateDataSource.swift; sourceTree = "<group>"; };
-		0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalDataRepository.swift; sourceTree = "<group>"; };
-		0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalRepository.swift; sourceTree = "<group>"; };
 		0DFA7C852A6D8F0A0031178B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0DFA7C8A2A6D99EE0031178B /* UserLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalUseCase.swift; sourceTree = "<group>"; };
 		0DFA7C902A6DA2650031178B /* UserObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObserver.swift; sourceTree = "<group>"; };
 		0DFA7C922A6DA5280031178B /* CardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardObserver.swift; sourceTree = "<group>"; };
-		0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalDataRepository.swift; sourceTree = "<group>"; };
-		0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalRepository.swift; sourceTree = "<group>"; };
 		0DFA7C982A6DA6B00031178B /* CardLocalUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalUseCase.swift; sourceTree = "<group>"; };
 		0DFA7C9A2A6DB9D50031178B /* CardLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLockViewController.swift; sourceTree = "<group>"; };
 		0DFA7C9B2A6DB9D50031178B /* CardLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardLockViewController.xib; sourceTree = "<group>"; };
@@ -457,6 +457,7 @@
 				0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */,
 				0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */,
 				0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */,
+				0D0A60F22A7046A7005B447E /* ConsultUserDataResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -624,7 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				0D243F232A47EF9000399600 /* Response */,
-				0DFA7C7D2A6D8AAD0031178B /* Local */,
+				0DFA7C7D2A6D8AAD0031178B /* Manager */,
 				0DA061D62A495EF40096DCD1 /* UserDataRepository.swift */,
 				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
 				0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */,
@@ -890,6 +891,7 @@
 				0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */,
 				0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */,
 				0DFA7CA42A6DEAAD0031178B /* CardLockRequest.swift */,
+				0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -917,7 +919,6 @@
 		0D904CCF2A377035007D37D3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				0DFA7C802A6D8AE80031178B /* Local */,
 				0D243F292A47FB5B00399600 /* UserRepository.swift */,
 				0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */,
 				0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */,
@@ -1115,22 +1116,13 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		0DFA7C7D2A6D8AAD0031178B /* Local */ = {
+		0DFA7C7D2A6D8AAD0031178B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				0DFA7C7E2A6D8ADF0031178B /* UserLocalDataRepository.swift */,
-				0DFA7C942A6DA64F0031178B /* CardLocalDataRepository.swift */,
+				0D0A60F62A70996D005B447E /* UserSessionManager.swift */,
+				0D0A60F82A7099C1005B447E /* CardSessionManager.swift */,
 			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		0DFA7C802A6D8AE80031178B /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				0DFA7C812A6D8B190031178B /* UserLocalRepository.swift */,
-				0DFA7C962A6DA6790031178B /* CardLocalRepository.swift */,
-			);
-			path = Local;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		0DFA7C842A6D8EFE0031178B /* Entities */ = {
@@ -1327,7 +1319,7 @@
 				0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
-				0DFA7C952A6DA64F0031178B /* CardLocalDataRepository.swift in Sources */,
+				0D0A60F32A7046A7005B447E /* ConsultUserDataResponse.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D65EA172A6B032000819637 /* CardStatusRequest.swift in Sources */,
 				0DD692B42A529C19001D0BB9 /* MovementDataRepository.swift in Sources */,
@@ -1363,6 +1355,7 @@
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
 				0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */,
+				0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */,
 				0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
@@ -1376,7 +1369,6 @@
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
-				0DFA7C972A6DA6790031178B /* CardLocalRepository.swift in Sources */,
 				0DDE791A2A4FC3C400A52DEB /* ValidateOTPResponse.swift in Sources */,
 				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
 				0D243F222A47EF6F00399600 /* APIClient.swift in Sources */,
@@ -1403,9 +1395,11 @@
 				0DC882562A63AA2200DAD073 /* LoginRequest.swift in Sources */,
 				0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */,
 				0D65EA272A6D00D100819637 /* ChangeCardOnlineShoppingStatusRequest.swift in Sources */,
+				0D0A60F72A70996E005B447E /* UserSessionManager.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0DFA7C8B2A6D99EE0031178B /* UserLocalUseCase.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
+				0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */,
 				0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */,
@@ -1438,10 +1432,8 @@
 				0DFA7C992A6DA6B00031178B /* CardLocalUseCase.swift in Sources */,
 				0D6B91752A4B9E3E0045D149 /* ValidateAffiliationResponse.swift in Sources */,
 				0D243F2A2A47FB5B00399600 /* UserRepository.swift in Sources */,
-				0DFA7C7F2A6D8ADF0031178B /* UserLocalDataRepository.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
-				0DFA7C822A6D8B190031178B /* UserLocalRepository.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 				0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */,
 				0D842E4D2A4FD6490059A906 /* UserRegisterRequest.swift in Sources */,

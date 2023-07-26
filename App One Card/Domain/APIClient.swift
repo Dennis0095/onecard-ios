@@ -43,9 +43,9 @@ class APIClient {
             }
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            //        if let token = SessionManager.shared.getToken() {
-            //            urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            //        }
+            if let token = UserSessionManager.shared.getToken() {
+                urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
             urlRequest.httpMethod = method.rawValue
             
             switch method {

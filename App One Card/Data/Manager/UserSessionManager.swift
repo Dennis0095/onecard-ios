@@ -1,14 +1,28 @@
 //
-//  UserLocalDataRepository.swift
+//  UserSessionManager.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 23/07/23.
+//  Created by Paolo Arambulo on 25/07/23.
 //
 
 import Foundation
 import JWTDecode
 
-class UserLocalDataRepository: UserLocalRepository {
+protocol UserSessionManagerProtocol {
+    func saveToken(token: String?)
+    func getToken() -> String?
+    func saveUser(user: User?)
+    func getUser() -> User?
+    func decodedJWT(jwt: String) -> User?
+}
+
+
+class UserSessionManager: UserSessionManagerProtocol {
+    
+    static let shared = UserSessionManager()
+    
+    private init() {}
+    
     func saveToken(token: String?) {
         UserDefaults.standard.set(token, forKey: Constants.keyToken)
         UserDefaults.standard.synchronize()
@@ -24,7 +38,7 @@ class UserLocalDataRepository: UserLocalRepository {
     
     func decodedJWT(jwt: String) -> User? {
         do {
-            let jwt = try decode(jwt: jwt)//decodeJWTPayload(jwt: jwt)
+            let jwt = try decode(jwt: jwt)
             let payload = jwt.body
             let user = User(user: payload["usuario"] as? String,
                             name: payload["nombreAfiliado"] as? String,

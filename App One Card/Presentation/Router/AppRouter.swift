@@ -152,11 +152,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         let userUseCase = UserUseCase(userRepository: userRepository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let userLocalRepository = UserLocalDataRepository()
-        let userLocalUseCase = UserLocalUseCase(userLocalRepository: userLocalRepository)
-        let cardLocalRepository = CardLocalDataRepository()
-        let cardLocalUseCase = CardLocalUseCase(cardLocalRepository: cardLocalRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, userLocalUseCase: userLocalUseCase, cardUseCase: cardUseCase, cardLocalUseCase: cardLocalUseCase)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
         viewModel.delegate = loginViewController
         navigationController = UINavigationController(rootViewController: loginViewController)
@@ -223,8 +219,11 @@ extension AppRouter: SuccessfulRouterDelegate {
 
 extension AppRouter: PreferencesRouterDelegate {
     func navigateToProfile() {
-        let viewModel = ProfileViewModel(router: self, verificationRouter: self)
+        let userRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userRepository)
+        let viewModel = ProfileViewModel(router: self, verificationRouter: self, userUseCase: userUseCase)
         let profileViewController = ProfileViewController(viewModel: viewModel)
+        viewModel.delegate = profileViewController
         navigationController?.pushViewController(profileViewController, animated: true)
     }
     
@@ -240,11 +239,7 @@ extension AppRouter: PreferencesRouterDelegate {
         let userUseCase = UserUseCase(userRepository: userRepository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let userLocalRepository = UserLocalDataRepository()
-        let userLocalUseCase = UserLocalUseCase(userLocalRepository: userLocalRepository)
-        let cardLocalRepository = CardLocalDataRepository()
-        let cardLocalUseCase = CardLocalUseCase(cardLocalRepository: cardLocalRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, userLocalUseCase: userLocalUseCase, cardUseCase: cardUseCase, cardLocalUseCase: cardLocalUseCase)
+        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
         let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController?.setNavigationBarHidden(true, animated: true)

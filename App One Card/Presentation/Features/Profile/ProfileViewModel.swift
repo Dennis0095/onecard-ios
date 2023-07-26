@@ -6,20 +6,66 @@
 //
 
 import Foundation
+import Combine
 
 protocol ProfileViewModelProtocol {
+    var wasShownViewProfile: Bool { get set }
+    
+    func getUserData()
     func toEditMail()
     func toEditUser()
     func toEditPassword()
 }
 
+protocol ProfileViewModelDelegate: LoaderDisplaying {
+    func showData(user: ConsultUserDataResponse)
+    func failureShowData()
+}
+
 class ProfileViewModel: ProfileViewModelProtocol {
     var router: ProfileRouterDelegate
     var verificationRouter: VerificationRouterDelegate
+    var delegate: ProfileViewModelDelegate?
+    var wasShownViewProfile: Bool = false
     
-    init(router: ProfileRouterDelegate, verificationRouter: VerificationRouterDelegate) {
+    private let userUseCase: UserUseCaseProtocol
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(router: ProfileRouterDelegate, verificationRouter: VerificationRouterDelegate, userUseCase: UserUseCaseProtocol) {
         self.router = router
         self.verificationRouter = verificationRouter
+        self.userUseCase = userUseCase
+    }
+    
+    func getUserData() {
+        delegate?.showLoader()
+        
+        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        
+        let request = ConsultUserDataRequest(authTrackingCode: authTrackingCode)
+        
+        let cancellable = userUseCase.data(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    self.delegate?.hideLoader {
+                        let error = CustomError(title: "Error", description: error.localizedDescription)
+                        if !self.wasShownViewProfile {
+                            self.delegate?.failureShowData()
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
+                    }
+                }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
+                    self.delegate?.showData(user: response)
+                }
+            }
+        cancellable.store(in: &cancellables)
+
     }
     
     func toEditMail() {

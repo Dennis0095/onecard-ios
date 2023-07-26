@@ -51,9 +51,10 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 switch result {
                 case .success(let response):
                     self.otpId = response.otpId
-                    if !self.wasShownViewCardLock {
-                        self.delegate?.successSendOtp()
-                    }
+//                    if !self.wasShownViewCardLock {
+//                        self.delegate?.successSendOtp()
+//                    }
+                    self.delegate?.successSendOtp()
                 case .failure(let error):
                     if !self.wasShownViewCardLock {
                         self.delegate?.failureSendOtp()

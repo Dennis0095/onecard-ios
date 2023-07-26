@@ -130,9 +130,10 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                             ConfigureResponse(id: "2", title: "Compras por internet", message: nil, enable: self.cardStatus?.status == "A", isOn: self.onlineShoppingStatus?.status == "S")
                         ]
                         self.delegate?.changeStatus()
-                        if !self.wasShownViewConfigureCard {
-                            self.delegate?.successGetStatus()
-                        }
+//                        if !self.wasShownViewConfigureCard {
+//                            self.delegate?.successGetStatus()
+//                        }
+                        self.delegate?.successGetStatus()
                     } else {
                         if !self.wasShownViewConfigureCard {
                             self.delegate?.failureGetStatus()

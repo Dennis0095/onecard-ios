@@ -12,4 +12,5 @@ protocol UserRepository {
     func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error>
     func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error>
     func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
 }

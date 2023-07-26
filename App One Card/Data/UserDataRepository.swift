@@ -23,4 +23,8 @@ class UserDataRepository: UserRepository {
     func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error> {
         return APIClient.callAPI(route: .validateAffiliation, method: .post, request: request)
     }
+    
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {
+        return APIClient.callAPI(route: .consultUserData, method: .post, request: request)
+    }
 }

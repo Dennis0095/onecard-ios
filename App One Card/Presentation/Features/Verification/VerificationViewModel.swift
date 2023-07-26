@@ -47,9 +47,10 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch result {
                 case .success(let response):
                     self.otpId = response.otpId
-                    if !self.wasShownViewVerification {
-                        self.delegate?.successSendOtp()
-                    }
+//                    if !self.wasShownViewVerification {
+//                        self.delegate?.successSendOtp()
+//                    }
+                    self.delegate?.successSendOtp()
                 case .failure(let error):
                     if !self.wasShownViewVerification {
                         self.delegate?.failureSendOtp()

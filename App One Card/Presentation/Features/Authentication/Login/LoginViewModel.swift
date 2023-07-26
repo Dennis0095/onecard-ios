@@ -31,18 +31,16 @@ class LoginViewModel: LoginViewModelProtocol {
     var password: String = ""
     
     private let userUseCase: UserUseCaseProtocol
-    private let userLocalUseCase: UserLocalUseCaseProtocol
+    //private let userLocalUseCase: UserLocalUseCaseProtocol
     private let cardUseCase: CardUseCaseProtocol
-    private let cardLocalUseCase: CardLocalUseCaseProtocol
+    //private let cardLocalUseCase: CardLocalUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCaseProtocol, userLocalUseCase: UserLocalUseCaseProtocol, cardUseCase: CardUseCaseProtocol, cardLocalUseCase: CardLocalUseCaseProtocol) {
+    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCaseProtocol, cardUseCase: CardUseCaseProtocol) {
         self.router = router
         self.userUseCase = userUseCase
         self.cardUseCase = cardUseCase
-        self.userLocalUseCase = userLocalUseCase
-        self.cardLocalUseCase = cardLocalUseCase
     }
     
     deinit {
@@ -106,10 +104,10 @@ class LoginViewModel: LoginViewModelProtocol {
             } receiveValue: { response in
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
-                        let user = self.userLocalUseCase.decodedJWT(jwt: token)
-                        self.userLocalUseCase.saveToken(token: token)
-                        self.userLocalUseCase.saveUser(user: user)
-                        self.cardLocalUseCase.saveStatus(status: response.status)
+                        let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
+                        UserSessionManager.shared.saveToken(token: token)
+                        UserSessionManager.shared.saveUser(user: decodeUser)
+                        CardSessionManager.shared.saveStatus(status: response.status)
                         
                         if response.status == "P" {
                             self.delegate?.toActivateUser()

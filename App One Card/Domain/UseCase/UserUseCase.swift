@@ -12,10 +12,12 @@ protocol UserUseCaseProtocol {
     func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void)
     func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void)
     func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void)
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
 }
 
 class UserUseCase: UserUseCaseProtocol {
     private let userRepository: UserRepository
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(userRepository: UserRepository) {
@@ -124,6 +126,10 @@ class UserUseCase: UserUseCaseProtocol {
             }
         
         cancellable.store(in: &cancellables)
+    }
+    
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {
+        return userRepository.data(request: request)
     }
     
     func cancelRequests() {

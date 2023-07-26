@@ -24,7 +24,9 @@ protocol MembershipDataViewModelDelegate: LoaderDisplaying {
 
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
     private let router: AuthenticationRouterDelegate
-    private let userUseCase: UserUseCase
+    private let userUseCase: UserUseCaseProtocol
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var delegate: MembershipDataViewModelDelegate?
     var documentTypeList: [SelectModel] = [
@@ -38,7 +40,7 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
     var documentNumber: String?
     var companyRUC: String?
     
-    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCase) {
+    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCaseProtocol) {
         self.router = router
         self.userUseCase = userUseCase
     }
@@ -55,17 +57,34 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
         delegate?.showLoader()
         
         let request = ValidateAffiliationRequest(documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
-        userUseCase.validateAffiliation(request: request) { result in
-            switch result {
-            case .success(_):
-                self.delegate?.hideLoader {
-                    self.router.navigateToPersonalData(beforeRequest: request)
+        let cancellable = userUseCase.validateAffiliation(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
-            case .failure(let error):
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                
                 self.delegate?.hideLoader {
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    if response.affiliate == "1" {
+                        if response.exists == "1" {
+                            self.delegate?.showError(title: title, description: description, onAccept: nil)
+                        } else {
+                            self.router.navigateToPersonalData(beforeRequest: request)
+                        }
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
                 }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
 }

@@ -32,6 +32,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
     private let otpUseCase: OTPUseCase
     private let router: Router
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init(router: Router, otpUseCase: OTPUseCase) {
         self.router = router
         self.otpUseCase = otpUseCase
@@ -42,24 +44,28 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
         
-        otpUseCase.send(request: request) { result in
-            self.delegate?.hideLoader {
-                switch result {
-                case .success(let response):
-                    self.otpId = response.otpId
-//                    if !self.wasShownViewVerification {
-//                        self.delegate?.successSendOtp()
-//                    }
-                    self.delegate?.successSendOtp()
+        let cancellable = otpUseCase.send(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
                 case .failure(let error):
-                    if !self.wasShownViewVerification {
-                        self.delegate?.failureSendOtp()
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        if !self.wasShownViewVerification {
+                            self.delegate?.failureSendOtp()
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
+                    self.otpId = response.otpId
+                    self.delegate?.successSendOtp()
+                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
     
     func validateOTP() {
@@ -70,23 +76,49 @@ class VerificationViewModel: VerificationViewModelProtocol {
         delegate?.showLoader()
         
         let request = ValidateOTPRequest(otpId: otp, otpCode: code)
-        otpUseCase.validate(request: request) { result in
-            self.delegate?.hideLoader {
-                switch result {
-                case .success(_):
-//                    DispatchQueue.main.async {
-//
+//        otpUseCase.validate(request: request) { result in
+//            self.delegate?.hideLoader {
+//                switch result {
+//                case .success(_):
+////                    DispatchQueue.main.async {
+////
+////                    }
+//                    if let action = self.success {
+//                        action(otp)
 //                    }
-                    if let action = self.success {
-                        action(otp)
-                    }
+//                case .failure(let error):
+//                    DispatchQueue.main.async {
+//                        //self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+//                    }
+//                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+//                }
+//            }
+//        }
+        let cancellable = otpUseCase.validate(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        //self.router.showMessageError(title: error.title, description: error.description, completion: nil)
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                self.delegate?.hideLoader {
+                    if response.indexMatchOTP == "1" {
+                        if let action = self.success {
+                            action(otp)
+                        }
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
                 }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
 }

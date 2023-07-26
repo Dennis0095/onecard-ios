@@ -8,8 +8,8 @@
 import Combine
 
 protocol OTPUseCaseProtocol {
-    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPResponse, CustomError>) -> Void)
-    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPResponse, CustomError>) -> Void)
+    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error>
+    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error>
 }
 
 class OTPUseCase: OTPUseCaseProtocol {
@@ -24,44 +24,49 @@ class OTPUseCase: OTPUseCaseProtocol {
        cancelRequests()
     }
     
-    func send(request: SendOTPRequest, completion: @escaping (Result<SendOTPResponse, CustomError>) -> Void) {
-        let cancellable = otpRepository.send(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                completion(.success(response))
-            }
-        
-        cancellable.store(in: &cancellables)
+    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error> {
+        return otpRepository.send(request: request)
+    
+    
+//    let cancellable = otpRepository.send(request: request)
+//        .sink { publisher in
+//            switch publisher {
+//            case .finished: break
+//            case .failure(let error):
+//                let error = CustomError(title: "Error", description: error.localizedDescription)
+//                completion(.failure(error))
+//            }
+//        } receiveValue: { response in
+//            completion(.success(response))
+//        }
+//
+//    cancellable.store(in: &cancellables)
+    
     }
     
-    func validate(request: ValidateOTPRequest, completion: @escaping (Result<ValidateOTPResponse, CustomError>) -> Void) {
-        let cancellable = otpRepository.validate(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                let title = response.title ?? ""
-                let description = response.message ?? ""
-                
-                if response.indexMatchOTP == "1" {
-                    completion(.success(response))
-                } else {
-                    let error = CustomError(title: title, description: description)
-                    completion(.failure(error))
-                }
-            }
-        
-        cancellable.store(in: &cancellables)
+    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
+        return otpRepository.validate(request: request)
+//        let cancellable = otpRepository.validate(request: request)
+//            .sink { publisher in
+//                switch publisher {
+//                case .finished: break
+//                case .failure(let error):
+//                    let error = CustomError(title: "Error", description: error.localizedDescription)
+//                    completion(.failure(error))
+//                }
+//            } receiveValue: { response in
+//                let title = response.title ?? ""
+//                let description = response.message ?? ""
+//
+//                if response.indexMatchOTP == "1" {
+//                    completion(.success(response))
+//                } else {
+//                    let error = CustomError(title: title, description: description)
+//                    completion(.failure(error))
+//                }
+//            }
+//
+//        cancellable.store(in: &cancellables)
     }
     
     func cancelRequests() {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol PersonalDataViewModelProtocol {
     var name: String? { get set }
@@ -30,11 +31,13 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
     
     private let router: AuthenticationRouterDelegate
     private let verificationRouter: VerificationRouterDelegate
-    private let userUseCase: UserUseCase
+    private let userUseCase: UserUseCaseProtocol
     
     private let documentType: String
     private let documentNumber: String
     private let companyRUC: String
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(router: AuthenticationRouterDelegate, verificationRouter: VerificationRouterDelegate, userUseCase: UserUseCase, documentType: String, documentNumber: String, companyRUC: String) {
         self.router = router
@@ -58,23 +61,37 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
 
         let request = ValidatePersonalDataRequest(documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, name: name, lastName: lastName, birthday: birthday, cellphone: cellphone, email: email)
         
-        userUseCase.validatePersonalData(request: request) { result in
-                switch result {
-                case .success(_):
-                    self.delegate?.hideLoader {
-                        self.verificationRouter.navigateToVerification(email: email, number: cellphone, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] otpId in
-                            self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
-                        }
-                    }
+        let cancellable = userUseCase.validatePersonalData(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
                 case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description) {
-                            if error.timeExpired {
-                                self.router.timeExpiredRegister()
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                self.delegate?.hideLoader {
+                    if response.validExpiration == "1" {
+                        if response.exists == "1" {
+                            self.delegate?.showError(title: title, description: description, onAccept: nil)
+                        } else {
+                            self.verificationRouter.navigateToVerification(email: email, number: cellphone, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4") { [weak self] otpId in
+                                self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
                             }
                         }
+                    } else {
+                        self.delegate?.showError(title: title, description: description) {
+                            self.router.timeExpiredRegister()
+                        }
                     }
+                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
 }

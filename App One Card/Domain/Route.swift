@@ -31,15 +31,15 @@ enum Route {
         case .login:
             return "/txn-admin-auth/login"
         case .validateAffiliation:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/validar-afiliacion-thb"
+            return "/txn-admin-auth/afiliacion-thb"
         case .validatePersonalData:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/validar-datos-personales-thb"
+            return "/txn-sec/registro-datos-personales-thb"//"/dcp-app/backend/api/rest/txn-mix-admin/validar-datos-personales-thb"
         case .userRegister:
             return "/dcp-app/backend/api/rest/txn-mix-admin/registro-usuario-thb"
         case .sendOTP:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/enviar-otp"
+            return "/txn-sec/envio-otp-doc"//"/dcp-app/backend/api/rest/txn-mix-admin/enviar-otp"
         case .validateOTP:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/validar-otp"
+            return "/txn-sec/valida-otp-doc"//"/dcp-app/backend/api/rest/txn-mix-admin/validar-otp"
         case .balanceInquiry:
             return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-saldo"
         case .consultMovements:

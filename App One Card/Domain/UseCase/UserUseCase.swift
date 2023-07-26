@@ -9,8 +9,8 @@ import Combine
 
 protocol UserUseCaseProtocol {
     func login(request: LoginRequest) -> AnyPublisher<LoginResponse, Error>
-    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void)
-    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void)
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error>
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error>
     func userRegister(request: UserRegisterRequest, completion: @escaping (Result<UserRegisterResponse, CustomError>) -> Void)
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
 }
@@ -70,62 +70,12 @@ class UserUseCase: UserUseCaseProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func validatePersonalData(request: ValidatePersonalDataRequest, completion: @escaping (Result<ValidatePersonaDataResponse, CustomError>) -> Void) {
-        let cancellable = userRepository.validatePersonalData(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                let title = response.title ?? ""
-                let description = response.message ?? ""
-                
-                if response.validExpiration == "1" {
-                    if response.exists == "1" {
-                        let error = CustomError(title: title, description: description)
-                        completion(.failure(error))
-                    } else {
-                        completion(.success(response))
-                    }
-                } else {
-                    let error = CustomError(title: title, description: description, timeExpired: true)
-                    completion(.failure(error))
-                }
-            }
-        
-        cancellable.store(in: &cancellables)
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error> {
+        return userRepository.validatePersonalData(request: request)
     }
     
-    func validateAffiliation(request: ValidateAffiliationRequest, completion: @escaping (Result<ValidateAffiliationResponse, CustomError>) -> Void) {
-        let cancellable = userRepository.validateAffiliation(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
-                    completion(.failure(error))
-                }
-            } receiveValue: { response in
-                let title = response.title ?? ""
-                let description = response.message ?? ""
-                
-                if response.affiliate == "1" {
-                    if response.exists == "1" {
-                        let error = CustomError(title: title, description: description)
-                        completion(.failure(error))
-                    } else {
-                        completion(.success(response))
-                    }
-                } else {
-                    let error = CustomError(title: title, description: description)
-                    completion(.failure(error))
-                }
-            }
-        
-        cancellable.store(in: &cancellables)
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error> {
+        return userRepository.validateAffiliation(request: request)
     }
     
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {

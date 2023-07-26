@@ -35,6 +35,8 @@ class CardLockViewModel: CardLockViewModelProtocol {
     private let cardUseCase: CardUseCase
     private let router: Router
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init(router: Router, otpUseCase: OTPUseCase, cardUseCase: CardUseCase) {
         self.router = router
         self.otpUseCase = otpUseCase
@@ -46,24 +48,43 @@ class CardLockViewModel: CardLockViewModelProtocol {
         
         let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
         
-        otpUseCase.send(request: request) { result in
-            self.delegate?.hideLoader {
-                switch result {
-                case .success(let response):
-                    self.otpId = response.otpId
+//        otpUseCase.send(request: request) { result in
+//            self.delegate?.hideLoader {
+//                switch result {
+//                case .success(let response):
+//                    self.otpId = response.otpId
+//                    self.delegate?.successSendOtp()
+//                case .failure(let error):
 //                    if !self.wasShownViewCardLock {
-//                        self.delegate?.successSendOtp()
+//                        self.delegate?.failureSendOtp()
+//                    } else {
+//                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
 //                    }
-                    self.delegate?.successSendOtp()
+//                }
+//            }
+//        }
+        let cancellable = otpUseCase.send(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
                 case .failure(let error):
-                    if !self.wasShownViewCardLock {
-                        self.delegate?.failureSendOtp()
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        if !self.wasShownViewCardLock {
+                            self.delegate?.failureSendOtp()
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
+                    self.otpId = response.otpId
+                    self.delegate?.successSendOtp()
+                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
     
     func cardLock() {

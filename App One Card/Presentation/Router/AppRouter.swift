@@ -192,13 +192,13 @@ extension AppRouter: AuthenticationRouterDelegate {
     }
 }
 
-extension AppRouter: VerificationRouterDelegate {    
-    func navigateToVerification(email: String, number: String, navTitle: String, stepDescription: String , success: @escaping VerificationActionHandler) {
+extension AppRouter: VerificationRouterDelegate {
+    func navigateToVerification(email: String, number: String, documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, success: @escaping VerificationActionHandler) {
         let repository = OTPDataRepository()
         let useCase = OTPUseCase(otpRepository: repository)
-        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase)
+        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, number: number, email: email)
         viewModel.success = success
-        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", number: number, email: email, buttonTitle: Constants.next_btn)
+        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", buttonTitle: Constants.next_btn)
         viewModel.delegate = verificationViewController
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
@@ -346,9 +346,9 @@ extension AppRouter: HomeRouterDelegate {
         let useCase = OTPUseCase(otpRepository: repository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = CardLockViewModel(router: self, otpUseCase: useCase, cardUseCase: cardUseCase)
+        let viewModel = CardLockViewModel(router: self, otpUseCase: useCase, cardUseCase: cardUseCase, number: number, email: email)
         viewModel.success = success
-        let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, number: number, email: email, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
+        let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, buttonTitle: "BLOQUEAR", maskPhoneEmail: true)
         viewModel.delegate = cardLockViewController
         navigationController?.pushViewController(cardLockViewController, animated: true)
     }

@@ -30,8 +30,6 @@ class VerificationViewController: BaseViewController {
     @IBOutlet weak var btnRetry: PrimaryFilledButton!
     
     private var viewModel: VerificationViewModelProtocol
-    private var number: String
-    private var email: String
     private var titleDescription: String?
     private var navTitle: String
     private var buttonTitle: String
@@ -52,13 +50,11 @@ class VerificationViewController: BaseViewController {
         }
     }
     
-    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, number: String, email: String, buttonTitle: String, maskPhoneEmail: Bool = false) {
+    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, buttonTitle: String, maskPhoneEmail: Bool = false) {
         self.viewModel = viewModel
         self.titleDescription = titleDescription
         self.navTitle = navTitle
         self.step = step
-        self.number = number
-        self.email = email
         self.buttonTitle = buttonTitle
         self.maskPhoneEmail = maskPhoneEmail
         super.init(nibName: nil, bundle: nil)
@@ -109,15 +105,15 @@ class VerificationViewController: BaseViewController {
     private func setDescription() {
         var outputString = ""
 
-        for (index, character) in number.enumerated() {
+        for (index, character) in self.viewModel.number.enumerated() {
             if index > 0 && index % 3 == 0 {
                 outputString += " "
             }
             outputString.append(character)
         }
         
-        let maskedPhoneNumber = maskPhoneEmail ? number.maskPhoneNumber(lastVisibleDigitsCount: 3) : outputString
-        let maskedEmail = maskPhoneEmail ? email.maskEmailFirstCharacters() : email
+        let maskedPhoneNumber = maskPhoneEmail ? (self.viewModel.maskedNumber ?? "") : outputString
+        let maskedEmail = maskPhoneEmail ? (self.viewModel.maskedEmail ?? "") : self.viewModel.email
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
@@ -172,7 +168,7 @@ class VerificationViewController: BaseViewController {
     }
     
     private func sendOTP() {
-        viewModel.sendOTP(toNumber: sendToNumber, number: number, email: email)
+        viewModel.sendOTP(toNumber: sendToNumber)
         //resetTime()
     }
     

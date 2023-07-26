@@ -11,9 +11,16 @@ import Combine
 protocol VerificationViewModelProtocol {
     var otpId: String? { get set }
     var code: String? { get set }
+    var documentType: String { get set }
+    var documentNumber: String { get set }
+    var companyRUC: String { get set }
+    var maskedNumber: String? { get set }
+    var maskedEmail: String? { get set }
+    var email: String { get set }
+    var number: String { get set }
     var wasShownViewVerification: Bool { get set }
     
-    func sendOTP(toNumber: Bool, number: String, email: String)
+    func sendOTP(toNumber: Bool)
     func validateOTP()
 }
 
@@ -25,24 +32,37 @@ protocol VerificationViewModelDelegate: LoaderDisplaying {
 class VerificationViewModel: VerificationViewModelProtocol {
     var otpId: String?
     var code: String?
+    var documentType: String
+    var documentNumber: String
+    var companyRUC: String
+    var wasShownViewVerification: Bool = false
+    var maskedNumber: String?
+    var maskedEmail: String?
+    var email: String
+    var number: String
     var success: VerificationActionHandler?
     var delegate: VerificationViewModelDelegate?
-    var wasShownViewVerification: Bool = false
     
     private let otpUseCase: OTPUseCase
     private let router: Router
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: Router, otpUseCase: OTPUseCase) {
+    init(router: Router, otpUseCase: OTPUseCase, documentType: String, documentNumber: String, companyRUC: String, number: String, email: String) {
         self.router = router
         self.otpUseCase = otpUseCase
+        self.documentType = documentType
+        self.documentNumber = documentNumber
+        self.companyRUC = companyRUC
+        self.number = number
+        self.email = email
     }
     
-    func sendOTP(toNumber: Bool, number: String, email: String) {
+    func sendOTP(toNumber: Bool) {
         delegate?.showLoader()
         
-        let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
+        //let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
+        let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: "RU", documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         
         let cancellable = otpUseCase.send(request: request)
             .sink { publisher in
@@ -61,6 +81,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
             } receiveValue: { response in
                 self.delegate?.hideLoader {
                     self.otpId = response.otpId
+                    self.maskedNumber = response.truncatedCellphone
+                    self.maskedEmail = response.truncatedEmail
                     self.delegate?.successSendOtp()
                 }
             }
@@ -75,25 +97,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         delegate?.showLoader()
         
-        let request = ValidateOTPRequest(otpId: otp, otpCode: code)
-//        otpUseCase.validate(request: request) { result in
-//            self.delegate?.hideLoader {
-//                switch result {
-//                case .success(_):
-////                    DispatchQueue.main.async {
-////
-////                    }
-//                    if let action = self.success {
-//                        action(otp)
-//                    }
-//                case .failure(let error):
-//                    DispatchQueue.main.async {
-//                        //self.router.showMessageError(title: error.title, description: error.description, completion: nil)
-//                    }
-//                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-//                }
-//            }
-//        }
+        //let request = ValidateOTPRequest(otpId: otp, otpCode: code)
+        let request = ValidateOTPRequest(otpId: otp, otpCode: code, operationType: "RU", documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         let cancellable = otpUseCase.validate(request: request)
             .sink { publisher in
                 switch publisher {

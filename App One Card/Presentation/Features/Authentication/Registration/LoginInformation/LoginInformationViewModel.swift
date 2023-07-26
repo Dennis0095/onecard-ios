@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol LoginInformationViewModelProtocol {
     var username: String? { get set }
@@ -38,6 +39,8 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
     private let documentNumber: String
     private let companyRUC: String
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init(router: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, userUseCase: UserUseCase, otpId: String, documentType: String, documentNumber: String, companyRUC: String) {
         self.router = router
         self.successfulRouter = successfulRouter
@@ -65,17 +68,43 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
         
         let request = UserRegisterRequest(otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, username: username, password: password, password_ok: passwordOk)
         
-        userUseCase.userRegister(request: request) { result in
-            switch result {
-            case .success(_):
-                self.delegate?.successRegister()
-            case .failure(let error):
-                self.delegate?.showError(title: error.title, description: error.description) {
-                    if error.timeExpired {
-                        self.delegate?.timeExpired()
+        let cancellable = userUseCase.userRegister(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                self.delegate?.hideLoader {
+                    if response.validExpiration == "1" {
+                        if response.validUser == "1" && response.validPassword == "1" {
+                            self.delegate?.successRegister()
+                        } else {
+                            if response.confirmPassword == "1" {
+                                if response.userExists == "0" {
+                                    self.delegate?.successRegister()
+                                } else {
+                                    self.delegate?.showError(title: title, description: description, onAccept: nil)
+                                }
+                            } else {
+                                self.delegate?.showError(title: title, description: description, onAccept: nil)
+                            }
+                        }
+                    } else {
+                        self.delegate?.showError(title: title, description: description) {
+                            self.delegate?.timeExpired()
+                        }
                     }
                 }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
 }

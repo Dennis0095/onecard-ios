@@ -33,13 +33,13 @@ enum Route {
         case .validateAffiliation:
             return "/txn-admin-auth/afiliacion-thb"
         case .validatePersonalData:
-            return "/txn-sec/registro-datos-personales-thb"//"/dcp-app/backend/api/rest/txn-mix-admin/validar-datos-personales-thb"
+            return "/txn-sec/registro-datos-personales-thb"
         case .userRegister:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/registro-usuario-thb"
+            return "/txn-sec/registro-usuario-thb"
         case .sendOTP:
-            return "/txn-sec/envio-otp-doc"//"/dcp-app/backend/api/rest/txn-mix-admin/enviar-otp"
+            return "/txn-sec/envio-otp-doc"
         case .validateOTP:
-            return "/txn-sec/valida-otp-doc"//"/dcp-app/backend/api/rest/txn-mix-admin/validar-otp"
+            return "/txn-sec/valida-otp-doc"
         case .balanceInquiry:
             return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-saldo"
         case .consultMovements:

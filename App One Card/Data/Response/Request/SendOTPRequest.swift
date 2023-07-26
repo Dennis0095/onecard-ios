@@ -9,12 +9,16 @@ import Foundation
 
 struct SendOTPRequest: BaseRequest {
     let otpShippingType: String
-    let cellPhone: String
-    let email: String
+    let operationType: String
+    let documentType: String
+    let documentNumber: String
+    let companyRUC: String
     
     enum CodingKeys: String, CodingKey {
         case otpShippingType = "TIPO_ENVIO_OTP"
-        case cellPhone = "TELEFONO_CELULAR"
-        case email = "CORREO_ELECTRONICO"
+        case operationType = "TIPO_OPERACION"
+        case documentType = "TIPO_DOCUMENTO"
+        case documentNumber = "NUMERO_DOCUMENTO"
+        case companyRUC = "RUC_EMPRESA"
     }
 }

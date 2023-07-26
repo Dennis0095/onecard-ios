@@ -26,47 +26,10 @@ class OTPUseCase: OTPUseCaseProtocol {
     
     func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error> {
         return otpRepository.send(request: request)
-    
-    
-//    let cancellable = otpRepository.send(request: request)
-//        .sink { publisher in
-//            switch publisher {
-//            case .finished: break
-//            case .failure(let error):
-//                let error = CustomError(title: "Error", description: error.localizedDescription)
-//                completion(.failure(error))
-//            }
-//        } receiveValue: { response in
-//            completion(.success(response))
-//        }
-//
-//    cancellable.store(in: &cancellables)
-    
     }
     
     func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
         return otpRepository.validate(request: request)
-//        let cancellable = otpRepository.validate(request: request)
-//            .sink { publisher in
-//                switch publisher {
-//                case .finished: break
-//                case .failure(let error):
-//                    let error = CustomError(title: "Error", description: error.localizedDescription)
-//                    completion(.failure(error))
-//                }
-//            } receiveValue: { response in
-//                let title = response.title ?? ""
-//                let description = response.message ?? ""
-//
-//                if response.indexMatchOTP == "1" {
-//                    completion(.success(response))
-//                } else {
-//                    let error = CustomError(title: title, description: description)
-//                    completion(.failure(error))
-//                }
-//            }
-//
-//        cancellable.store(in: &cancellables)
     }
     
     func cancelRequests() {

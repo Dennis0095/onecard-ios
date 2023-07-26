@@ -10,6 +10,7 @@ import Combine
 
 protocol ProfileViewModelProtocol {
     var wasShownViewProfile: Bool { get set }
+    var userResponse: ConsultUserDataResponse? { get set }
     
     func getUserData()
     func toEditMail()
@@ -26,6 +27,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     var router: ProfileRouterDelegate
     var verificationRouter: VerificationRouterDelegate
     var delegate: ProfileViewModelDelegate?
+    var userResponse: ConsultUserDataResponse?
     var wasShownViewProfile: Bool = false
     
     private let userUseCase: UserUseCaseProtocol
@@ -74,12 +76,12 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func toEditUser() {
         //router.toEditUser()
-        verificationRouter.navigateToVerification(email: "arambulotech@gmail.com", number: "982221121", navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", success: { [weak self] idOtp in
-//            self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "REGRESAR", accept: {
-//                self?.profileRouter.successfulEditProfile()
-//            })
-            self?.router.toEditUser()
-        })
+//        verificationRouter.navigateToVerification(email: "arambulotech@gmail.com", number: "982221121", navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", success: { [weak self] idOtp in
+////            self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "REGRESAR", accept: {
+////                self?.profileRouter.successfulEditProfile()
+////            })
+//            self?.router.toEditUser()
+//        })
     }
     
     func toEditPassword() {

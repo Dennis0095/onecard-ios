@@ -21,40 +21,33 @@ extension String {
             return false
         }
     }
+//
+//    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
+//        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
+//        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
+//        let maskedString = self.enumerated().map { index, char in
+//            if index < startIndex.encodedOffset {
+//                return "*"
+//            } else {
+//                return String(char)
+//            }
+//        }
+//        return maskedString.joined()
+//    }
     
-    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
-        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
-        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
-        let maskedString = self.enumerated().map { index, char in
-            if index < startIndex.encodedOffset {
-                return "*"
-            } else {
-                return String(char)
-            }
-        }
-        return maskedString.joined()
-    }
-    
-    func maskEmailFirstCharacters() -> String {
-        let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex
-        let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
-        return maskedEmail
-    }
+//    func maskEmailFirstCharacters() -> String {
+//        let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex
+//        let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
+//        return maskedEmail
+//    }
     
     func parseAmountToCurrency(type: String, sign: String) -> String {
-        let formatter = NumberFormatter()
-        //formatter.numberStyle = .currency
-        
         var currencySymbol = ""
         
         switch type {
         case "840":
-            //formatter.currencyCode = "USD"
-            //formatter.currencySymbol = "$\(sign == "D" ? " -" : " ")"
             currencySymbol = "$\(sign == "D" ? " -" : " ")"
         case "604":
-            //formatter.currencyCode = "PEN"
-            //formatter.currencySymbol = "S/\(sign == "D" ? " -" : " ")"
             currencySymbol = "S/\(sign == "D" ? " -" : " ")"
         default: break
         }
@@ -63,15 +56,6 @@ extension String {
         let dotIndex = string.index(string.endIndex, offsetBy: -2)
         string.insert(".", at: dotIndex)
         
-//        if let amount = Double(string) {
-//            if let formattedString = formatter.string(from: NSNumber(value: amount)) {
-//                return currencySymbol + formattedString
-//            } else {
-//                return ""
-//            }
-//        } else {
-//            return ""
-//        }
         return currencySymbol + string
     }
 }

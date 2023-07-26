@@ -63,6 +63,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader {
+                    self.userResponse = response
                     self.delegate?.showData(user: response)
                 }
             }
@@ -75,13 +76,16 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func toEditUser() {
-        //router.toEditUser()
-//        verificationRouter.navigateToVerification(email: "arambulotech@gmail.com", number: "982221121", navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", success: { [weak self] idOtp in
-////            self?.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "REGRESAR", accept: {
-////                self?.profileRouter.successfulEditProfile()
-////            })
-//            self?.router.toEditUser()
-//        })
+        let email = userResponse?.email ?? ""
+        let number = userResponse?.truncatedCellphone ?? ""
+        let documentType = userResponse?.docType ?? ""
+        let documentNumber = userResponse?.docNumber ?? ""
+        let companyRUC = userResponse?.companyRUC ?? ""
+        let username = userResponse?.userName ?? ""
+        
+        verificationRouter.navigateToVerification(email: email, number: number, documentType: companyRUC, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
+            self?.router.toEditUser(beforeUsername: username, otpId: otpId)
+        }
     }
     
     func toEditPassword() {

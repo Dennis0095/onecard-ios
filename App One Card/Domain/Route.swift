@@ -15,8 +15,11 @@ enum Route {
     case validatePersonalData
     case userRegister
     case consultUserData
-    case sendOTP
-    case validateOTP
+    case updateUsername
+    case sendOTPRegister
+    case sendOTPUpdate
+    case validateOTPRegister
+    case validateOTPUpdate
     case validateKey
     case reassignKey
     case cardActivation
@@ -36,10 +39,14 @@ enum Route {
             return "/txn-sec/registro-datos-personales-thb"
         case .userRegister:
             return "/txn-sec/registro-usuario-thb"
-        case .sendOTP:
+        case .sendOTPRegister:
             return "/txn-sec/envio-otp-doc"
-        case .validateOTP:
+        case .validateOTPRegister:
             return "/txn-sec/valida-otp-doc"
+        case .sendOTPUpdate:
+            return "/txn-sec/envio-otp"
+        case .validateOTPUpdate:
+            return "/txn-sec/valida-otp"
         case .balanceInquiry:
             return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-saldo"
         case .consultMovements:
@@ -60,6 +67,8 @@ enum Route {
             return "/dcp-app/backend/api/rest/txn-mix-admin/boton-codseg"
         case .consultUserData:
             return "/txn-sec/consulta-datos-usuario"
+        case .updateUsername:
+            return "/txn-sec/actualizacion-nombre-usuario"
         case .without:
             return ""
         }

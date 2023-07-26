@@ -11,6 +11,11 @@
 		0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */; };
 		0D0A60F72A70996E005B447E /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F62A70996D005B447E /* UserSessionManager.swift */; };
 		0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60F82A7099C1005B447E /* CardSessionManager.swift */; };
+		0D0A60FB2A70E093005B447E /* SendOTPUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60FA2A70E093005B447E /* SendOTPUpdateRequest.swift */; };
+		0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */; };
+		0D0A60FF2A70E1E7005B447E /* SendOTPUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */; };
+		0D0A61012A70F9D1005B447E /* UpdateUsernameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A61002A70F9D1005B447E /* UpdateUsernameRequest.swift */; };
+		0D0A61032A70F9D8005B447E /* UpdateUsernameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */; };
 		0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */; };
 		0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */; };
 		0D243F222A47EF6F00399600 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D243F212A47EF6F00399600 /* APIClient.swift */; };
@@ -108,9 +113,9 @@
 		0D65EA292A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */; };
 		0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */; };
 		0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */; };
-		0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */; };
+		0D6B916D2A4B90650045D149 /* SendOTPRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B916C2A4B90640045D149 /* SendOTPRegisterRequest.swift */; };
 		0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */; };
-		0D6B91712A4B92F70045D149 /* SendOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91702A4B92F70045D149 /* SendOTPResponse.swift */; };
+		0D6B91712A4B92F70045D149 /* SendOTPRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */; };
 		0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */; };
 		0D6B91752A4B9E3E0045D149 /* ValidateAffiliationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */; };
 		0D6DA4F72A5E525F00AC6BB5 /* KeyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */; };
@@ -178,7 +183,7 @@
 		0DD692B02A529B2B001D0BB9 /* MovementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD692AF2A529B2B001D0BB9 /* MovementRepository.swift */; };
 		0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD692B12A529B71001D0BB9 /* MovementUseCase.swift */; };
 		0DD692B42A529C19001D0BB9 /* MovementDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD692B32A529C19001D0BB9 /* MovementDataRepository.swift */; };
-		0DDE79182A4FC37300A52DEB /* ValidateOTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDE79172A4FC37300A52DEB /* ValidateOTPRequest.swift */; };
+		0DDE79182A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDE79172A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift */; };
 		0DDE791A2A4FC3C400A52DEB /* ValidateOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDE79192A4FC3C400A52DEB /* ValidateOTPResponse.swift */; };
 		0DE336852A5B9B8600597BE8 /* PinOutlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE336842A5B9B8600597BE8 /* PinOutlinedTextField.swift */; };
 		0DF183E02A68D070004A0621 /* PromotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183DE2A68D070004A0621 /* PromotionsViewController.swift */; };
@@ -215,6 +220,11 @@
 		0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultUserDataRequest.swift; sourceTree = "<group>"; };
 		0D0A60F62A70996D005B447E /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		0D0A60F82A7099C1005B447E /* CardSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSessionManager.swift; sourceTree = "<group>"; };
+		0D0A60FA2A70E093005B447E /* SendOTPUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPUpdateRequest.swift; sourceTree = "<group>"; };
+		0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOTPUpdateRequest.swift; sourceTree = "<group>"; };
+		0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPUpdateResponse.swift; sourceTree = "<group>"; };
+		0D0A61002A70F9D1005B447E /* UpdateUsernameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUsernameRequest.swift; sourceTree = "<group>"; };
+		0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUsernameResponse.swift; sourceTree = "<group>"; };
 		0D243B8B2A3A47AD004E87D3 /* AlertErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorViewController.swift; sourceTree = "<group>"; };
 		0D243B8C2A3A47AD004E87D3 /* AlertErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertErrorViewController.xib; sourceTree = "<group>"; };
 		0D243F212A47EF6F00399600 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -314,9 +324,9 @@
 		0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardOnlineShoppingStatusResponse.swift; sourceTree = "<group>"; };
 		0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPUseCase.swift; sourceTree = "<group>"; };
 		0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPRepository.swift; sourceTree = "<group>"; };
-		0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPRequest.swift; sourceTree = "<group>"; };
+		0D6B916C2A4B90640045D149 /* SendOTPRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPRegisterRequest.swift; sourceTree = "<group>"; };
 		0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPDataRepository.swift; sourceTree = "<group>"; };
-		0D6B91702A4B92F70045D149 /* SendOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPResponse.swift; sourceTree = "<group>"; };
+		0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendOTPRegisterResponse.swift; sourceTree = "<group>"; };
 		0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAffiliationRequest.swift; sourceTree = "<group>"; };
 		0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAffiliationResponse.swift; sourceTree = "<group>"; };
 		0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDataRepository.swift; sourceTree = "<group>"; };
@@ -383,7 +393,7 @@
 		0DD692AF2A529B2B001D0BB9 /* MovementRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementRepository.swift; sourceTree = "<group>"; };
 		0DD692B12A529B71001D0BB9 /* MovementUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementUseCase.swift; sourceTree = "<group>"; };
 		0DD692B32A529C19001D0BB9 /* MovementDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementDataRepository.swift; sourceTree = "<group>"; };
-		0DDE79172A4FC37300A52DEB /* ValidateOTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOTPRequest.swift; sourceTree = "<group>"; };
+		0DDE79172A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOTPRegisterRequest.swift; sourceTree = "<group>"; };
 		0DDE79192A4FC3C400A52DEB /* ValidateOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOTPResponse.swift; sourceTree = "<group>"; };
 		0DE336842A5B9B8600597BE8 /* PinOutlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinOutlinedTextField.swift; sourceTree = "<group>"; };
 		0DF183DE2A68D070004A0621 /* PromotionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsViewController.swift; sourceTree = "<group>"; };
@@ -439,25 +449,27 @@
 		0D243F232A47EF9000399600 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				0D6B916B2A4B90120045D149 /* Request */,
-				0D6B91702A4B92F70045D149 /* SendOTPResponse.swift */,
-				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */,
-				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */,
-				0DDE79192A4FC3C400A52DEB /* ValidateOTPResponse.swift */,
-				0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */,
 				0D3E41EB2A50661200C2546A /* BalanceInquiryResponse.swift */,
-				0DD692A92A528B97001D0BB9 /* ConsultMovementsResponse.swift */,
-				0DD692AD2A529180001D0BB9 /* MovementResponse.swift */,
-				0D8D9F6D2A5DDD1800E6C8C6 /* ValidateKeyResponse.swift */,
-				0D8D9F6F2A5DDD2400E6C8C6 /* ReassignKeyResponse.swift */,
 				0D8D9F752A5DE1B300E6C8C6 /* CardActivationResponse.swift */,
-				0DC882532A63A65C00DAD073 /* LoginResponse.swift */,
-				0D65EA182A6B036800819637 /* CardStatusResponse.swift */,
-				0D65EA1C2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift */,
-				0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */,
-				0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */,
 				0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */,
+				0D65EA1C2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift */,
+				0D65EA182A6B036800819637 /* CardStatusResponse.swift */,
+				0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */,
+				0DD692A92A528B97001D0BB9 /* ConsultMovementsResponse.swift */,
 				0D0A60F22A7046A7005B447E /* ConsultUserDataResponse.swift */,
+				0DC882532A63A65C00DAD073 /* LoginResponse.swift */,
+				0DD692AD2A529180001D0BB9 /* MovementResponse.swift */,
+				0D8D9F6F2A5DDD2400E6C8C6 /* ReassignKeyResponse.swift */,
+				0D6B916B2A4B90120045D149 /* Request */,
+				0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */,
+				0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */,
+				0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */,
+				0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */,
+				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */,
+				0D8D9F6D2A5DDD1800E6C8C6 /* ValidateKeyResponse.swift */,
+				0DDE79192A4FC3C400A52DEB /* ValidateOTPResponse.swift */,
+				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */,
+				0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -876,22 +888,25 @@
 		0D6B916B2A4B90120045D149 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				0D6B916C2A4B90640045D149 /* SendOTPRequest.swift */,
-				0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */,
-				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
-				0DDE79172A4FC37300A52DEB /* ValidateOTPRequest.swift */,
-				0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */,
 				0D3E41E92A5065D600C2546A /* BalanceInquiryRequest.swift */,
-				0DD692AB2A528C29001D0BB9 /* ConsultMovementsRequest.swift */,
-				0D8D9F672A5DD89400E6C8C6 /* ValidateKeyRequest.swift */,
 				0D8D9F692A5DDB9300E6C8C6 /* CardActivationRequest.swift */,
-				0DC882552A63AA2200DAD073 /* LoginRequest.swift */,
-				0D65EA162A6B032000819637 /* CardStatusRequest.swift */,
-				0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */,
-				0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */,
-				0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */,
 				0DFA7CA42A6DEAAD0031178B /* CardLockRequest.swift */,
+				0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */,
+				0D65EA162A6B032000819637 /* CardStatusRequest.swift */,
+				0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */,
+				0DD692AB2A528C29001D0BB9 /* ConsultMovementsRequest.swift */,
 				0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */,
+				0DC882552A63AA2200DAD073 /* LoginRequest.swift */,
+				0D6B916C2A4B90640045D149 /* SendOTPRegisterRequest.swift */,
+				0D0A60FA2A70E093005B447E /* SendOTPUpdateRequest.swift */,
+				0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */,
+				0D0A61002A70F9D1005B447E /* UpdateUsernameRequest.swift */,
+				0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */,
+				0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */,
+				0D8D9F672A5DD89400E6C8C6 /* ValidateKeyRequest.swift */,
+				0DDE79172A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift */,
+				0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */,
+				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1316,7 +1331,7 @@
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
 				0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */,
 				0DE336852A5B9B8600597BE8 /* PinOutlinedTextField.swift in Sources */,
-				0D6B916D2A4B90650045D149 /* SendOTPRequest.swift in Sources */,
+				0D6B916D2A4B90650045D149 /* SendOTPRegisterRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
 				0D0A60F32A7046A7005B447E /* ConsultUserDataResponse.swift in Sources */,
@@ -1327,7 +1342,7 @@
 				0D65EA292A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift in Sources */,
 				0DC882582A6457A000DAD073 /* LoaderDisplaying.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
-				0D6B91712A4B92F70045D149 /* SendOTPResponse.swift in Sources */,
+				0D6B91712A4B92F70045D149 /* SendOTPRegisterResponse.swift in Sources */,
 				0DFA7C9F2A6DBC660031178B /* CardLockViewModel.swift in Sources */,
 				0D3E41EE2A506AD800C2546A /* BalanceUseCase.swift in Sources */,
 				0DF183E52A68D655004A0621 /* PromotionsRouter.swift in Sources */,
@@ -1336,6 +1351,7 @@
 				0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */,
 				0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */,
 				0D45B1622A2FF77200EFC7F4 /* MembershipDataViewModel.swift in Sources */,
+				0D0A60FB2A70E093005B447E /* SendOTPUpdateRequest.swift in Sources */,
 				0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
 				0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */,
@@ -1350,6 +1366,7 @@
 				0DC882542A63A65D00DAD073 /* LoginResponse.swift in Sources */,
 				0DD692B02A529B2B001D0BB9 /* MovementRepository.swift in Sources */,
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
+				0D0A61012A70F9D1005B447E /* UpdateUsernameRequest.swift in Sources */,
 				0D8D9F702A5DDD2400E6C8C6 /* ReassignKeyResponse.swift in Sources */,
 				0D24740E2A466A5B0075E147 /* ConfigureCardTableViewCell.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
@@ -1360,15 +1377,17 @@
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
+				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
 				0D842E4F2A4FD6EF0059A906 /* UserRegisterResponse.swift in Sources */,
 				0DFA7C912A6DA2650031178B /* UserObserver.swift in Sources */,
-				0DDE79182A4FC37300A52DEB /* ValidateOTPRequest.swift in Sources */,
+				0DDE79182A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift in Sources */,
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
+				0D0A60FF2A70E1E7005B447E /* SendOTPUpdateResponse.swift in Sources */,
 				0DDE791A2A4FC3C400A52DEB /* ValidateOTPResponse.swift in Sources */,
 				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
 				0D243F222A47EF6F00399600 /* APIClient.swift in Sources */,
@@ -1377,6 +1396,7 @@
 				0DD692A52A524E16001D0BB9 /* MovementTableViewCell.swift in Sources */,
 				0D45B1532A2EEA7200EFC7F4 /* StringExtension.swift in Sources */,
 				0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */,
+				0D0A61032A70F9D8005B447E /* UpdateUsernameResponse.swift in Sources */,
 				0DC44F0D2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift in Sources */,
 				0D45B1442A2EDA6100EFC7F4 /* MembershipDataViewController.swift in Sources */,
 				0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */,

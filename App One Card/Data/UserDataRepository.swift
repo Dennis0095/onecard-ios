@@ -27,4 +27,8 @@ class UserDataRepository: UserRepository {
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {
         return APIClient.callAPI(route: .consultUserData, method: .post, request: request)
     }
+    
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error> {
+        return APIClient.callAPI(route: .updateUsername, method: .post, request: request)
+    }
 }

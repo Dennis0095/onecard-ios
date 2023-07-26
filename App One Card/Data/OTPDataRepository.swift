@@ -8,11 +8,19 @@
 import Combine
 
 class OTPDataRepository: OTPRepository {
-    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error> {
-        return APIClient.callAPI(route: .sendOTP, method: .post, request: request)
+    func sendToRegister(request: SendOTPRegisterRequest) -> AnyPublisher<SendOTPRegisterResponse, Error> {
+        return APIClient.callAPI(route: .sendOTPRegister, method: .post, request: request)
     }
     
-    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
-        return APIClient.callAPI(route: .validateOTP, method: .post, request: request)
+    func validateToRegister(request: ValidateOTPRegisterRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
+        return APIClient.callAPI(route: .validateOTPRegister, method: .post, request: request)
+    }
+    
+    func sendToUpdate(request: SendOTPUpdateRequest) -> AnyPublisher<SendOTPUpdateResponse, Error> {
+        return APIClient.callAPI(route: .sendOTPUpdate, method: .post, request: request)
+    }
+    
+    func validateToUpdate(request: ValidateOTPUpdateRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
+        return APIClient.callAPI(route: .validateOTPUpdate, method: .post, request: request)
     }
 }

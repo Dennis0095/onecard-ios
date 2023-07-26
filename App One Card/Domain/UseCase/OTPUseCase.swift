@@ -8,32 +8,32 @@
 import Combine
 
 protocol OTPUseCaseProtocol {
-    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error>
-    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error>
+    func sendToRegister(request: SendOTPRegisterRequest) -> AnyPublisher<SendOTPRegisterResponse, Error>
+    func validateToRegister(request: ValidateOTPRegisterRequest) -> AnyPublisher<ValidateOTPResponse, Error>
+    func sendToUpdate(request: SendOTPUpdateRequest) -> AnyPublisher<SendOTPUpdateResponse, Error>
+    func validateToUpdate(request: ValidateOTPUpdateRequest) -> AnyPublisher<ValidateOTPResponse, Error>
 }
 
 class OTPUseCase: OTPUseCaseProtocol {
     private let otpRepository: OTPRepository
-    private var cancellables = Set<AnyCancellable>()
     
     init(otpRepository: OTPRepository) {
         self.otpRepository = otpRepository
     }
     
-    deinit {
-       cancelRequests()
+    func sendToRegister(request: SendOTPRegisterRequest) -> AnyPublisher<SendOTPRegisterResponse, Error> {
+        return otpRepository.sendToRegister(request: request)
     }
     
-    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, Error> {
-        return otpRepository.send(request: request)
+    func validateToRegister(request: ValidateOTPRegisterRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
+        return otpRepository.validateToRegister(request: request)
     }
     
-    func validate(request: ValidateOTPRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
-        return otpRepository.validate(request: request)
+    func sendToUpdate(request: SendOTPUpdateRequest) -> AnyPublisher<SendOTPUpdateResponse, Error> {
+        return otpRepository.sendToUpdate(request: request)
     }
     
-    func cancelRequests() {
-        cancellables.forEach { $0.cancel() }
-        cancellables.removeAll()
+    func validateToUpdate(request: ValidateOTPUpdateRequest) -> AnyPublisher<ValidateOTPResponse, Error> {
+        return otpRepository.validateToUpdate(request: request)
     }
 }

@@ -13,6 +13,7 @@ protocol UserUseCaseProtocol {
     func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error>
     func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error>
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -40,5 +41,9 @@ class UserUseCase: UserUseCaseProtocol {
     
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {
         return userRepository.data(request: request)
+    }
+    
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error> {
+        return userRepository.updateUsername(request: request)
     }
 }

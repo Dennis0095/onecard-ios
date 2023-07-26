@@ -193,15 +193,25 @@ extension AppRouter: AuthenticationRouterDelegate {
 }
 
 extension AppRouter: VerificationRouterDelegate {
-    func navigateToVerification(email: String, number: String, documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, success: @escaping VerificationActionHandler) {
+    func navigateToVerification(email: String, number: String, documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, operationType: String, maskPhoneEmail: Bool, success: @escaping VerificationActionHandler) {
         let repository = OTPDataRepository()
         let useCase = OTPUseCase(otpRepository: repository)
-        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, number: number, email: email)
+        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, email: email, number: number, operationType: operationType, maskPhoneEmail: maskPhoneEmail)
         viewModel.success = success
         let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", buttonTitle: Constants.next_btn)
         viewModel.delegate = verificationViewController
         navigationController?.pushViewController(verificationViewController, animated: true)
     }
+    
+//    func navigateToVerificationToUpdate(documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, operationType: String, success: @escaping VerificationActionHandler) {
+//        let repository = OTPDataRepository()
+//        let useCase = OTPUseCase(otpRepository: repository)
+//        let viewModel = VerificationViewModel(router: self, otpUseCase: useCase, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, operationType: operationType, maskPhoneEmail: true)
+//        viewModel.success = success
+//        let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", buttonTitle: Constants.next_btn)
+//        viewModel.delegate = verificationViewController
+//        navigationController?.pushViewController(verificationViewController, animated: true)
+//    }
 }
 
 extension AppRouter: SuccessfulRouterDelegate {
@@ -256,9 +266,12 @@ extension AppRouter: ProfileRouterDelegate {
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     
-    func toEditUser() {
-        let viewModel = EditUserViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self)
+    func toEditUser(beforeUsername: String, otpId: String) {
+        let userDataRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userDataRepository)
+        let viewModel = EditUserViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeUsername: beforeUsername, otpId: otpId)
         let editUserViewController = EditUserViewController(viewModel: viewModel)
+        viewModel.delegate = editUserViewController
         navigationController?.pushViewController(editUserViewController, animated: true)
     }
     

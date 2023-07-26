@@ -33,7 +33,6 @@ class VerificationViewController: BaseViewController {
     private var titleDescription: String?
     private var navTitle: String
     private var buttonTitle: String
-    private var maskPhoneEmail: Bool
     private var step: String?
     private var timer = Timer()
     
@@ -50,13 +49,12 @@ class VerificationViewController: BaseViewController {
         }
     }
     
-    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, buttonTitle: String, maskPhoneEmail: Bool = false) {
+    init(viewModel: VerificationViewModelProtocol, navTitle: String, step: String? = nil, titleDescription: String? = nil, buttonTitle: String) {
         self.viewModel = viewModel
         self.titleDescription = titleDescription
         self.navTitle = navTitle
         self.step = step
         self.buttonTitle = buttonTitle
-        self.maskPhoneEmail = maskPhoneEmail
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -105,15 +103,17 @@ class VerificationViewController: BaseViewController {
     private func setDescription() {
         var outputString = ""
 
-        for (index, character) in self.viewModel.number.enumerated() {
-            if index > 0 && index % 3 == 0 {
-                outputString += " "
+        if !viewModel.maskPhoneEmail {
+            for (index, character) in self.viewModel.number.enumerated() {
+                if index > 0 && index % 3 == 0 {
+                    outputString += " "
+                }
+                outputString.append(character)
             }
-            outputString.append(character)
         }
         
-        let maskedPhoneNumber = maskPhoneEmail ? (self.viewModel.maskedNumber ?? "") : outputString
-        let maskedEmail = maskPhoneEmail ? (self.viewModel.maskedEmail ?? "") : self.viewModel.email
+        let maskedPhoneNumber = self.viewModel.maskPhoneEmail ? self.viewModel.number : outputString
+        let maskedEmail = self.viewModel.maskPhoneEmail ? self.viewModel.email.maskEmailFirstCharacters() : self.viewModel.email
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
@@ -168,8 +168,11 @@ class VerificationViewController: BaseViewController {
     }
     
     private func sendOTP() {
-        viewModel.sendOTP(toNumber: sendToNumber)
-        //resetTime()
+        if viewModel.operationType == "RU" {
+            viewModel.sendOTPToRegister(toNumber: sendToNumber)
+        } else {
+            viewModel.sendOTPToUpdate(toNumber: sendToNumber)
+        }
     }
     
     @IBAction func resend(_ sender: Any) {
@@ -178,7 +181,11 @@ class VerificationViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if txtCode.validateIsValid() {
-            viewModel.validateOTP()
+            if viewModel.operationType == "RU" {
+                viewModel.validateOTPToRegister()
+            } else {
+                viewModel.validateOTPToUpdate()
+            }
         }
     }
     

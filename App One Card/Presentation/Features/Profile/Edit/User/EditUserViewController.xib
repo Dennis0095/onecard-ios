@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="btnNext" destination="6As-n3-etv" id="Jrh-YT-0Hd"/>
                 <outlet property="imgBack" destination="v1E-4c-eDg" id="I9w-3r-tXK"/>
+                <outlet property="scrollView" destination="Yaa-K9-RXh" id="uDv-yz-tVd"/>
                 <outlet property="txtUser" destination="KvR-th-khT" id="coD-cN-Yuz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

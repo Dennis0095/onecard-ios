@@ -21,7 +21,7 @@ extension String {
             return false
         }
     }
-//
+
 //    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
 //        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
 //        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
@@ -35,11 +35,11 @@ extension String {
 //        return maskedString.joined()
 //    }
     
-//    func maskEmailFirstCharacters() -> String {
-//        let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex
-//        let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
-//        return maskedEmail
-//    }
+    func maskEmailFirstCharacters() -> String {
+        let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex
+        let maskedEmail = String(repeating: "*", count: self.distance(from: self.startIndex, to: startIndex)) + self[startIndex...]
+        return maskedEmail
+    }
     
     func parseAmountToCurrency(type: String, sign: String) -> String {
         var currencySymbol = ""
@@ -73,4 +73,5 @@ enum Regex: String{
     case contain11numbers = "^\\d{11}$"
     case name = "^[A-Za-z\\s'-]+$"
     case alphanumeric = "^[a-zA-Z0-9]+$"
+    case containLettersAndNumbers = "^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]+$"
 }

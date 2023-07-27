@@ -12,10 +12,10 @@ class PromotionsViewController: BaseViewController {
     @IBOutlet weak var tblPromotions: UITableView!
     @IBOutlet weak var viewEmpty: UIView!
     
-    private var viewModel: PromotionListViewModelProtocol
+    private var viewModel: PromotionsViewModelProtocol
     private var promotionsDelegateDataSource: PromotionsDelegateDataSource
     
-    init(viewModel: PromotionListViewModelProtocol, promotionsDelegateDataSource: PromotionsDelegateDataSource) {
+    init(viewModel: PromotionsViewModelProtocol, promotionsDelegateDataSource: PromotionsDelegateDataSource) {
         self.viewModel = viewModel
         self.promotionsDelegateDataSource = promotionsDelegateDataSource
         super.init(nibName: nil, bundle: nil)
@@ -38,7 +38,7 @@ class PromotionsViewController: BaseViewController {
     
 }
 
-extension PromotionsViewController: PromotionListViewModelDelegate {
+extension PromotionsViewController: PromotionsViewModelDelegate {
     func showPromotions() {
         viewEmpty.isHidden = !viewModel.items.isEmpty
         tblPromotions.isHidden = viewModel.items.isEmpty

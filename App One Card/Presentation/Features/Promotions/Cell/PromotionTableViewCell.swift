@@ -10,6 +10,8 @@ import UIKit
 class PromotionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewSpace: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblContent: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,9 @@ class PromotionTableViewCell: UITableViewCell {
     
     func setData(promotion: PromotionResponse, isLast: Bool) {
         viewSpace.isHidden = isLast
+        
+        lblTitle.text = promotion.title
+        lblContent.text = promotion.content
     }
     
 }

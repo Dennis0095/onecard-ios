@@ -9,9 +9,9 @@ import UIKit
 
 class PromotionsDelegateDataSource: NSObject {
     
-    private var viewModel: PromotionListViewModelProtocol
+    private var viewModel: PromotionsViewModelProtocol
 
-    init(viewModel: PromotionListViewModelProtocol) {
+    init(viewModel: PromotionsViewModelProtocol) {
         self.viewModel = viewModel
     }
     

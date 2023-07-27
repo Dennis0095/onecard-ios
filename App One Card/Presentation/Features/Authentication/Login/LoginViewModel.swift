@@ -31,9 +31,7 @@ class LoginViewModel: LoginViewModelProtocol {
     var password: String = ""
     
     private let userUseCase: UserUseCaseProtocol
-    //private let userLocalUseCase: UserLocalUseCaseProtocol
     private let cardUseCase: CardUseCaseProtocol
-    //private let cardLocalUseCase: CardLocalUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     

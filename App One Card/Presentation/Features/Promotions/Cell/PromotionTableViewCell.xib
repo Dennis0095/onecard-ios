@@ -49,14 +49,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uu8-cg-qM2">
                                                         <rect key="frame" x="16" y="16" width="296" height="75.666666666666671"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duplicar tus millas ClubMiles" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-Ns-jXm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="296" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-Ns-jXm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="296" height="67.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pague en una cuota y solicite el fraccionamiento sin intereses en nuestra web" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-6e-1vn">
-                                                                <rect key="frame" x="0.0" y="24.999999999999996" width="296" height="50.666666666666657"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-6e-1vn">
+                                                                <rect key="frame" x="0.0" y="75.666666666666657" width="296" height="0.0"/>
                                                                 <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
                                                                 <color key="textColor" name="grey100"/>
                                                                 <nil key="highlightedColor"/>
@@ -104,6 +104,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lblContent" destination="HG3-6e-1vn" id="HgZ-Xq-MGB"/>
+                <outlet property="lblTitle" destination="PWF-Ns-jXm" id="S66-6z-BNW"/>
                 <outlet property="viewSpace" destination="wXz-Xo-MK9" id="6s5-8h-jwo"/>
             </connections>
             <point key="canvasLocation" x="0.0" y="139.08450704225353"/>

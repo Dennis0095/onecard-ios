@@ -27,6 +27,7 @@ enum Route {
     case cardOnlineShoppingStatus
     case cardLock
     case changeCardOnlineShoppingStatus
+    case consultPromotions
     case without
     
     var description: String {
@@ -69,6 +70,8 @@ enum Route {
             return "/txn-sec/consulta-datos-usuario"
         case .updateUsername:
             return "/txn-sec/actualizacion-nombre-usuario"
+        case .consultPromotions:
+            return "/busqueda/txn-data/consulta-promociones"
         case .without:
             return ""
         }

@@ -84,7 +84,9 @@ class MenuTabBarController: UITabBarController {
     }
     
     private func setupPromotions() -> PromotionsViewController {
-        let viewModel = PromotionListMockViewModel(router: promotionsRouter)
+        let promotionRepository = PromotionDataRepository()
+        let promotionUseCase = PromotionUseCase(promotionRepository: promotionRepository)
+        let viewModel = PromotionsViewModel(router: promotionsRouter, promotionUseCase: promotionUseCase)
         let promotionsDelegateDataSource = PromotionsDelegateDataSource(viewModel: viewModel)
         let promotions = PromotionsViewController(viewModel: viewModel, promotionsDelegateDataSource: promotionsDelegateDataSource)
         viewModel.delegate = promotions

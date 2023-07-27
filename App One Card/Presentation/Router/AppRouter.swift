@@ -275,9 +275,12 @@ extension AppRouter: ProfileRouterDelegate {
         navigationController?.pushViewController(editUserViewController, animated: true)
     }
     
-    func toEditMail() {
-        let viewModel = EditMailViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self)
+    func toEditMail(beforeEmail: String, otpId: String) {
+        let userDataRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userDataRepository)
+        let viewModel = EditMailViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeEmail: beforeEmail, otpId: otpId)
         let editMailViewController = EditMailViewController(viewModel: viewModel)
+        viewModel.delegate = editMailViewController
         navigationController?.pushViewController(editMailViewController, animated: true)
     }
     

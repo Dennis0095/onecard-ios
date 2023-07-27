@@ -8,6 +8,7 @@
 import Combine
 
 protocol PromotionsViewModelProtocol {
+    var wasShownViewPromotions: Bool { get set }
     var items: [PromotionResponse] { get set }
     var router: PromotionsRouterDelegate { get set }
     var delegate: PromotionsViewModelDelegate? { get set }
@@ -20,6 +21,7 @@ protocol PromotionsViewModelProtocol {
 
 protocol PromotionsViewModelDelegate: LoaderDisplaying {
     func showPromotions()
+    func failureShowPromotions()
 }
 
 class PromotionsViewModel: PromotionsViewModelProtocol {
@@ -27,6 +29,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     
     private var cancellables = Set<AnyCancellable>()
     
+    var wasShownViewPromotions: Bool = false
     var items: [PromotionResponse] = []
     var router: PromotionsRouterDelegate
     var delegate: PromotionsViewModelDelegate?
@@ -63,10 +66,15 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 case .failure(let error):
                     self.delegate?.hideLoader {
                         let error = CustomError(title: "Error", description: error.localizedDescription)
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        if !self.wasShownViewPromotions {
+                            self.delegate?.failureShowPromotions()
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
             } receiveValue: { response in
+                self.wasShownViewPromotions = true
                 self.items = response.promotions ?? []
                 self.delegate?.hideLoader {
                     self.delegate?.showPromotions()

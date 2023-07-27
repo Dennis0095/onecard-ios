@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProfileRouterDelegate: Router {
-    func toEditMail()
+    func toEditMail(beforeEmail: String, otpId: String)
     func toEditUser(beforeUsername: String, otpId: String)
     func toEditPassword()
     func successfulEditProfile()

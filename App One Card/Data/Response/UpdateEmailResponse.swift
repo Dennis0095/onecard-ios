@@ -1,16 +1,16 @@
 //
-//  UpdateUsernameResponse.swift
+//  UpdateEmailResponse.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 26/07/23.
+//  Created by Paolo Arambulo on 27/07/23.
 //
 
 import Foundation
 
-struct UpdateUsernameResponse: Codable {
+struct UpdateEmailResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let existsUser: String?
+    let existsEmail: String?
     let success: String?
     let title: String?
     let message: String?
@@ -18,7 +18,7 @@ struct UpdateUsernameResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
         case rcDesc = "RC_DESC"
-        case existsUser = "EXISTE_USUARIO"
+        case existsEmail = "EXISTE_EMAIL"
         case success = "EXITO"
         case title = "TITULO"
         case message = "MENSAJE"

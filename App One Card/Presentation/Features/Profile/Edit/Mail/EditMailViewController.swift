@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditMailViewController: UIViewController {
+class EditMailViewController: BaseViewController {
 
     @IBOutlet weak var txtMail: OutlinedTextField!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
@@ -24,18 +24,35 @@ class EditMailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        addActions()
+    override func initView() {
         txtMail.configure(placeholder: Constants.placeholder_email, status: .activated, type: .emailAddress)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
+        
+        connectFields(textFields: txtMail.txt)
     }
     
-    func addActions() {
+    override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
+        
+        [txtMail].forEach {
+            $0.selectTextField = { textField in
+                self.selectedTextField = textField
+            }
+        }
+        
+        txtMail.listenChanges = { [weak self] text in
+            self?.viewModel.newEmail = text
+        }
+    }
+    
+    private func validate() -> Bool {
+        txtMail.errorMessage = txtMail.text.isEmpty ? "Ingrese el correo electrónico." : "Ingrese un correo válido."
+        
+        txtMail.isValid = txtMail.text.validateString(withRegex: .email)
+        
+        return txtMail.isValid
     }
     
     @objc private func tapBack() {
@@ -43,6 +60,14 @@ class EditMailViewController: UIViewController {
     }
     
     @IBAction func next(_ sender: Any) {
+        if validate() {
+            viewModel.updateEmail()
+        }
+    }
+}
+
+extension EditMailViewController: EditMailViewModelDelegate {
+    func succesUpdate() {
         viewModel.successfulEdit()
     }
 }

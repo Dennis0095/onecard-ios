@@ -31,4 +31,8 @@ class UserDataRepository: UserRepository {
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error> {
         return APIClient.callAPI(route: .updateUsername, method: .post, request: request)
     }
+    
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error> {
+        return APIClient.callAPI(route: .updateEmail, method: .post, request: request)
+    }
 }

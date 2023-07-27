@@ -14,4 +14,5 @@ protocol UserRepository {
     func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error>
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error>
 }

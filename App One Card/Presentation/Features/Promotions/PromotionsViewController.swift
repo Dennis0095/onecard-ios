@@ -11,6 +11,9 @@ class PromotionsViewController: BaseViewController {
 
     @IBOutlet weak var tblPromotions: UITableView!
     @IBOutlet weak var viewEmpty: UIView!
+    @IBOutlet weak var viewPromotions: UIView!
+    @IBOutlet weak var viewError: UIView!
+    @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
     
     private var viewModel: PromotionsViewModelProtocol
     private var promotionsDelegateDataSource: PromotionsDelegateDataSource
@@ -26,8 +29,11 @@ class PromotionsViewController: BaseViewController {
     }
 
     override func initView() {
-        tblPromotions.isHidden = true
+        viewPromotions.isHidden = true
         viewEmpty.isHidden = true
+        viewError.isHidden = true
+        
+        btnTryAgain.configure(text: "VOLVER A INTENTAR", status: .enabled)
         
         tblPromotions.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
         tblPromotions.delegate = promotionsDelegateDataSource
@@ -36,13 +42,24 @@ class PromotionsViewController: BaseViewController {
         viewModel.fetchPromotions()
     }
     
+    @IBAction func tryAgain(_ sender: Any) {
+        viewModel.fetchPromotions()
+    }
+    
 }
 
 extension PromotionsViewController: PromotionsViewModelDelegate {
     func showPromotions() {
+        viewError.isHidden = true
         viewEmpty.isHidden = !viewModel.items.isEmpty
-        tblPromotions.isHidden = viewModel.items.isEmpty
+        viewPromotions.isHidden = viewModel.items.isEmpty
         
         tblPromotions.reloadData()
+    }
+    
+    func failureShowPromotions() {
+        viewError.isHidden = false
+        viewPromotions.isHidden = true
+        viewEmpty.isHidden = true
     }
 }

@@ -83,6 +83,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
+                self.wasShownViewVerification = true
                 self.delegate?.hideLoader {
                     self.otpId = response.otpId
                     self.delegate?.successSendOtp()
@@ -114,6 +115,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
+                self.wasShownViewVerification = true
                 self.delegate?.hideLoader {
                     self.otpId = response.otpId
                     self.delegate?.successSendOtp()

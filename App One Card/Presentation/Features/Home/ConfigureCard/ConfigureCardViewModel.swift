@@ -125,6 +125,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 self.onlineShoppingStatus = response.1
                 self.delegate?.hideLoader {
                     if response.0.rc == "0" && response.1.rc == "0" {
+                        self.wasShownViewConfigureCard = true
                         self.items = [
                             ConfigureResponse(id: "1", title: "APAGAR Y PRENDER TARJETA", message: "Recuerde que no podrá hacer uso de su tarjeta mientras esté apagada.", enable: true, isOn: self.cardStatus?.status == "A"),
                             ConfigureResponse(id: "2", title: "Compras por internet", message: nil, enable: self.cardStatus?.status == "A", isOn: self.onlineShoppingStatus?.status == "S")

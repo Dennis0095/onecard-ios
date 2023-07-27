@@ -127,6 +127,8 @@
 		0D7DCD242A723FB9006F9CA5 /* PromotionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */; };
 		0D7DCD262A724092006F9CA5 /* PromotionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD252A724092006F9CA5 /* PromotionRepository.swift */; };
 		0D7DCD282A7240D1006F9CA5 /* PromotionDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */; };
+		0D7DCD2A2A724A4C006F9CA5 /* UpdateEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD292A724A4C006F9CA5 /* UpdateEmailRequest.swift */; };
+		0D7DCD2C2A724A58006F9CA5 /* UpdateEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */; };
 		0D842E4D2A4FD6490059A906 /* UserRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */; };
 		0D842E4F2A4FD6EF0059A906 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */; };
 		0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D9F672A5DD89400E6C8C6 /* ValidateKeyRequest.swift */; };
@@ -342,6 +344,8 @@
 		0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionResponse.swift; sourceTree = "<group>"; };
 		0D7DCD252A724092006F9CA5 /* PromotionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionRepository.swift; sourceTree = "<group>"; };
 		0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDataRepository.swift; sourceTree = "<group>"; };
+		0D7DCD292A724A4C006F9CA5 /* UpdateEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailRequest.swift; sourceTree = "<group>"; };
+		0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailResponse.swift; sourceTree = "<group>"; };
 		0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRequest.swift; sourceTree = "<group>"; };
 		0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		0D8D9F672A5DD89400E6C8C6 /* ValidateKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateKeyRequest.swift; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 				0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */,
 				0D7DCD212A723F1F006F9CA5 /* ConsultPromotionsResponse.swift */,
 				0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */,
+				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -906,11 +911,13 @@
 				0D65EA162A6B032000819637 /* CardStatusRequest.swift */,
 				0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */,
 				0DD692AB2A528C29001D0BB9 /* ConsultMovementsRequest.swift */,
+				0D7DCD1F2A723F13006F9CA5 /* ConsultPromotionsRequest.swift */,
 				0D0A60F42A7046B3005B447E /* ConsultUserDataRequest.swift */,
 				0DC882552A63AA2200DAD073 /* LoginRequest.swift */,
 				0D6B916C2A4B90640045D149 /* SendOTPRegisterRequest.swift */,
 				0D0A60FA2A70E093005B447E /* SendOTPUpdateRequest.swift */,
 				0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */,
+				0D7DCD292A724A4C006F9CA5 /* UpdateEmailRequest.swift */,
 				0D0A61002A70F9D1005B447E /* UpdateUsernameRequest.swift */,
 				0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */,
 				0D6B91722A4B98A30045D149 /* ValidateAffiliationRequest.swift */,
@@ -918,7 +925,6 @@
 				0DDE79172A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift */,
 				0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */,
 				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
-				0D7DCD1F2A723F13006F9CA5 /* ConsultPromotionsRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1364,6 +1370,7 @@
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
 				0DD692AA2A528B97001D0BB9 /* ConsultMovementsResponse.swift in Sources */,
 				0DF183E02A68D070004A0621 /* PromotionsViewController.swift in Sources */,
+				0D7DCD2C2A724A58006F9CA5 /* UpdateEmailResponse.swift in Sources */,
 				0DF183E32A68D3B4004A0621 /* PromotionsViewModel.swift in Sources */,
 				0D65EA192A6B036800819637 /* CardStatusResponse.swift in Sources */,
 				0D45B0E92A2E4EA600EFC7F4 /* SceneDelegate.swift in Sources */,
@@ -1437,6 +1444,7 @@
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0DFA7CA72A6DEAB50031178B /* CardLockResponse.swift in Sources */,
 				0D6DA4F92A5E526B00AC6BB5 /* CardDataRepository.swift in Sources */,
+				0D7DCD2A2A724A4C006F9CA5 /* UpdateEmailRequest.swift in Sources */,
 				0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
 				0D7DCD242A723FB9006F9CA5 /* PromotionResponse.swift in Sources */,

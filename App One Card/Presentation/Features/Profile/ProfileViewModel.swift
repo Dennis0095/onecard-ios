@@ -62,6 +62,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
+                self.wasShownViewProfile = true
                 self.delegate?.hideLoader {
                     self.userResponse = response
                     self.delegate?.showData(user: response)
@@ -72,7 +73,16 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func toEditMail() {
-        router.toEditMail()
+        let email = userResponse?.email ?? ""
+        let number = userResponse?.truncatedCellphone ?? ""
+        let documentType = userResponse?.docType ?? ""
+        let documentNumber = userResponse?.docNumber ?? ""
+        let companyRUC = userResponse?.companyRUC ?? ""
+        let username = userResponse?.userName ?? ""
+        
+        verificationRouter.navigateToVerification(email: email, number: number, documentType: companyRUC, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "EDITAR CORREO", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
+            self?.router.toEditMail(beforeEmail: username, otpId: otpId)
+        }
     }
     
     func toEditUser() {

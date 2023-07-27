@@ -16,6 +16,7 @@ enum Route {
     case userRegister
     case consultUserData
     case updateUsername
+    case updateEmail
     case sendOTPRegister
     case sendOTPUpdate
     case validateOTPRegister
@@ -72,6 +73,8 @@ enum Route {
             return "/txn-sec/actualizacion-nombre-usuario"
         case .consultPromotions:
             return "/busqueda/txn-data/consulta-promociones"
+        case .updateEmail:
+            return "/txn-sec/actualizacion-email"
         case .without:
             return ""
         }

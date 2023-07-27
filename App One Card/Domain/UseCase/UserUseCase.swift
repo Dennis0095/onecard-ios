@@ -14,6 +14,7 @@ protocol UserUseCaseProtocol {
     func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
     func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error>
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error>
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -45,5 +46,9 @@ class UserUseCase: UserUseCaseProtocol {
     
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error> {
         return userRepository.updateUsername(request: request)
+    }
+    
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error> {
+        return userRepository.updateEmail(request: request)
     }
 }

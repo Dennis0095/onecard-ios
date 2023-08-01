@@ -243,26 +243,32 @@ extension AppRouter: PreferencesRouterDelegate {
     }
     
     func logout() {
-        navigationController = nil
-        
-        let userRepository = UserDataRepository()
-        let userUseCase = UserUseCase(userRepository: userRepository)
-        let cardRepository = CardDataRepository()
-        let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
-        let loginViewController = LoginViewController(viewModel: viewModel)
-        navigationController = UINavigationController(rootViewController: loginViewController)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        if let nav = navigationController {
-            window.switchRootViewController(to: nav)
+        DispatchQueue.main.async {
+            self.navigationController = nil
+            
+            let userRepository = UserDataRepository()
+            let userUseCase = UserUseCase(userRepository: userRepository)
+            let cardRepository = CardDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+            let loginViewController = LoginViewController(viewModel: viewModel)
+            self.navigationController = UINavigationController(rootViewController: loginViewController)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            if let nav = self.navigationController {
+                UserSessionManager.shared.clearSession()
+                self.window.switchRootViewController(to: nav)
+            }
         }
     }
 }
 
 extension AppRouter: ProfileRouterDelegate {
     func toEditPassword() {
-        let viewModel = ChangePasswordViewModel(profileRouter: self, successfulRouter: self)
+        let userDataRepository = UserDataRepository()
+        let userUseCase = UserUseCase(userRepository: userDataRepository)
+        let viewModel = ChangePasswordViewModel(profileRouter: self, successfulRouter: self, userUseCase: userUseCase)
         let changePasswordViewController = ChangePasswordViewController(viewModel: viewModel)
+        viewModel.delegate = changePasswordViewController
         navigationController?.pushViewController(changePasswordViewController, animated: true)
     }
     

@@ -14,6 +14,7 @@ protocol UserSessionManagerProtocol {
     func saveUser(user: User?)
     func getUser() -> User?
     func decodedJWT(jwt: String) -> User?
+    func clearSession()
 }
 
 
@@ -21,15 +22,17 @@ class UserSessionManager: UserSessionManagerProtocol {
     
     static let shared = UserSessionManager()
     
+    private let defaults = UserDefaults.standard
+    
     private init() {}
     
     func saveToken(token: String?) {
-        UserDefaults.standard.set(token, forKey: Constants.keyToken)
-        UserDefaults.standard.synchronize()
+        defaults.set(token, forKey: Constants.keyToken)
+        defaults.synchronize()
     }
     
     func getToken() -> String? {
-        if let token = UserDefaults.standard.string(forKey: Constants.keyToken) {
+        if let token = defaults.string(forKey: Constants.keyToken) {
             return token
         } else {
             return nil
@@ -56,15 +59,15 @@ class UserSessionManager: UserSessionManagerProtocol {
             if let user = user {
                 let encoder = JSONEncoder()
                 let jsonData = try encoder.encode(user)
-                UserDefaults.standard.set(jsonData, forKey: Constants.keyUser)
-                UserDefaults.standard.synchronize()
+                defaults.set(jsonData, forKey: Constants.keyUser)
+                defaults.synchronize()
             }
         }
         catch { }
     }
     
     func getUser() -> User? {
-        if let jsonData = UserDefaults.standard.data(forKey: Constants.keyUser) {
+        if let jsonData = defaults.data(forKey: Constants.keyUser) {
             let decoder = JSONDecoder()
             if let userResponse = try? decoder.decode(User.self, from: jsonData) {
                 return userResponse
@@ -74,5 +77,23 @@ class UserSessionManager: UserSessionManagerProtocol {
         } else {
             return nil
         }
+    }
+    
+    func clearSession() {
+        // Remove all data from UserDefaults
+        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+            defaults.removePersistentDomain(forName: bundleIdentifier)
+            defaults.synchronize()
+        }
+        
+        // Optionally, you can reset UserDefaults to an empty state
+        // Uncomment the following lines if you want to do that
+        /*
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+        defaults.synchronize()
+        */
     }
 }

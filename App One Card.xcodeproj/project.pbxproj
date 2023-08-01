@@ -182,6 +182,8 @@
 		0DC882542A63A65D00DAD073 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC882532A63A65C00DAD073 /* LoginResponse.swift */; };
 		0DC882562A63AA2200DAD073 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC882552A63AA2200DAD073 /* LoginRequest.swift */; };
 		0DC882582A6457A000DAD073 /* LoaderDisplaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC882572A6457A000DAD073 /* LoaderDisplaying.swift */; };
+		0DD5AFB42A78DEC600EDCBA8 /* UpdatePasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5AFB32A78DEC600EDCBA8 /* UpdatePasswordRequest.swift */; };
+		0DD5AFB62A78DED000EDCBA8 /* UpdatePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */; };
 		0DD692A52A524E16001D0BB9 /* MovementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD692A32A524E16001D0BB9 /* MovementTableViewCell.swift */; };
 		0DD692A62A524E16001D0BB9 /* MovementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DD692A42A524E16001D0BB9 /* MovementTableViewCell.xib */; };
 		0DD692A82A528A61001D0BB9 /* MovementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD692A72A528A61001D0BB9 /* MovementsViewModel.swift */; };
@@ -398,6 +400,8 @@
 		0DC882532A63A65C00DAD073 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		0DC882552A63AA2200DAD073 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		0DC882572A6457A000DAD073 /* LoaderDisplaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderDisplaying.swift; sourceTree = "<group>"; };
+		0DD5AFB32A78DEC600EDCBA8 /* UpdatePasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordRequest.swift; sourceTree = "<group>"; };
+		0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordResponse.swift; sourceTree = "<group>"; };
 		0DD692A32A524E16001D0BB9 /* MovementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementTableViewCell.swift; sourceTree = "<group>"; };
 		0DD692A42A524E16001D0BB9 /* MovementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovementTableViewCell.xib; sourceTree = "<group>"; };
 		0DD692A72A528A61001D0BB9 /* MovementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsViewModel.swift; sourceTree = "<group>"; };
@@ -485,6 +489,7 @@
 				0D7DCD212A723F1F006F9CA5 /* ConsultPromotionsResponse.swift */,
 				0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */,
 				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
+				0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -925,6 +930,7 @@
 				0DDE79172A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift */,
 				0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */,
 				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
+				0DD5AFB32A78DEC600EDCBA8 /* UpdatePasswordRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1365,6 +1371,7 @@
 				0D0A60FB2A70E093005B447E /* SendOTPUpdateRequest.swift in Sources */,
 				0D7DCD262A724092006F9CA5 /* PromotionRepository.swift in Sources */,
 				0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */,
+				0DD5AFB42A78DEC600EDCBA8 /* UpdatePasswordRequest.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
 				0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */,
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
@@ -1389,6 +1396,7 @@
 				0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */,
 				0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
+				0DD5AFB62A78DED000EDCBA8 /* UpdatePasswordResponse.swift in Sources */,
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
 				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,

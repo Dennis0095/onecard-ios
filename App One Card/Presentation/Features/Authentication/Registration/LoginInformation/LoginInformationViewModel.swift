@@ -87,18 +87,22 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
                 
                 self.delegate?.hideLoader {
                     if response.validExpiration == "1" {
-                        if response.validUser == "1" && response.validPassword == "1" {
-                            self.delegate?.successRegister()
-                        } else {
-                            if response.confirmPassword == "1" {
-                                if response.userExists == "0" {
-                                    self.delegate?.successRegister()
+                        if response.success == "1" {
+                            if response.validUser == "1" && response.validPassword == "1" {
+                                self.delegate?.successRegister()
+                            } else {
+                                if response.confirmPassword == "1" {
+                                    if response.userExists == "0" {
+                                        self.delegate?.successRegister()
+                                    } else {
+                                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                                    }
                                 } else {
                                     self.delegate?.showError(title: title, description: description, onAccept: nil)
                                 }
-                            } else {
-                                self.delegate?.showError(title: title, description: description, onAccept: nil)
                             }
+                        } else {
+                            self.delegate?.showError(title: title, description: description, onAccept: nil)
                         }
                     } else {
                         self.delegate?.showError(title: title, description: description) {

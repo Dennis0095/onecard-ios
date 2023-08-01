@@ -15,6 +15,7 @@ struct UserRegisterResponse: Codable {
     let confirmPassword: String?
     let validExpiration: String?
     let userExists: String?
+    let success: String?
     let title: String?
     let message: String?
     
@@ -25,7 +26,8 @@ struct UserRegisterResponse: Codable {
         case validPassword = "VALIDA_CONTRASENIA"
         case confirmPassword = "CONFIRMA_CONTRASENIA"
         case validExpiration = "VALIDA_EXPIRACION"
-        case userExists = "EXISTENCIA_USUARIO"
+        case userExists = "EXISTE_USUARIO"
+        case success = "EXITO"
         case title = "TITULO"
         case message = "MENSAJE"
     }

@@ -1,25 +1,23 @@
 //
-//  ReassignKeyResponse.swift
+//  ValidateOTPUpdateResponse.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 11/07/23.
+//  Created by Paolo Arambulo on 1/08/23.
 //
 
 import Foundation
 
-struct ReassignKeyResponse: Codable {
+struct ValidateOTPUpdateResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let validExpiration: String?
-    let success: String?
+    let indexMatchOTP: String?
     let title: String?
     let message: String?
     
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
         case rcDesc = "RC_DESC"
-        case validExpiration = "VALIDA_EXPIRACION"
-        case success = "EXITO"
+        case indexMatchOTP = "IND_COINCIDE_OTP"
         case title = "TITULO"
         case message = "MENSAJE"
     }

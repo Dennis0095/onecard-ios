@@ -31,7 +31,6 @@ class CardLockViewController: BaseViewController {
     private var titleDescription: String?
     private var navTitle: String
     private var buttonTitle: String
-    private var maskPhoneEmail: Bool
     private var timer = Timer()
     
     private var countTimer: Int = 60 {
@@ -47,12 +46,11 @@ class CardLockViewController: BaseViewController {
         }
     }
     
-    init(viewModel: CardLockViewModelProtocol, navTitle: String, titleDescription: String? = nil, buttonTitle: String, maskPhoneEmail: Bool = false) {
+    init(viewModel: CardLockViewModelProtocol, navTitle: String, titleDescription: String? = nil, buttonTitle: String) {
         self.viewModel = viewModel
         self.titleDescription = titleDescription
         self.navTitle = navTitle
         self.buttonTitle = buttonTitle
-        self.maskPhoneEmail = maskPhoneEmail
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -99,8 +97,8 @@ class CardLockViewController: BaseViewController {
     }
     
     private func setDescription() {
-        let maskedPhoneNumber = self.viewModel.number.maskPhoneNumber(lastVisibleDigitsCount: 3)
-        let maskedEmail = self.viewModel.email.maskEmailFirstCharacters()
+        let maskedPhoneNumber = self.viewModel.number ?? ""
+        let maskedEmail = self.viewModel.email ?? ""
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)

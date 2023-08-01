@@ -12,8 +12,8 @@ protocol CardLockViewModelProtocol {
     var otpId: String? { get set }
     var code: String? { get set }
     var trackingCodeAuth: String? { get set }
-    var email: String { get set }
-    var number: String { get set }
+    var email: String? { get set }
+    var number: String? { get set }
     var wasShownViewCardLock: Bool { get set }
     
     func sendOTPToUpdate(toNumber: Bool)
@@ -30,8 +30,8 @@ class CardLockViewModel: CardLockViewModelProtocol {
     var code: String?
     var trackingCodeAuth: String?
     var wasShownViewCardLock: Bool = false
-    var email: String
-    var number: String
+    var email: String?
+    var number: String?
     var success: CardLockActionHandler?
     var delegate: CardLockViewModelDelegate?
     
@@ -41,12 +41,10 @@ class CardLockViewModel: CardLockViewModelProtocol {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: Router, otpUseCase: OTPUseCase, cardUseCase: CardUseCase, number: String, email: String) {
+    init(router: Router, otpUseCase: OTPUseCase, cardUseCase: CardUseCase) {
         self.router = router
         self.otpUseCase = otpUseCase
         self.cardUseCase = cardUseCase
-        self.number = number
-        self.email = email
     }
     
     func sendOTPToUpdate(toNumber: Bool) {

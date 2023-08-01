@@ -28,7 +28,7 @@ class CodeVerificationTextField: UITextField {
     private lazy var lblError: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.text = "Debe contener 4 números"
+        label.text = "Debe contener 6 números"
         label.textColor = .red
         label.font = UIFont(name: "Gotham-Book", size: 14)
         label.isHidden = true
@@ -36,7 +36,7 @@ class CodeVerificationTextField: UITextField {
         return label
     }()
     
-    func configure(with slotCount: Int = 4) {
+    func configure(with slotCount: Int = 6) {
         guard isConfigured == false else { return }
         isConfigured.toggle()
         

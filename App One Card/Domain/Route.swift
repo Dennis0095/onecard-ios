@@ -58,7 +58,7 @@ enum Route {
         case .validateKey:
             return "/dcp-app/simphubwriter/api/rest/txn-admin/valida-clave"
         case .reassignKey:
-            return "/dcp-app/simphubwriter/api/rest/txn-admin/reasigna-clave"
+            return "/txn-admin/reasigna-clave-app"
         case .cardActivation:
             return "/dcp-app/simphubwriter/api/rest/txn-admin/activacion-tarjeta"
         case .cardStatus:

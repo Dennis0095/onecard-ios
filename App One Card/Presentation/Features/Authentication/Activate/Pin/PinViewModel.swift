@@ -65,7 +65,9 @@ class PinViewModel: PinViewModelProtocol {
     func validate() {
         self.delegate?.showLoader()
         
-        let request = ValidateKeyRequest(segCode: "20230214000000000001", pin: "1234", tLocal: "20230511")
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        
+        let request = ValidateKeyRequest(cardTrackingCode: trackingCode, pin: "1234", tLocal: "20230511")
         let cancellable = keyUseCase.validate(request: request)
             .sink { publisher in
                 switch publisher {
@@ -93,7 +95,7 @@ class PinViewModel: PinViewModelProtocol {
     func reassign(isCardActivation: Bool) {
         self.delegate?.showLoader()
         
-        let request = ValidateKeyRequest(segCode: "", pin: "", tLocal: "")
+        let request = ReassignKeyRequest(operationId: "", trackingCode: "", pin: "", tLocal: "")
         
         let cancellable = keyUseCase.reassign(request: request)
             .sink { publisher in

@@ -12,7 +12,7 @@ protocol HomeRouterDelegate: Router {
     func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler)
     func navigateToInputNewPin(success: @escaping PinActionHandler)
     func navigateToInputCurrentPin(success: @escaping PinActionHandler)
-    func navigateToCardBlock(email: String, number: String, navTitle: String, success: @escaping VerificationActionHandler)
+    func navigateToCardBlock(navTitle: String, success: @escaping VerificationActionHandler)
     func navigateToConfigureCard()
     func successfulCardBlock()
     func successfulConfigureCard()

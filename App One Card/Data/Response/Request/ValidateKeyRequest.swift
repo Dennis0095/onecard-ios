@@ -8,12 +8,12 @@
 import Foundation
 
 struct ValidateKeyRequest: BaseRequest {
-    let segCode: String
+    let cardTrackingCode: String
     let pin: String
     let tLocal: String
     
     enum CodingKeys: String, CodingKey {
-        case segCode = "COD_SEG"
+        case cardTrackingCode = "COD_SEG"
         case pin = "PIN"
         case tLocal = "TLOCAL"
     }

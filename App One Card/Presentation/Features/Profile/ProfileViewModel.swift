@@ -53,7 +53,6 @@ class ProfileViewModel: ProfileViewModelProtocol {
                 case .finished: break
                 case .failure(let error):
                     self.delegate?.hideLoader {
-                        let error = CustomError(title: "Error", description: error.localizedDescription)
                         if !self.wasShownViewProfile {
                             self.delegate?.failureShowData()
                         } else {

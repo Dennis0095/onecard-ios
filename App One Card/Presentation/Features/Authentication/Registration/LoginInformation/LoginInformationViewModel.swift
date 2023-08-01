@@ -76,8 +76,7 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                case .failure(let error): 
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

@@ -8,7 +8,7 @@
 import Combine
 
 class MovementDataRepository: MovementRepository {
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, Error> {
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError> {
         return APIClient.callAPI(route: .consultMovements, method: .post, request: request)
     }
 }

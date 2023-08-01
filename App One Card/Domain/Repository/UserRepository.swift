@@ -8,12 +8,12 @@
 import Combine
 
 protocol UserRepository {
-    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, Error>
-    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error>
-    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error>
-    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error>
-    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error>
-    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error>
-    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error>
-    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, Error>
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, CustomError>
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, CustomError>
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, CustomError>
+    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, CustomError>
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, CustomError>
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError>
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError>
+    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError>
 }

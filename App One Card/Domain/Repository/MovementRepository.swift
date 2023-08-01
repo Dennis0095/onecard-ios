@@ -8,5 +8,5 @@
 import Combine
 
 protocol MovementRepository {
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, Error>
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError>
 }

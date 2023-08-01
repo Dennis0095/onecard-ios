@@ -116,13 +116,15 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         if !self.wasShownViewConfigureCard {
                             self.delegate?.failureGetStatus()
                         } else {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
             } receiveValue: { response in
+                let error = APIError.defaultError.error()
                 self.cardStatus = response.0
                 self.onlineShoppingStatus = response.1
+                
                 self.delegate?.hideLoader {
                     if response.0.rc == "0" && response.1.rc == "0" {
                         self.wasShownViewConfigureCard = true
@@ -131,15 +133,12 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                             ConfigureResponse(id: "2", title: "Compras por internet", message: nil, enable: self.cardStatus?.status == "A", isOn: self.onlineShoppingStatus?.status == "S")
                         ]
                         self.delegate?.changeStatus()
-//                        if !self.wasShownViewConfigureCard {
-//                            self.delegate?.successGetStatus()
-//                        }
                         self.delegate?.successGetStatus()
                     } else {
                         if !self.wasShownViewConfigureCard {
                             self.delegate?.failureGetStatus()
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
@@ -162,17 +161,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 } receiveValue: { response in
+                    let error = APIError.defaultError.error()
+                    
                     self.delegate?.hideLoader {
                         if response.rc == "0" {
                             self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
                                 self.router.successfulConfigureCard()
                             })
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
@@ -184,17 +185,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 } receiveValue: { response in
+                    let error = APIError.defaultError.error()
+                    
                     self.delegate?.hideLoader {
                         if response.rc == "0" {
                             self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
                                 self.router.successfulConfigureCard()
                             })
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
@@ -206,17 +209,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 } receiveValue: { response in
+                    let error = APIError.defaultError.error()
+                    
                     self.delegate?.hideLoader {
                         if response.rc == "0" {
                             self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
                                 self.router.successfulConfigureCard()
                             })
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
@@ -231,17 +236,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 } receiveValue: { response in
+                    let error = APIError.defaultError.error()
+                    
                     self.delegate?.hideLoader {
                         if response.0.rc == "0" && response.1.rc == "0" {
                             self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
                                 self.router.successfulConfigureCard()
                             })
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }
@@ -256,17 +263,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 } receiveValue: { response in
+                    let error = APIError.defaultError.error()
+                    
                     self.delegate?.hideLoader {
                         if response.0.rc == "0" && response.1.rc == "0" {
                             self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
                                 self.router.successfulConfigureCard()
                             })
                         } else {
-                            self.delegate?.showError(title: "Error", description: "Ocurrió un error", onAccept: nil)
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
                 }

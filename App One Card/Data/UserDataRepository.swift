@@ -8,35 +8,35 @@
 import Combine
 
 class UserDataRepository: UserRepository {
-    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, Error> {
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, CustomError> {
         return APIClient.callAPI(route: .login, method: .post, request: request)
     }
     
-    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, Error> {
+    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, CustomError> {
         return APIClient.callAPI(route: .userRegister, method: .post, request: request)
     }
     
-    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, Error> {
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, CustomError> {
         return APIClient.callAPI(route: .validatePersonalData, method: .post, request: request)
     }
     
-    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, Error> {
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, CustomError> {
         return APIClient.callAPI(route: .validateAffiliation, method: .post, request: request)
     }
     
-    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, Error> {
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, CustomError> {
         return APIClient.callAPI(route: .consultUserData, method: .post, request: request)
     }
     
-    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, Error> {
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError> {
         return APIClient.callAPI(route: .updateUsername, method: .post, request: request)
     }
     
-    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, Error> {
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError> {
         return APIClient.callAPI(route: .updateEmail, method: .post, request: request)
     }
     
-    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, Error> {
+    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError> {
         return APIClient.callAPI(route: .updatePassword, method: .post, request: request)
     }
 }

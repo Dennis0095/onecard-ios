@@ -20,6 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigureCardViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="btnSave" destination="lcb-wk-CtS" id="YYC-ta-yjE"/>
+                <outlet property="btnTryAgain" destination="3mn-rj-01v" id="1Wh-bZ-8cr"/>
                 <outlet property="imgBack" destination="lbb-2v-ief" id="onf-RW-xM5"/>
                 <outlet property="tbConfigureCard" destination="Apf-E3-StK" id="LX8-98-dw8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -171,6 +172,9 @@
                                                         <constraint firstAttribute="height" constant="40" id="J5o-Tg-YKM"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <connections>
+                                                        <action selector="tryAgain:" destination="-1" eventType="touchUpInside" id="eaB-FF-d7m"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

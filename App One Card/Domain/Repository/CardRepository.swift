@@ -8,10 +8,10 @@
 import Combine
 
 protocol CardRepository {
-    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, Error>
-    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, Error>
-    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, Error>
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error>
-    func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error>
-    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error>
+    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError>
+    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError>
+    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError>
+    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError>
+    func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError>
+    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError>
 }

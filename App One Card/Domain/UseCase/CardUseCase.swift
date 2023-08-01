@@ -8,12 +8,12 @@
 import Combine
 
 protocol CardUseCaseProtocol {
-    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, Error>
-    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, Error>
-    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, Error>
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error>
-    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error>
-    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error>
+    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError>
+    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError>
+    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError>
+    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError>
+    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError>
+    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError>
 }
 
 class CardUseCase: CardUseCaseProtocol {
@@ -23,27 +23,27 @@ class CardUseCase: CardUseCaseProtocol {
         self.cardRepository = cardRepository
     }
     
-    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, Error> {
+    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError> {
         return cardRepository.activation(request: request)
     }
     
-    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, Error> {
+    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError> {
         return cardRepository.status(request: request)
     }
     
-    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, Error> {
+    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError> {
         return cardRepository.onlineShoppingStatus(request: request)
     }
     
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, Error> {
+    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError> {
         return cardRepository.temporaryLock(request: request)
     }
     
-    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, Error> {
+    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError> {
         return cardRepository.lock(request: request)
     }
     
-    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, Error> {
+    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError> {
         return cardRepository.changeCardOnlineShoppingStatus(request: request)
     }
 }

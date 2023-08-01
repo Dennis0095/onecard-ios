@@ -69,7 +69,6 @@ class LoginViewModel: LoginViewModelProtocol {
                     case .finished: break
                     case .failure(let error):
                         self.delegate?.hideLoader {
-                            let error = CustomError(title: "Error", description: error.localizedDescription)
                             self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
                     }
@@ -95,11 +94,12 @@ class LoginViewModel: LoginViewModelProtocol {
                 case .finished: break
                 case .failure(let error):
                     self.delegate?.hideLoader {
-                        let error = CustomError(title: "Error", description: error.localizedDescription)
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
+                let error = APIError.defaultError.error()
+                
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
                         let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
@@ -113,7 +113,6 @@ class LoginViewModel: LoginViewModelProtocol {
                             self.delegate?.successLogin()
                         }
                     } else {
-                        let error = CustomError(title: "Error", description: "Ocurrió un error")
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }

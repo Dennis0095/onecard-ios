@@ -8,5 +8,5 @@
 import Combine
 
 protocol PromotionRepository {
-    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, Error>
+    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, CustomError>
 }

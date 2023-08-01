@@ -43,6 +43,10 @@ class PinViewModel: PinViewModelProtocol {
         self.pinStep = pinStep
     }
     
+    deinit {
+        cancelRequests()
+    }
+    
     func nextStep() {
         switch pinStep {
         case .validate:
@@ -59,12 +63,19 @@ class PinViewModel: PinViewModelProtocol {
     }
     
     func validate() {
-        let request = ValidateKeyRequest(segCode: "20230214000000000001", pin: "1234", tLocal: "20230511")
-        
         self.delegate?.showLoader()
-        keyUseCase.validate(request: request) { result in
-            switch result {
-            case .success(let response):
+        
+        let request = ValidateKeyRequest(segCode: "20230214000000000001", pin: "1234", tLocal: "20230511")
+        let cancellable = keyUseCase.validate(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
                 self.delegate?.hideLoader {
                     if response.rc == "447" {
                         self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
@@ -74,12 +85,9 @@ class PinViewModel: PinViewModelProtocol {
                         }
                     }
                 }
-            case .failure(let error):
-                self.delegate?.hideLoader {
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
     }
     
     func reassign(isCardActivation: Bool) {
@@ -92,12 +100,13 @@ class PinViewModel: PinViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
+                let error = APIError.defaultError.error()
+                
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
                         if isCardActivation {
@@ -108,7 +117,6 @@ class PinViewModel: PinViewModelProtocol {
                             }
                         }
                     } else {
-                        let error = CustomError(title: "Error", description: "Ocurrió un error")
                         self.delegate?.hideLoader {
                             self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                         }
@@ -129,17 +137,18 @@ class PinViewModel: PinViewModelProtocol {
                 case .finished: break
                 case .failure(let error):
                     self.delegate?.hideLoader {
-                        self.delegate?.showError(title: "Error", description: error.localizedDescription, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
+                let error = APIError.defaultError.error()
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
                         if let success = self.success {
                             success(self.pin)
                         }
                     } else {
-                        self.delegate?.showError(title: "Error", description: "Ocurrio un error inesperado", onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             }
@@ -147,6 +156,10 @@ class PinViewModel: PinViewModelProtocol {
         cancellable.store(in: &cancellables)
     }
 
+    func cancelRequests() {
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+    }
 }
 
 enum PinStep {

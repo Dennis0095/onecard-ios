@@ -14,6 +14,7 @@ class ConfigureCardViewController: BaseViewController {
     @IBOutlet weak var viewError: UIView!
     @IBOutlet weak var viewConfigure: UIView!
     @IBOutlet weak var btnSave: PrimaryFilledButton!
+    @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
     
     private var viewModel: ConfigureCardViewModelProtocol
     private var configureCardDelegateDataSource: ConfigureCardDelegateDataSource
@@ -38,6 +39,7 @@ class ConfigureCardViewController: BaseViewController {
         tbConfigureCard.register(UINib(nibName: "ConfigureCardTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfigureCardTableViewCell")
         
         btnSave.configure(text: "GUARDAR CAMBIOS", status: .disabled)
+        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
         
         viewModel.getCardStatusAndOnlineShoppingStatus()
     }
@@ -55,6 +57,10 @@ class ConfigureCardViewController: BaseViewController {
     
     @IBAction func save(_ sender: Any) {
         viewModel.saveChanges()
+    }
+    
+    @IBAction func tryAgain(_ sender: Any) {
+        viewModel.getCardStatusAndOnlineShoppingStatus()
     }
 }
 

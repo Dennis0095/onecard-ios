@@ -8,7 +8,7 @@
 import Combine
 
 protocol PromotionUseCaseProtocol {
-    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, Error>
+    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, CustomError>
 }
 
 class PromotionUseCase: PromotionUseCaseProtocol {
@@ -19,7 +19,7 @@ class PromotionUseCase: PromotionUseCaseProtocol {
         self.promotionRepository = promotionRepository
     }
     
-    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, Error> {
+    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, CustomError> {
         return promotionRepository.consult(request: request)
     }
 }

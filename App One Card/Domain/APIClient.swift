@@ -15,13 +15,28 @@ enum APIError: Error {
     case requestFailed
     case invalidResponse
     case decodingError
+    case defaultError
+    
+    func error() -> CustomError {
+        var title = ""
+        var description = ""
+        
+        switch self {
+        case .networkError:
+            title = "Lo sentimos"
+            description = "Hubo un problema de conexión, Por favor, inténtelo nuevamente"
+        default:
+            title = "Algo salió mal"
+            description = "Por favor, inténtelo nuevamente"
+        }
+        
+        return CustomError(title: title, description: description)
+    }
 }
 
 struct CustomError: LocalizedError {
     let title: String
     let description: String
-    var timeExpired: Bool = false
-    var actionAfterFailure: Bool = false
 }
 
 enum Method: String {
@@ -34,12 +49,12 @@ enum Method: String {
 protocol BaseRequest: Codable { }
 
 class APIClient {
-    static func callAPI<T: Decodable>(baseUrl: String? = nil, route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil) -> AnyPublisher<T, Error> {
+    static func callAPI<T: Decodable>(baseUrl: String? = nil, route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil) -> AnyPublisher<T, CustomError> {
         if APIClient.isInternetAvailable() {
             let urlString = (baseUrl != nil ? baseUrl! : Environment().configuration(.baseUrl)) + route.description
             
             guard let url = urlString.asUrl else {
-                return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
+                return Fail(error: APIError.invalidURL.error()).eraseToAnyPublisher()
             }
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -87,16 +102,16 @@ class APIClient {
                     return data
                 }
                 .decode(type: T.self, decoder: JSONDecoder())
-                .mapError { error -> APIError in
+                .mapError { error -> CustomError in
                     if let apiError = error as? APIError {
-                        return apiError
+                        return apiError.error()
                     } else {
-                        return APIError.decodingError
+                        return APIError.decodingError.error()
                     }
                 }
                 .eraseToAnyPublisher()
         } else {
-            return Fail(error: APIError.networkError).eraseToAnyPublisher()
+            return Fail(error: APIError.networkError.error()).eraseToAnyPublisher()
         }
     }
     

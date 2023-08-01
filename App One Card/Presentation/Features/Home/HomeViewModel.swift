@@ -91,13 +91,13 @@ class HomeViewModel: HomeViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 let description = response.description ?? ""
+                let error = APIError.defaultError.error()
                 
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
@@ -106,7 +106,6 @@ class HomeViewModel: HomeViewModelProtocol {
                             HomeObserver.shared.updateAmount(amount: balance)
                         }
                     } else {
-                        let error = CustomError(title: "", description: description, actionAfterFailure: true)
                         self.delegate?.showError(title: error.title, description: error.description) {
                             self.balanceInquiry()
                         }
@@ -145,7 +144,6 @@ class HomeViewModel: HomeViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

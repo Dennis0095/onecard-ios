@@ -8,7 +8,7 @@
 import Combine
 
 protocol MovementUseCaseProtocol {
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, Error>
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError>
 }
 
 class MovementUseCase: MovementUseCaseProtocol {
@@ -18,7 +18,7 @@ class MovementUseCase: MovementUseCaseProtocol {
         self.movementRepository = movementRepository
     }
     
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, Error> {
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError> {
         return movementRepository.consult(request: request)
     }
 }

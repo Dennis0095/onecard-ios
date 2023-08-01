@@ -62,7 +62,6 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

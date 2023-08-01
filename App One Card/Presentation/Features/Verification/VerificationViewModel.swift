@@ -73,7 +73,6 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         if !self.wasShownViewVerification {
                             self.delegate?.failureSendOtp()
@@ -105,7 +104,6 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         if !self.wasShownViewVerification {
                             self.delegate?.failureSendOtp()
@@ -139,7 +137,6 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
@@ -178,7 +175,6 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    let error = CustomError(title: "Error", description: error.localizedDescription)
                     self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

@@ -28,6 +28,7 @@ enum Route {
     case cardStatus
     case cardOnlineShoppingStatus
     case cardLock
+    case temporaryCardLock
     case changeCardOnlineShoppingStatus
     case consultPromotions
     case without
@@ -63,11 +64,11 @@ enum Route {
         case .cardStatus:
             return "/busqueda/txn-data/consulta-estado-tarjeta"
         case .cardOnlineShoppingStatus:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/consulta-boton-codseg"
+            return "/busqueda/txn-admin/consulta-boton-codseg"
         case .cardLock:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/bloqueo-tarjeta"
+            return "/txn-admin/bloqueo-tarjeta"
         case .changeCardOnlineShoppingStatus:
-            return "/dcp-app/backend/api/rest/txn-mix-admin/boton-codseg"
+            return "/txn-admin/boton-codseg"
         case .consultUserData:
             return "/txn-sec/consulta-datos-usuario"
         case .updateUsername:
@@ -78,6 +79,8 @@ enum Route {
             return "/txn-sec/actualizacion-email"
         case .updatePassword:
             return "/txn-sec/cambio-contrasenia"
+        case .temporaryCardLock:
+            return "/txn-admin-tp/bloqueo-tarjeta"
         case .without:
             return ""
         }

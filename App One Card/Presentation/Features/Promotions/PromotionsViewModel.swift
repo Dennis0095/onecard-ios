@@ -65,7 +65,6 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 case .finished: break
                 case .failure(let error):
                     self.delegate?.hideLoader {
-                        let error = CustomError(title: "Error", description: error.localizedDescription)
                         if !self.wasShownViewPromotions {
                             self.delegate?.failureShowPromotions()
                         } else {

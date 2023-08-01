@@ -8,7 +8,7 @@
 import Combine
 
 protocol BalanceUseCaseProtocol {
-    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, Error>
+    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, CustomError>
 }
 
 class BalanceUseCase: BalanceUseCaseProtocol {
@@ -18,7 +18,7 @@ class BalanceUseCase: BalanceUseCaseProtocol {
         self.balanceRepository = balanceRepository
     }
     
-    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, Error> {
+    func inquiry(request: BalanceInquiryRequest) -> AnyPublisher<BalanceInquiryResponse, CustomError> {
         return balanceRepository.inquiry(request: request)
     }
 }

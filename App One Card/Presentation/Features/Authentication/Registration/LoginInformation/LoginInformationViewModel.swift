@@ -51,6 +51,10 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
         self.companyRUC = companyRUC
     }
     
+    deinit {
+        cancelRequests()
+    }
+    
     func navigateToSuccessfulScreen() {
         self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn) {
             self.router.navigateToLogin()
@@ -106,5 +110,10 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
             }
         
         cancellable.store(in: &cancellables)
+    }
+    
+    func cancelRequests() {
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
     }
 }

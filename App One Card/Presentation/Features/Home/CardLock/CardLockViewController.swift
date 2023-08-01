@@ -99,17 +99,8 @@ class CardLockViewController: BaseViewController {
     }
     
     private func setDescription() {
-        var outputString = ""
-
-        for (index, character) in self.viewModel.number.enumerated() {
-            if index > 0 && index % 3 == 0 {
-                outputString += " "
-            }
-            outputString.append(character)
-        }
-        
-        let maskedPhoneNumber = maskPhoneEmail ? self.viewModel.maskedNumber : outputString
-        let maskedEmail = maskPhoneEmail ? self.viewModel.maskedEmail : self.viewModel.email
+        let maskedPhoneNumber = self.viewModel.number.maskPhoneNumber(lastVisibleDigitsCount: 3)
+        let maskedEmail = self.viewModel.email.maskEmailFirstCharacters()
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
@@ -162,8 +153,7 @@ class CardLockViewController: BaseViewController {
     }
     
     private func sendOTP() {
-        viewModel.sendOTP(toNumber: sendToNumber)
-        //resetTime()
+        viewModel.sendOTPToUpdate(toNumber: sendToNumber)
     }
     
     @IBAction func resend(_ sender: Any) {
@@ -172,7 +162,7 @@ class CardLockViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if txtCode.validateIsValid() {
-            viewModel.cardLock()
+            viewModel.validateOTPToUpdate()
         }
     }
     

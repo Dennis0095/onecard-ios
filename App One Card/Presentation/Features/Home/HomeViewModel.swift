@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol HomeViewModelProtocol {
     func toCardLock()
@@ -16,14 +17,19 @@ protocol HomeViewModelProtocol {
     func consultMovements()
 }
 
+protocol HomeViewModelDelegate: LoaderDisplaying { }
+
 class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
     var authRouter: AuthenticationRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     var movementsViewModel = MovementsViewModel()
+    var delegate: HomeViewModelDelegate?
     
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(router: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol) {
         self.router = router
@@ -31,6 +37,10 @@ class HomeViewModel: HomeViewModelProtocol {
         self.balanceUseCase = balanceUseCase
         self.movementUseCase = movementUseCase
         self.authRouter = authRouter
+    }
+    
+    deinit {
+        cancelRequests()
     }
     
     func toCardLock() {
@@ -72,46 +82,88 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func balanceInquiry() {
-        let request = BalanceInquiryRequest(segCode: "12345687910111213140")
+        //delegate?.showLoader()
         
-        balanceUseCase.inquiry(request: request) { result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
-                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
-                    HomeObserver.shared.updateAmount(amount: balance)
+        let request = BalanceInquiryRequest(segCode: "12345687910111213140")
+  
+        let cancellable = balanceUseCase.inquiry(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-//                    self.router.showMessageError(title: error.title, description: error.description) {
-//                        if error.actionAfterFailure {
-//                            self.balanceInquiry()
-//                        }
-//                    }
+            } receiveValue: { response in
+                let description = response.description ?? ""
+                
+                self.delegate?.hideLoader {
+                    if response.rc == "0" {
+                        DispatchQueue.main.async {
+                            let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
+                            HomeObserver.shared.updateAmount(amount: balance)
+                        }
+                    } else {
+                        let error = CustomError(title: "", description: description, actionAfterFailure: true)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            self.balanceInquiry()
+                        }
+                    }
                 }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
+        
+//        balanceUseCase.inquiry(request: request) { result in
+//            switch result {
+//            case .success(let response):
+//                DispatchQueue.main.async {
+//                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
+//                    HomeObserver.shared.updateAmount(amount: balance)
+//                }
+//            case .failure(let error):
+//                DispatchQueue.main.async {
+////                    self.router.showMessageError(title: error.title, description: error.description) {
+////                        if error.actionAfterFailure {
+////                            self.balanceInquiry()
+////                        }
+////                    }
+//                }
+//            }
+//        }
     }
     
     func consultMovements() {
+        delegate?.showLoader()
+        
         let request = ConsultMovementsRequest(segCode: "12345687910111213140")
         
-        movementUseCase.consult(request: request) { result in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
-                    HomeObserver.shared.updateMovements(movements: response.clientMovements)
+        let cancellable = movementUseCase.consult(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
-            case .failure(let error):
-                DispatchQueue.main.async {
-//                    self.router.showMessageError(title: error.title, description: error.description) {
-//                        if error.actionAfterFailure {
-//                            self.balanceInquiry()
-//                        }
-//                    }
+            } receiveValue: { response in
+                self.delegate?.hideLoader {
+                    DispatchQueue.main.async {
+                        HomeObserver.shared.updateMovements(movements: response.clientMovements)
+                    }
                 }
             }
-        }
+        
+        cancellable.store(in: &cancellables)
+    }
+    
+    func cancelRequests() {
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
     }
 }
 

@@ -80,6 +80,7 @@ class MenuTabBarController: UITabBarController {
         let movementsViewModel = MovementsViewModel()
         let movementsDelegateDataSource = MovementsDelegateDataSource(viewModel: movementsViewModel)
         let home = HomeViewController(viewModel: viewModel, movementsViewModel: movementsViewModel, movementsDelegateDataSource: movementsDelegateDataSource)
+        viewModel.delegate = home
         return home
     }
     

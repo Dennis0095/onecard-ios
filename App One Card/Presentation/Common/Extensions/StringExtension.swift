@@ -22,18 +22,18 @@ extension String {
         }
     }
 
-//    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
-//        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
-//        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
-//        let maskedString = self.enumerated().map { index, char in
-//            if index < startIndex.encodedOffset {
-//                return "*"
-//            } else {
-//                return String(char)
-//            }
-//        }
-//        return maskedString.joined()
-//    }
+    func maskPhoneNumber(lastVisibleDigitsCount: Int) -> String {
+        let visibleDigitsCount = min(max(lastVisibleDigitsCount, 0), self.count)
+        let startIndex = self.index(self.endIndex, offsetBy: -visibleDigitsCount)
+        let maskedString = self.enumerated().map { index, char in
+            if index < startIndex.encodedOffset {
+                return "*"
+            } else {
+                return String(char)
+            }
+        }
+        return maskedString.joined()
+    }
     
     func maskEmailFirstCharacters() -> String {
         let startIndex = self.index(self.startIndex, offsetBy: 4, limitedBy: self.endIndex) ?? self.startIndex

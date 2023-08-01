@@ -114,3 +114,5 @@ class HomeViewController: BaseViewController {
         print("Activa la tarjeta")
     }
 }
+
+extension HomeViewController: HomeViewModelDelegate { }

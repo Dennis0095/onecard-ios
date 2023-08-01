@@ -12,14 +12,12 @@ protocol CardLockViewModelProtocol {
     var otpId: String? { get set }
     var code: String? { get set }
     var trackingCodeAuth: String? { get set }
-    var maskedNumber: String? { get set }
-    var maskedEmail: String? { get set }
     var email: String { get set }
     var number: String { get set }
     var wasShownViewCardLock: Bool { get set }
     
-    func sendOTP(toNumber: Bool)
-    func cardLock()
+    func sendOTPToUpdate(toNumber: Bool)
+    func validateOTPToUpdate()
 }
 
 protocol CardLockViewModelDelegate: LoaderDisplaying {
@@ -32,8 +30,6 @@ class CardLockViewModel: CardLockViewModelProtocol {
     var code: String?
     var trackingCodeAuth: String?
     var wasShownViewCardLock: Bool = false
-    var maskedNumber: String?
-    var maskedEmail: String?
     var email: String
     var number: String
     var success: CardLockActionHandler?
@@ -53,53 +49,75 @@ class CardLockViewModel: CardLockViewModelProtocol {
         self.email = email
     }
     
-    func sendOTP(toNumber: Bool) {
+    func sendOTPToUpdate(toNumber: Bool) {
         delegate?.showLoader()
         
-//        let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, cellPhone: number, email: email)
-//        let cancellable = otpUseCase.send(request: request)
-//            .sink { publisher in
-//                switch publisher {
-//                case .finished: break
-//                case .failure(let error):
-//                    let error = CustomError(title: "Error", description: error.localizedDescription)
-//                    self.delegate?.hideLoader {
-//                        if !self.wasShownViewCardLock {
-//                            self.delegate?.failureSendOtp()
-//                        } else {
-//                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-//                        }
-//                    }
-//                }
-//            } receiveValue: { response in
-//                self.delegate?.hideLoader {
-//                    self.otpId = response.otpId
-//                    self.delegate?.successSendOtp()
-//                }
-//            }
-//        
-//        cancellable.store(in: &cancellables)
+        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        
+        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: "AE", authTrackingCode: authTrackingCode)
+        
+        let cancellable = otpUseCase.sendToUpdate(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        if !self.wasShownViewCardLock {
+                            self.delegate?.failureSendOtp()
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
+                    }
+                }
+            } receiveValue: { response in
+                self.wasShownViewCardLock = true
+                self.delegate?.hideLoader {
+                    self.otpId = response.otpId
+                    self.delegate?.successSendOtp()
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
     }
-    
-    func cardLock() {
-        guard let otp = self.otpId, let code = self.code, let trackingCodeAuth = self.trackingCodeAuth else {
+
+    func validateOTPToUpdate() {
+        guard let otp = self.otpId, let code = self.code else {
             return
         }
         
-//        delegate?.showLoader()
-//        
-//        let request = ValidateOTPRequest(otpId: otp, otpCode: code)
-//        otpUseCase.validate(request: request) { result in
-//            self.delegate?.hideLoader {
-//                switch result {
-//                case .success(_):
-//                    if let action = self.success {
-//                        action(otp)
-//                    }
-//                case .failure(let error):
-//                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-//                }
-//            }
-//        }
+        delegate?.showLoader()
+        
+        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        
+        let request = ValidateOTPUpdateRequest(otpId: otp, otpCode: code, operationType: "AE", authTrackingCode: authTrackingCode)
+        
+        let cancellable = otpUseCase.validateToUpdate(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let error):
+                    let error = CustomError(title: "Error", description: error.localizedDescription)
+                    self.delegate?.hideLoader {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                self.delegate?.hideLoader {
+                    if response.indexMatchOTP == "1" {
+                        if let action = self.success {
+                            action(otp)
+                        }
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
     }
+
 }

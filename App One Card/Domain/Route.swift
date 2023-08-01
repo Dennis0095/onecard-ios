@@ -51,9 +51,9 @@ enum Route {
         case .validateOTPUpdate:
             return "/txn-sec/valida-otp"
         case .balanceInquiry:
-            return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-saldo"
+            return "/busqueda/txn-finan/consulta-saldo"
         case .consultMovements:
-            return "/dcp-app/simphubreader/api/rest/txn-admin/consulta-movimientos"
+            return "/busqueda/txn-finan/consulta-movimientos"
         case .validateKey:
             return "/dcp-app/simphubwriter/api/rest/txn-admin/valida-clave"
         case .reassignKey:

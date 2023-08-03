@@ -87,7 +87,9 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func getStatusCard(token: String) {
         delegate?.showLoader()
-        let cardStatusRequest = CardStatusRequest(segCode: "")
+        
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        let cardStatusRequest = CardStatusRequest(trackingCode: trackingCode)
         let cancellable = cardUseCase.status(request: cardStatusRequest)
             .sink { publisher in
                 switch publisher {

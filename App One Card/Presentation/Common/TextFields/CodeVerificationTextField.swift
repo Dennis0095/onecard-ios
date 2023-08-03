@@ -130,6 +130,8 @@ class CodeVerificationTextField: UITextField {
     }
     
     func validateIsValid() -> Bool {
+        lblError.text = (self.text ?? "").isEmpty ? "ingrese el código de validación" : "Debe contener 6 números"
+        
         if isValid {
             lblError.isHidden = true
             return true

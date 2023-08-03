@@ -101,8 +101,9 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
     func getCardStatusAndOnlineShoppingStatus() {
         delegate?.showLoader()
         
-        let cardStatusRequest = CardStatusRequest(segCode: "")
-        let cardOnlineShoppingStatusRequest = CardOnlineShoppingStatusRequest(segCode: "", type: "")
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        let cardStatusRequest = CardStatusRequest(trackingCode: trackingCode)
+        let cardOnlineShoppingStatusRequest = CardOnlineShoppingStatusRequest(trackingCode: trackingCode, type: "2")
         
         let cancellable = Publishers.Zip(
             cardUseCase.status(request: cardStatusRequest),
@@ -149,9 +150,12 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
     func saveChanges() {
         delegate?.showLoader()
         
-        let cardActivationRequest = CardActivationRequest(trackingCode: "")
-        let prepaidCardLockRequest = PrepaidCardLockRequest(otpId: "", otpCode: "", authTrackingCode: "", trackingCode: "", reason: "TM")
-        let changeCardOnlineShoppingStatusRequest = ChangeCardOnlineShoppingStatusRequest(trackingCode: "", type: "2", action: items[1].isOn == true ? "S" : "N")
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        
+        let cardActivationRequest = CardActivationRequest(trackingCode: trackingCode)
+        let cardLockRequest = CardLockRequest(trackingCode: trackingCode, reason: "TM")
+        let changeCardOnlineShoppingStatusRequest = ChangeCardOnlineShoppingStatusRequest(trackingCode: trackingCode, type: "2", action: items[1].isOn == true ? "S" : "N")
         
         switch configureCardChanges {
         case .cardActivation:
@@ -179,7 +183,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 }
             cancellable.store(in: &cancellables)
         case .cardLock:
-            let cancellable = cardUseCase.prepaidCardLock(request: prepaidCardLockRequest)
+            let cancellable = cardUseCase.cardLock(request: cardLockRequest)
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
@@ -256,7 +260,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
         case .bothOnlineShopping:
             let cancellable = Publishers.Zip(
                 cardUseCase.changeCardOnlineShoppingStatus(request: changeCardOnlineShoppingStatusRequest),
-                cardUseCase.prepaidCardLock(request: prepaidCardLockRequest)
+                cardUseCase.cardLock(request: cardLockRequest)
             )
                 .sink { publisher in
                     switch publisher {

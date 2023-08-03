@@ -8,9 +8,9 @@
 import Foundation
 
 struct CardStatusRequest: BaseRequest {
-    let segCode: String
+    let trackingCode: String
     
     enum CodingKeys: String, CodingKey {
-        case segCode = "COD_SEG"
+        case trackingCode = "COD_SEG"
     }
 }

@@ -88,7 +88,7 @@ class VerificationViewController: BaseViewController {
         imgBack.addGestureRecognizer(tapBack)
         
         txtCode.didEnterDigits = { [weak self] code in
-            self?.viewModel.code = code.count == 4 ? code : nil
+            self?.viewModel.code = code.count == 6 ? code : nil
         }
     }
     

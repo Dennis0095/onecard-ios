@@ -17,7 +17,7 @@ protocol CardLockViewModelProtocol {
     var wasShownViewCardLock: Bool { get set }
     
     func sendOTPToUpdate(toNumber: Bool)
-    func validateOTPToUpdate()
+    func lock()
 }
 
 protocol CardLockViewModelDelegate: LoaderDisplaying {
@@ -38,13 +38,15 @@ class CardLockViewModel: CardLockViewModelProtocol {
     private let otpUseCase: OTPUseCase
     private let cardUseCase: CardUseCase
     private let router: Router
+    private let successfulRouter: SuccessfulRouterDelegate
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: Router, otpUseCase: OTPUseCase, cardUseCase: CardUseCase) {
+    init(router: Router, successfulRouter: SuccessfulRouterDelegate, otpUseCase: OTPUseCase, cardUseCase: CardUseCase) {
         self.router = router
         self.otpUseCase = otpUseCase
         self.cardUseCase = cardUseCase
+        self.successfulRouter = successfulRouter
     }
     
     func sendOTPToUpdate(toNumber: Bool) {
@@ -52,7 +54,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: "AE", authTrackingCode: authTrackingCode)
+        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: "BP", authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)
             .sink { publisher in
@@ -70,6 +72,8 @@ class CardLockViewModel: CardLockViewModelProtocol {
             } receiveValue: { response in
                 self.wasShownViewCardLock = true
                 self.delegate?.hideLoader {
+                    self.number = response.truncatedCellphone
+                    self.email = response.truncatedEmail
                     self.otpId = response.otpId
                     self.delegate?.successSendOtp()
                 }
@@ -78,7 +82,10 @@ class CardLockViewModel: CardLockViewModelProtocol {
         cancellable.store(in: &cancellables)
     }
 
-    func validateOTPToUpdate() {
+    func lock() {
+        print(otpId)
+        print(code)
+        
         guard let otp = self.otpId, let code = self.code else {
             return
         }
@@ -86,10 +93,11 @@ class CardLockViewModel: CardLockViewModelProtocol {
         delegate?.showLoader()
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = ValidateOTPUpdateRequest(otpId: otp, otpCode: code, operationType: "AE", authTrackingCode: authTrackingCode)
+        let request = PrepaidCardLockRequest(otpId: otp, otpCode: code, authTrackingCode: authTrackingCode, trackingCode: trackingCode, reason: "CA")
         
-        let cancellable = otpUseCase.validateToUpdate(request: request)
+        let cancellable = cardUseCase.prepaidCardLock(request: request)
             .sink { publisher in
                 switch publisher {
                 case .finished: break
@@ -99,20 +107,18 @@ class CardLockViewModel: CardLockViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                let title = response.title ?? ""
-                let description = response.message ?? ""
+                let error = APIError.defaultError.error()
                 
                 self.delegate?.hideLoader {
-                    if response.indexMatchOTP == "1" {
-                        if let action = self.success {
-                            action(otp)
-                        }
+                    if response.otpMatchIndex == "1" {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", accept: {
+                            self.router.backToHome()
+                        })
                     } else {
-                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             }
-        
         cancellable.store(in: &cancellables)
     }
 

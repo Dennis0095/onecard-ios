@@ -358,7 +358,7 @@ extension AppRouter: HomeRouterDelegate {
         let useCase = OTPUseCase(otpRepository: repository)
         let cardRepository = CardDataRepository()
         let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = CardLockViewModel(router: self, otpUseCase: useCase, cardUseCase: cardUseCase)
+        let viewModel = CardLockViewModel(router: self, successfulRouter: self, otpUseCase: useCase, cardUseCase: cardUseCase)
         viewModel.success = success
         let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, buttonTitle: "BLOQUEAR")
         viewModel.delegate = cardLockViewController

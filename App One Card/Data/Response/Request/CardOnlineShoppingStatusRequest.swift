@@ -8,11 +8,11 @@
 import Foundation
 
 struct CardOnlineShoppingStatusRequest: BaseRequest {
-    let segCode: String
+    let trackingCode: String
     let type: String
     
     enum CodingKeys: String, CodingKey {
-        case segCode = "COD_SEG"
+        case trackingCode = "COD_SEG"
         case type = "BTN_TIPO"
     }
 }

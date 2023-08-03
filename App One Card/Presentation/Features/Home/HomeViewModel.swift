@@ -138,7 +138,9 @@ class HomeViewModel: HomeViewModelProtocol {
     func consultMovements() {
         delegate?.showLoader()
         
-        let request = ConsultMovementsRequest(segCode: "12345687910111213140")
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        
+        let request = ConsultMovementsRequest(trackingCode: trackingCode)
         
         let cancellable = movementUseCase.consult(request: request)
             .sink { publisher in

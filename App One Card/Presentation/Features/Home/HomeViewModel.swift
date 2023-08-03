@@ -83,8 +83,9 @@ class HomeViewModel: HomeViewModelProtocol {
     
     func balanceInquiry() {
         //delegate?.showLoader()
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = BalanceInquiryRequest(segCode: "12345687910111213140")
+        let request = BalanceInquiryRequest(trackingCode: trackingCode)
   
         let cancellable = balanceUseCase.inquiry(request: request)
             .sink { publisher in

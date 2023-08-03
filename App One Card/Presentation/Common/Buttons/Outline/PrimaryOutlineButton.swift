@@ -26,9 +26,9 @@ class PrimaryOutlineButton: UIButton {
         clipsToBounds = true
         layer.cornerRadius = 20
         layer.borderWidth = 1
-        layer.borderColor = Design.color(.primary).cgColor
+        layer.borderColor = #colorLiteral(red: 0, green: 0.6392156863, blue: 0.8784313725, alpha: 1)
         backgroundColor = .white
-        setTitleColor(Design.color(.primary), for: .normal)
+        setTitleColor(#colorLiteral(red: 0, green: 0.6392156863, blue: 0.8784313725, alpha: 1), for: .normal)
         titleLabel?.font = UIFont(name: "Gotham-Medium", size: 12)
     }
 }

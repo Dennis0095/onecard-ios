@@ -10,7 +10,7 @@ import Foundation
 struct UpdateUsernameResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let existsUser: String?
+    let existsEmail: String?
     let success: String?
     let title: String?
     let message: String?
@@ -18,7 +18,7 @@ struct UpdateUsernameResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
         case rcDesc = "RC_DESC"
-        case existsUser = "EXISTE_USUARIO"
+        case existsEmail = "EXISTE_EMAIL"
         case success = "EXITO"
         case title = "TITULO"
         case message = "MENSAJE"

@@ -20,8 +20,8 @@ class CardDataRepository: CardRepository {
         return APIClient.callAPI(route: .cardOnlineShoppingStatus, method: .post, request: request)
     }
     
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError> {
-        return APIClient.callAPI(route: .temporaryCardLock, method: .post, request: request)
+    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, CustomError> {
+        return APIClient.callAPI(route: .prepaidCardLock, method: .post, request: request)
     }
     
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError> {

@@ -28,9 +28,10 @@ enum Route {
     case cardStatus
     case cardOnlineShoppingStatus
     case cardLock
-    case temporaryCardLock
+    case prepaidCardLock
     case changeCardOnlineShoppingStatus
     case consultPromotions
+    case frequentQuestions
     case without
     
     var description: String {
@@ -56,11 +57,11 @@ enum Route {
         case .consultMovements:
             return "/busqueda/txn-finan/consulta-movimientos"
         case .validateKey:
-            return "/dcp-app/simphubwriter/api/rest/txn-admin/valida-clave"
+            return "/busqueda/txn-admin/valida-clave-app"
         case .reassignKey:
             return "/txn-admin/reasigna-clave-app"
         case .cardActivation:
-            return "/dcp-app/simphubwriter/api/rest/txn-admin/activacion-tarjeta"
+            return "/txn-admin/activacion-tarjeta"
         case .cardStatus:
             return "/busqueda/txn-data/consulta-estado-tarjeta"
         case .cardOnlineShoppingStatus:
@@ -79,8 +80,10 @@ enum Route {
             return "/txn-sec/actualizacion-email"
         case .updatePassword:
             return "/txn-sec/cambio-contrasenia"
-        case .temporaryCardLock:
+        case .prepaidCardLock:
             return "/txn-admin-tp/bloqueo-tarjeta"
+        case .frequentQuestions:
+            return "/busqueda/txn-data/consulta-preguntas-frecuentes"
         case .without:
             return ""
         }

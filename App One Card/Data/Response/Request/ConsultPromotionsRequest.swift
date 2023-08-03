@@ -8,9 +8,9 @@
 import Foundation
 
 struct ConsultPromotionsRequest: BaseRequest {
-    let trackingCode: String
+    let authTrackingCode: String
     
     enum CodingKeys: String, CodingKey {
-        case trackingCode = "COD_SEG"
+        case authTrackingCode = "COD_SEG_AUTH"
     }
 }

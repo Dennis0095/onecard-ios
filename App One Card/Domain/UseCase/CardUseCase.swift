@@ -11,8 +11,8 @@ protocol CardUseCaseProtocol {
     func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError>
     func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError>
     func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError>
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError>
-    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError>
+    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, CustomError>
+    func cardLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError>
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError>
 }
 
@@ -35,11 +35,11 @@ class CardUseCase: CardUseCaseProtocol {
         return cardRepository.onlineShoppingStatus(request: request)
     }
     
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError> {
-        return cardRepository.temporaryLock(request: request)
+    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, CustomError> {
+        return cardRepository.prepaidCardLock(request: request)
     }
     
-    func temporaryLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError> {
+    func cardLock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError> {
         return cardRepository.lock(request: request)
     }
     

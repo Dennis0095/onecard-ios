@@ -9,10 +9,12 @@ import Foundation
 
 struct ValidateKeyResponse: Codable {
     let rc: String?
-    let rcDesc: String??
+    let rcDesc: String?
+    let operationId: String?
     
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
         case rcDesc = "RC_DESC"
+        case operationId = "ID_OPE"
     }
 }

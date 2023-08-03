@@ -8,9 +8,9 @@
 import Foundation
 
 struct BalanceInquiryRequest: BaseRequest {
-    let segCode: String
+    let trackingCode: String
     
     enum CodingKeys: String, CodingKey {
-        case segCode = "CODIGO_SEG"
+        case trackingCode = "COD_SEG"
     }
 }

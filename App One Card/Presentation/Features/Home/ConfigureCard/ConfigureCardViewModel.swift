@@ -149,8 +149,8 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
     func saveChanges() {
         delegate?.showLoader()
         
-        let cardActivationRequest = CardActivationRequest(segCode: "")
-        let temporaryCardLockRequest = TemporaryCardLockRequest(trackingCode: "", reason: "TM")
+        let cardActivationRequest = CardActivationRequest(trackingCode: "")
+        let prepaidCardLockRequest = PrepaidCardLockRequest(otpId: "", otpCode: "", authTrackingCode: "", trackingCode: "", reason: "TM")
         let changeCardOnlineShoppingStatusRequest = ChangeCardOnlineShoppingStatusRequest(trackingCode: "", type: "2", action: items[1].isOn == true ? "S" : "N")
         
         switch configureCardChanges {
@@ -179,7 +179,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 }
             cancellable.store(in: &cancellables)
         case .cardLock:
-            let cancellable = cardUseCase.temporaryLock(request: temporaryCardLockRequest)
+            let cancellable = cardUseCase.prepaidCardLock(request: prepaidCardLockRequest)
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
@@ -256,7 +256,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
         case .bothOnlineShopping:
             let cancellable = Publishers.Zip(
                 cardUseCase.changeCardOnlineShoppingStatus(request: changeCardOnlineShoppingStatusRequest),
-                cardUseCase.temporaryLock(request: temporaryCardLockRequest)
+                cardUseCase.prepaidCardLock(request: prepaidCardLockRequest)
             )
                 .sink { publisher in
                     switch publisher {

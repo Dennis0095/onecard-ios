@@ -16,6 +16,8 @@ struct SendOTPUpdateResponse: Codable {
     let otpId: String?
     let title: String?
     let message: String?
+    let truncatedCellphone: String?
+    let truncatedEmail: String?
     
     enum CodingKeys: String, CodingKey {
         case rc = "RC"
@@ -26,5 +28,7 @@ struct SendOTPUpdateResponse: Codable {
         case otpId = "ID_OTP"
         case title = "TITULO"
         case message = "MENSAJE"
+        case truncatedCellphone = "TELEFONO_CELULAR_TRUNC"
+        case truncatedEmail = "CORREO_ELECTRONICO_TRUNC"
     }
 }

@@ -107,8 +107,8 @@
 		0D65EA192A6B036800819637 /* CardStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA182A6B036800819637 /* CardStatusResponse.swift */; };
 		0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */; };
 		0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA1C2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift */; };
-		0D65EA1F2A6CF5F000819637 /* TemporaryCardLockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */; };
-		0D65EA212A6CF5FE00819637 /* TemporaryCardLockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */; };
+		0D65EA1F2A6CF5F000819637 /* PrepaidCardLockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA1E2A6CF5F000819637 /* PrepaidCardLockRequest.swift */; };
+		0D65EA212A6CF5FE00819637 /* PrepaidCardLockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */; };
 		0D65EA272A6D00D100819637 /* ChangeCardOnlineShoppingStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */; };
 		0D65EA292A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */; };
 		0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */; };
@@ -328,8 +328,8 @@
 		0D65EA182A6B036800819637 /* CardStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStatusResponse.swift; sourceTree = "<group>"; };
 		0D65EA1A2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOnlineShoppingStatusRequest.swift; sourceTree = "<group>"; };
 		0D65EA1C2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOnlineShoppingStatusResponse.swift; sourceTree = "<group>"; };
-		0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryCardLockRequest.swift; sourceTree = "<group>"; };
-		0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryCardLockResponse.swift; sourceTree = "<group>"; };
+		0D65EA1E2A6CF5F000819637 /* PrepaidCardLockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidCardLockRequest.swift; sourceTree = "<group>"; };
+		0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepaidCardLockResponse.swift; sourceTree = "<group>"; };
 		0D65EA262A6D00D000819637 /* ChangeCardOnlineShoppingStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardOnlineShoppingStatusRequest.swift; sourceTree = "<group>"; };
 		0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCardOnlineShoppingStatusResponse.swift; sourceTree = "<group>"; };
 		0D6B91672A4B8EAF0045D149 /* OTPUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPUseCase.swift; sourceTree = "<group>"; };
@@ -483,7 +483,7 @@
 				0D6B916B2A4B90120045D149 /* Request */,
 				0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */,
 				0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */,
-				0D65EA202A6CF5FE00819637 /* TemporaryCardLockResponse.swift */,
+				0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */,
 				0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */,
 				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */,
 				0D8D9F6D2A5DDD1800E6C8C6 /* ValidateKeyResponse.swift */,
@@ -926,7 +926,7 @@
 				0DC882552A63AA2200DAD073 /* LoginRequest.swift */,
 				0D6B916C2A4B90640045D149 /* SendOTPRegisterRequest.swift */,
 				0D0A60FA2A70E093005B447E /* SendOTPUpdateRequest.swift */,
-				0D65EA1E2A6CF5F000819637 /* TemporaryCardLockRequest.swift */,
+				0D65EA1E2A6CF5F000819637 /* PrepaidCardLockRequest.swift */,
 				0D7DCD292A724A4C006F9CA5 /* UpdateEmailRequest.swift */,
 				0D0A61002A70F9D1005B447E /* UpdateUsernameRequest.swift */,
 				0D842E4C2A4FD6490059A906 /* UserRegisterRequest.swift */,
@@ -1435,11 +1435,11 @@
 				0D3E41F42A50882E00C2546A /* HomeObserver.swift in Sources */,
 				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
 				0D65EA152A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift in Sources */,
-				0D65EA212A6CF5FE00819637 /* TemporaryCardLockResponse.swift in Sources */,
+				0D65EA212A6CF5FE00819637 /* PrepaidCardLockResponse.swift in Sources */,
 				0DF183E72A68D8DA004A0621 /* PromotionsDelegateDataSource.swift in Sources */,
 				0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
-				0D65EA1F2A6CF5F000819637 /* TemporaryCardLockRequest.swift in Sources */,
+				0D65EA1F2A6CF5F000819637 /* PrepaidCardLockRequest.swift in Sources */,
 				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,
 				0DC882562A63AA2200DAD073 /* LoginRequest.swift in Sources */,
 				0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */,

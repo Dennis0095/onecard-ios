@@ -132,7 +132,7 @@ class PinViewModel: PinViewModelProtocol {
     func cardActivation() {
         self.delegate?.showLoader()
         
-        let request = CardActivationRequest(segCode: "")
+        let request = CardActivationRequest(trackingCode: "")
         let cancellable = cardUseCase.activation(request: request)
             .sink { publisher in
                 switch publisher {

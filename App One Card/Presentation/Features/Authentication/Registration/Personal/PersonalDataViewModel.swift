@@ -79,7 +79,7 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
                         if response.exists == "1" {
                             self.delegate?.showError(title: title, description: description, onAccept: nil)
                         } else {
-                            self.verificationRouter.navigateToVerification(email: email, number: cellphone, documentType: self.documentType, documentNumber: self.documentNumber, companyRUC: self.companyRUC, navTitle: "REGISTRO DE USUARIO DIGITAL", stepDescription: "Paso 3 de 4", operationType: "RU", maskPhoneEmail: false) { [weak self] otpId in
+                            self.verificationRouter.navigateToVerification(email: email, number: cellphone, documentType: self.documentType, documentNumber: self.documentNumber, companyRUC: self.companyRUC, navTitle: "Registro de usuario digital", stepDescription: "Paso 3 de 4", operationType: "RU", maskPhoneEmail: false) { [weak self] otpId in
                                 self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
                             }
                         }

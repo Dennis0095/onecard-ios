@@ -11,7 +11,7 @@ protocol CardRepository {
     func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError>
     func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError>
     func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError>
-    func temporaryLock(request: TemporaryCardLockRequest) -> AnyPublisher<TemporaryCardLockResponse, CustomError>
+    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, CustomError>
     func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError>
     func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError>
 }

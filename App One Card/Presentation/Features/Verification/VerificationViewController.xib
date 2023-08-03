@@ -64,7 +64,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-jR-K4t">
                                     <rect key="frame" x="46" y="20" width="329" height="0.0"/>
                                     <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                    <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" name="blue_twilight"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -100,7 +100,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.15686274510000001" green="0.70588235290000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" name="blue_lake_front"/>
                                                             <constraints>
                                                                 <constraint firstItem="X2t-2t-dow" firstAttribute="centerY" secondItem="3n2-VB-xoj" secondAttribute="centerY" id="6CI-5S-bXM"/>
                                                                 <constraint firstAttribute="trailing" secondItem="X2t-2t-dow" secondAttribute="trailing" constant="18" id="7X6-z8-6Vk"/>
@@ -119,7 +119,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese su código de verificación" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="233" height="17"/>
                                                                     <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
-                                                                    <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" name="blue_lake_front"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-fu-nlh">
@@ -128,7 +128,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingrese el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
                                                                             <rect key="frame" x="0.0" y="0.0" width="328" height="33.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                                                            <color key="textColor" red="0.42352941179999998" green="0.43529411759999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                            <color key="textColor" name="blue_twilight"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDH-YO-7lT">
@@ -136,7 +136,7 @@
                                                                             <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" title="Enviar al correo">
-                                                                                <color key="titleColor" name="blue_primary"/>
+                                                                                <color key="titleColor" name="blue_sky"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="send:" destination="-1" eventType="touchUpInside" id="d3l-vD-Gmn"/>
@@ -179,7 +179,7 @@
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podrá solicitar un nuevo código en 60 seg." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTB-jP-qRe">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="293.66666666666669" height="17"/>
                                                                                     <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
-                                                                                    <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EJ-sX-Tqd">
@@ -245,10 +245,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="719"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-h8-vaG">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="643"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="639"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kth-x5-5sA">
-                                                    <rect key="frame" x="20" y="222.66666666666669" width="353" height="198"/>
+                                                    <rect key="frame" x="20" y="220.66666666666669" width="353" height="198"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egn-cc-EBQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="148"/>
@@ -296,12 +296,12 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKe-SN-iod">
-                                            <rect key="frame" x="0.0" y="643" width="393" height="76"/>
+                                            <rect key="frame" x="0.0" y="639" width="393" height="80"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnU-4T-i1b" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="20" width="353" height="40"/>
+                                                    <rect key="frame" x="20" y="20" width="353" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Bhs-Ax-8lZ"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Bhs-Ax-8lZ"/>
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <connections>
@@ -362,8 +362,17 @@
     <resources>
         <image name="arrow_left" width="25" height="25"/>
         <image name="unexpected_error" width="149" height="149"/>
+        <namedColor name="blue_lake_front">
+            <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="blue_primary">
             <color red="0.15686274509803921" green="0.70588235294117652" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_sky">
+            <color red="0.0" green="0.63921568627450975" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_twilight">
+            <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -15,6 +15,7 @@ protocol LoginViewModelProtocol {
     func toRegister()
     func toHome()
     func toActivateUser()
+    func toForgotPassword()
     func login()
     func getStatusCard(token: String)
 }
@@ -120,6 +121,10 @@ class LoginViewModel: LoginViewModelProtocol {
                 }
             }
         cancellable.store(in: &cancellables)
+    }
+    
+    func toForgotPassword() {
+        router.navigateToForgotPassword()
     }
     
     func cancelRequests() {

@@ -9,6 +9,8 @@ import UIKit
 
 class MembershipDataViewController: BaseViewController {
     
+    @IBOutlet weak var lblStep: UILabel!
+    @IBOutlet weak var lblNavTitle: UILabel!
     @IBOutlet weak var viewDocType: SelectTextField!
     @IBOutlet weak var viewDocNumber: OutlinedTextField!
     @IBOutlet weak var viewRuc: OutlinedTextField!
@@ -18,8 +20,13 @@ class MembershipDataViewController: BaseViewController {
     
     private var viewModel: MembershipDataViewModelProtocol
     
-    init(viewModel: MembershipDataViewModelProtocol) {
+    private var navTitle: String
+    private var step: String
+    
+    init(viewModel: MembershipDataViewModelProtocol, navTitle: String, step: String) {
         self.viewModel = viewModel
+        self.navTitle = navTitle
+        self.step = step
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,6 +39,9 @@ class MembershipDataViewController: BaseViewController {
     }
     
     override func initView() {
+        lblNavTitle.text = navTitle
+        lblStep.text = step
+        
         viewModel.documentType = viewModel.documentTypeList.first
         
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down"))
@@ -121,7 +131,11 @@ class MembershipDataViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if validate() {
-            viewModel.validateUser()
+            if viewModel.isRegister {
+                viewModel.validateUserToRegister()
+            } else {
+                viewModel.validateUserToRecoverPassword()
+            }
         }
     }
     

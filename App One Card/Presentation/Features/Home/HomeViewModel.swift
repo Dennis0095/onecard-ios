@@ -82,7 +82,6 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func balanceInquiry() {
-        //delegate?.showLoader()
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
         let request = BalanceInquiryRequest(trackingCode: trackingCode)
@@ -115,24 +114,6 @@ class HomeViewModel: HomeViewModelProtocol {
             }
         
         cancellable.store(in: &cancellables)
-        
-//        balanceUseCase.inquiry(request: request) { result in
-//            switch result {
-//            case .success(let response):
-//                DispatchQueue.main.async {
-//                    let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
-//                    HomeObserver.shared.updateAmount(amount: balance)
-//                }
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-////                    self.router.showMessageError(title: error.title, description: error.description) {
-////                        if error.actionAfterFailure {
-////                            self.balanceInquiry()
-////                        }
-////                    }
-//                }
-//            }
-//        }
     }
     
     func consultMovements() {

@@ -21,6 +21,8 @@
             <connections>
                 <outlet property="btnNext" destination="tPH-04-VlD" id="8Vf-2E-Tjt"/>
                 <outlet property="imgBack" destination="Jgb-B9-svb" id="kav-La-csa"/>
+                <outlet property="lblNavTitle" destination="jIw-c7-gvx" id="eah-Et-ni9"/>
+                <outlet property="lblStep" destination="31r-d2-NYX" id="oER-mY-iZP"/>
                 <outlet property="scrollView" destination="Iot-KJ-fjZ" id="QsJ-aj-3CW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewDocNumber" destination="0Ee-2L-Cdr" id="IUt-Kf-YBG"/>

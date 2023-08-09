@@ -201,6 +201,8 @@ class VerificationViewController: BaseViewController {
 
 extension VerificationViewController: VerificationViewModelDelegate {
     func successSendOtp() {
+        setDescription()
+        
         viewVerification.isHidden = false
         viewError.isHidden = true
         resetTime()

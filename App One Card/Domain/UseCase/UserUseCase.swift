@@ -16,6 +16,8 @@ protocol UserUseCaseProtocol {
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError>
     func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError>
     func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError>
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError>
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError>
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -55,5 +57,13 @@ class UserUseCase: UserUseCaseProtocol {
     
     func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError> {
         return userRepository.updatePassword(request: request)
+    }
+    
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError> {
+        return userRepository.existsUser(request: request)
+    }
+    
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError> {
+        return userRepository.createNewPassword(request: request)
     }
 }

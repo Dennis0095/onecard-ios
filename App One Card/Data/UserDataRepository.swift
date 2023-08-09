@@ -39,4 +39,12 @@ class UserDataRepository: UserRepository {
     func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError> {
         return APIClient.callAPI(route: .updatePassword, method: .post, request: request)
     }
+    
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError> {
+        return APIClient.callAPI(route: .existsUser, method: .post, request: request)
+    }
+    
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError> {
+        return APIClient.callAPI(route: .recoverPassword, method: .post, request: request)
+    }
 }

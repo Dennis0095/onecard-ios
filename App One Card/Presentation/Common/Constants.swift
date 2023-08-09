@@ -18,7 +18,7 @@ class Constants {
     static let accept: String = "Aceptar"
     static let login_btn: String = "INGRESAR"
     static let login_register_btn: String = "¿ERES NUEVO? REGISTRATE AQUÍ"
-    static let next_btn: String = "CONTINUAR"
+    static let next_btn: String = "Continuar"
     static let placeholder_ruc: String = "RUC de la empresa donde trabaja"
     static let placeholder_document_number: String = "Número de documento"
     static let placeholder_document_type: String = "Tipo de documento"

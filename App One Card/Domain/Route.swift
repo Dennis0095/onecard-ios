@@ -11,6 +11,7 @@ enum Route {
     case login
     case consultMovements
     case balanceInquiry
+    case existsUser
     case validateAffiliation
     case validatePersonalData
     case userRegister
@@ -32,12 +33,15 @@ enum Route {
     case changeCardOnlineShoppingStatus
     case consultPromotions
     case frequentQuestions
+    case recoverPassword
     case without
     
     var description: String {
         switch self {
         case .login:
             return "/txn-admin-auth/login"
+        case .existsUser:
+            return "/txn-sec/existe-thb"
         case .validateAffiliation:
             return "/txn-admin-auth/afiliacion-thb"
         case .validatePersonalData:
@@ -84,6 +88,8 @@ enum Route {
             return "/txn-admin-tp/bloqueo-tarjeta"
         case .frequentQuestions:
             return "/busqueda/txn-data/consulta-preguntas-frecuentes"
+        case .recoverPassword:
+            return "/txn-sec/creacion-nueva-clave"
         case .without:
             return ""
         }

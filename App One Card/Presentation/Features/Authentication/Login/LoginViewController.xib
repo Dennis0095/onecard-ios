@@ -107,6 +107,9 @@
                                             <state key="normal" title="Olvidé mi clave digital">
                                                 <color key="titleColor" name="blue_sky"/>
                                             </state>
+                                            <connections>
+                                                <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="ptA-q2-W2t"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

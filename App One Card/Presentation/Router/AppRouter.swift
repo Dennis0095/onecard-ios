@@ -45,6 +45,24 @@ class AppRouter: Router {
 }
 
 extension AppRouter: AuthenticationRouterDelegate {
+    func navigateToCreatePassword(otpId: String, documentType: String, documentNumber: String, companyRUC: String) {
+        let repository = UserDataRepository()
+        let useCase = UserUseCase(userRepository: repository)
+        let viewModel = RecoverPasswordViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
+        let recoverPasswordViewController = RecoverPasswordViewController(viewModel: viewModel)//LoginInformationViewController(viewModel: viewModel)
+        viewModel.delegate = recoverPasswordViewController
+        navigationController?.pushViewController(recoverPasswordViewController, animated: true)
+    }
+    
+    func navigateToForgotPassword() {
+        let repository = UserDataRepository()
+        let useCase = UserUseCase(userRepository: repository)
+        let viewModel = MembershipDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, isRegister: false)
+        let membershipDataViewController = MembershipDataViewController(viewModel: viewModel, navTitle: "Recuperación de clave", step: "Paso 1 de 3")
+        viewModel.delegate = membershipDataViewController
+        navigationController?.pushViewController(membershipDataViewController, animated: true)
+    }
+    
     func timeExpiredRegister() {
         if let viewControllers = navigationController?.viewControllers {
             for viewController in viewControllers {
@@ -129,9 +147,8 @@ extension AppRouter: AuthenticationRouterDelegate {
     func navigateToRegister() {
         let repository = UserDataRepository()
         let useCase = UserUseCase(userRepository: repository)
-        let viewModel = MembershipDataViewModel(router: self, userUseCase: useCase)
-        let membershipDataViewController = MembershipDataViewController(viewModel: viewModel)
-        //interactor.membershipDataView = membershipDataViewController
+        let viewModel = MembershipDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, isRegister: true)
+        let membershipDataViewController = MembershipDataViewController(viewModel: viewModel, navTitle: "Registro de usuario digital", step: "Paso 1 de 4")
         viewModel.delegate = membershipDataViewController
         navigationController?.pushViewController(membershipDataViewController, animated: true)
     }

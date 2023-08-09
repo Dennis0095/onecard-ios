@@ -66,6 +66,10 @@ class LoginViewController: BaseViewController {
         viewModel.toRegister()
     }
     
+    @IBAction func forgotPassword(_ sender: Any) {
+        viewModel.toForgotPassword()
+    }
+    
 }
 
 extension LoginViewController: LoginViewModelDelegate {

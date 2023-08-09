@@ -16,4 +16,6 @@ protocol UserRepository {
     func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError>
     func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError>
     func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError>
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError>
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError>
 }

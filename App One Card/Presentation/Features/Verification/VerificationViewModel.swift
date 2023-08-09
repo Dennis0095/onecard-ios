@@ -85,6 +85,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 self.wasShownViewVerification = true
                 self.delegate?.hideLoader {
                     self.otpId = response.otpId
+                    self.number = response.truncatedCellphone ?? ""
+                    self.email = response.truncatedEmail ?? ""
                     self.delegate?.successSendOtp()
                 }
             }

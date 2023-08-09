@@ -198,6 +198,13 @@
 		0DE336852A5B9B8600597BE8 /* PinOutlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE336842A5B9B8600597BE8 /* PinOutlinedTextField.swift */; };
 		0DE3A13C2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3A13B2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift */; };
 		0DE3A13E2A799E4400A34E06 /* ReassignKeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3A13D2A799E4400A34E06 /* ReassignKeyRequest.swift */; };
+		0DE7BD912A82B37B0029015F /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BD8F2A82B37B0029015F /* RecoverPasswordViewController.swift */; };
+		0DE7BD922A82B37B0029015F /* RecoverPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7BD902A82B37B0029015F /* RecoverPasswordViewController.xib */; };
+		0DE7BD942A82BED10029015F /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BD932A82BED10029015F /* RecoverPasswordViewModel.swift */; };
+		0DE7BD962A82CF3F0029015F /* NewPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BD952A82CF3F0029015F /* NewPasswordResponse.swift */; };
+		0DE7BD982A82CF4C0029015F /* NewPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BD972A82CF4C0029015F /* NewPasswordRequest.swift */; };
+		0DE7BD9F2A82FFAB0029015F /* ExistsUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BD9E2A82FFAB0029015F /* ExistsUserRequest.swift */; };
+		0DE7BDA12A8300190029015F /* ExistsUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7BDA02A8300190029015F /* ExistsUserResponse.swift */; };
 		0DF183E02A68D070004A0621 /* PromotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183DE2A68D070004A0621 /* PromotionsViewController.swift */; };
 		0DF183E12A68D070004A0621 /* PromotionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF183DF2A68D070004A0621 /* PromotionsViewController.xib */; };
 		0DF183E32A68D3B4004A0621 /* PromotionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF183E22A68D3B4004A0621 /* PromotionsViewModel.swift */; };
@@ -418,6 +425,13 @@
 		0DE336842A5B9B8600597BE8 /* PinOutlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinOutlinedTextField.swift; sourceTree = "<group>"; };
 		0DE3A13B2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateOTPUpdateResponse.swift; sourceTree = "<group>"; };
 		0DE3A13D2A799E4400A34E06 /* ReassignKeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReassignKeyRequest.swift; sourceTree = "<group>"; };
+		0DE7BD8F2A82B37B0029015F /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
+		0DE7BD902A82B37B0029015F /* RecoverPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecoverPasswordViewController.xib; sourceTree = "<group>"; };
+		0DE7BD932A82BED10029015F /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
+		0DE7BD952A82CF3F0029015F /* NewPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordResponse.swift; sourceTree = "<group>"; };
+		0DE7BD972A82CF4C0029015F /* NewPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRequest.swift; sourceTree = "<group>"; };
+		0DE7BD9E2A82FFAB0029015F /* ExistsUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistsUserRequest.swift; sourceTree = "<group>"; };
+		0DE7BDA02A8300190029015F /* ExistsUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistsUserResponse.swift; sourceTree = "<group>"; };
 		0DF183DE2A68D070004A0621 /* PromotionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsViewController.swift; sourceTree = "<group>"; };
 		0DF183DF2A68D070004A0621 /* PromotionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionsViewController.xib; sourceTree = "<group>"; };
 		0DF183E22A68D3B4004A0621 /* PromotionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsViewModel.swift; sourceTree = "<group>"; };
@@ -495,6 +509,8 @@
 				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
 				0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */,
 				0DE3A13B2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift */,
+				0DE7BD952A82CF3F0029015F /* NewPasswordResponse.swift */,
+				0DE7BDA02A8300190029015F /* ExistsUserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -731,6 +747,8 @@
 		0D45B1162A2E928600EFC7F4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				0D45B1462A2EDED000EFC7F4 /* Membership */,
+				0DE7BD8E2A82B27D0029015F /* Recover */,
 				0DFC4CDE2A426FAF0011AA97 /* Activate */,
 				0D45B1182A2E92A100EFC7F4 /* Registration */,
 				0D45B1172A2E929800EFC7F4 /* Login */,
@@ -753,7 +771,6 @@
 			children = (
 				0D45B1492A2EDEF400EFC7F4 /* LoginInformation */,
 				0D45B1472A2EDEE000EFC7F4 /* Personal */,
-				0D45B1462A2EDED000EFC7F4 /* Membership */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -936,7 +953,9 @@
 				0D0A60FC2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift */,
 				0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */,
 				0DD5AFB32A78DEC600EDCBA8 /* UpdatePasswordRequest.swift */,
+				0DE7BD972A82CF4C0029015F /* NewPasswordRequest.swift */,
 				0DE3A13D2A799E4400A34E06 /* ReassignKeyRequest.swift */,
+				0DE7BD9E2A82FFAB0029015F /* ExistsUserRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1111,6 +1130,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		0DE7BD8E2A82B27D0029015F /* Recover */ = {
+			isa = PBXGroup;
+			children = (
+				0DE7BD8F2A82B37B0029015F /* RecoverPasswordViewController.swift */,
+				0DE7BD902A82B37B0029015F /* RecoverPasswordViewController.xib */,
+				0DE7BD932A82BED10029015F /* RecoverPasswordViewModel.swift */,
+			);
+			path = Recover;
+			sourceTree = "<group>";
+		};
 		0DF183DD2A68CF57004A0621 /* Promotions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,6 +1298,7 @@
 				0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */,
 				0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
+				0DE7BD922A82B37B0029015F /* RecoverPasswordViewController.xib in Resources */,
 				0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */,
 				0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
@@ -1330,6 +1360,7 @@
 			files = (
 				0DD692AE2A529180001D0BB9 /* MovementResponse.swift in Sources */,
 				0D8D9F782A5DE20900E6C8C6 /* CardUseCase.swift in Sources */,
+				0DE7BD942A82BED10029015F /* RecoverPasswordViewModel.swift in Sources */,
 				0DB9675D2A34EF250079D432 /* MenuTabBar.swift in Sources */,
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
 				0D8D9F6A2A5DDB9300E6C8C6 /* CardActivationRequest.swift in Sources */,
@@ -1338,6 +1369,7 @@
 				0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */,
 				0D8D9F742A5DDFDC00E6C8C6 /* CardRepository.swift in Sources */,
 				0D2474182A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift in Sources */,
+				0DE7BDA12A8300190029015F /* ExistsUserResponse.swift in Sources */,
 				0DF183F52A6972D1004A0621 /* MovementsDelegateDataSource.swift in Sources */,
 				0DD692A82A528A61001D0BB9 /* MovementsViewModel.swift in Sources */,
 				0DF183F02A6908BB004A0621 /* ChangePasswordViewController.swift in Sources */,
@@ -1345,6 +1377,7 @@
 				0DC78BB62A37D3330097CCE5 /* EditMailViewModel.swift in Sources */,
 				0DC78BC62A38B5110097CCE5 /* BaseViewController.swift in Sources */,
 				0D45B11B2A2E92C100EFC7F4 /* LoginViewController.swift in Sources */,
+				0DE7BD9F2A82FFAB0029015F /* ExistsUserRequest.swift in Sources */,
 				0DFA7CA22A6DC7E60031178B /* CardLockModalViewController.swift in Sources */,
 				0D45B1552A2EEB9700EFC7F4 /* TextFieldExtension.swift in Sources */,
 				0D7DCD222A723F1F006F9CA5 /* ConsultPromotionsResponse.swift in Sources */,
@@ -1399,6 +1432,7 @@
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
 				0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */,
+				0DE7BD982A82CF4C0029015F /* NewPasswordRequest.swift in Sources */,
 				0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */,
 				0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */,
 				0D45B13E2A2EC60900EFC7F4 /* CheckBoxButton.swift in Sources */,
@@ -1406,6 +1440,7 @@
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
 				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,
+				0DE7BD912A82B37B0029015F /* RecoverPasswordViewController.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
 				0D842E4F2A4FD6EF0059A906 /* UserRegisterResponse.swift in Sources */,
@@ -1438,6 +1473,7 @@
 				0D65EA212A6CF5FE00819637 /* PrepaidCardLockResponse.swift in Sources */,
 				0DF183E72A68D8DA004A0621 /* PromotionsDelegateDataSource.swift in Sources */,
 				0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */,
+				0DE7BD962A82CF3F0029015F /* NewPasswordResponse.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
 				0D65EA1F2A6CF5F000819637 /* PrepaidCardLockRequest.swift in Sources */,
 				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,

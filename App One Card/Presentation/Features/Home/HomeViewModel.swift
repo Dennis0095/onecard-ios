@@ -9,12 +9,19 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol {
+    var items: [MovementResponse] { get set }
+    
     func toCardLock()
     func toConfigureCard()
     func toChangePin()
     func toCardActivation()
+    func toMovements()
     func balanceInquiry()
     func consultMovements()
+    
+    func numberOfItems() -> Int
+    func item(at index: Int) -> MovementResponse
+    func isLast(at index: Int) -> Bool
 }
 
 protocol HomeViewModelDelegate: LoaderDisplaying { }
@@ -23,8 +30,8 @@ class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
     var authRouter: AuthenticationRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
-    var movementsViewModel = MovementsViewModel()
     var delegate: HomeViewModelDelegate?
+    var items: [MovementResponse] = []
     
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
@@ -43,6 +50,18 @@ class HomeViewModel: HomeViewModelProtocol {
         cancelRequests()
     }
     
+    func numberOfItems() -> Int {
+        return items.count
+    }
+    
+    func item(at index: Int) -> MovementResponse {
+        return items[index]
+    }
+    
+    func isLast(at index: Int) -> Bool {
+        return (items.count - 1) == index
+    }
+    
     func toCardLock() {
         router.confirmCardLock {
             self.router.navigateToCardBlock(navTitle: "BLOQUEO DE TARJETA", success: { [weak self] idOtp in
@@ -51,6 +70,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 })
             })
         }
+    }
+    
+    func toMovements() {
+        router.navigateToMovements()
     }
     
     func toConfigureCard() {
@@ -96,7 +119,6 @@ class HomeViewModel: HomeViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                let description = response.description ?? ""
                 let error = APIError.defaultError.error()
                 
                 self.delegate?.hideLoader {

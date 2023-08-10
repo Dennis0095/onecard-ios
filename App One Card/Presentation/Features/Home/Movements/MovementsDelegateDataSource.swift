@@ -51,4 +51,9 @@ extension MovementsDelegateDataSource: UITableViewDataSource {
     }
 }
 
-extension MovementsDelegateDataSource: UITableViewDelegate {}
+extension MovementsDelegateDataSource: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movement = viewModel.items[indexPath.row]
+        viewModel.selectItem(movement: movement)
+    }
+}

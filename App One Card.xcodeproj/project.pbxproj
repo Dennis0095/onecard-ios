@@ -30,6 +30,10 @@
 		0D2474142A467BF80075E147 /* FrequentQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474122A467BF80075E147 /* FrequentQuestionsViewController.xib */; };
 		0D2474182A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */; };
 		0D2474192A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */; };
+		0D268B3A2A84872500350785 /* MovementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268B382A84872500350785 /* MovementsViewController.swift */; };
+		0D268B3B2A84872500350785 /* MovementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D268B392A84872500350785 /* MovementsViewController.xib */; };
+		0D268B3E2A84ABF800350785 /* MovementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D268B3C2A84ABF800350785 /* MovementDetailViewController.swift */; };
+		0D268B3F2A84ABF800350785 /* MovementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D268B3D2A84ABF800350785 /* MovementDetailViewController.xib */; };
 		0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDF22A44BADC00411486 /* PinViewController.swift */; };
 		0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF32A44BADC00411486 /* PinViewController.xib */; };
 		0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */; };
@@ -256,6 +260,10 @@
 		0D2474122A467BF80075E147 /* FrequentQuestionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsViewController.xib; sourceTree = "<group>"; };
 		0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentQuestionsTableViewCell.swift; sourceTree = "<group>"; };
 		0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsTableViewCell.xib; sourceTree = "<group>"; };
+		0D268B382A84872500350785 /* MovementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsViewController.swift; sourceTree = "<group>"; };
+		0D268B392A84872500350785 /* MovementsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovementsViewController.xib; sourceTree = "<group>"; };
+		0D268B3C2A84ABF800350785 /* MovementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementDetailViewController.swift; sourceTree = "<group>"; };
+		0D268B3D2A84ABF800350785 /* MovementDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovementDetailViewController.xib; sourceTree = "<group>"; };
 		0D35EDF22A44BADC00411486 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		0D35EDF32A44BADC00411486 /* PinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
 		0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardNumber.xib; sourceTree = "<group>"; };
@@ -567,6 +575,15 @@
 				0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0D268B372A84825000350785 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0D268B3C2A84ABF800350785 /* MovementDetailViewController.swift */,
+				0D268B3D2A84ABF800350785 /* MovementDetailViewController.xib */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		0D35EDF12A44BAD100411486 /* Pin */ = {
@@ -1114,9 +1131,12 @@
 		0DD692A12A524DDA001D0BB9 /* Movements */ = {
 			isa = PBXGroup;
 			children = (
+				0D268B372A84825000350785 /* Detail */,
+				0DD692A22A524DEE001D0BB9 /* Cell */,
 				0DD692A72A528A61001D0BB9 /* MovementsViewModel.swift */,
 				0DF183F42A6972D1004A0621 /* MovementsDelegateDataSource.swift */,
-				0DD692A22A524DEE001D0BB9 /* Cell */,
+				0D268B382A84872500350785 /* MovementsViewController.swift */,
+				0D268B392A84872500350785 /* MovementsViewController.xib */,
 			);
 			path = Movements;
 			sourceTree = "<group>";
@@ -1329,6 +1349,8 @@
 				0D45B14D2A2EE14100EFC7F4 /* PersonalDataViewController.xib in Resources */,
 				0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */,
 				0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */,
+				0D268B3B2A84872500350785 /* MovementsViewController.xib in Resources */,
+				0D268B3F2A84ABF800350785 /* MovementDetailViewController.xib in Resources */,
 				0DB967642A34FAA00079D432 /* MenuTabBarItem.xib in Resources */,
 				0DB967532A3401F50079D432 /* SuccessfulViewController.xib in Resources */,
 				0D2474192A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib in Resources */,
@@ -1439,6 +1461,7 @@
 				0DD5AFB62A78DED000EDCBA8 /* UpdatePasswordResponse.swift in Sources */,
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
+				0D268B3E2A84ABF800350785 /* MovementDetailViewController.swift in Sources */,
 				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,
 				0DE7BD912A82B37B0029015F /* RecoverPasswordViewController.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
@@ -1475,6 +1498,7 @@
 				0DFA7C932A6DA5280031178B /* CardObserver.swift in Sources */,
 				0DE7BD962A82CF3F0029015F /* NewPasswordResponse.swift in Sources */,
 				0DA061D92A496DF10096DCD1 /* Route.swift in Sources */,
+				0D268B3A2A84872500350785 /* MovementsViewController.swift in Sources */,
 				0D65EA1F2A6CF5F000819637 /* PrepaidCardLockRequest.swift in Sources */,
 				0D243F2C2A47FF6100399600 /* UserUseCase.swift in Sources */,
 				0DC882562A63AA2200DAD073 /* LoginRequest.swift in Sources */,

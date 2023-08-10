@@ -14,6 +14,8 @@ protocol HomeRouterDelegate: Router {
     func navigateToInputCurrentPin(success: @escaping PinActionHandler)
     func navigateToCardBlock(navTitle: String, success: @escaping VerificationActionHandler)
     func navigateToConfigureCard()
+    func navigateToMovements()
+    func navigateToMovementDetail(movement: MovementResponse)
     func successfulCardBlock()
     func successfulConfigureCard()
 }

@@ -73,11 +73,23 @@
                                             <constraint firstAttribute="trailing" secondItem="tTd-d3-PIl" secondAttribute="trailing" constant="18" id="nZ1-o0-Cuy"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-X7-z22">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idh-Tx-7M0">
                                         <rect key="frame" x="0.0" y="65" width="324" height="1"/>
-                                        <color key="backgroundColor" name="grey20"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-X7-z22">
+                                                <rect key="frame" x="18" y="0.0" width="288" height="1"/>
+                                                <color key="backgroundColor" name="grey20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="djF-vO-6O9"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="djF-vO-6O9"/>
+                                            <constraint firstItem="8eN-X7-z22" firstAttribute="top" secondItem="idh-Tx-7M0" secondAttribute="top" id="C9w-b6-VQa"/>
+                                            <constraint firstAttribute="trailing" secondItem="8eN-X7-z22" secondAttribute="trailing" constant="18" id="HLP-td-IFs"/>
+                                            <constraint firstAttribute="bottom" secondItem="8eN-X7-z22" secondAttribute="bottom" id="ecf-Wn-rB8"/>
+                                            <constraint firstItem="8eN-X7-z22" firstAttribute="leading" secondItem="idh-Tx-7M0" secondAttribute="leading" constant="18" id="w8M-a1-I0c"/>
                                         </constraints>
                                     </view>
                                 </subviews>

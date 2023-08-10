@@ -310,6 +310,21 @@ extension AppRouter: ProfileRouterDelegate {
 }
 
 extension AppRouter: HomeRouterDelegate {
+    func navigateToMovements() {
+        let movementRepository = MovementDataRepository()
+        let useCase = MovementUseCase(movementRepository: movementRepository)
+        let viewModel = MovementsViewModel(router: self, movementUseCase: useCase)
+        let movementsDelegateDataSource = MovementsDelegateDataSource(viewModel: viewModel)
+        let movementsViewController = MovementsViewController(viewModel: viewModel, movementsDelegateDataSource: movementsDelegateDataSource)
+        viewModel.delegate = movementsViewController
+        self.navigationController?.pushViewController(movementsViewController, animated: true)
+    }
+    
+    func navigateToMovementDetail(movement: MovementResponse) {
+        let view = MovementDetailViewController()
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
     func confirmCardLock(accept: VoidActionHandler?) {
         let view = CardLockModalViewController()
         view.accept = accept

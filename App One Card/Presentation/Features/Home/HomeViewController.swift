@@ -22,13 +22,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var btnCardActivation: PrimaryFilledButton!
     
     private var viewModel: HomeViewModelProtocol
-    private var movementsViewModel: MovementsViewModel
-    private var movementsDelegateDataSource: MovementsDelegateDataSource
     
-    init(viewModel: HomeViewModelProtocol, movementsViewModel: MovementsViewModel, movementsDelegateDataSource: MovementsDelegateDataSource) {
+    init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
-        self.movementsViewModel = movementsViewModel
-        self.movementsDelegateDataSource = movementsDelegateDataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,8 +37,8 @@ class HomeViewController: BaseViewController {
         viewCardNotActivated.isHidden = true
         
         tblMovements.register(UINib(nibName: "MovementTableViewCell", bundle: nil), forCellReuseIdentifier: "MovementTableViewCell")
-        tblMovements.delegate = movementsDelegateDataSource
-        tblMovements.dataSource = movementsDelegateDataSource
+        tblMovements.delegate = self
+        tblMovements.dataSource = self
         
         [viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
             view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
@@ -55,7 +51,7 @@ class HomeViewController: BaseViewController {
         }
         
         HomeObserver.shared.listenMovementsChanges = { movements in
-            self.movementsViewModel.items = movements
+            self.viewModel.items = movements
             self.tblMovements.reloadData()
         }
         
@@ -110,9 +106,31 @@ class HomeViewController: BaseViewController {
         viewModel.toChangePin()
     }
     
+    @IBAction func toMovements(_ sender: Any) {
+        viewModel.toMovements()
+    }
+    
     @IBAction func cardActivation(_ sender: Any) {
         print("Activa la tarjeta")
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate { }
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfItems()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovementTableViewCell", for: indexPath) as? MovementTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let movement = viewModel.items[indexPath.row]
+        cell.setData(movement: movement)
+        return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {}

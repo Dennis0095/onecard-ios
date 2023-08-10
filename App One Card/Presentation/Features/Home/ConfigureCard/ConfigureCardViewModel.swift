@@ -151,7 +151,6 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
         delegate?.showLoader()
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
-        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
         let cardActivationRequest = CardActivationRequest(trackingCode: trackingCode)
         let cardLockRequest = CardLockRequest(trackingCode: trackingCode, reason: "TM")

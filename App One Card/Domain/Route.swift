@@ -10,6 +10,7 @@ import Foundation
 enum Route {
     case login
     case consultMovements
+    case movementsHistory
     case balanceInquiry
     case existsUser
     case validateAffiliation
@@ -90,6 +91,8 @@ enum Route {
             return "/busqueda/txn-data/consulta-preguntas-frecuentes"
         case .recoverPassword:
             return "/txn-sec/creacion-nueva-clave"
+        case .movementsHistory:
+            return "/busqueda/txn-finan/consulta-movimientos-hist"
         case .without:
             return ""
         }

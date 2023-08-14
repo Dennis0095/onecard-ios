@@ -26,10 +26,10 @@ class MovementTableViewCell: UITableViewCell {
     
     func setData(movement: MovementResponse?) {
         if let m = movement {
-            lblDescription.text = m.transactionDescription ?? ""
-            lblDate.text = DateUtils.shared.parseDateToString(string: m.transactionDate ?? "", format: "yyyy-MM-dd", outputFormat: "d MMM")
-            let amount = m.amount?.parseAmountToCurrency(type: m.currency ?? "", sign: m.sign ?? "") ?? ""
-            lblAmount.textColor = m.sign == "D" ? #colorLiteral(red: 0.4235294118, green: 0.4352941176, blue: 0.4431372549, alpha: 1) : #colorLiteral(red: 0, green: 0.337254902, blue: 0.6235294118, alpha: 1)
+            lblDescription.text = m.trade ?? ""
+            lblDate.text = DateUtils.shared.parseDateToString(string: (m.date ?? "") + (m.hour ?? ""), format: "yyyyMMddHHmmss", outputFormat: "d MMM")
+            let amount = m.amount?.convertStringToDecimalAndFormat(sign: m.amountSign ?? "")
+            lblAmount.textColor = m.amountSign == "-" ? #colorLiteral(red: 0.4235294118, green: 0.4352941176, blue: 0.4431372549, alpha: 1) : #colorLiteral(red: 0, green: 0.337254902, blue: 0.6235294118, alpha: 1)
             lblAmount.text = amount
         }
     }

@@ -41,22 +41,18 @@ extension String {
         return maskedEmail
     }
     
-    func parseAmountToCurrency(type: String, sign: String) -> String {
-        var currencySymbol = ""
+    func convertStringToDecimalAndFormat(sign: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current // You can set the desired locale here
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
         
-        switch type {
-        case "840":
-            currencySymbol = "$\(sign == "D" ? " -" : " ")"
-        case "604":
-            currencySymbol = "S/\(sign == "D" ? " -" : " ")"
-        default: break
+        if let number = formatter.number(from: self) {
+            return "S/ \(sign == "-" ? "-" : "")" + (formatter.string(from: number) ?? self)
         }
         
-        var string = String(self.dropFirst(6))
-        let dotIndex = string.index(string.endIndex, offsetBy: -2)
-        string.insert(".", at: dotIndex)
-        
-        return currencySymbol + string
+        return "S/ \(sign == "-" ? "-" : "")" + self
     }
 }
 

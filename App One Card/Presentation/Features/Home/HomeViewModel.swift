@@ -124,8 +124,8 @@ class HomeViewModel: HomeViewModelProtocol {
                 self.delegate?.hideLoader {
                     if response.rc == "0" {
                         DispatchQueue.main.async {
-                            let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
-                            HomeObserver.shared.updateAmount(amount: balance)
+                            //let balance = response.amount?.parseAmountToCurrency(type: response.currency ?? "", sign: response.sign ?? "")
+                            //HomeObserver.shared.updateAmount(amount: balance)
                         }
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description) {

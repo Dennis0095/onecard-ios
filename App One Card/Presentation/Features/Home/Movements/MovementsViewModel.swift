@@ -10,6 +10,9 @@ import Combine
 
 protocol MovementsViewModelProtocol {
     var items: [MovementResponse] { get set }
+    var currentPage: Int { get set }
+    var isLoadingPage: Bool { get set }
+    var isLastPage: Bool { get set }
     var wasShownViewMovements: Bool { get set }
     
     func numberOfItems() -> Int
@@ -31,6 +34,10 @@ class MovementsViewModel: MovementsViewModelProtocol {
     var router: HomeRouterDelegate
     var delegate: MovementsViewModelDelegate?
     var wasShownViewMovements: Bool = false
+    var isLoadingPage: Bool = false
+    var currentPage: Int = 1
+    var pageSize: Int = 20
+    var isLastPage: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -62,13 +69,16 @@ class MovementsViewModel: MovementsViewModelProtocol {
     }
     
     func consultMovements() {
+        
+        guard !isLastPage else { return }
+        
         delegate?.showLoader()
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = ConsultMovementsRequest(trackingCode: trackingCode)
+        let request = MovementsHistoryRequest(trackingCode: trackingCode, pageSize: String(pageSize), page: String(currentPage))
         
-        let cancellable = movementUseCase.consult(request: request)
+        let cancellable = movementUseCase.paginate(request: request)
             .sink { publisher in
                 switch publisher {
                 case .finished: break
@@ -84,7 +94,15 @@ class MovementsViewModel: MovementsViewModelProtocol {
             } receiveValue: { response in
                 self.delegate?.hideLoader {
                     self.wasShownViewMovements = true
-                    self.items = response.clientMovements ?? []
+                    
+                    if self.pageSize < (Int(response.quantity ?? "0") ?? 0) {
+                        self.isLastPage = true
+                    } else {
+                        self.currentPage += 1
+                    }
+                    
+                    self.items += response.clientMovements ?? []
+                    //self.items = response.clientMovements ?? []
                     self.delegate?.successGetMovements()
                 }
             }

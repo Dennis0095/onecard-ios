@@ -124,6 +124,8 @@
 		0D6B91752A4B9E3E0045D149 /* ValidateAffiliationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */; };
 		0D6DA4F72A5E525F00AC6BB5 /* KeyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */; };
 		0D6DA4F92A5E526B00AC6BB5 /* CardDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6DA4F82A5E526B00AC6BB5 /* CardDataRepository.swift */; };
+		0D6E009F2A87DD3D006277C2 /* MovementsHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E009E2A87DD3D006277C2 /* MovementsHistoryResponse.swift */; };
+		0D6E00A12A87DD46006277C2 /* MovementsHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E00A02A87DD46006277C2 /* MovementsHistoryRequest.swift */; };
 		0D76F8412A586E5800A0D6EB /* PinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D76F8402A586E5800A0D6EB /* PinViewModel.swift */; };
 		0D7DCD1E2A723EB0006F9CA5 /* PromotionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD1D2A723EB0006F9CA5 /* PromotionUseCase.swift */; };
 		0D7DCD202A723F13006F9CA5 /* ConsultPromotionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7DCD1F2A723F13006F9CA5 /* ConsultPromotionsRequest.swift */; };
@@ -356,6 +358,8 @@
 		0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAffiliationResponse.swift; sourceTree = "<group>"; };
 		0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDataRepository.swift; sourceTree = "<group>"; };
 		0D6DA4F82A5E526B00AC6BB5 /* CardDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataRepository.swift; sourceTree = "<group>"; };
+		0D6E009E2A87DD3D006277C2 /* MovementsHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsHistoryResponse.swift; sourceTree = "<group>"; };
+		0D6E00A02A87DD46006277C2 /* MovementsHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementsHistoryRequest.swift; sourceTree = "<group>"; };
 		0D76F8402A586E5800A0D6EB /* PinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewModel.swift; sourceTree = "<group>"; };
 		0D7DCD1D2A723EB0006F9CA5 /* PromotionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionUseCase.swift; sourceTree = "<group>"; };
 		0D7DCD1F2A723F13006F9CA5 /* ConsultPromotionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultPromotionsRequest.swift; sourceTree = "<group>"; };
@@ -498,27 +502,28 @@
 				0D65EA182A6B036800819637 /* CardStatusResponse.swift */,
 				0D65EA282A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift */,
 				0DD692A92A528B97001D0BB9 /* ConsultMovementsResponse.swift */,
+				0D7DCD212A723F1F006F9CA5 /* ConsultPromotionsResponse.swift */,
 				0D0A60F22A7046A7005B447E /* ConsultUserDataResponse.swift */,
+				0DE7BDA02A8300190029015F /* ExistsUserResponse.swift */,
 				0DC882532A63A65C00DAD073 /* LoginResponse.swift */,
 				0DD692AD2A529180001D0BB9 /* MovementResponse.swift */,
+				0DE7BD952A82CF3F0029015F /* NewPasswordResponse.swift */,
+				0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */,
+				0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */,
 				0D8D9F6F2A5DDD2400E6C8C6 /* ReassignKeyResponse.swift */,
 				0D6B916B2A4B90120045D149 /* Request */,
 				0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */,
 				0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */,
-				0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */,
+				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
+				0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */,
+				0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */,
 				0D842E4E2A4FD6EF0059A906 /* UserRegisterResponse.swift */,
 				0D6B91742A4B9E3E0045D149 /* ValidateAffiliationResponse.swift */,
 				0D8D9F6D2A5DDD1800E6C8C6 /* ValidateKeyResponse.swift */,
 				0DDE79192A4FC3C400A52DEB /* ValidateOTPResponse.swift */,
-				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */,
-				0D0A61022A70F9D8005B447E /* UpdateUsernameResponse.swift */,
-				0D7DCD212A723F1F006F9CA5 /* ConsultPromotionsResponse.swift */,
-				0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */,
-				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
-				0DD5AFB52A78DED000EDCBA8 /* UpdatePasswordResponse.swift */,
 				0DE3A13B2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift */,
-				0DE7BD952A82CF3F0029015F /* NewPasswordResponse.swift */,
-				0DE7BDA02A8300190029015F /* ExistsUserResponse.swift */,
+				0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */,
+				0D6E009E2A87DD3D006277C2 /* MovementsHistoryResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -973,6 +978,7 @@
 				0DE7BD972A82CF4C0029015F /* NewPasswordRequest.swift */,
 				0DE3A13D2A799E4400A34E06 /* ReassignKeyRequest.swift */,
 				0DE7BD9E2A82FFAB0029015F /* ExistsUserRequest.swift */,
+				0D6E00A02A87DD46006277C2 /* MovementsHistoryRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1380,6 +1386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6E00A12A87DD46006277C2 /* MovementsHistoryRequest.swift in Sources */,
 				0DD692AE2A529180001D0BB9 /* MovementResponse.swift in Sources */,
 				0D8D9F782A5DE20900E6C8C6 /* CardUseCase.swift in Sources */,
 				0DE7BD942A82BED10029015F /* RecoverPasswordViewModel.swift in Sources */,
@@ -1510,6 +1517,7 @@
 				0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */,
 				0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
+				0D6E009F2A87DD3D006277C2 /* MovementsHistoryResponse.swift in Sources */,
 				0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */,
 				0DF183EB2A68D952004A0621 /* PromotionTableViewCell.swift in Sources */,
 				0DA061D72A495EF40096DCD1 /* UserDataRepository.swift in Sources */,

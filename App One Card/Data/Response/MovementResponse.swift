@@ -8,25 +8,25 @@
 import Foundation
 
 struct MovementResponse: Codable {
-    let processDate: String?
-    let transactionDate: String?
-    let transactionHour: String?
-    let currency: String?
+    let date: String?
+    let hour: String?
     let amount: String?
-    let sign: String?
-    let traceNumber: String?
-    let operationType: String?
-    let transactionDescription: String?
+    let amountSign: String?
+    let trade: String?
+    let tradeCategory: String?
+    let sequence: String?
+    let cost: String?
+    let type: String?
     
     enum CodingKeys: String, CodingKey {
-        case processDate = "FECHA_PROCESO"
-        case transactionDate = "FECHA_TRANSACCION"
-        case transactionHour = "HORA_TRANSACCION"
-        case currency = "MONEDA"
-        case amount = "MONTO_2"
-        case sign = "SIGNO"
-        case traceNumber = "NUMERO_TRACE"
-        case operationType = "TIPO_OPERACIÓN"
-        case transactionDescription = "DESCRIPCION_TRANSACCION"
+        case date = "FECHA"
+        case hour = "HORA"
+        case amount = "MONTO"
+        case amountSign = "SIGNO_MONTO"
+        case trade = "COMERCIO"
+        case tradeCategory = "CATEGORIA COMERCIO"
+        case sequence = "SECUENCIA"
+        case cost = "COSTO"
+        case type = "TIPO"
     }
 }

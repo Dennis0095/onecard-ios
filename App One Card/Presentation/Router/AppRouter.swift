@@ -321,7 +321,7 @@ extension AppRouter: HomeRouterDelegate {
     }
     
     func navigateToMovementDetail(movement: MovementResponse) {
-        let view = MovementDetailViewController()
+        let view = MovementDetailViewController(movement: movement)
         self.navigationController?.pushViewController(view, animated: true)
     }
     

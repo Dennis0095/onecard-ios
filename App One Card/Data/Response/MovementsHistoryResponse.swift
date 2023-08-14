@@ -1,13 +1,13 @@
 //
-//  ConsultMovementsResponse.swift
+//  MovementsHistoryResponse.swift
 //  App One Card
 //
-//  Created by Paolo Arambulo on 2/07/23.
+//  Created by Paolo Arambulo on 12/08/23.
 //
 
 import Foundation
 
-struct ConsultMovementsResponse: Codable {
+struct MovementsHistoryResponse: Codable {
     let rc: String?
     let rcDesc: String?
     let quantity: String?

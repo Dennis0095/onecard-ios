@@ -10,4 +10,5 @@ import Foundation
 protocol PreferencesRouterDelegate: Router {
     func navigateToProfile()
     func navigateToQuestions()
+    func confirmLogout(accept: VoidActionHandler?)
 }

@@ -11,7 +11,7 @@ protocol PreferencesViewModelProtocol {
     func toProfile()
     func toQuestions()
     func toContact(phoneNumber: String)
-    func logout()
+    func confirmLogout()
 }
 
 class PreferencesViewModel: PreferencesViewModelProtocol {
@@ -34,7 +34,9 @@ class PreferencesViewModel: PreferencesViewModelProtocol {
         }
     }
     
-    func logout() {
-        router?.logout()
+    func confirmLogout() {
+        router?.confirmLogout {
+            self.router?.logout()
+        }
     }
 }

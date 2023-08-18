@@ -28,7 +28,7 @@ protocol VerificationViewModelProtocol {
 
 protocol VerificationViewModelDelegate: LoaderDisplaying {
     func successSendOtp()
-    func failureSendOtp()
+    func failureSendOtp(error: APIError)
 }
 
 class VerificationViewModel: VerificationViewModelProtocol {
@@ -72,10 +72,12 @@ class VerificationViewModel: VerificationViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     if !self.wasShownViewVerification {
-                        self.delegate?.failureSendOtp()
+                        self.delegate?.failureSendOtp(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
@@ -103,10 +105,12 @@ class VerificationViewModel: VerificationViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     if !self.wasShownViewVerification {
-                        self.delegate?.failureSendOtp()
+                        self.delegate?.failureSendOtp(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
@@ -134,7 +138,9 @@ class VerificationViewModel: VerificationViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
@@ -170,7 +176,9 @@ class VerificationViewModel: VerificationViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }

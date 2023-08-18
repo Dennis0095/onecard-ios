@@ -68,7 +68,7 @@ extension PreferencesViewController: UITableViewDelegate {
         case 2:
             viewModel.toContact(phoneNumber: "016151111")
         case 3:
-            viewModel.logout()
+            viewModel.confirmLogout()
         default: break
         }
     }

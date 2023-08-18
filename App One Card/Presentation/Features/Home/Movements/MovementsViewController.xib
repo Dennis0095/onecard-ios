@@ -22,6 +22,9 @@
             <connections>
                 <outlet property="btnTryAgain" destination="gmY-Hm-YjD" id="Yla-vJ-UcN"/>
                 <outlet property="imgBack" destination="dor-Ax-5DP" id="Fz4-ri-pZj"/>
+                <outlet property="imgError" destination="4qq-6O-loD" id="QTD-SL-eTy"/>
+                <outlet property="lblMessageError" destination="in8-Ts-zjD" id="LZz-7y-LLd"/>
+                <outlet property="lblTitleError" destination="9GT-PH-vm7" id="lxU-Yh-VbY"/>
                 <outlet property="tblMovements" destination="amc-ou-TTE" id="wsl-o4-WP6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewError" destination="sza-fi-BG8" id="Q3Y-BW-EqH"/>

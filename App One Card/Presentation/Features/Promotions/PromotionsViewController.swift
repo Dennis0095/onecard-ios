@@ -13,6 +13,9 @@ class PromotionsViewController: BaseViewController {
     @IBOutlet weak var viewEmpty: UIView!
     @IBOutlet weak var viewPromotions: UIView!
     @IBOutlet weak var viewError: UIView!
+    @IBOutlet weak var imgError: UIImageView!
+    @IBOutlet weak var lblTitleError: UILabel!
+    @IBOutlet weak var lblMessageError: UILabel!
     @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
     
     private var viewModel: PromotionsViewModelProtocol
@@ -59,8 +62,11 @@ extension PromotionsViewController: PromotionsViewModelDelegate {
         }
     }
     
-    func failureShowPromotions() {
+    func failureShowPromotions(error: APIError) {
         DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblMessageError.text = error.error().description
+            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_blue.svg") : #imageLiteral(resourceName: "something_went_wrong_blue.svg")
             self.viewError.isHidden = false
             self.viewPromotions.isHidden = true
             self.viewEmpty.isHidden = true

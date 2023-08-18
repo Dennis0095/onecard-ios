@@ -108,39 +108,37 @@ class HomeViewModel: HomeViewModelProtocol {
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
         let request = BalanceInquiryRequest(trackingCode: trackingCode)
-  
+        
         let cancellable = balanceUseCase.inquiry(request: request)
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
-                    //self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    //}
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
                 //self.delegate?.hideLoader {
-                    if response.rc == "0" {
-                        DispatchQueue.main.async {
-                            let balance = response.amount?.convertStringToDecimalAndFormat(sign: response.sign ?? "")
-                            HomeObserver.shared.updateAmount(amount: balance)
-                        }
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description) {
-                            self.balanceInquiry()
-                        }
+                if response.rc == "0" {
+                    DispatchQueue.main.async {
+                        let balance = response.amount?.convertStringToDecimalAndFormat(sign: response.sign ?? "")
+                        HomeObserver.shared.updateAmount(amount: balance)
                     }
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        self.balanceInquiry()
+                    }
+                }
                 //}
             }
         
         cancellable.store(in: &cancellables)
     }
     
-    func consultMovements() {
-        //delegate?.showLoader()
-        
+    func consultMovements() {        
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
         let request = ConsultMovementsRequest(trackingCode: trackingCode)
@@ -149,15 +147,13 @@ class HomeViewModel: HomeViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
-                    //self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    //}
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
-                //self.delegate?.hideLoader {
                 HomeObserver.shared.updateMovements(movements: response.clientMovements)
-                //}
             }
         
         cancellable.store(in: &cancellables)

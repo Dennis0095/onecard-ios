@@ -23,6 +23,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionsViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="btnTryAgain" destination="eZy-vf-0oU" id="Lk8-av-zbD"/>
+                <outlet property="imgError" destination="Rlj-h1-CEb" id="UFy-qk-gkQ"/>
+                <outlet property="lblMessageError" destination="i8W-Hd-x29" id="TJc-L8-Rfm"/>
+                <outlet property="lblTitleError" destination="2fr-wY-x3A" id="BdN-eZ-I46"/>
                 <outlet property="tblPromotions" destination="kZz-9p-en2" id="mOr-Ma-LkU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewEmpty" destination="N66-fk-bYw" id="31Q-IU-V7H"/>
@@ -54,7 +57,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="188" height="694.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bwX-bL-KmC">
-                                                    <rect key="frame" x="20" y="216.00000000000003" width="148" height="262.66666666666674"/>
+                                                    <rect key="frame" x="20" y="217" width="148" height="261"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI2-3d-weP">
                                                             <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
@@ -77,19 +80,19 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Algo salió mal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fr-wY-x3A">
-                                                            <rect key="frame" x="0.0" y="156" width="148" height="17"/>
+                                                            <rect key="frame" x="0.0" y="156" width="148" height="16.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, inténtelo nuevamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8W-Hd-x29">
-                                                            <rect key="frame" x="0.0" y="181.00000000000006" width="148" height="33.666666666666657"/>
+                                                            <rect key="frame" x="0.0" y="180.33333333333331" width="148" height="32.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                                             <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZy-vf-0oU" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="222.66666666666669" width="148" height="40"/>
+                                                            <rect key="frame" x="0.0" y="221.00000000000006" width="148" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="dyG-6V-uTC"/>
                                                             </constraints>
@@ -144,7 +147,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="694.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-j8-BUQ">
-                                                    <rect key="frame" x="20" y="264.66666666666669" width="40" height="165.66666666666669"/>
+                                                    <rect key="frame" x="20" y="266.33333333333337" width="40" height="162.33333333333337"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sX-Tr-9EK">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -167,7 +170,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tiene promociones vigentes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0it-gx-Bkj">
-                                                            <rect key="frame" x="0.0" y="48.000000000000007" width="40" height="117.66666666666669"/>
+                                                            <rect key="frame" x="0.0" y="47.999999999999993" width="40" height="114.33333333333331"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                                             <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>

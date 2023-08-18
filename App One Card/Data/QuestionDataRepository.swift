@@ -8,7 +8,7 @@
 import Combine
 
 class QuestionDataRepository: QuestionRepository {
-    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, CustomError> {
+    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, APIError> {
         return APIClient.callAPI(route: .consultFrequentQuestions, method: .post, request: request)
     }
 }

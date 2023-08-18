@@ -8,6 +8,6 @@
 import Combine
 
 protocol KeyRepository {
-    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, CustomError>
-    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, CustomError>
+    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, APIError>
+    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, APIError>
 }

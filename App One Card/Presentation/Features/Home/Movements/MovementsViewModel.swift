@@ -25,7 +25,7 @@ protocol MovementsViewModelProtocol {
 
 protocol MovementsViewModelDelegate: LoaderDisplaying {
     func successGetMovements()
-    func failureGetMovements()
+    func failureGetMovements(error: APIError)
 }
 
 class MovementsViewModel: MovementsViewModelProtocol {
@@ -82,10 +82,12 @@ class MovementsViewModel: MovementsViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     if !self.wasShownViewMovements {
-                        self.delegate?.failureGetMovements()
+                        self.delegate?.failureGetMovements(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

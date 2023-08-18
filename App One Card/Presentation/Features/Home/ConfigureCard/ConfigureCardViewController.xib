@@ -22,6 +22,9 @@
                 <outlet property="btnSave" destination="lcb-wk-CtS" id="YYC-ta-yjE"/>
                 <outlet property="btnTryAgain" destination="3mn-rj-01v" id="1Wh-bZ-8cr"/>
                 <outlet property="imgBack" destination="lbb-2v-ief" id="onf-RW-xM5"/>
+                <outlet property="imgError" destination="bJO-gK-Xu2" id="D2b-cc-VFs"/>
+                <outlet property="lblDescriptionError" destination="1xK-UO-7Ct" id="Xfc-TT-Ruf"/>
+                <outlet property="lblTitleError" destination="iR6-Ga-FND" id="Vjp-2e-qKr"/>
                 <outlet property="tbConfigureCard" destination="Apf-E3-StK" id="LX8-98-dw8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewConfigure" destination="uWK-Lh-uN5" id="nPN-mH-0mp"/>
@@ -121,7 +124,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehu-vb-zd8">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="148"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unexpected_error" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-gK-Xu2">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="something_went_wrong_white" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-gK-Xu2">
                                                                     <rect key="frame" x="102.66666666666669" y="0.0" width="148" height="148"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="148" id="RJO-41-wok"/>
@@ -228,7 +231,7 @@
     </objects>
     <resources>
         <image name="arrow_left_white" width="25" height="25"/>
-        <image name="unexpected_error" width="149" height="149"/>
+        <image name="something_went_wrong_white" width="148" height="148"/>
         <namedColor name="blue_dark">
             <color red="0.0" green="0.33725490196078434" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

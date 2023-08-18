@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "something_went_wrong_blue.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

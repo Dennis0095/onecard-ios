@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appRouter: Router?
     var window: UIWindow?
     var count: Int = 0
+    private let endTime: Int = 300
+    private let questionTime: Int = 260
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -70,14 +72,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let self = self else { return }
             count += 1
             print(count)
-            if self.count == 260 {
+            if self.count == questionTime {
                 appRouter?.confirmInactivity(closeSession: {
                     self.invalidateTimer()
                     self.appRouter?.logout()
                 }, accept: {
                     self.resetTimer()
                 })
-            } else if self.count == 300 {
+            } else if self.count == endTime {
                 self.invalidateTimer()
                 appRouter?.logout()
             }
@@ -90,19 +92,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func resumeTimer() {
         invalidateTimer()
-        if count < 300 {
+        if count < endTime {
             countTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 guard let self = self else { return }
                 count += 1
                 print(count)
-                if self.count == 260 {
+                if self.count == questionTime {
                     appRouter?.confirmInactivity(closeSession: {
                         self.invalidateTimer()
                         self.appRouter?.logout()
                     }, accept: {
                         self.resetTimer()
                     })
-                } else if self.count == 300 {
+                } else if self.count == endTime {
                     self.invalidateTimer()
                     appRouter?.logout()
                 }

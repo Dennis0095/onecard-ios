@@ -8,11 +8,11 @@
 import Combine
 
 class KeyDataRepository: KeyRepository {
-    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, CustomError> {
+    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, APIError> {
         return APIClient.callAPI(route: .reassignKey, method: .post, request: request)
     }
     
-    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, CustomError> {
+    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, APIError> {
         return APIClient.callAPI(route: .validateKey, method: .post, request: request)
     }
 }

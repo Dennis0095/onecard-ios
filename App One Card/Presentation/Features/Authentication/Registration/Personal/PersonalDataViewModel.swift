@@ -65,7 +65,9 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):                    
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }

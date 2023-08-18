@@ -15,6 +15,9 @@ class ConfigureCardViewController: BaseViewController {
     @IBOutlet weak var viewConfigure: UIView!
     @IBOutlet weak var btnSave: PrimaryFilledButton!
     @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
+    @IBOutlet weak var imgError: UIImageView!
+    @IBOutlet weak var lblTitleError: UILabel!
+    @IBOutlet weak var lblDescriptionError: UILabel!
     
     private var viewModel: ConfigureCardViewModelProtocol
     private var configureCardDelegateDataSource: ConfigureCardDelegateDataSource
@@ -73,12 +76,19 @@ extension ConfigureCardViewController: ConfigureCardViewModelDelegate {
     }
     
     func successGetStatus() {
-        viewConfigure.isHidden = false
-        viewError.isHidden = true
+        DispatchQueue.main.async {
+            self.viewConfigure.isHidden = false
+            self.viewError.isHidden = true
+        }
     }
     
-    func failureGetStatus() {
-        viewError.isHidden = false
-        viewConfigure.isHidden = true
+    func failureGetStatus(error: APIError) {
+        DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblDescriptionError.text = error.error().description
+            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_white.svg") : #imageLiteral(resourceName: "something_went_wrong_white.svg")
+            self.viewError.isHidden = false
+            self.viewConfigure.isHidden = true
+        }
     }
 }

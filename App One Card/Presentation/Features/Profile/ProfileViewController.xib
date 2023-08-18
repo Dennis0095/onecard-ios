@@ -21,12 +21,15 @@
             <connections>
                 <outlet property="btnTryAgain" destination="JoJ-BY-cuE" id="brq-DH-fco"/>
                 <outlet property="imgBack" destination="NL0-u8-UsU" id="Lwh-NT-UjD"/>
+                <outlet property="imgError" destination="6ng-o3-L5g" id="1pk-qM-baB"/>
                 <outlet property="lblBirthday" destination="0i8-kZ-M9L" id="iH1-nJ-lIN"/>
                 <outlet property="lblCellphone" destination="cPX-OL-xUi" id="CG1-O6-1bn"/>
                 <outlet property="lblDocument" destination="TrD-im-G1h" id="088-k3-1EJ"/>
                 <outlet property="lblEmail" destination="yL1-Fd-Ur8" id="IIo-Sg-WtF"/>
+                <outlet property="lblMessageError" destination="Iz7-3V-zY5" id="qbF-Hn-omP"/>
                 <outlet property="lblName" destination="6c3-4f-7xX" id="756-vv-pw2"/>
                 <outlet property="lblRUC" destination="HtK-tV-GgT" id="htW-W0-yDK"/>
+                <outlet property="lblTitleError" destination="UT9-Yc-ESv" id="z0v-Pm-OYq"/>
                 <outlet property="lblUsername" destination="5PJ-kf-lCI" id="xoY-oR-pWR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewError" destination="bEP-eO-aF5" id="cvu-ce-YIV"/>

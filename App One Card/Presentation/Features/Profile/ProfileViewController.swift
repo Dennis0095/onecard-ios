@@ -19,6 +19,9 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblRUC: UILabel!
     @IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var imgError: UIImageView!
+    @IBOutlet weak var lblTitleError: UILabel!
+    @IBOutlet weak var lblMessageError: UILabel!
     @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
     
     private var viewModel: ProfileViewModelProtocol
@@ -101,8 +104,12 @@ extension ProfileViewController: ProfileViewModelDelegate {
         }
     }
     
-    func failureShowData() {
+    func failureShowData(error: APIError) {
         DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblMessageError.text = error.error().description
+            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_blue.svg") : #imageLiteral(resourceName: "something_went_wrong_blue.svg")
+            
             self.viewError.isHidden = false
             self.viewProfile.isHidden = true
         }

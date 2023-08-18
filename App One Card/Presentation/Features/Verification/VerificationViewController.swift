@@ -210,8 +210,12 @@ extension VerificationViewController: VerificationViewModelDelegate {
         }
     }
     
-    func failureSendOtp() {
+    func failureSendOtp(error: APIError) {
         DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblMessageError.text = error.error().description
+            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_blue.svg") : #imageLiteral(resourceName: "something_went_wrong_blue.svg")
+            
             self.viewError.isHidden = false
             self.viewVerification.isHidden = true
         }

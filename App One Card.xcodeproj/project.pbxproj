@@ -113,6 +113,8 @@
 		0D50B9A72A8FADC40009F624 /* QuestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50B9A62A8FADC40009F624 /* QuestionRepository.swift */; };
 		0D50B9A92A8FAE1C0009F624 /* QuestionDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */; };
 		0D50B9AB2A8FAED00009F624 /* FrequentQuestionsDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50B9AA2A8FAED00009F624 /* FrequentQuestionsDelegateDataSource.swift */; };
+		0D50B9AF2A8FD6B70009F624 /* LogoutModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D50B9AD2A8FD6B70009F624 /* LogoutModalViewController.swift */; };
+		0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D50B9AE2A8FD6B70009F624 /* LogoutModalViewController.xib */; };
 		0D65EA152A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA142A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift */; };
 		0D65EA172A6B032000819637 /* CardStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA162A6B032000819637 /* CardStatusRequest.swift */; };
 		0D65EA192A6B036800819637 /* CardStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65EA182A6B036800819637 /* CardStatusResponse.swift */; };
@@ -356,6 +358,8 @@
 		0D50B9A62A8FADC40009F624 /* QuestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRepository.swift; sourceTree = "<group>"; };
 		0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDataRepository.swift; sourceTree = "<group>"; };
 		0D50B9AA2A8FAED00009F624 /* FrequentQuestionsDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentQuestionsDelegateDataSource.swift; sourceTree = "<group>"; };
+		0D50B9AD2A8FD6B70009F624 /* LogoutModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModalViewController.swift; sourceTree = "<group>"; };
+		0D50B9AE2A8FD6B70009F624 /* LogoutModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutModalViewController.xib; sourceTree = "<group>"; };
 		0D65EA142A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCardDelegateDataSource.swift; sourceTree = "<group>"; };
 		0D65EA162A6B032000819637 /* CardStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStatusRequest.swift; sourceTree = "<group>"; };
 		0D65EA182A6B036800819637 /* CardStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStatusResponse.swift; sourceTree = "<group>"; };
@@ -974,6 +978,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0D50B9AC2A8FD4B90009F624 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				0D50B9AD2A8FD6B70009F624 /* LogoutModalViewController.swift */,
+				0D50B9AE2A8FD6B70009F624 /* LogoutModalViewController.xib */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		0D6B916B2A4B90120045D149 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,6 +1118,7 @@
 		0DB9676C2A353A210079D432 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				0D50B9AC2A8FD4B90009F624 /* Modal */,
 				0D2474102A467B5B0075E147 /* Frequent Questions */,
 				0D904CBE2A364402007D37D3 /* Cell */,
 				0DB9676D2A353A340079D432 /* PreferencesViewController.swift */,
@@ -1381,6 +1395,7 @@
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
+				0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */,
 				0DD692A62A524E16001D0BB9 /* MovementTableViewCell.xib in Resources */,
@@ -1422,6 +1437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D50B9AF2A8FD6B70009F624 /* LogoutModalViewController.swift in Sources */,
 				0D6E00A12A87DD46006277C2 /* MovementsHistoryRequest.swift in Sources */,
 				0DD692AE2A529180001D0BB9 /* MovementResponse.swift in Sources */,
 				0D8D9F782A5DE20900E6C8C6 /* CardUseCase.swift in Sources */,

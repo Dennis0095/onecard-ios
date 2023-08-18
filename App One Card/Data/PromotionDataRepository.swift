@@ -8,7 +8,7 @@
 import Combine
 
 class PromotionDataRepository: PromotionRepository {
-    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, CustomError> {
+    func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, APIError> {
         return APIClient.callAPI(route: .consultPromotions, method: .post, request: request)
     }
 }

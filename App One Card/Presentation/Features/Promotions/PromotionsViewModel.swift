@@ -21,7 +21,7 @@ protocol PromotionsViewModelProtocol {
 
 protocol PromotionsViewModelDelegate: LoaderDisplaying {
     func showPromotions()
-    func failureShowPromotions()
+    func failureShowPromotions(error: APIError)
 }
 
 class PromotionsViewModel: PromotionsViewModelProtocol {
@@ -63,10 +63,12 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     if !self.wasShownViewPromotions {
-                        self.delegate?.failureShowPromotions()
+                        self.delegate?.failureShowPromotions(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

@@ -56,20 +56,20 @@ class LoginViewModel: LoginViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
-                        //self.delegate?.hideLoader {
-                            self.delegate?.hideLoader()
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        //}
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
+                        self.delegate?.hideLoader()
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
                     //self.delegate?.hideLoader {
-                        self.delegate?.hideLoader()
-                        if response.success == "1" {
-                            self.getStatusCard(token: response.token ?? "")
-                        } else {
-                            self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if response.success == "1" {
+                        self.getStatusCard(token: response.token ?? "")
+                    } else {
+                        self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
+                    }
                     //}
                 }
             cancellable.store(in: &cancellables)
@@ -85,31 +85,31 @@ class LoginViewModel: LoginViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
-                    //self.delegate?.hideLoader {
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    //}
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
                 //self.delegate?.hideLoader {
                 self.delegate?.hideLoader()
-                    if response.rc == "0" {
-                        let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
-                        UserSessionManager.shared.saveToken(token: token)
-                        UserSessionManager.shared.saveUser(user: decodeUser)
-                        CardSessionManager.shared.saveStatus(status: response.status)
-                        
-                        if response.status == "P" {
-                            self.router.navigateToActivateUser()
-                        } else {
-                            self.router.navigateToHome()
-                        }
+                if response.rc == "0" {
+                    let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
+                    UserSessionManager.shared.saveToken(token: token)
+                    UserSessionManager.shared.saveUser(user: decodeUser)
+                    CardSessionManager.shared.saveStatus(status: response.status)
+                    
+                    if response.status == "P" {
+                        self.router.navigateToActivateUser()
                     } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.router.navigateToHome()
                     }
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
                 //}
             }
         cancellable.store(in: &cancellables)

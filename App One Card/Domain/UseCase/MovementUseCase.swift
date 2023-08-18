@@ -8,8 +8,8 @@
 import Combine
 
 protocol MovementUseCaseProtocol {
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError>
-    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, CustomError>
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, APIError>
+    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, APIError>
 }
 
 class MovementUseCase: MovementUseCaseProtocol {
@@ -19,11 +19,11 @@ class MovementUseCase: MovementUseCaseProtocol {
         self.movementRepository = movementRepository
     }
     
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError> {
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, APIError> {
         return movementRepository.consult(request: request)
     }
     
-    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, CustomError> {
+    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, APIError> {
         return movementRepository.paginate(request: request)
     }
 }

@@ -20,7 +20,7 @@ protocol ProfileViewModelProtocol {
 
 protocol ProfileViewModelDelegate: LoaderDisplaying {
     func showData(user: ConsultUserDataResponse)
-    func failureShowData()
+    func failureShowData(error: APIError)
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
@@ -51,10 +51,12 @@ class ProfileViewModel: ProfileViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
                     if !self.wasShownViewProfile {
-                        self.delegate?.failureShowData()
+                        self.delegate?.failureShowData(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

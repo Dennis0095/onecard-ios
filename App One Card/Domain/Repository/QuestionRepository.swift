@@ -8,5 +8,5 @@
 import Combine
 
 protocol QuestionRepository {
-    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, CustomError>
+    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, APIError>
 }

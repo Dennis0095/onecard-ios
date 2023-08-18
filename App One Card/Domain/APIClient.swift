@@ -49,12 +49,12 @@ enum Method: String {
 protocol BaseRequest: Codable { }
 
 class APIClient {
-    static func callAPI<T: Decodable>(baseUrl: String? = nil, route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil) -> AnyPublisher<T, CustomError> {
+    static func callAPI<T: Decodable>(baseUrl: String? = nil, route: Route, method: Method, parameters: [String : Any]? = nil, request: BaseRequest? = nil) -> AnyPublisher<T, APIError> {
         if APIClient.isInternetAvailable() {
             let urlString = (baseUrl != nil ? baseUrl! : Environment().configuration(.baseUrl)) + route.description
             
             guard let url = urlString.asUrl else {
-                return Fail(error: APIError.invalidURL.error()).eraseToAnyPublisher()
+                return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
             }
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -95,15 +95,15 @@ class APIClient {
                 }
                 .decode(type: T.self, decoder: JSONDecoder())
                 .subscribe(on: RunLoop.main)
-                .mapError { error -> CustomError in
+                .mapError { error -> APIError in
                     if let apiError = error as? APIError {
-                        return apiError.error()
+                        return apiError
                     } else {
-                        return APIError.decodingError.error()
+                        return APIError.decodingError
                     }
                 }.eraseToAnyPublisher()
         } else {
-            return Fail(error: APIError.networkError.error()).eraseToAnyPublisher()
+            return Fail(error: APIError.networkError).eraseToAnyPublisher()
         }
     }
     

@@ -8,11 +8,11 @@
 import Combine
 
 class MovementDataRepository: MovementRepository {
-    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, CustomError> {
+    func paginate(request: MovementsHistoryRequest) -> AnyPublisher<MovementsHistoryResponse, APIError> {
         return APIClient.callAPI(route: .movementsHistory, method: .post, request: request)
     }
     
-    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, CustomError> {
+    func consult(request: ConsultMovementsRequest) -> AnyPublisher<ConsultMovementsResponse, APIError> {
         return APIClient.callAPI(route: .consultMovements, method: .post, request: request)
     }
 }

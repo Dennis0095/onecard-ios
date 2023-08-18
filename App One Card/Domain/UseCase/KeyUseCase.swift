@@ -8,8 +8,8 @@
 import Combine
 
 protocol KeyUseCaseProtocol {
-    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, CustomError>
-    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, CustomError>
+    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, APIError>
+    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, APIError>
 }
 
 class KeyUseCase: KeyUseCaseProtocol {
@@ -20,11 +20,11 @@ class KeyUseCase: KeyUseCaseProtocol {
         self.keyRepository = keyRepository
     }
     
-    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, CustomError> {
+    func validate(request: ValidateKeyRequest) -> AnyPublisher<ValidateKeyResponse, APIError> {
         return keyRepository.validate(request: request)
     }
     
-    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, CustomError> {
+    func reassign(request: ReassignKeyRequest) -> AnyPublisher<ReassignKeyResponse, APIError> {
         return keyRepository.reassign(request: request)
     }
 }

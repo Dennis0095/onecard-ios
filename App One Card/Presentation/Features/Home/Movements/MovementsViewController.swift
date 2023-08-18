@@ -13,6 +13,9 @@ class MovementsViewController: BaseViewController {
     @IBOutlet weak var viewError: UIView!
     @IBOutlet weak var viewMovements: UIView!
     @IBOutlet weak var tblMovements: UITableView!
+    @IBOutlet weak var imgError: UIImageView!
+    @IBOutlet weak var lblTitleError: UILabel!
+    @IBOutlet weak var lblMessageError: UILabel!
     @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
     
     private var viewModel: MovementsViewModelProtocol
@@ -63,15 +66,21 @@ extension MovementsViewController: MovementsViewModelDelegate {
     func successGetMovements() {
         DispatchQueue.main.async {
             self.tblMovements.reloadData()
+            
+            self.viewMovements.isHidden = false
+            self.viewError.isHidden = true
         }
-        
-        viewMovements.isHidden = false
-        viewError.isHidden = true
     }
     
-    func failureGetMovements() {
-        viewError.isHidden = false
-        viewMovements.isHidden = true
+    func failureGetMovements(error: APIError) {
+        DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblMessageError.text = error.error().description
+            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_white.svg") : #imageLiteral(resourceName: "something_went_wrong_white.svg")
+            
+            self.viewError.isHidden = false
+            self.viewMovements.isHidden = true
+        }
     }
     
 }

@@ -8,16 +8,16 @@
 import Combine
 
 protocol UserUseCaseProtocol {
-    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, CustomError>
-    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, CustomError>
-    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, CustomError>
-    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, CustomError>
-    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, CustomError>
-    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError>
-    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError>
-    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError>
-    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError>
-    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError>
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, APIError>
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, APIError>
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, APIError>
+    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, APIError>
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, APIError>
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, APIError>
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, APIError>
+    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, APIError>
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, APIError>
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, APIError>
 }
 
 class UserUseCase: UserUseCaseProtocol {
@@ -27,43 +27,43 @@ class UserUseCase: UserUseCaseProtocol {
         self.userRepository = userRepository
     }
     
-    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, CustomError> {
+    func login(request: LoginRequest) -> AnyPublisher<LoginResponse, APIError> {
         return userRepository.login(request: request)
     }
     
-    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, CustomError> {
+    func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, APIError> {
         return userRepository.userRegister(request: request)
     }
     
-    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, CustomError> {
+    func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, APIError> {
         return userRepository.validatePersonalData(request: request)
     }
     
-    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, CustomError> {
+    func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, APIError> {
         return userRepository.validateAffiliation(request: request)
     }
     
-    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, CustomError> {
+    func data(request: ConsultUserDataRequest) -> AnyPublisher<ConsultUserDataResponse, APIError> {
         return userRepository.data(request: request)
     }
     
-    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, CustomError> {
+    func updateUsername(request: UpdateUsernameRequest) -> AnyPublisher<UpdateUsernameResponse, APIError> {
         return userRepository.updateUsername(request: request)
     }
     
-    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, CustomError> {
+    func updateEmail(request: UpdateEmailRequest) -> AnyPublisher<UpdateEmailResponse, APIError> {
         return userRepository.updateEmail(request: request)
     }
     
-    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, CustomError> {
+    func updatePassword(request: UpdatePasswordRequest) -> AnyPublisher<UpdatePasswordResponse, APIError> {
         return userRepository.updatePassword(request: request)
     }
     
-    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, CustomError> {
+    func existsUser(request: ExistsUserRequest) -> AnyPublisher<ExistsUserResponse, APIError> {
         return userRepository.existsUser(request: request)
     }
     
-    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, CustomError> {
+    func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, APIError> {
         return userRepository.createNewPassword(request: request)
     }
 }

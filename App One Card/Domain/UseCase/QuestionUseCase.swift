@@ -8,7 +8,7 @@
 import Combine
 
 protocol QuestionUseCaseProtocol {
-    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, CustomError>
+    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, APIError>
 }
 
 class QuestionUseCase: QuestionUseCaseProtocol {
@@ -19,7 +19,7 @@ class QuestionUseCase: QuestionUseCaseProtocol {
         self.questionRepository = questionRepository
     }
     
-    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, CustomError> {
+    func consult(request: ConsultFrequentQuestionsRequest) -> AnyPublisher<ConsultFrequentQuestionsResponse, APIError> {
         return questionRepository.consult(request: request)
     }
 }

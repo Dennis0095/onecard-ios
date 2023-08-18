@@ -37,7 +37,7 @@ struct ConfigureResponse {
 protocol ConfigureCardViewModelDelegate: LoaderDisplaying {
     func changeStatus()
     func successGetStatus()
-    func failureGetStatus()
+    func failureGetStatus(error: APIError)
 }
 
 class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
@@ -112,16 +112,19 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
             .sink { publisher in
                 switch publisher {
                 case .finished: break
-                case .failure(let error):
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
                     self.delegate?.hideLoader()
-                        if !self.wasShownViewConfigureCard {
-                            self.delegate?.failureGetStatus()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    if !self.wasShownViewConfigureCard {
+                        self.delegate?.failureGetStatus(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
             } receiveValue: { response in
-                let error = APIError.defaultError.error()
+                let apiError = APIError.defaultError
+                let error = apiError.error()
                 self.cardStatus = response.0
                 self.onlineShoppingStatus = response.1
                 
@@ -136,7 +139,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     self.delegate?.successGetStatus()
                 } else {
                     if !self.wasShownViewConfigureCard {
-                        self.delegate?.failureGetStatus()
+                        self.delegate?.failureGetStatus(error: apiError)
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
@@ -160,21 +163,23 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
                         self.delegate?.hideLoader()
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
                     
                     self.delegate?.hideLoader()
-                        if response.rc == "0" {
-                            self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
-                                self.router.successfulConfigureCard()
-                            })
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    if response.rc == "0" {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                            self.router.successfulConfigureCard()
+                        })
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
             cancellable.store(in: &cancellables)
         case .cardLock:
@@ -182,21 +187,23 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
                         self.delegate?.hideLoader()
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
                     
                     self.delegate?.hideLoader()
-                        if response.rc == "0" {
-                            self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
-                                self.router.successfulConfigureCard()
-                            })
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    if response.rc == "0" {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                            self.router.successfulConfigureCard()
+                        })
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
             cancellable.store(in: &cancellables)
         case .onlineShopping:
@@ -204,21 +211,23 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
                         self.delegate?.hideLoader()
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
                     
                     self.delegate?.hideLoader()
-                        if response.rc == "0" {
-                            self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
-                                self.router.successfulConfigureCard()
-                            })
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    if response.rc == "0" {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                            self.router.successfulConfigureCard()
+                        })
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
             cancellable.store(in: &cancellables)
         case .bothCard:
@@ -229,21 +238,23 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
                         self.delegate?.hideLoader()
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
                     
                     self.delegate?.hideLoader()
-                        if response.0.rc == "0" && response.1.rc == "0" {
-                            self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
-                                self.router.successfulConfigureCard()
-                            })
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    if response.0.rc == "0" && response.1.rc == "0" {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                            self.router.successfulConfigureCard()
+                        })
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
                 }
             cancellable.store(in: &cancellables)
         case .bothOnlineShopping:
@@ -254,7 +265,9 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 .sink { publisher in
                     switch publisher {
                     case .finished: break
-                    case .failure(let error):
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        
                         self.delegate?.hideLoader()
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }

@@ -8,27 +8,27 @@
 import Combine
 
 class CardDataRepository: CardRepository {
-    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, CustomError> {
+    func activation(request: CardActivationRequest) -> AnyPublisher<CardActivationResponse, APIError> {
         return APIClient.callAPI(route: .cardActivation, method: .post, request: request)
     }
     
-    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, CustomError> {
+    func status(request: CardStatusRequest) -> AnyPublisher<CardStatusResponse, APIError> {
         return APIClient.callAPI(route: .cardStatus, method: .post, request: request)
     }
     
-    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, CustomError> {
+    func onlineShoppingStatus(request: CardOnlineShoppingStatusRequest) -> AnyPublisher<CardOnlineShoppingStatusResponse, APIError> {
         return APIClient.callAPI(route: .cardOnlineShoppingStatus, method: .post, request: request)
     }
     
-    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, CustomError> {
+    func prepaidCardLock(request: PrepaidCardLockRequest) -> AnyPublisher<PrepaidCardLockResponse, APIError> {
         return APIClient.callAPI(route: .prepaidCardLock, method: .post, request: request)
     }
     
-    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, CustomError> {
+    func changeCardOnlineShoppingStatus(request: ChangeCardOnlineShoppingStatusRequest) -> AnyPublisher<ChangeCardOnlineShoppingStatusResponse, APIError> {
         return APIClient.callAPI(route: .changeCardOnlineShoppingStatus, method: .post, request: request)
     }
     
-    func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, CustomError> {
+    func lock(request: CardLockRequest) -> AnyPublisher<CardLockResponse, APIError> {
         return APIClient.callAPI(route: .cardLock, method: .post, request: request)
     }
 }

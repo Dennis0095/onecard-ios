@@ -35,6 +35,10 @@ class CardObserver: CardObserverProtocol {
         self.status = status
     }
     
+    func getStatus() -> String? {
+        return self.status
+    }
+    
     func bindPublishers() {
         statusPublisher
             .receive(on: DispatchQueue.main)

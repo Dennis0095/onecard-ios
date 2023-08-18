@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeActivateViewController: UIViewController {
+class WelcomeActivateViewController: BaseViewController {
 
     @IBOutlet weak var btnActivate: PrimaryFilledButton!
     @IBOutlet weak var btnLater: PrimaryOutlineButton!
@@ -23,9 +23,7 @@ class WelcomeActivateViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func initView() {
         setupView()
     }
 

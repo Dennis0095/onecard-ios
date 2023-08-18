@@ -85,31 +85,23 @@ class APIClient {
             }
             
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
-                .subscribe(on: DispatchQueue.main)
                 .tryMap { (data, response) -> Data in
                     guard let httpResponse = response as? HTTPURLResponse,
                           200..<300 ~= httpResponse.statusCode else {
                         throw APIError.invalidResponse
                     }
                     
-                    print(httpResponse.url?.absoluteString ?? "")
-                    print("Status Code: \(httpResponse.statusCode)")
-                    print("Headers: \(httpResponse.allHeaderFields)")
-                    if let responseString = String(data: data, encoding: .utf8) {
-                        print("Response: \(responseString)")
-                    }
-                    
                     return data
                 }
                 .decode(type: T.self, decoder: JSONDecoder())
+                .subscribe(on: RunLoop.main)
                 .mapError { error -> CustomError in
                     if let apiError = error as? APIError {
                         return apiError.error()
                     } else {
                         return APIError.decodingError.error()
                     }
-                }
-                .eraseToAnyPublisher()
+                }.eraseToAnyPublisher()
         } else {
             return Fail(error: APIError.networkError.error()).eraseToAnyPublisher()
         }

@@ -52,8 +52,12 @@ class HomeViewController: BaseViewController {
         
         HomeObserver.shared.listenMovementsChanges = { movements in
             self.viewModel.items = movements
-            self.tblMovements.reloadData()
+            DispatchQueue.main.async {
+                self.tblMovements.reloadData()
+            }
         }
+        
+        self.lblName.text = "BIENVENIDO \(UserObserver.shared.getUser()?.name ?? "")"
         
         UserObserver.shared.listenChanges = { user in
             self.lblName.text = "BIENVENIDO \(user.name ?? "")"
@@ -72,12 +76,25 @@ class HomeViewController: BaseViewController {
                 
                 self.viewMovements.isHidden = false
                 self.viewCardNotActivated.isHidden = true
-                
-                self.viewModel.consultMovements()
             }
         }
         
         viewModel.balanceInquiry()
+        
+        if CardObserver.shared.getStatus() == "P" {
+            self.stkOptions.isUserInteractionEnabled = false
+            self.stkOptions.alpha = 0.5
+            
+            self.viewMovements.isHidden = true
+            self.viewCardNotActivated.isHidden = false
+        } else {
+            self.stkOptions.isUserInteractionEnabled = true
+            self.stkOptions.alpha = 1
+            
+            self.viewMovements.isHidden = false
+            self.viewCardNotActivated.isHidden = true
+            self.viewModel.consultMovements()
+        }
     }
 
     override func setActions() {

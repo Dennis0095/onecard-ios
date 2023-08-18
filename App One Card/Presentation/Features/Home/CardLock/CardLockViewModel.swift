@@ -61,31 +61,26 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewCardLock {
-                            self.delegate?.failureSendOtp()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewCardLock {
+                        self.delegate?.failureSendOtp()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 self.wasShownViewCardLock = true
-                self.delegate?.hideLoader {
-                    self.number = response.truncatedCellphone
-                    self.email = response.truncatedEmail
-                    self.otpId = response.otpId
-                    self.delegate?.successSendOtp()
-                }
+                self.delegate?.hideLoader()
+                self.number = response.truncatedCellphone
+                self.email = response.truncatedEmail
+                self.otpId = response.otpId
+                self.delegate?.successSendOtp()
             }
         
         cancellable.store(in: &cancellables)
     }
 
-    func lock() {
-        print(otpId)
-        print(code)
-        
+    func lock() {        
         guard let otp = self.otpId, let code = self.code else {
             return
         }
@@ -102,21 +97,19 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
-                self.delegate?.hideLoader {
-                    if response.otpMatchIndex == "1" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", accept: {
-                            self.router.backToHome()
-                        })
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                self.delegate?.hideLoader()
+                if response.otpMatchIndex == "1" {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", accept: {
+                        self.router.backToHome()
+                    })
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         cancellable.store(in: &cancellables)

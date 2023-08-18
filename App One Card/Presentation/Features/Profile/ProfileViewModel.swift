@@ -52,20 +52,18 @@ class ProfileViewModel: ProfileViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewProfile {
-                            self.delegate?.failureShowData()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewProfile {
+                        self.delegate?.failureShowData()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 self.wasShownViewProfile = true
-                self.delegate?.hideLoader {
-                    self.userResponse = response
-                    self.delegate?.showData(user: response)
-                }
+                self.delegate?.hideLoader()
+                self.userResponse = response
+                self.delegate?.showData(user: response)
             }
         cancellable.store(in: &cancellables)
 

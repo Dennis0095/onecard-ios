@@ -72,22 +72,20 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.success == "1" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn) {
-                            self.router.navigateToLogin()
-                        }
-                    } else {
-                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                self.delegate?.hideLoader()
+                if response.success == "1" {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn) {
+                        self.router.navigateToLogin()
                     }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         

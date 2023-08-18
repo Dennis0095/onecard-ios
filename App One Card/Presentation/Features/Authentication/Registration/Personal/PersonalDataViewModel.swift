@@ -66,27 +66,25 @@ class PersonalDataViewModel: PersonalDataViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):                    
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.validExpiration == "1" {
-                        if response.exists == "1" {
-                            self.delegate?.showError(title: title, description: description, onAccept: nil)
-                        } else {
-                            self.verificationRouter.navigateToVerification(email: email, number: cellphone, documentType: self.documentType, documentNumber: self.documentNumber, companyRUC: self.companyRUC, navTitle: "Registro de usuario digital", stepDescription: "Paso 3 de 4", operationType: "RU", maskPhoneEmail: false) { [weak self] otpId in
-                                self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
-                            }
-                        }
+                self.delegate?.hideLoader()
+                if response.validExpiration == "1" {
+                    if response.exists == "1" {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
                     } else {
-                        self.delegate?.showError(title: title, description: description) {
-                            self.router.timeExpiredRegister()
+                        self.verificationRouter.navigateToVerification(email: email, number: cellphone, documentType: self.documentType, documentNumber: self.documentNumber, companyRUC: self.companyRUC, navTitle: "Registro de usuario digital", stepDescription: "Paso 3 de 4", operationType: "RU", maskPhoneEmail: false) { [weak self] otpId in
+                            self?.router.navigateToLoginInformation(otpId: otpId, documentType: self?.documentType ?? "", documentNumber: self?.documentNumber ?? "", companyRUC: self?.companyRUC ?? "")
                         }
+                    }
+                } else {
+                    self.delegate?.showError(title: title, description: description) {
+                        self.router.timeExpiredRegister()
                     }
                 }
             }

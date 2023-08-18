@@ -72,12 +72,4 @@ class LoginViewController: BaseViewController {
     
 }
 
-extension LoginViewController: LoginViewModelDelegate {
-    func successLogin() {
-        viewModel.toHome()
-    }
-    
-    func toActivateUser() {
-        viewModel.toActivateUser()
-    }
-}
+extension LoginViewController: LoginViewModelDelegate { }

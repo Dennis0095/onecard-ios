@@ -13,17 +13,12 @@ protocol LoginViewModelProtocol {
     var delegate: LoginViewModelDelegate? { get set }
     
     func toRegister()
-    func toHome()
-    func toActivateUser()
     func toForgotPassword()
     func login()
     func getStatusCard(token: String)
 }
 
-protocol LoginViewModelDelegate: LoaderDisplaying {
-    func successLogin()
-    func toActivateUser()
-}
+protocol LoginViewModelDelegate: LoaderDisplaying {}
 
 class LoginViewModel: LoginViewModelProtocol {
     var delegate: LoginViewModelDelegate?
@@ -50,18 +45,11 @@ class LoginViewModel: LoginViewModelProtocol {
         router.navigateToRegister()
     }
     
-    func toHome() {
-        router.navigateToHome()
-    }
-    
-    func toActivateUser() {
-        router.navigateToActivateUser()
-    }
-    
     func login() {
         if self.username.isEmpty || self.password.isEmpty {
             delegate?.showError(title: Constants.error, description: Constants.login_error_incomplete_data, onAccept: nil)
         } else {
+            print(delegate)
             delegate?.showLoader()
             let request = LoginRequest(user: username, password: password)
             let cancellable = userUseCase.login(request: request)
@@ -69,18 +57,20 @@ class LoginViewModel: LoginViewModelProtocol {
                     switch publisher {
                     case .finished: break
                     case .failure(let error):
-                        self.delegate?.hideLoader {
+                        //self.delegate?.hideLoader {
+                            self.delegate?.hideLoader()
                             self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                        //}
                     }
                 } receiveValue: { response in
-                    self.delegate?.hideLoader {
+                    //self.delegate?.hideLoader {
+                        self.delegate?.hideLoader()
                         if response.success == "1" {
                             self.getStatusCard(token: response.token ?? "")
                         } else {
                             self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
                         }
-                    }
+                    //}
                 }
             cancellable.store(in: &cancellables)
         }
@@ -96,14 +86,16 @@ class LoginViewModel: LoginViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
+                    //self.delegate?.hideLoader {
+                    self.delegate?.hideLoader()
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    //}
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
-                self.delegate?.hideLoader {
+                //self.delegate?.hideLoader {
+                self.delegate?.hideLoader()
                     if response.rc == "0" {
                         let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
                         UserSessionManager.shared.saveToken(token: token)
@@ -111,14 +103,14 @@ class LoginViewModel: LoginViewModelProtocol {
                         CardSessionManager.shared.saveStatus(status: response.status)
                         
                         if response.status == "P" {
-                            self.delegate?.toActivateUser()
+                            self.router.navigateToActivateUser()
                         } else {
-                            self.delegate?.successLogin()
+                            self.router.navigateToHome()
                         }
                     } else {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
-                }
+                //}
             }
         cancellable.store(in: &cancellables)
     }

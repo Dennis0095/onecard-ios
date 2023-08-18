@@ -11,12 +11,13 @@ import UIKit
 protocol Router {
     func start()
     func backToHome()
-    //func showMessageError(title: String, description: String, completion: VoidActionHandler?)
+    func logout()
+    func confirmInactivity(closeSession: VoidActionHandler?, accept: VoidActionHandler?)
 }
 
 class AppRouter: Router {
     private let window: UIWindow
-    var navigationController: UINavigationController?
+    //var navigationController: UINavigationController?
     
     init(window: UIWindow) {
         self.window = window
@@ -30,9 +31,39 @@ class AppRouter: Router {
     }
     
     func backToHome() {
-        navigationController?.popToRootViewController(animated: true)
+        //navigationController?.popToRootViewController(animated: true)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
+    func logout() {
+        DispatchQueue.main.async {
+            let userRepository = UserDataRepository()
+            let userUseCase = UserUseCase(userRepository: userRepository)
+            let cardRepository = CardDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+            let loginViewController = LoginViewController(viewModel: viewModel)
+            viewModel.delegate = loginViewController
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            navigationController.setNavigationBarHidden(true, animated: true)
+            UserSessionManager.shared.clearSession()
+            (UIApplication.shared.delegate as! AppDelegate).invalidateTimer()
+            self.window.switchRootViewController(to: navigationController)
+        }
+    }
+    
+    func confirmInactivity(closeSession: VoidActionHandler?, accept: VoidActionHandler?) {
+        let view = InactivityModalViewController()
+        view.closeSession = closeSession
+        view.accept = accept
+        view.modalPresentationStyle = .overFullScreen
+        view.modalTransitionStyle = .crossDissolve
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.present(view, animated: true, completion: nil)
+        }
+    }
 //    func showMessageError(title: String, description: String, completion: VoidActionHandler?) {
 //        let view = AlertErrorViewController()
 //        view.titleError = title
@@ -51,7 +82,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = RecoverPasswordViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         let recoverPasswordViewController = RecoverPasswordViewController(viewModel: viewModel)//LoginInformationViewController(viewModel: viewModel)
         viewModel.delegate = recoverPasswordViewController
-        navigationController?.pushViewController(recoverPasswordViewController, animated: true)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(recoverPasswordViewController, animated: true)
+        }
     }
     
     func navigateToForgotPassword() {
@@ -60,14 +93,16 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = MembershipDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, isRegister: false)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel, navTitle: "Recuperación de clave", step: "Paso 1 de 3")
         viewModel.delegate = membershipDataViewController
-        navigationController?.pushViewController(membershipDataViewController, animated: true)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(membershipDataViewController, animated: true)
+        }
     }
     
     func timeExpiredRegister() {
-        if let viewControllers = navigationController?.viewControllers {
-            for viewController in viewControllers {
+        if let navigationController = window.rootViewController as? UINavigationController {
+            for viewController in navigationController.viewControllers {
                 if let membershipDataViewController = viewController as? MembershipDataViewController {
-                    navigationController?.popToViewController(membershipDataViewController, animated: true)
+                    navigationController.popToViewController(membershipDataViewController, animated: true)
                     break
                 }
             }
@@ -85,7 +120,9 @@ extension AppRouter: AuthenticationRouterDelegate {
             viewModel.newPin = newPin
             let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
     
@@ -99,7 +136,9 @@ extension AppRouter: AuthenticationRouterDelegate {
             viewModel.success = success
             let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
         
     }
@@ -114,7 +153,9 @@ extension AppRouter: AuthenticationRouterDelegate {
             viewModel.success = success
             let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
     
@@ -122,7 +163,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         DispatchQueue.main.async {
             let viewModel = WelcomeActivateViewModel(router: self, successfulRouter: self)
             let welcomeActivateViewController = WelcomeActivateViewController(viewModel: viewModel)
-            self.navigationController?.pushViewController(welcomeActivateViewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(welcomeActivateViewController, animated: true)
+            }
         }
     }
     
@@ -132,7 +175,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = LoginInformationViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         let loginInformationViewController = LoginInformationViewController(viewModel: viewModel)
         viewModel.delegate = loginInformationViewController
-        navigationController?.pushViewController(loginInformationViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(loginInformationViewController, animated: true)
+        }
     }
     
     func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest) {
@@ -141,7 +186,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = PersonalDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, documentType: beforeRequest.documentType, documentNumber: beforeRequest.documentNumber, companyRUC: beforeRequest.companyRUC)
         let personalDataViewController = PersonalDataViewController(viewModel: viewModel)
         viewModel.delegate = personalDataViewController
-        navigationController?.pushViewController(personalDataViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(personalDataViewController, animated: true)
+        }
     }
     
     func navigateToRegister() {
@@ -150,34 +197,36 @@ extension AppRouter: AuthenticationRouterDelegate {
         let viewModel = MembershipDataViewModel(router: self, verificationRouter: self, userUseCase: useCase, isRegister: true)
         let membershipDataViewController = MembershipDataViewController(viewModel: viewModel, navTitle: "Registro de usuario digital", step: "Paso 1 de 4")
         viewModel.delegate = membershipDataViewController
-        navigationController?.pushViewController(membershipDataViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(membershipDataViewController, animated: true)
+        }
     }
     
     func navigateToHome() {
-        let menu = MenuTabBarController(homeRouter: self, authRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
-        self.navigationController = UINavigationController(rootViewController: menu)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        if let nav = self.navigationController {
-            DispatchQueue.main.async {
-                self.window.switchRootViewController(to: nav)
-            }
+//        if let navigationController = self.window.rootViewController as? UINavigationController {
+//            navigationController.viewControllers.removeAll()
+//        }
+        
+        DispatchQueue.main.async {
+            let menu = MenuTabBarController(homeRouter: self, authRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
+            let navigationController = UINavigationController(rootViewController: menu)
+            navigationController.setNavigationBarHidden(true, animated: true)
+            self.window.switchRootViewController(to: navigationController)
         }
     }
     
     func navigateToLogin() {
-        let userRepository = UserDataRepository()
-        let userUseCase = UserUseCase(userRepository: userRepository)
-        let cardRepository = CardDataRepository()
-        let cardUseCase = CardUseCase(cardRepository: cardRepository)
-        let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
-        let loginViewController = LoginViewController(viewModel: viewModel)
-        viewModel.delegate = loginViewController
-        navigationController = UINavigationController(rootViewController: loginViewController)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        if let nav = navigationController {
-            DispatchQueue.main.async {
-                self.window.switchRootViewController(to: nav)
-            }
+        DispatchQueue.main.async {
+            let userRepository = UserDataRepository()
+            let userUseCase = UserUseCase(userRepository: userRepository)
+            let cardRepository = CardDataRepository()
+            let cardUseCase = CardUseCase(cardRepository: cardRepository)
+            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+            let loginViewController = LoginViewController(viewModel: viewModel)
+            viewModel.delegate = loginViewController
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            navigationController.setNavigationBarHidden(true, animated: true)
+            self.window.switchRootViewController(to: navigationController)
         }
     }
     
@@ -191,7 +240,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         alertController.setValue(contentView, forKey: "contentViewController")
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
         alertController.view.tintColor = UIColor.white
-        navigationController?.present(alertController, animated: true, completion: presented)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.present(alertController, animated: true, completion: presented)
+        }
     }
     
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
@@ -205,7 +256,9 @@ extension AppRouter: AuthenticationRouterDelegate {
         alertController.setValue(contentView, forKey: "contentViewController")
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
         alertController.view.tintColor = UIColor.white
-        navigationController?.present(alertController, animated: true, completion: presented)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.present(alertController, animated: true, completion: presented)
+        }
     }
 }
 
@@ -217,7 +270,9 @@ extension AppRouter: VerificationRouterDelegate {
         viewModel.success = success
         let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingrese su código de validación", buttonTitle: Constants.next_btn)
         viewModel.delegate = verificationViewController
-        navigationController?.pushViewController(verificationViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(verificationViewController, animated: true)
+        }
     }
 }
 
@@ -229,7 +284,9 @@ extension AppRouter: SuccessfulRouterDelegate {
         successfulViewController.buttonSuccessful = button
         successfulViewController.accept = accept
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(successfulViewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(successfulViewController, animated: true)
+            }
         }
     }
 }
@@ -241,32 +298,26 @@ extension AppRouter: PreferencesRouterDelegate {
         let viewModel = ProfileViewModel(router: self, verificationRouter: self, userUseCase: userUseCase)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         viewModel.delegate = profileViewController
-        navigationController?.pushViewController(profileViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(profileViewController, animated: true)
+        }
     }
     
     func navigateToQuestions() {
-        let viewController = FrequentQuestionsViewController()
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    func logout() {
-        DispatchQueue.main.async {
-            self.navigationController = nil
-            
-            let userRepository = UserDataRepository()
-            let userUseCase = UserUseCase(userRepository: userRepository)
-            let cardRepository = CardDataRepository()
-            let cardUseCase = CardUseCase(cardRepository: cardRepository)
-            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
-            let loginViewController = LoginViewController(viewModel: viewModel)
-            self.navigationController = UINavigationController(rootViewController: loginViewController)
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-            if let nav = self.navigationController {
-                UserSessionManager.shared.clearSession()
-                self.window.switchRootViewController(to: nav)
-            }
+        let repository = QuestionDataRepository()
+        let useCase = QuestionUseCase(questionRepository: repository)
+        let viewModel = FrequentQuestionsViewModel(questionUseCase: useCase)
+        let frequentQuestionsDelegateDataSource = FrequentQuestionsDelegateDataSource(viewModel: viewModel)
+        let viewController = FrequentQuestionsViewController(viewModel: viewModel, frequentQuestionsDelegateDataSource: frequentQuestionsDelegateDataSource)
+        viewModel.delegate = viewController
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(viewController, animated: true)
         }
     }
+    
+//    func logout() {
+//
+//    }
 }
 
 extension AppRouter: ProfileRouterDelegate {
@@ -276,7 +327,9 @@ extension AppRouter: ProfileRouterDelegate {
         let viewModel = ChangePasswordViewModel(profileRouter: self, successfulRouter: self, userUseCase: userUseCase)
         let changePasswordViewController = ChangePasswordViewController(viewModel: viewModel)
         viewModel.delegate = changePasswordViewController
-        navigationController?.pushViewController(changePasswordViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(changePasswordViewController, animated: true)
+        }
     }
     
     func toEditUser(beforeUsername: String, otpId: String) {
@@ -285,7 +338,9 @@ extension AppRouter: ProfileRouterDelegate {
         let viewModel = EditUserViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeUsername: beforeUsername, otpId: otpId)
         let editUserViewController = EditUserViewController(viewModel: viewModel)
         viewModel.delegate = editUserViewController
-        navigationController?.pushViewController(editUserViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(editUserViewController, animated: true)
+        }
     }
     
     func toEditMail(beforeEmail: String, otpId: String) {
@@ -294,14 +349,16 @@ extension AppRouter: ProfileRouterDelegate {
         let viewModel = EditMailViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeEmail: beforeEmail, otpId: otpId)
         let editMailViewController = EditMailViewController(viewModel: viewModel)
         viewModel.delegate = editMailViewController
-        navigationController?.pushViewController(editMailViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(editMailViewController, animated: true)
+        }
     }
     
     func successfulEditProfile() {
-        if let viewControllers = navigationController?.viewControllers {
-            for viewController in viewControllers {
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            for viewController in navigationController.viewControllers {
                 if let profileViewController = viewController as? ProfileViewController {
-                    navigationController?.popToViewController(profileViewController, animated: true)
+                    navigationController.popToViewController(profileViewController, animated: true)
                     break
                 }
             }
@@ -317,12 +374,16 @@ extension AppRouter: HomeRouterDelegate {
         let movementsDelegateDataSource = MovementsDelegateDataSource(viewModel: viewModel)
         let movementsViewController = MovementsViewController(viewModel: viewModel, movementsDelegateDataSource: movementsDelegateDataSource)
         viewModel.delegate = movementsViewController
-        self.navigationController?.pushViewController(movementsViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(movementsViewController, animated: true)
+        }
     }
     
     func navigateToMovementDetail(movement: MovementResponse) {
         let view = MovementDetailViewController(movement: movement)
-        self.navigationController?.pushViewController(view, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(view, animated: true)
+        }
     }
     
     func confirmCardLock(accept: VoidActionHandler?) {
@@ -330,7 +391,9 @@ extension AppRouter: HomeRouterDelegate {
         view.accept = accept
         view.modalPresentationStyle = .overFullScreen
         view.modalTransitionStyle = .crossDissolve
-        navigationController?.present(view, animated: true, completion: nil)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.present(view, animated: true, completion: nil)
+        }
     }
     
     func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler) {
@@ -344,7 +407,9 @@ extension AppRouter: HomeRouterDelegate {
             viewModel.newPin = newPin
             let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
     
@@ -358,7 +423,9 @@ extension AppRouter: HomeRouterDelegate {
             viewModel.success = success
             let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
         
     }
@@ -373,16 +440,22 @@ extension AppRouter: HomeRouterDelegate {
             viewModel.success = success
             let viewController = PinViewController(viewModel: viewModel, navTitle: "CAMBIO DE PIN", step: "Paso 1 de 3", titleDescription: "Ingrese su PIN actual", buttonTitle: Constants.next_btn, placeholder: "PIN actual")
             viewModel.delegate = viewController
-            self.navigationController?.pushViewController(viewController, animated: true)
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
         }
     }
     
     func successfulConfigureCard() {
-        navigationController?.popToRootViewController(animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
     func successfulCardBlock() {
-        navigationController?.popToRootViewController(animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
     func navigateToCardBlock(navTitle: String, success: @escaping VerificationActionHandler) {
@@ -394,7 +467,9 @@ extension AppRouter: HomeRouterDelegate {
         viewModel.success = success
         let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, buttonTitle: "BLOQUEAR")
         viewModel.delegate = cardLockViewController
-        navigationController?.pushViewController(cardLockViewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(cardLockViewController, animated: true)
+        }
     }
     
     func navigateToConfigureCard() {
@@ -404,7 +479,9 @@ extension AppRouter: HomeRouterDelegate {
         let configureCardDelegateDataSource = ConfigureCardDelegateDataSource(viewModel: viewModel)
         let viewController = ConfigureCardViewController(viewModel: viewModel, configureCardDelegateDataSource: configureCardDelegateDataSource)
         viewModel.delegate = viewController
-        navigationController?.pushViewController(viewController, animated: true)
+        if let navigationController = self.window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(viewController, animated: true)
+        }
     }
 }
 

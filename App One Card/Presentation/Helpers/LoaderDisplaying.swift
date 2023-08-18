@@ -9,19 +9,29 @@ import UIKit
 
 protocol LoaderDisplaying {
     func showLoader()
-    func hideLoader(onHide: VoidActionHandler?)
+    func hideLoader()
     func showError(title: String, description: String, onAccept: VoidActionHandler?)
     //func showSnackBar(message: String, iconImage: UIImage, imgColorClose: UIImage, backgroundColor: UIColor, labelColor: UIColor, duration: TimeInterval)
 }
 
 extension LoaderDisplaying where Self:UIViewController {
     func showLoader() {
-        Loading.shared.show()
+        DispatchQueue.main.async {
+            guard let window = UIApplication.shared.keyWindow else { return }
+            let loadingView = LoadingView(frame: window.bounds)
+            window.addSubview(loadingView)
+        }
     }
     
-    func hideLoader(onHide: VoidActionHandler?) {
-        Loading.shared.hide {
-            onHide?()
+    func hideLoader() {
+        DispatchQueue.main.async {
+            guard let window = UIApplication.shared.keyWindow else { return }
+            for view in window.subviews {
+                if let loadingView = view as? LoadingView {
+                    loadingView.dismiss()
+                    break
+                }
+            }
         }
     }
     

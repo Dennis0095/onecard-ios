@@ -68,24 +68,22 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.affiliate == "1" {
-                        if response.exists == "1" {
-                            self.delegate?.showError(title: title, description: description, onAccept: nil)
-                        } else {
-                            self.router.navigateToPersonalData(beforeRequest: request)
-                        }
-                    } else {
+                self.delegate?.hideLoader()
+                if response.affiliate == "1" {
+                    if response.exists == "1" {
                         self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    } else {
+                        self.router.navigateToPersonalData(beforeRequest: request)
                     }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         
@@ -105,22 +103,20 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.exists == "1" {
-                        self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de clave", stepDescription: "Paso 2 de 3", operationType: "RU", maskPhoneEmail: true) { [weak self] otpId in
-                            self?.router.navigateToCreatePassword(otpId: otpId, documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
-                        }
-                    } else {
-                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                self.delegate?.hideLoader()
+                if response.exists == "1" {
+                    self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de clave", stepDescription: "Paso 2 de 3", operationType: "RU", maskPhoneEmail: true) { [weak self] otpId in
+                        self?.router.navigateToCreatePassword(otpId: otpId, documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
                     }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         

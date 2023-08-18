@@ -8,21 +8,38 @@
 import UIKit
 import Lottie
 
-class Loading: UIViewController {
+class LoadingView: UIView {
+
+    private lazy var animationView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
-    static let shared = Loading()
-    
-    @IBOutlet weak var animationView: UIView!
     private var lottieAnimationView: LottieAnimationView?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         setupView()
     }
     
     func setupView() {
+        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6021205357)
+        self.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([
+            animationView.heightAnchor.constraint(equalToConstant: 120),
+            animationView.widthAnchor.constraint(equalToConstant: 120),
+            animationView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+        
         if let animationPath = Bundle.main.path(forResource: "loading", ofType: "json") {
             let animationURL = URL(fileURLWithPath: animationPath)
             lottieAnimationView = LottieAnimationView(url: animationURL) { _ in }
@@ -43,27 +60,16 @@ class Loading: UIViewController {
                 ])
             }
         }
-    }
-    
-    func show() {
-        guard let keyWindow = UIWindow.key else {
-            return
-        }
         
-        self.modalPresentationStyle = .overFullScreen
-        keyWindow.rootViewController?.present(self, animated: false) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.lottieAnimationView?.play()
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//            self.lottieAnimationView?.play()
+//        }
+        self.lottieAnimationView?.play()
+    }
+
+    func dismiss(completion: VoidActionHandler? = nil) {
+        lottieAnimationView?.stop()
+        removeFromSuperview()
     }
     
-    func hide(completion: VoidActionHandler? = nil) {
-        lottieAnimationView?.stop()
-        DispatchQueue.main.async {
-            self.dismiss(animated: false) {
-                completion?()
-            }
-        }
-    }
 }

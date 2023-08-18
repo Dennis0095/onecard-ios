@@ -73,22 +73,20 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewVerification {
-                            self.delegate?.failureSendOtp()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewVerification {
+                        self.delegate?.failureSendOtp()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 self.wasShownViewVerification = true
-                self.delegate?.hideLoader {
-                    self.otpId = response.otpId
-                    self.number = response.truncatedCellphone ?? ""
-                    self.email = response.truncatedEmail ?? ""
-                    self.delegate?.successSendOtp()
-                }
+                self.delegate?.hideLoader()
+                self.otpId = response.otpId
+                self.number = response.truncatedCellphone ?? ""
+                self.email = response.truncatedEmail ?? ""
+                self.delegate?.successSendOtp()
             }
         
         cancellable.store(in: &cancellables)
@@ -106,20 +104,18 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewVerification {
-                            self.delegate?.failureSendOtp()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewVerification {
+                        self.delegate?.failureSendOtp()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 self.wasShownViewVerification = true
-                self.delegate?.hideLoader {
-                    self.otpId = response.otpId
-                    self.delegate?.successSendOtp()
-                }
+                self.delegate?.hideLoader()
+                self.otpId = response.otpId
+                self.delegate?.successSendOtp()
             }
         
         cancellable.store(in: &cancellables)
@@ -139,22 +135,20 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.indexMatchOTP == "1" {
-                        if let action = self.success {
-                            action(otp)
-                        }
-                    } else {
-                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                self.delegate?.hideLoader()
+                if response.indexMatchOTP == "1" {
+                    if let action = self.success {
+                        action(otp)
                     }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         
@@ -177,22 +171,20 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
-                    if response.indexMatchOTP == "1" {
-                        if let action = self.success {
-                            action(otp)
-                        }
-                    } else {
-                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                self.delegate?.hideLoader()
+                if response.indexMatchOTP == "1" {
+                    if let action = self.success {
+                        action(otp)
                     }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         

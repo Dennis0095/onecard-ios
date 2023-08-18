@@ -201,15 +201,19 @@ class VerificationViewController: BaseViewController {
 
 extension VerificationViewController: VerificationViewModelDelegate {
     func successSendOtp() {
-        setDescription()
-        
-        viewVerification.isHidden = false
-        viewError.isHidden = true
-        resetTime()
+        DispatchQueue.main.async {
+            self.setDescription()
+            
+            self.viewVerification.isHidden = false
+            self.viewError.isHidden = true
+            self.resetTime()
+        }
     }
     
     func failureSendOtp() {
-        viewError.isHidden = false
-        viewVerification.isHidden = true
+        DispatchQueue.main.async {
+            self.viewError.isHidden = false
+            self.viewVerification.isHidden = true
+        }
     }
 }

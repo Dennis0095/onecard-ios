@@ -114,14 +114,14 @@ class HomeViewModel: HomeViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
+                    //self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    //}
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
-                self.delegate?.hideLoader {
+                //self.delegate?.hideLoader {
                     if response.rc == "0" {
                         DispatchQueue.main.async {
                             let balance = response.amount?.convertStringToDecimalAndFormat(sign: response.sign ?? "")
@@ -132,14 +132,14 @@ class HomeViewModel: HomeViewModelProtocol {
                             self.balanceInquiry()
                         }
                     }
-                }
+                //}
             }
         
         cancellable.store(in: &cancellables)
     }
     
     func consultMovements() {
-        delegate?.showLoader()
+        //delegate?.showLoader()
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
@@ -150,16 +150,14 @@ class HomeViewModel: HomeViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
+                    //self.delegate?.hideLoader {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    //}
                 }
             } receiveValue: { response in
-                self.delegate?.hideLoader {
-                    DispatchQueue.main.async {
-                        HomeObserver.shared.updateMovements(movements: response.clientMovements)
-                    }
-                }
+                //self.delegate?.hideLoader {
+                HomeObserver.shared.updateMovements(movements: response.clientMovements)
+                //}
             }
         
         cancellable.store(in: &cancellables)

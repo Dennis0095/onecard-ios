@@ -21,6 +21,16 @@ class BaseViewController: UIViewController {
         notificationKeyboard()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        guard let _ = UserSessionManager.shared.getUser() else {
+            return
+        }
+        
+        (UIApplication.shared.delegate as! AppDelegate).resetTimer()
+    }
+    
     private func notificationKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)

@@ -50,16 +50,20 @@ class PromotionsViewController: BaseViewController {
 
 extension PromotionsViewController: PromotionsViewModelDelegate {
     func showPromotions() {
-        viewError.isHidden = true
-        viewEmpty.isHidden = !viewModel.items.isEmpty
-        viewPromotions.isHidden = viewModel.items.isEmpty
-        
-        tblPromotions.reloadData()
+        DispatchQueue.main.async {
+            self.viewError.isHidden = true
+            self.viewEmpty.isHidden = !self.viewModel.items.isEmpty
+            self.viewPromotions.isHidden = self.viewModel.items.isEmpty
+            
+            self.tblPromotions.reloadData()
+        }
     }
     
     func failureShowPromotions() {
-        viewError.isHidden = false
-        viewPromotions.isHidden = true
-        viewEmpty.isHidden = true
+        DispatchQueue.main.async {
+            self.viewError.isHidden = false
+            self.viewPromotions.isHidden = true
+            self.viewEmpty.isHidden = true
+        }
     }
 }

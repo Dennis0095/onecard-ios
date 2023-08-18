@@ -77,15 +77,14 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error): 
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader {
+                self.delegate?.hideLoader()
                     if response.validExpiration == "1" {
                         if response.success == "1" {
                             if response.validUser == "1" && response.validPassword == "1" {
@@ -109,7 +108,6 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
                             self.delegate?.timeExpired()
                         }
                     }
-                }
             }
         
         cancellable.store(in: &cancellables)

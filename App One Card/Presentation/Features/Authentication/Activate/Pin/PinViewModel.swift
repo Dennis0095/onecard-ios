@@ -73,18 +73,16 @@ class PinViewModel: PinViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
-                self.delegate?.hideLoader {
-                    if response.rc == "447" {
-                        self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
-                    } else if response.rc == "0" {
-                        if let success = self.success {
-                            success(self.pin)
-                        }
+                self.delegate?.hideLoader()
+                if response.rc == "447" {
+                    self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
+                } else if response.rc == "0" {
+                    if let success = self.success {
+                        success(self.pin)
                     }
                 }
             }
@@ -102,27 +100,23 @@ class PinViewModel: PinViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
-                self.delegate?.hideLoader {
-                    if response.rc == "0" {
-                        if isCardActivation {
-                            self.cardActivation()
-                        } else {
-                            if let success = self.success {
-                                success(self.pin)
-                            }
-                        }
+                self.delegate?.hideLoader()
+                if response.rc == "0" {
+                    if isCardActivation {
+                        self.cardActivation()
                     } else {
-                        self.delegate?.hideLoader {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        if let success = self.success {
+                            success(self.pin)
                         }
                     }
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         
@@ -138,20 +132,18 @@ class PinViewModel: PinViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                    }
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
-                self.delegate?.hideLoader {
-                    if response.rc == "0" {
-                        if let success = self.success {
-                            success(self.pin)
-                        }
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                self.delegate?.hideLoader()
+                if response.rc == "0" {
+                    if let success = self.success {
+                        success(self.pin)
                     }
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         

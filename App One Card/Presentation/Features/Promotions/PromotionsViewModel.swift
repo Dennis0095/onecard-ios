@@ -64,20 +64,18 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewPromotions {
-                            self.delegate?.failureShowPromotions()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewPromotions {
+                        self.delegate?.failureShowPromotions()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
                 self.wasShownViewPromotions = true
                 self.items = response.promotions ?? []
-                self.delegate?.hideLoader {
-                    self.delegate?.showPromotions()
-                }
+                self.delegate?.hideLoader()
+                self.delegate?.showPromotions()
             }
         cancellable.store(in: &cancellables)
     }

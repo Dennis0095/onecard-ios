@@ -83,28 +83,26 @@ class MovementsViewModel: MovementsViewModelProtocol {
                 switch publisher {
                 case .finished: break
                 case .failure(let error):
-                    self.delegate?.hideLoader {
-                        if !self.wasShownViewMovements {
-                            self.delegate?.failureGetMovements()
-                        } else {
-                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                        }
+                    self.delegate?.hideLoader()
+                    if !self.wasShownViewMovements {
+                        self.delegate?.failureGetMovements()
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 }
             } receiveValue: { response in
-                self.delegate?.hideLoader {
-                    self.wasShownViewMovements = true
-                    
-                    if self.pageSize < (Int(response.quantity ?? "0") ?? 0) {
-                        self.isLastPage = true
-                    } else {
-                        self.currentPage += 1
-                    }
-                    
-                    self.items += response.clientMovements ?? []
-                    //self.items = response.clientMovements ?? []
-                    self.delegate?.successGetMovements()
+                self.delegate?.hideLoader()
+                self.wasShownViewMovements = true
+                
+                if self.pageSize < (Int(response.quantity ?? "0") ?? 0) {
+                    self.isLastPage = true
+                } else {
+                    self.currentPage += 1
                 }
+                
+                self.items += response.clientMovements ?? []
+                //self.items = response.clientMovements ?? []
+                self.delegate?.successGetMovements()
             }
         
         cancellable.store(in: &cancellables)

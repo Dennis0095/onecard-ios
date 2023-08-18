@@ -87,20 +87,24 @@ class ProfileViewController: BaseViewController {
 
 extension ProfileViewController: ProfileViewModelDelegate {
     func showData(user: ConsultUserDataResponse) {
-        lblName.text = ((user.name ?? "") + " " + (user.lastName ?? "")).trimmingCharacters(in: .whitespaces)
-        lblBirthday.text = user.birthday ?? ""
-        lblDocument.text = ((getDocumentType(id: user.docType ?? "")) + " " + (user.docNumber ?? "")).trimmingCharacters(in: .whitespaces)
-        lblCellphone.text = user.truncatedCellphone ?? ""
-        lblEmail.text = user.email ?? ""
-        lblRUC.text = user.companyRUC ?? ""
-        lblUsername.text = user.userName ?? ""
-        
-        viewError.isHidden = true
-        viewProfile.isHidden = false
+        DispatchQueue.main.async {
+            self.lblName.text = ((user.name ?? "") + " " + (user.lastName ?? "")).trimmingCharacters(in: .whitespaces)
+            self.lblBirthday.text = user.birthday ?? ""
+            self.lblDocument.text = ((self.getDocumentType(id: user.docType ?? "")) + " " + (user.docNumber ?? "")).trimmingCharacters(in: .whitespaces)
+            self.lblCellphone.text = user.truncatedCellphone ?? ""
+            self.lblEmail.text = user.email ?? ""
+            self.lblRUC.text = user.companyRUC ?? ""
+            self.lblUsername.text = user.userName ?? ""
+            
+            self.viewError.isHidden = true
+            self.viewProfile.isHidden = false
+        }
     }
     
     func failureShowData() {
-        viewError.isHidden = false
-        viewProfile.isHidden = true
+        DispatchQueue.main.async {
+            self.viewError.isHidden = false
+            self.viewProfile.isHidden = true
+        }
     }
 }

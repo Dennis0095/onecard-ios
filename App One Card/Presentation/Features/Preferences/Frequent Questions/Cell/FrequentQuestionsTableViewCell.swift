@@ -41,7 +41,7 @@ class FrequentQuestionsTableViewCell: UITableViewCell {
         imgBreakDown.addGestureRecognizer(tapBreakDown)
     }
     
-    func configure(title: String, description: String? = nil, isLast: Bool) {
+    func setData(title: String, description: String, isLast: Bool) {
         self.isLast = isLast
         lblTitle.text = title
         lblDescription.text = description

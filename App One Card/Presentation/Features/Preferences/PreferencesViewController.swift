@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PreferencesViewController: UIViewController {
+class PreferencesViewController: BaseViewController {
 
     @IBOutlet weak var tbPreferences: UITableView!
     
@@ -24,10 +24,7 @@ class PreferencesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func initView() {
         tbPreferences.delegate = self
         tbPreferences.dataSource = self
         

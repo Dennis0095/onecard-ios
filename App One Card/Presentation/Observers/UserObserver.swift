@@ -34,6 +34,10 @@ class UserObserver: UserObserverProtocol {
         userSession = user
     }
     
+    func getUser() -> User? {
+        return self.userSession
+    }
+    
     func bindPublishers() {
         userSessionPublisher
             .receive(on: DispatchQueue.main)

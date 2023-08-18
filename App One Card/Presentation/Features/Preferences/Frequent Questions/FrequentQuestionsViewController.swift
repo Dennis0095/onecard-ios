@@ -12,22 +12,26 @@ class FrequentQuestionsViewController: BaseViewController {
     @IBOutlet weak var tbQuestions: UITableView!
     @IBOutlet weak var imgBack: UIImageView!
     
-    //    private var viewModel: ConfigureCardViewModelProtocol
-    //
-    //    init(viewModel: ConfigureCardViewModelProtocol) {
-    //        self.viewModel = viewModel
-    //        super.init(nibName: nil, bundle: nil)
-    //    }
-    //
-    //    required init?(coder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
+    private var viewModel: FrequentQuestionsViewModelProtocol
+    private var frequentQuestionsDelegateDataSource: FrequentQuestionsDelegateDataSource
+    
+    init(viewModel: FrequentQuestionsViewModelProtocol, frequentQuestionsDelegateDataSource: FrequentQuestionsDelegateDataSource) {
+        self.viewModel = viewModel
+        self.frequentQuestionsDelegateDataSource = frequentQuestionsDelegateDataSource
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func initView() {
-        tbQuestions.delegate = self
-        tbQuestions.dataSource = self
+        tbQuestions.delegate = frequentQuestionsDelegateDataSource
+        tbQuestions.dataSource = frequentQuestionsDelegateDataSource
         
         tbQuestions.register(UINib(nibName: "FrequentQuestionsTableViewCell", bundle: nil), forCellReuseIdentifier: "FrequentQuestionsTableViewCell")
+        
+        viewModel.fetchFrequentQuestions()
     }
     
     override func setActions() {
@@ -42,39 +46,10 @@ class FrequentQuestionsViewController: BaseViewController {
     }
 }
 
-extension FrequentQuestionsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tbQuestions.dequeueReusableCell(withIdentifier: "FrequentQuestionsTableViewCell", for: indexPath) as? FrequentQuestionsTableViewCell else {
-            return UITableViewCell()
+extension FrequentQuestionsViewController: FrequentQuestionsViewModelDelegate {
+    func showQuestions() {
+        DispatchQueue.main.async {
+            self.tbQuestions.reloadData()
         }
-        
-        cell.handleBreakDown = {
-            self.tbQuestions.beginUpdates()
-            self.tbQuestions.endUpdates()
-        }
-        
-        return cell
     }
-    
-//    tableView.beginUpdates()
-//    tableView.endUpdates()
 }
-
-extension FrequentQuestionsViewController: UITableViewDelegate { }
-
-//final class ContentSizedTableView: UITableView {
-//    override var contentSize:CGSize {
-//        didSet {
-//            invalidateIntrinsicContentSize()
-//        }
-//    }
-//
-//    override var intrinsicContentSize: CGSize {
-//        layoutIfNeeded()
-//        return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height)
-//    }
-//}

@@ -9,7 +9,7 @@ typealias VoidActionHandler = (() -> Void)
 
 import UIKit
 
-class SuccessfulViewController: UIViewController {
+class SuccessfulViewController: BaseViewController {
     @IBOutlet weak var imgSuccess: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
@@ -20,10 +20,7 @@ class SuccessfulViewController: UIViewController {
     var descriptionSuccessful: String?
     var buttonSuccessful: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func initView() {
         configure()
         btnSuccessful.configure(text: buttonSuccessful ?? Constants.login_btn, status: .enabled)
     }

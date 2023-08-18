@@ -19,6 +19,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var imgQuestions: UIImageView!
     @IBOutlet weak var viewMovements: UIView!
     @IBOutlet weak var viewCardNotActivated: UIView!
+    @IBOutlet weak var viewInfoCardLock: UIView!
     @IBOutlet weak var btnCardActivation: PrimaryFilledButton!
     
     private var viewModel: HomeViewModelProtocol
@@ -70,12 +71,14 @@ class HomeViewController: BaseViewController {
                 
                 self.viewMovements.isHidden = true
                 self.viewCardNotActivated.isHidden = false
+                self.viewInfoCardLock.isHidden = false
             } else {
                 self.stkOptions.isUserInteractionEnabled = true
                 self.stkOptions.alpha = 1
                 
                 self.viewMovements.isHidden = false
                 self.viewCardNotActivated.isHidden = true
+                self.viewInfoCardLock.isHidden = true
             }
         }
         
@@ -87,12 +90,14 @@ class HomeViewController: BaseViewController {
             
             self.viewMovements.isHidden = true
             self.viewCardNotActivated.isHidden = false
+            self.viewInfoCardLock.isHidden = false
         } else {
             self.stkOptions.isUserInteractionEnabled = true
             self.stkOptions.alpha = 1
             
             self.viewMovements.isHidden = false
             self.viewCardNotActivated.isHidden = true
+            self.viewInfoCardLock.isHidden = true
             self.viewModel.consultMovements()
         }
     }

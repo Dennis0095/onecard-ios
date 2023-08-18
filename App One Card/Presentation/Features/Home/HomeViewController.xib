@@ -36,6 +36,7 @@
                 <outlet property="viewCardNotActivated" destination="h9q-Vh-KRA" id="IzD-Fm-oz7"/>
                 <outlet property="viewChangePin" destination="GTS-ia-ppp" id="bxj-o2-yij"/>
                 <outlet property="viewConfigureCard" destination="eXW-MV-1CC" id="3eb-29-cWX"/>
+                <outlet property="viewInfoCardLock" destination="w7z-dE-Ylv" id="2Gu-B2-Nvh"/>
                 <outlet property="viewMovements" destination="82a-9V-Xdg" id="QZ9-sF-0gu"/>
             </connections>
         </placeholder>
@@ -96,8 +97,40 @@
                                 <constraint firstAttribute="trailing" secondItem="4Ab-X7-Tnt" secondAttribute="trailing" constant="18" id="vOa-Dl-ciI"/>
                             </constraints>
                         </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rPw-Yu-t6Y">
+                            <rect key="frame" x="0.0" y="167" width="393" height="40"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7z-dE-Ylv">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_info" translatesAutoresizingMaskIntoConstraints="NO" id="Xc8-hK-TK8">
+                                            <rect key="frame" x="18" y="8" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="IML-pt-lpB"/>
+                                                <constraint firstAttribute="width" constant="24" id="R6j-fh-gA1"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su tarjeta se encuentra bloqueada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjP-Qe-0H2">
+                                            <rect key="frame" x="46" y="12.666666666666657" width="329" height="14.666666666666664"/>
+                                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="blue_twilight"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="2DD-wT-g9o"/>
+                                        <constraint firstItem="ZjP-Qe-0H2" firstAttribute="centerY" secondItem="w7z-dE-Ylv" secondAttribute="centerY" id="DNU-iI-iir"/>
+                                        <constraint firstItem="Xc8-hK-TK8" firstAttribute="centerY" secondItem="w7z-dE-Ylv" secondAttribute="centerY" id="LoL-nk-hri"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZjP-Qe-0H2" secondAttribute="trailing" constant="18" id="Mhm-8s-wt2"/>
+                                        <constraint firstItem="ZjP-Qe-0H2" firstAttribute="leading" secondItem="Xc8-hK-TK8" secondAttribute="trailing" constant="4" id="UXX-i5-Yhv"/>
+                                        <constraint firstItem="Xc8-hK-TK8" firstAttribute="leading" secondItem="w7z-dE-Ylv" secondAttribute="leading" constant="18" id="qgw-5b-A8K"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KVx-gJ-p9i">
-                            <rect key="frame" x="18" y="191" width="357" height="102"/>
+                            <rect key="frame" x="18" y="231" width="357" height="102"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXW-MV-1CC">
                                     <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="102"/>
@@ -224,10 +257,10 @@ PIN</string>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-fU-xDG">
-                            <rect key="frame" x="0.0" y="293" width="393" height="466"/>
+                            <rect key="frame" x="0.0" y="333" width="393" height="426"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82a-9V-Xdg">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="466"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ÚLTIMOS MOVIMIENTOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-Wt-75t">
                                             <rect key="frame" x="18" y="40" width="172" height="17"/>
@@ -247,7 +280,7 @@ PIN</string>
                                             </connections>
                                         </button>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X3t-04-XdG">
-                                            <rect key="frame" x="0.0" y="65" width="393" height="401"/>
+                                            <rect key="frame" x="0.0" y="65" width="393" height="361"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableView>
                                     </subviews>
@@ -265,10 +298,10 @@ PIN</string>
                                     </constraints>
                                 </view>
                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-Vh-KRA">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="466"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="92a-c7-xuY">
-                                            <rect key="frame" x="20" y="199.66666666666663" width="353" height="67"/>
+                                            <rect key="frame" x="20" y="179.66666666666663" width="353" height="67"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es necesario que active su tarjeta " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btH-tV-iYd">
                                                     <rect key="frame" x="58.333333333333329" y="0.0" width="236.66666666666669" height="17"/>
@@ -313,11 +346,14 @@ PIN</string>
                         <constraint firstItem="DP4-C6-8SG" firstAttribute="top" secondItem="Nz3-Yq-7zs" secondAttribute="bottom" constant="13" id="GIi-Wy-q06"/>
                         <constraint firstItem="Nz3-Yq-7zs" firstAttribute="centerY" secondItem="5Qj-ul-aa2" secondAttribute="centerY" id="H16-Jv-6AV"/>
                         <constraint firstAttribute="trailing" secondItem="KVx-gJ-p9i" secondAttribute="trailing" constant="18" id="MRf-Ah-Mis"/>
+                        <constraint firstItem="KVx-gJ-p9i" firstAttribute="top" secondItem="rPw-Yu-t6Y" secondAttribute="bottom" constant="24" id="Qop-cZ-nuw"/>
                         <constraint firstItem="5Qj-ul-aa2" firstAttribute="top" secondItem="EWC-jj-0R6" secondAttribute="top" constant="24" id="SzS-wa-X45"/>
-                        <constraint firstItem="KVx-gJ-p9i" firstAttribute="top" secondItem="DP4-C6-8SG" secondAttribute="bottom" constant="24" id="ZIT-kP-wws"/>
+                        <constraint firstAttribute="trailing" secondItem="rPw-Yu-t6Y" secondAttribute="trailing" id="YiK-9h-Q5R"/>
+                        <constraint firstItem="rPw-Yu-t6Y" firstAttribute="top" secondItem="DP4-C6-8SG" secondAttribute="bottom" id="b1g-Ju-gaE"/>
                         <constraint firstItem="Nz3-Yq-7zs" firstAttribute="leading" secondItem="5Qj-ul-aa2" secondAttribute="trailing" constant="20" id="dbF-ay-pGv"/>
                         <constraint firstAttribute="bottom" secondItem="fTQ-fU-xDG" secondAttribute="bottom" id="g0F-a1-YoQ"/>
                         <constraint firstAttribute="trailing" secondItem="Nz3-Yq-7zs" secondAttribute="trailing" constant="18" id="gvp-Di-ZtK"/>
+                        <constraint firstItem="rPw-Yu-t6Y" firstAttribute="leading" secondItem="EWC-jj-0R6" secondAttribute="leading" id="ibO-aY-i0O"/>
                         <constraint firstAttribute="trailing" secondItem="fTQ-fU-xDG" secondAttribute="trailing" id="kjM-3Q-xaV"/>
                         <constraint firstItem="DP4-C6-8SG" firstAttribute="leading" secondItem="EWC-jj-0R6" secondAttribute="leading" id="lee-iS-YLX"/>
                         <constraint firstItem="5Qj-ul-aa2" firstAttribute="leading" secondItem="EWC-jj-0R6" secondAttribute="leading" constant="18" id="mkl-FA-9NG"/>
@@ -343,8 +379,12 @@ PIN</string>
         <image name="card_key" width="40" height="40"/>
         <image name="card_plus" width="40" height="40"/>
         <image name="ic_btn_question" width="60" height="60"/>
+        <image name="ic_info" width="25" height="24"/>
         <namedColor name="blue_lake_front">
             <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_twilight">
+            <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

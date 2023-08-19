@@ -15,6 +15,7 @@ class LoginInformationViewController: BaseViewController {
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var lblTerms: UILabel!
     
     private var viewModel: LoginInformationViewModelProtocol
     
@@ -37,12 +38,18 @@ class LoginInformationViewController: BaseViewController {
         txtConfirmPassword.txt.textContentType = .oneTimeCode
         
         connectFields(textFields: txtUser.txt, txtPassword.txt, txtConfirmPassword.txt)
+        
+        setTerms()
     }
     
     override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true
         imgBack.addGestureRecognizer(tapBack)
+        
+        let tapTerms = UITapGestureRecognizer(target: self, action: #selector(tapTerms))
+        lblTerms.isUserInteractionEnabled = true
+        lblTerms.addGestureRecognizer(tapTerms)
         
         [txtUser, txtPassword, txtConfirmPassword].forEach {
             $0.selectTextField = { textField in
@@ -69,6 +76,22 @@ class LoginInformationViewController: BaseViewController {
     
     @objc private func tapBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func tapTerms() {
+        if let url = URL(string: "https://www.google.com") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    private func setTerms() {
+        let longString = "Al continuar acepta los Términos y condiciones"
+        let longestWordRange = (longString as NSString).range(of: "Términos y condiciones")
+
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "Gotham-Light", size: 14)!])
+
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "Gotham-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#00A3E0")], range: longestWordRange)
+        lblTerms.attributedText = attributedString
     }
     
     private func validate() -> Bool {

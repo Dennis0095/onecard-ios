@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="btnNext" destination="NgQ-T7-fc1" id="ftj-lg-Du6"/>
                 <outlet property="imgBack" destination="VgE-kj-A5T" id="Fzp-dQ-bSm"/>
+                <outlet property="lblTerms" destination="dtG-Gl-KYK" id="N0X-SZ-pE0"/>
                 <outlet property="scrollView" destination="PjV-2k-zwm" id="553-Mf-s6K"/>
                 <outlet property="txtConfirmPassword" destination="mZC-Yp-CeO" id="ltd-YP-JS0"/>
                 <outlet property="txtPassword" destination="Mvw-kv-yWU" id="ja8-x0-dPl"/>

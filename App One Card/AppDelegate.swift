@@ -71,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         countTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
             guard let self = self else { return }
             count += 1
-            print(count)
             if self.count == questionTime {
                 appRouter?.confirmInactivity(closeSession: {
                     self.invalidateTimer()
@@ -96,7 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             countTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 guard let self = self else { return }
                 count += 1
-                print(count)
                 if self.count == questionTime {
                     appRouter?.confirmInactivity(closeSession: {
                         self.invalidateTimer()

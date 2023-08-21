@@ -49,7 +49,6 @@ class LoginViewModel: LoginViewModelProtocol {
         if self.username.isEmpty || self.password.isEmpty {
             delegate?.showError(title: Constants.error, description: Constants.login_error_incomplete_data, onAccept: nil)
         } else {
-            print(delegate)
             delegate?.showLoader()
             let request = LoginRequest(user: username, password: password)
             let cancellable = userUseCase.login(request: request)

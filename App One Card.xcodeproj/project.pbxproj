@@ -247,6 +247,10 @@
 		0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */; };
 		0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */; };
 		0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */; };
+		B6D9B6DB2A93FB56006FE21C /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */; };
+		B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */; };
+		B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */; };
+		B6D9B6DE2A93FB56006FE21C /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -490,6 +494,10 @@
 		0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewController.swift; sourceTree = "<group>"; };
 		0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeActivateViewController.xib; sourceTree = "<group>"; };
 		0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewModel.swift; sourceTree = "<group>"; };
+		B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.otf"; sourceTree = "<group>"; };
+		B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Medium.otf"; sourceTree = "<group>"; };
+		B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,6 +648,7 @@
 		0D3A800E2A3794BF00C32F39 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				B6D9B6D62A93FB2E006FE21C /* Proxima Nova */,
 				0D3A801B2A3794D500C32F39 /* Gotham-Black.otf */,
 				0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */,
 				0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */,
@@ -1303,6 +1312,17 @@
 			path = Activate;
 			sourceTree = "<group>";
 		};
+		B6D9B6D62A93FB2E006FE21C /* Proxima Nova */ = {
+			isa = PBXGroup;
+			children = (
+				B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */,
+				B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */,
+				B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */,
+				B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */,
+			);
+			path = "Proxima Nova";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1381,6 +1401,7 @@
 				0D3A80222A3794D500C32F39 /* Gotham-XLightItalic.otf in Resources */,
 				0D45B0F32A2E4EAC00EFC7F4 /* LaunchScreen.storyboard in Resources */,
 				0D3A80242A3794D500C32F39 /* Gotham-Thin.otf in Resources */,
+				B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */,
 				0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */,
 				0D45B11C2A2E92C100EFC7F4 /* LoginViewController.xib in Resources */,
 				0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */,
@@ -1390,11 +1411,13 @@
 				0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */,
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
+				B6D9B6DB2A93FB56006FE21C /* Proxima Nova Light.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
 				0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
+				B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */,
 				0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */,
@@ -1426,6 +1449,7 @@
 				0D3A80272A3794D500C32F39 /* Gotham-BoldItalic.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
 				0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */,
+				B6D9B6DE2A93FB56006FE21C /* Proxima Nova Black.otf in Resources */,
 				0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

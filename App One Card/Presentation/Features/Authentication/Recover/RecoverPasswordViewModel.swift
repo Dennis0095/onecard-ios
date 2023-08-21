@@ -62,9 +62,6 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
             return
         }
         
-        print(password)
-        print(passwordOk)
-        
         let request = NewPasswordRequest(otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, newPassword: password, confirmNewPassword: passwordOk)
         
         let cancellable = userUseCase.createNewPassword(request: request)

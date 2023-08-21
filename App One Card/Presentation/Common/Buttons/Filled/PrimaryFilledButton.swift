@@ -40,7 +40,7 @@ class PrimaryFilledButton: UIButton {
         layer.cornerRadius = 20
         backgroundColor = #colorLiteral(red: 0, green: 0.6392156863, blue: 0.8784313725, alpha: 1)
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont(name: "Gotham-Medium", size: 12)
+        titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 15)
     }
     
     func changeStatus(status: PrimaryFilledButtonStatus) {

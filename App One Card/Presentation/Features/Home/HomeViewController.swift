@@ -133,7 +133,7 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func cardActivation(_ sender: Any) {
-        print("Activa la tarjeta")
+        
     }
 }
 

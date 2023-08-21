@@ -29,6 +29,6 @@ class PrimaryOutlineButton: UIButton {
         layer.borderColor = #colorLiteral(red: 0, green: 0.6392156863, blue: 0.8784313725, alpha: 1)
         backgroundColor = .white
         setTitleColor(#colorLiteral(red: 0, green: 0.6392156863, blue: 0.8784313725, alpha: 1), for: .normal)
-        titleLabel?.font = UIFont(name: "Gotham-Medium", size: 12)
+        titleLabel?.font = UIFont(name: "ProximaNova-Bold", size: 15)
     }
 }

@@ -33,7 +33,7 @@ class OutlinedTextField: UIView {
     public lazy var txt: PaddedTextField = {
         let textfield = PaddedTextField()
         textfield.paddingLeft = 15
-        textfield.font = UIFont(name: "Gotham-Book", size: 14)
+        textfield.font = UIFont(name: "ProximaNova-Medium", size: 15)
         textfield.translatesAutoresizingMaskIntoConstraints = false
         return textfield
     }()
@@ -43,7 +43,7 @@ class OutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey60)
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,7 +53,7 @@ class OutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -288,7 +288,7 @@ class OutlinedTextField: UIView {
         isPlaceholderOnTop = true
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 12)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 13)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.topAnchor.constraint(equalTo: self.viewContainer.topAnchor, constant: -8),

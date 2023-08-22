@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
         </array>
-        <array key="Gotham-Medium.otf">
-            <string>Gotham-Medium</string>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -55,13 +55,13 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3P-Mt-4jP">
                             <rect key="frame" x="24" y="82" width="305" height="0.0"/>
-                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4q-wO-pmd">
                             <rect key="frame" x="24" y="92" width="305" height="0.0"/>
-                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

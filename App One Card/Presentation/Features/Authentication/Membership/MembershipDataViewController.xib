@@ -9,11 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
         </array>
-        <array key="Gotham-Medium.otf">
-            <string>Gotham-Medium</string>
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -46,8 +49,8 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registro de usuario digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIw-c7-gvx">
-                            <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
-                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                            <rect key="frame" x="46" y="10.666666666666671" width="329" height="19"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" name="blue_twilight"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -55,8 +58,8 @@
                             <rect key="frame" x="0.0" y="40" width="393" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paso 1 de 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31r-d2-NYX">
-                                    <rect key="frame" x="18" y="11.666666666666671" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="10.999999999999998" width="357" height="18.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -73,24 +76,24 @@
                             <rect key="frame" x="0.0" y="80" width="393" height="599"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese los siguientes pasos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzG-Kn-uEJ">
-                                    <rect key="frame" x="18" y="16" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="15.999999999999998" width="357" height="17.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cFG-o9-nAw">
-                                    <rect key="frame" x="18" y="57" width="357" height="198"/>
+                                    <rect key="frame" x="18" y="57.333333333333343" width="357" height="198"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="rAH-lz-EQO" customClass="SelectTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="0Ee-2L-Cdr" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="71" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="70.999999999999972" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-U9-vsh" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="142" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="141.99999999999997" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>

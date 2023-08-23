@@ -16,6 +16,9 @@
         <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </array>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovementsViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
@@ -50,8 +53,8 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movimientos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzM-Nw-R73">
-                                    <rect key="frame" x="46" y="11" width="329" height="18"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="15"/>
+                                    <rect key="frame" x="46" y="10.666666666666671" width="329" height="19"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_twilight"/>
                                     <nil key="highlightedColor"/>
                                 </label>

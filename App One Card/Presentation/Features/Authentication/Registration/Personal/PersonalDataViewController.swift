@@ -92,13 +92,13 @@ class PersonalDataViewController: BaseViewController {
         txtName.errorMessage = txtName.text.isEmpty ? "Ingrese sus nombres." : "Debe contener solo letras."
         txtLastName.errorMessage = txtLastName.text.isEmpty ? "Ingrese sus apellidos." : "Debe contener solo letras."
         txtBirthday.errorMessage = "Ingrese su fecha de nacimiento"
-        txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingrese su número de celular." : "Debe contener 9 números."
+        txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingrese su número de celular." : txtPhone.text.validateString(withRegex: .startsWith9) ? "Debe contener 9 números." : "Debe empezar con 9."
         txtEmail.errorMessage = txtEmail.text.isEmpty ? "Ingrese su correo electrónico." : "Ingrese un correo válido."
         
         txtName.isValid = txtName.text.validateString(withRegex: .name)
         txtLastName.isValid = txtLastName.text.validateString(withRegex: .name)
         txtBirthday.isValid = !txtBirthday.text.isEmpty
-        txtPhone.isValid = txtPhone.text.validateString(withRegex: .contain9numbers)
+        txtPhone.isValid = txtPhone.text.validateString(withRegex: .contain9numbers) && txtPhone.text.validateString(withRegex: .startsWith9)
         txtEmail.isValid = txtEmail.text.validateString(withRegex: .email)
         
         return txtName.isValid && txtLastName.isValid && txtBirthday.isValid && txtPhone.isValid && txtEmail.isValid

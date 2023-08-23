@@ -9,11 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
         </array>
-        <array key="Gotham-Medium.otf">
-            <string>Gotham-Medium</string>
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -46,8 +49,8 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registro de usuario digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IV2-SG-Uak">
-                            <rect key="frame" x="46" y="11.666666666666671" width="329" height="17"/>
-                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                            <rect key="frame" x="46" y="10.666666666666671" width="329" height="19"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" name="blue_twilight"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -55,8 +58,8 @@
                             <rect key="frame" x="0.0" y="40" width="393" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paso 2 de 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-YU-cMN">
-                                    <rect key="frame" x="18" y="11.666666666666671" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="10.999999999999998" width="357" height="18.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -73,19 +76,19 @@
                             <rect key="frame" x="0.0" y="80" width="393" height="599"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese sus datos personales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ih0-L3-TsR">
-                                    <rect key="frame" x="18" y="16" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="15.999999999999998" width="357" height="17.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese sus datos de contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp9-Kl-q8e">
-                                    <rect key="frame" x="18" y="293" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="293.33333333333331" width="357" height="17.333333333333314"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Heb-m6-ElF">
-                                    <rect key="frame" x="18" y="57" width="357" height="216"/>
+                                    <rect key="frame" x="18" y="57.333333333333343" width="357" height="216.00000000000003"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="KPY-qO-1Va" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
@@ -95,14 +98,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="yDo-hg-3Rs" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="80" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="79.999999999999972" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="wca-GZ-e4l"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="bKw-IP-3oe" customClass="SelectTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="160" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="159.99999999999997" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="8fZ-e8-vWN"/>
@@ -111,7 +114,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8V5-Du-goy">
-                                    <rect key="frame" x="18" y="334" width="357" height="136"/>
+                                    <rect key="frame" x="18" y="334.66666666666669" width="357" height="136"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-UR-ue0" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
@@ -121,7 +124,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="faV-oH-I01" customClass="OutlinedTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="80" width="357" height="56"/>
+                                            <rect key="frame" x="0.0" y="79.999999999999943" width="357" height="56"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" id="QVY-m6-HhQ"/>

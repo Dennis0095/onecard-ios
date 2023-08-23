@@ -56,7 +56,7 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
     }
     
     func navigateToSuccessfulScreen() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn) {
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn, image: #imageLiteral(resourceName: "congratulations.svg")) {
             self.router.navigateToLogin()
         }
     }

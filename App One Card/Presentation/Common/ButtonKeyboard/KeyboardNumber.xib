@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeyboardNumber" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
@@ -41,10 +46,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="d8s-xb-DgD" secondAttribute="height" multiplier="1:1" id="hcE-sf-hLx"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="1">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="1">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="one:" destination="-1" eventType="touchUpInside" id="UAY-LE-JZT"/>
                                     </connections>
@@ -55,10 +61,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="iM7-mg-avy" secondAttribute="height" multiplier="1:1" id="U0V-Kn-kMb"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="2">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="2">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="two:" destination="-1" eventType="touchUpInside" id="sHS-Go-FfH"/>
                                     </connections>
@@ -69,10 +76,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="4Mw-EZ-MbV" secondAttribute="height" multiplier="1:1" id="TzP-z1-gnG"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="3">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="3">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="three:" destination="-1" eventType="touchUpInside" id="zvl-Aq-bEz"/>
                                     </connections>
@@ -88,10 +96,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="0pC-pc-DJ2" secondAttribute="height" multiplier="1:1" id="pk8-wY-ktj"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="4">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="4">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="four:" destination="-1" eventType="touchUpInside" id="Lgp-8L-l2X"/>
                                     </connections>
@@ -102,10 +111,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="AU3-7L-RSe" secondAttribute="height" multiplier="1:1" id="4e3-Kb-AlH"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="5">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="5">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="five:" destination="-1" eventType="touchUpInside" id="Bt0-1f-Xgg"/>
                                     </connections>
@@ -116,10 +126,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="kyW-DV-ryD" secondAttribute="height" multiplier="1:1" id="JlR-E3-Hcn"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="6">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="6">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="six:" destination="-1" eventType="touchUpInside" id="SXh-0s-uJg"/>
                                     </connections>
@@ -135,10 +146,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="ljH-0l-e3q" secondAttribute="height" multiplier="1:1" id="Uhb-w2-CrV"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="7">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="7">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="seven:" destination="-1" eventType="touchUpInside" id="RcR-mM-JrK"/>
                                     </connections>
@@ -149,10 +161,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Xc7-Px-r3c" secondAttribute="height" multiplier="1:1" id="8u1-Te-nR7"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="8">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="8">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="eight:" destination="-1" eventType="touchUpInside" id="5KK-cd-k8D"/>
                                     </connections>
@@ -165,10 +178,11 @@
                                         <constraint firstAttribute="height" constant="64" id="Eo0-VI-Xgo"/>
                                         <constraint firstAttribute="width" secondItem="akB-wu-G1O" secondAttribute="height" multiplier="1:1" id="ITU-Es-v21"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="9">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="9">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="nine:" destination="-1" eventType="touchUpInside" id="mOg-Yb-EcG"/>
                                     </connections>
@@ -191,10 +205,11 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="GYi-zg-ysO" secondAttribute="height" multiplier="1:1" id="ORw-M5-3DC"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="0">
-                                        <color key="baseForegroundColor" name="grey100"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="20"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="0">
+                                        <color key="titleColor" name="grey100"/>
+                                    </state>
                                     <connections>
                                         <action selector="zero:" destination="-1" eventType="touchUpInside" id="gZ9-gM-0h0"/>
                                     </connections>

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "card_activated_successfully.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

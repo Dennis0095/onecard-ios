@@ -13,11 +13,17 @@
         <array key="Gotham-Book.otf">
             <string>Gotham-Book</string>
         </array>
-        <array key="Gotham-Light.otf">
-            <string>Gotham-Light</string>
-        </array>
         <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
+        </array>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
+        </array>
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -63,7 +69,7 @@
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-jR-K4t">
                                     <rect key="frame" x="46" y="20" width="329" height="0.0"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_twilight"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -95,7 +101,7 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2t-2t-dow">
                                                                     <rect key="frame" x="18" y="20" width="357" height="0.0"/>
-                                                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -114,26 +120,26 @@
                                                     <rect key="frame" x="0.0" y="40" width="393" height="603"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Rqi-F0-yZa">
-                                                            <rect key="frame" x="18" y="16" width="357" height="265.66666666666669"/>
+                                                            <rect key="frame" x="18" y="16" width="357" height="272"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese su código de verificación" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="233" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="229.33333333333334" height="18.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                                     <color key="textColor" name="blue_lake_front"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-fu-nlh">
-                                                                    <rect key="frame" x="0.0" y="41" width="328" height="62.666666666666657"/>
+                                                                    <rect key="frame" x="0.0" y="42.333333333333343" width="357" height="65"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingrese el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="328" height="33.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="35"/>
+                                                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                                                             <color key="textColor" name="blue_twilight"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDH-YO-7lT">
-                                                                            <rect key="frame" x="0.0" y="33.666666666666657" width="111" height="29"/>
-                                                                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                                                            <rect key="frame" x="0.0" y="35" width="99" height="30"/>
+                                                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" title="Enviar al correo">
                                                                                 <color key="titleColor" name="blue_sky"/>
@@ -145,7 +151,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u7t-yE-mpn">
-                                                                    <rect key="frame" x="0.0" y="127.66666666666669" width="50" height="76"/>
+                                                                    <rect key="frame" x="0.0" y="131.33333333333331" width="50" height="76"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="5jA-Ic-bMU" customClass="CodeVerificationTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
@@ -165,26 +171,26 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-Fa-fWL">
-                                                                    <rect key="frame" x="0.0" y="227.66666666666669" width="293.66666666666669" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="231.33333333333331" width="264.66666666666669" height="40.666666666666686"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No recibiste el código?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTr-iN-5aD">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="293.66666666666669" height="17"/>
-                                                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                                                            <color key="textColor" red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="19"/>
+                                                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
+                                                                            <color key="textColor" name="grey80"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-yQ-NRc">
-                                                                            <rect key="frame" x="0.0" y="21" width="293.66666666666669" height="17"/>
+                                                                            <rect key="frame" x="0.0" y="23" width="264.66666666666669" height="17.666666666666671"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podrá solicitar un nuevo código en 60 seg." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTB-jP-qRe">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="293.66666666666669" height="17"/>
-                                                                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="14"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="17.666666666666668"/>
+                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                                                                     <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EJ-sX-Tqd">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="0.0"/>
-                                                                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="0.0"/>
+                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="14"/>
                                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                     <state key="normal" title="Volver a enviar">
                                                                                         <color key="titleColor" name="blue_primary"/>
@@ -373,6 +379,9 @@
         </namedColor>
         <namedColor name="blue_twilight">
             <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey80">
+            <color red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

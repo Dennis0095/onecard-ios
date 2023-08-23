@@ -110,7 +110,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 self.delegate?.hideLoader()
                 if response.otpMatchIndex == "1" {
                     CardObserver.shared.updateStatus(status: "P")
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", accept: {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
                         self.router.backToHome()
                     })
                 } else {

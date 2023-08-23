@@ -9,17 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Bold.otf">
-            <string>Gotham-Bold</string>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
         </array>
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
         </array>
-        <array key="Gotham-Light.otf">
-            <string>Gotham-Light</string>
-        </array>
-        <array key="Gotham-Medium.otf">
-            <string>Gotham-Medium</string>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -50,7 +47,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qj-ul-aa2">
                             <rect key="frame" x="18" y="24" width="297" height="0.0"/>
-                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" name="blue_lake_front"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -64,21 +61,21 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-C6-8SG">
                             <rect key="frame" x="0.0" y="57" width="393" height="110"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DINERS ONE CARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDY-Vd-Ctg">
-                                    <rect key="frame" x="18" y="24" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diners One Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDY-Vd-Ctg">
+                                    <rect key="frame" x="18" y="24" width="357" height="19.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disponible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uap-rn-ac5">
-                                    <rect key="frame" x="18.000000000000004" y="54.333333333333343" width="62.333333333333343" height="14.666666666666671"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Light" family="Gotham" pointSize="12"/>
+                                    <rect key="frame" x="18.000000000000004" y="47.666666666666657" width="61.333333333333343" height="16.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ab-X7-Tnt">
-                                    <rect key="frame" x="18" y="69" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="18" y="64" width="357" height="22"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -112,7 +109,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Su tarjeta se encuentra bloqueada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjP-Qe-0H2">
                                             <rect key="frame" x="46" y="12.666666666666657" width="329" height="14.666666666666664"/>
-                                            <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -143,11 +140,11 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-oW-B92">
-                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="24"/>
-                                            <string key="text">CONFIGURAR
-TARJETA</string>
-                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="10"/>
-                                            <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="30"/>
+                                            <string key="text">Conigurar
+Tarjeta</string>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                            <color key="textColor" name="blue_twilight"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywm-yg-Ot9">
@@ -165,7 +162,7 @@ TARJETA</string>
                                         <constraint firstItem="Ywm-yg-Ot9" firstAttribute="leading" secondItem="eXW-MV-1CC" secondAttribute="leading" id="F44-Gy-ftH"/>
                                         <constraint firstItem="VTM-fT-IcO" firstAttribute="top" secondItem="eXW-MV-1CC" secondAttribute="top" constant="8" id="Izh-sW-ebh"/>
                                         <constraint firstItem="bVa-oW-B92" firstAttribute="leading" secondItem="eXW-MV-1CC" secondAttribute="leading" constant="10" id="Ybo-sr-b1f"/>
-                                        <constraint firstItem="Ywm-yg-Ot9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bVa-oW-B92" secondAttribute="bottom" constant="16" id="Z4M-YI-DiO"/>
+                                        <constraint firstItem="Ywm-yg-Ot9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bVa-oW-B92" secondAttribute="bottom" id="Z4M-YI-DiO"/>
                                         <constraint firstAttribute="trailing" secondItem="Ywm-yg-Ot9" secondAttribute="trailing" id="cXy-ej-GNa"/>
                                         <constraint firstAttribute="bottom" secondItem="Ywm-yg-Ot9" secondAttribute="bottom" id="hYv-IP-DUb"/>
                                         <constraint firstAttribute="trailing" secondItem="bVa-oW-B92" secondAttribute="trailing" constant="10" id="r6M-cv-mjE"/>
@@ -183,11 +180,11 @@ TARJETA</string>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIX-Fa-7GT">
-                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="24"/>
-                                            <string key="text">BLOQUEO
-DE TARJETA</string>
-                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="10"/>
-                                            <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="30"/>
+                                            <string key="text">Bloqueo de
+tarejta</string>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                            <color key="textColor" name="blue_twilight"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7q-Pb-8Wf">
@@ -208,7 +205,7 @@ DE TARJETA</string>
                                         <constraint firstItem="V7q-Pb-8Wf" firstAttribute="leading" secondItem="HVp-dx-JKO" secondAttribute="leading" id="gtd-6R-173"/>
                                         <constraint firstAttribute="bottom" secondItem="V7q-Pb-8Wf" secondAttribute="bottom" id="jhj-11-mLw"/>
                                         <constraint firstItem="BIX-Fa-7GT" firstAttribute="top" secondItem="zgD-ai-2XN" secondAttribute="bottom" constant="4" id="kx1-1f-bg2"/>
-                                        <constraint firstItem="V7q-Pb-8Wf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BIX-Fa-7GT" secondAttribute="bottom" constant="16" id="oa4-FB-wsO"/>
+                                        <constraint firstItem="V7q-Pb-8Wf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BIX-Fa-7GT" secondAttribute="bottom" id="oa4-FB-wsO"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTS-ia-ppp">
@@ -222,11 +219,11 @@ DE TARJETA</string>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7C-4Z-phw">
-                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="24"/>
-                                            <string key="text">CAMBIAR
+                                            <rect key="frame" x="10" y="52" width="88.333333333333329" height="30"/>
+                                            <string key="text">Cambiar
 PIN</string>
-                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="10"/>
-                                            <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                            <color key="textColor" name="blue_twilight"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1p-ji-wSe">
@@ -239,7 +236,7 @@ PIN</string>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="n1p-ji-wSe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A7C-4Z-phw" secondAttribute="bottom" constant="16" id="1Dt-aN-liX"/>
+                                        <constraint firstItem="n1p-ji-wSe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="A7C-4Z-phw" secondAttribute="bottom" id="1Dt-aN-liX"/>
                                         <constraint firstItem="n1p-ji-wSe" firstAttribute="leading" secondItem="GTS-ia-ppp" secondAttribute="leading" id="1ae-66-mjn"/>
                                         <constraint firstAttribute="trailing" secondItem="n1p-ji-wSe" secondAttribute="trailing" id="Q9t-3d-lbJ"/>
                                         <constraint firstItem="A7C-4Z-phw" firstAttribute="leading" secondItem="GTS-ia-ppp" secondAttribute="leading" constant="10" id="ZYk-vw-XUf"/>
@@ -262,25 +259,25 @@ PIN</string>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82a-9V-Xdg">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ÚLTIMOS MOVIMIENTOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-Wt-75t">
-                                            <rect key="frame" x="18" y="40" width="172" height="17"/>
-                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                            <color key="textColor" red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Últimos movimientos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-Wt-75t">
+                                            <rect key="frame" x="18" y="40" width="153" height="19.666666666666671"/>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
+                                            <color key="textColor" name="blue_lake_front"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiP-TJ-PEg">
-                                            <rect key="frame" x="306" y="34" width="69" height="29"/>
-                                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                            <rect key="frame" x="309" y="34.333333333333314" width="66" height="31"/>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Ver todos">
-                                                <color key="titleColor" red="0.15686274509803921" green="0.70588235294117641" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" name="blue_sky"/>
                                             </state>
                                             <connections>
                                                 <action selector="toMovements:" destination="-1" eventType="touchUpInside" id="Jks-8v-Dvq"/>
                                             </connections>
                                         </button>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X3t-04-XdG">
-                                            <rect key="frame" x="0.0" y="65" width="393" height="361"/>
+                                            <rect key="frame" x="0.0" y="67.666666666666686" width="393" height="358.33333333333331"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableView>
                                     </subviews>
@@ -301,16 +298,16 @@ PIN</string>
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="426"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="92a-c7-xuY">
-                                            <rect key="frame" x="20" y="179.66666666666663" width="353" height="67"/>
+                                            <rect key="frame" x="20" y="178.66666666666663" width="353" height="69"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es necesario que active su tarjeta " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btH-tV-iYd">
-                                                    <rect key="frame" x="58.333333333333329" y="0.0" width="236.66666666666669" height="17"/>
-                                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                                    <rect key="frame" x="63.666666666666686" y="0.0" width="226" height="19"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIn-qG-uVu" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                                    <rect key="frame" x="51" y="27" width="251" height="40"/>
+                                                    <rect key="frame" x="51" y="29" width="251" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="VTw-2F-Pzj"/>
                                                         <constraint firstAttribute="width" constant="251" id="qei-Bv-ePt"/>
@@ -382,6 +379,9 @@ PIN</string>
         <image name="ic_info" width="25" height="24"/>
         <namedColor name="blue_lake_front">
             <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blue_sky">
+            <color red="0.0" green="0.63921568627450975" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="blue_twilight">
             <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

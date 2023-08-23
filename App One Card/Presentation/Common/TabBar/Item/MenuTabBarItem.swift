@@ -21,6 +21,7 @@ class MenuTabBarItem: UIView {
     
     var isSelectedItem: Bool = false {
         didSet {
+            lblTitle.font = !isSelectedItem ? UIFont(name: "ProximaNova-Medium", size: 12) : UIFont(name: "ProximaNova-Bold", size: 12)
             viewSelected.isHidden = !isSelectedItem
         }
     }

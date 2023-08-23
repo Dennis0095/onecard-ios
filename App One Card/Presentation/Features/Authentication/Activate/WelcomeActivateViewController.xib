@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Bold.otf">
-            <string>Gotham-Bold</string>
+        <array key="Proxima Nova Black.otf">
+            <string>ProximaNova-Black</string>
         </array>
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -36,45 +36,20 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_activate" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-ZJ-jVy">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="490.66666666666669"/>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-TB-zgs">
-                            <rect key="frame" x="18" y="702" width="357" height="96"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ4-Ys-Im0" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="357" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="pjq-TI-O6A"/>
-                                    </constraints>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <connections>
-                                        <action selector="activate:" destination="-1" eventType="touchUpInside" id="I7G-rz-mox"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-nw-dwN" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="56" width="357" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="QIF-HL-eva"/>
-                                    </constraints>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <connections>
-                                        <action selector="later:" destination="-1" eventType="touchUpInside" id="0f7-kG-nWe"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCZ-ub-UcS">
-                            <rect key="frame" x="0.0" y="490.66666666666669" width="393" height="211.33333333333331"/>
+                            <rect key="frame" x="0.0" y="490.66666666666669" width="393" height="203.33333333333331"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO ANDRÉS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
-                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="16.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="14"/>
-                                    <color key="textColor" name="blue_accent"/>
+                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="17.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
+                                    <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
-                                    <rect key="frame" x="18" y="72.333333333333314" width="357" height="65.333333333333314"/>
+                                    <rect key="frame" x="18" y="73.333333333333314" width="357" height="75"/>
                                     <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece Diners One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
-                                    <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
-                                    <color key="textColor" name="grey80"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
+                                    <color key="textColor" name="blue_twilight"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -89,6 +64,28 @@
                                 <constraint firstItem="osA-ZS-XuL" firstAttribute="centerX" secondItem="ZCZ-ub-UcS" secondAttribute="centerX" id="zGQ-KH-xy4"/>
                             </constraints>
                         </scrollView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-TB-zgs">
+                            <rect key="frame" x="18" y="694" width="357" height="104"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ4-Ys-Im0" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="pjq-TI-O6A"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="activate:" destination="-1" eventType="touchUpInside" id="I7G-rz-mox"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-nw-dwN" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="60" width="357" height="44"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="later:" destination="-1" eventType="touchUpInside" id="0f7-kG-nWe"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -122,11 +119,11 @@
     </objects>
     <resources>
         <image name="bg_activate" width="375" height="465"/>
-        <namedColor name="blue_accent">
-            <color red="0.0" green="0.47843137254901963" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="blue_lake_front">
+            <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="grey80">
-            <color red="0.42352941176470588" green="0.43529411764705883" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="blue_twilight">
+            <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

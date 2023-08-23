@@ -17,7 +17,6 @@ class CardLockViewController: BaseViewController {
     @IBOutlet weak var lblNavTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblCount: UILabel!
-    @IBOutlet weak var lblTitleDescription: UILabel!
     @IBOutlet weak var btnResend: UIButton!
     @IBOutlet weak var btnSendCode: UIButton!
     @IBOutlet weak var viewError: UIView!
@@ -28,7 +27,6 @@ class CardLockViewController: BaseViewController {
     @IBOutlet weak var btnRetry: PrimaryFilledButton!
     
     private var viewModel: CardLockViewModelProtocol
-    private var titleDescription: String?
     private var navTitle: String
     private var buttonTitle: String
     private var timer = Timer()
@@ -46,9 +44,8 @@ class CardLockViewController: BaseViewController {
         }
     }
     
-    init(viewModel: CardLockViewModelProtocol, navTitle: String, titleDescription: String? = nil, buttonTitle: String) {
+    init(viewModel: CardLockViewModelProtocol, navTitle: String, buttonTitle: String) {
         self.viewModel = viewModel
-        self.titleDescription = titleDescription
         self.navTitle = navTitle
         self.buttonTitle = buttonTitle
         super.init(nibName: nil, bundle: nil)
@@ -103,9 +100,9 @@ class CardLockViewController: BaseViewController {
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
 
-        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "Gotham-Book", size: 14)!])
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
 
-        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "Gotham-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#4A4A4A")], range: longestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: longestWordRange)
         lblDescription.attributedText = attributedString
     }
     
@@ -116,14 +113,12 @@ class CardLockViewController: BaseViewController {
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "Gotham-Light", size: 14)!])
 
-        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "Gotham-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#4A4A4A")], range: longestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: longestWordRange)
         lblCount.attributedText = attributedString
     }
 
     private func configure() {
         lblNavTitle.text = navTitle
-        
-        lblTitleDescription.isHidden = titleDescription == nil
     }
     
     @objc

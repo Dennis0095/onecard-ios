@@ -19,15 +19,17 @@ class SuccessfulViewController: BaseViewController {
     var titleSuccessful: String?
     var descriptionSuccessful: String?
     var buttonSuccessful: String?
+    var imageSuccessful: UIImage?
     
     override func initView() {
         configure()
-        btnSuccessful.configure(text: buttonSuccessful ?? Constants.login_btn, status: .enabled)
     }
     
     func configure() {
         lblTitle.text = titleSuccessful
         lblDescription.text = descriptionSuccessful
+        btnSuccessful.configure(text: buttonSuccessful ?? Constants.accept, status: .enabled)
+        imgSuccess.image = imageSuccessful
     }
     
     @IBAction func ok(_ sender: Any) {

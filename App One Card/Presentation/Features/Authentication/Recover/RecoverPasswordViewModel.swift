@@ -52,7 +52,7 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
     }
     
     func navigateToSuccessfulScreen() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn) {
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn, image: #imageLiteral(resourceName: "reset_password_successfully.svg")) {
             self.router.navigateToLogin()
         }
     }
@@ -80,7 +80,7 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.success == "1" {
-                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn, image: #imageLiteral(resourceName: "reset_password_successfully.svg")) {
                         self.router.navigateToLogin()
                     }
                 } else {
@@ -90,60 +90,6 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
         
         cancellable.store(in: &cancellables)
     }
-    
-//    func timeExpired() {
-//        self.router.timeExpiredRegister()
-//    }
-
-//    func registerUser() {
-//        guard let username = self.username, let password = self.password, let passwordOk = self.passwordOk else {
-//            return
-//        }
-//
-//        let request = UserRegisterRequest(otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, username: username, password: password, password_ok: passwordOk)
-//
-//        let cancellable = userUseCase.userRegister(request: request)
-//            .sink { publisher in
-//                switch publisher {
-//                case .finished: break
-//                case .failure(let error):
-//                    self.delegate?.hideLoader {
-//                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-//                    }
-//                }
-//            } receiveValue: { response in
-//                let title = response.title ?? ""
-//                let description = response.message ?? ""
-//
-//                self.delegate?.hideLoader {
-//                    if response.validExpiration == "1" {
-//                        if response.success == "1" {
-//                            if response.validUser == "1" && response.validPassword == "1" {
-//                                self.delegate?.successRegister()
-//                            } else {
-//                                if response.confirmPassword == "1" {
-//                                    if response.userExists == "0" {
-//                                        self.delegate?.successRegister()
-//                                    } else {
-//                                        self.delegate?.showError(title: title, description: description, onAccept: nil)
-//                                    }
-//                                } else {
-//                                    self.delegate?.showError(title: title, description: description, onAccept: nil)
-//                                }
-//                            }
-//                        } else {
-//                            self.delegate?.showError(title: title, description: description, onAccept: nil)
-//                        }
-//                    } else {
-//                        self.delegate?.showError(title: title, description: description) {
-//                            self.delegate?.timeExpired()
-//                        }
-//                    }
-//                }
-//            }
-//
-//        cancellable.store(in: &cancellables)
-//    }
     
     func cancelRequests() {
         cancellables.forEach { $0.cancel() }

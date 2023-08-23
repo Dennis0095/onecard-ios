@@ -33,7 +33,7 @@ class PinOutlinedTextField: UIView {
     public lazy var txt: PaddedTextField = {
         let textfield = PaddedTextField()
         textfield.paddingLeft = 15
-        textfield.font = UIFont(name: "Gotham-Book", size: 14)
+        textfield.font = UIFont(name: "ProximaNova-Medium", size: 15)
         textfield.translatesAutoresizingMaskIntoConstraints = false
         return textfield
     }()
@@ -43,7 +43,7 @@ class PinOutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey60)
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,7 +53,7 @@ class PinOutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -134,10 +134,6 @@ class PinOutlinedTextField: UIView {
     }
     
     func addActions() {
-        //        let tapViewPlaceholder = UITapGestureRecognizer(target: self, action: #selector(tapViewPlaceholder))
-        //        viewPlaceholder.isUserInteractionEnabled = true
-        //        viewPlaceholder.addGestureRecognizer(tapViewPlaceholder)
-        
         let tapPassword = UITapGestureRecognizer(target: self, action: #selector(imgPasswordTapped))
         imgPassword.isUserInteractionEnabled = true
         imgPassword.addGestureRecognizer(tapPassword)
@@ -145,8 +141,6 @@ class PinOutlinedTextField: UIView {
     
     func setupView(isPassword: Bool) {
         txt.layer.borderWidth = 1
-        //txt.delegate = self
-        //txt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         self.addSubview(stackInput)
         self.stackInput.addArrangedSubview(viewContainer)
@@ -193,8 +187,6 @@ class PinOutlinedTextField: UIView {
         ])
         
         txt.paddingRight = isPassword ? (34 + 15) : 15
-        
-        //viewError.isHidden = true
     }
     
     func configure(placeholder: String? = "", errorMessage: String? = nil, status: PinOutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false) {
@@ -215,11 +207,6 @@ class PinOutlinedTextField: UIView {
     func setPlaceholder(placeholder: String) {
         lblPlaceholder.text = placeholder
     }
-    
-    //    func setText(text: String) {
-    //        self.text = text
-    //        txt.text = text
-    //    }
     
     func changeStatus(status: PinOutlinedTextFieldStatus) {
         switch status {
@@ -246,7 +233,6 @@ class PinOutlinedTextField: UIView {
             txt.isEnabled = false
             
             if errorMessage != nil {
-                //viewError.isHidden = true
                 lblError.textColor = #colorLiteral(red: 0.568627451, green: 0.5764705882, blue: 0.5803921569, alpha: 1)
                 lblError.isHidden = true
             }
@@ -259,9 +245,6 @@ class PinOutlinedTextField: UIView {
             txt.isEnabled = true
             
             if errorMessage != nil {
-                //lblPlaceholder.textColor = isPlaceholderOnTop ? .red : Design.color(.grey60)
-                //txt.layer.borderColor = UIColor.red.cgColor
-                //viewError.isHidden = false
                 lblError.textColor = .red
                 lblError.isHidden = false
             }
@@ -272,7 +255,7 @@ class PinOutlinedTextField: UIView {
         isPlaceholderOnTop = true
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 12)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 13)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.topAnchor.constraint(equalTo: self.viewContainer.topAnchor, constant: -8),
@@ -294,7 +277,7 @@ class PinOutlinedTextField: UIView {
         isPlaceholderOnTop = false
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 14)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 15)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
@@ -312,83 +295,13 @@ class PinOutlinedTextField: UIView {
         }
     }
     
-    //    @objc private func tapViewPlaceholder() {
-    //        if !isPlaceholderOnTop {
-    //            isPlaceholderOnTop = true
-    //
-    //            txt.becomeFirstResponder()
-    //        }
-    //    }
-    
-    //    @objc func textFieldDidChange(_ textField: UITextField) {
-    //        if let changes = listenChanges {
-    //            let trimText = (textField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-    //            self.text = textField.text ?? ""
-    //            //self.isValid = !trimText.isEmpty
-    //            changes(trimText)
-    //        }
-    //    }
-    
     @objc private func imgPasswordTapped() {
         isSecureTextField.toggle()
     }
 }
 
-//extension PinOutlinedTextField: UITextFieldDelegate {
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if let changes = selectTextField {
-//            changes(nil)
-//        }
-//
-//        if hasError {
-//            status = .errorUnfocused
-//        } else {
-//            status = .activated
-//        }
-//
-//        if (textField.text ?? "").isEmpty {
-//            showPlaceholderOnCenter()
-//        }
-//    }
-//
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if let changes = selectTextField {
-//            changes(textField)
-//        }
-//
-//        if hasError {
-//            status = .errorFocused
-//        } else {
-//            status = .focused
-//        }
-//
-//        if (textField.text ?? "").isEmpty {
-//            showPlaceholderOnTop()
-//        }
-//    }
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        switch keyBoardType {
-//        case .numberPad:
-//            let allowedCharacters = CharacterSet.decimalDigits
-//            let characterSet = CharacterSet(charactersIn: string)
-//
-//            return allowedCharacters.isSuperset(of: characterSet)
-//        case .decimalPad:
-//            guard let currentText = textField.text else {
-//                return true
-//            }
-//            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
-//            return updatedText.validateString(withRegex: .decimal)
-//        default:
-//            return true
-//        }
-//    }
-//}
-
 enum PinOutlinedTextFieldStatus {
     case activated
-    //case focused
     case disabled
     case errorUnfocused
 }

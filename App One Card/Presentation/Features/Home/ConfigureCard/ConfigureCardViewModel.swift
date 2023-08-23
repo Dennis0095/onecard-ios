@@ -174,7 +174,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -198,7 +198,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -222,7 +222,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -249,7 +249,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.0.rc == "0" && response.1.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -276,7 +276,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.0.rc == "0" && response.1.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "REGRESAR", accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {

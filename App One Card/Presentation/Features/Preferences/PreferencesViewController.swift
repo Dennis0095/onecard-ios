@@ -33,7 +33,7 @@ class PreferencesViewController: BaseViewController {
         preferencesList = [
             PreferenceItem(id: 0, image: #imageLiteral(resourceName: "ic_profile.svg"), title: "Mi perfil"),
             PreferenceItem(id: 1, image: #imageLiteral(resourceName: "ic_question.svg"), title: "Preguntas frecuentes"),
-            PreferenceItem(id: 2, image: #imageLiteral(resourceName: "ic_phone.svg"), title: "Contáctanos"),
+            //PreferenceItem(id: 2, image: #imageLiteral(resourceName: "ic_phone.svg"), title: "Contáctanos"),
             PreferenceItem(id: 3, image: #imageLiteral(resourceName: "ic_logout.svg"), title: "Cerrar sesión"),
         ]
     }

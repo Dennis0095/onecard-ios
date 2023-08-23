@@ -280,12 +280,13 @@ extension AppRouter: VerificationRouterDelegate {
 }
 
 extension AppRouter: SuccessfulRouterDelegate {
-    func navigateToSuccessfulScreen(title: String, description: String, button: String, accept: VoidActionHandler?) {
+    func navigateToSuccessfulScreen(title: String, description: String, button: String, image: UIImage, accept: VoidActionHandler?) {
         DispatchQueue.main.async {
             let successfulViewController = SuccessfulViewController()
             successfulViewController.titleSuccessful = title
             successfulViewController.descriptionSuccessful = description
             successfulViewController.buttonSuccessful = button
+            successfulViewController.imageSuccessful = image
             successfulViewController.accept = accept
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(successfulViewController, animated: true)

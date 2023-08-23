@@ -62,14 +62,12 @@ class LoginViewModel: LoginViewModelProtocol {
                         self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                     }
                 } receiveValue: { response in
-                    //self.delegate?.hideLoader {
                     self.delegate?.hideLoader()
                     if response.success == "1" {
                         self.getStatusCard(token: response.token ?? "")
                     } else {
                         self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
                     }
-                    //}
                 }
             cancellable.store(in: &cancellables)
         }
@@ -93,7 +91,6 @@ class LoginViewModel: LoginViewModelProtocol {
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
                 
-                //self.delegate?.hideLoader {
                 self.delegate?.hideLoader()
                 if response.rc == "0" {
                     let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
@@ -109,7 +106,6 @@ class LoginViewModel: LoginViewModelProtocol {
                 } else {
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
-                //}
             }
         cancellable.store(in: &cancellables)
     }

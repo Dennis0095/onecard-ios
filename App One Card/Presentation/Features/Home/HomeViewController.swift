@@ -46,6 +46,8 @@ class HomeViewController: BaseViewController {
         }
         
         btnCardActivation.configure(text: "ACTIVAR TARJETA", status: .enabled)
+        lblName.text = "BIENVENIDO \(UserObserver.shared.getUser()?.name ?? "")"
+        validateStatus(CardObserver.shared.getStatus())
         
         HomeObserver.shared.listenAmountChanges = { amount in
             self.lblAmount.text = amount
@@ -58,8 +60,6 @@ class HomeViewController: BaseViewController {
             }
         }
         
-        self.lblName.text = "BIENVENIDO \(UserObserver.shared.getUser()?.name ?? "")"
-        
         UserObserver.shared.listenChanges = { user in
             self.lblName.text = "BIENVENIDO \(user.name ?? "")"
         }
@@ -67,8 +67,6 @@ class HomeViewController: BaseViewController {
         CardObserver.shared.listenStatusChanges = { status in
             self.validateStatus(status)
         }
-        
-        validateStatus(CardObserver.shared.getStatus())
     }
     
     override func setActions() {

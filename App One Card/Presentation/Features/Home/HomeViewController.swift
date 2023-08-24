@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet weak var viewCardLock: UIView!
     @IBOutlet weak var viewConfigureCard: UIView!
     @IBOutlet weak var viewChangePin: UIView!
@@ -65,26 +65,25 @@ class HomeViewController: BaseViewController {
         }
         
         CardObserver.shared.listenStatusChanges = { status in
-            if status == "P" {
-                self.stkOptions.isUserInteractionEnabled = false
-                self.stkOptions.alpha = 0.5
-                
-                self.viewMovements.isHidden = true
-                self.viewCardNotActivated.isHidden = false
-                self.viewInfoCardLock.isHidden = false
-            } else {
-                self.stkOptions.isUserInteractionEnabled = true
-                self.stkOptions.alpha = 1
-                
-                self.viewMovements.isHidden = false
-                self.viewCardNotActivated.isHidden = true
-                self.viewInfoCardLock.isHidden = true
-            }
+            self.validateStatus(status)
         }
         
-        viewModel.balanceInquiry()
+        validateStatus(CardObserver.shared.getStatus())
+    }
+    
+    override func setActions() {
+        let tapConfigureCardLock = UITapGestureRecognizer(target: self, action: #selector(tapConfigureCardLock))
+        viewConfigureCard.addGestureRecognizer(tapConfigureCardLock)
         
-        if CardObserver.shared.getStatus() == "P" {
+        let tapCardLock = UITapGestureRecognizer(target: self, action: #selector(tapCardLock))
+        viewCardLock.addGestureRecognizer(tapCardLock)
+        
+        let tapChangePin = UITapGestureRecognizer(target: self, action: #selector(tapChangePin))
+        viewChangePin.addGestureRecognizer(tapChangePin)
+    }
+    
+    private func validateStatus(_ status: String?) {
+        if status == "P" {
             self.stkOptions.isUserInteractionEnabled = false
             self.stkOptions.alpha = 0.5
             
@@ -98,19 +97,10 @@ class HomeViewController: BaseViewController {
             self.viewMovements.isHidden = false
             self.viewCardNotActivated.isHidden = true
             self.viewInfoCardLock.isHidden = true
+            
+            self.viewModel.balanceInquiry()
             self.viewModel.consultMovements()
         }
-    }
-
-    override func setActions() {
-        let tapConfigureCardLock = UITapGestureRecognizer(target: self, action: #selector(tapConfigureCardLock))
-        viewConfigureCard.addGestureRecognizer(tapConfigureCardLock)
-        
-        let tapCardLock = UITapGestureRecognizer(target: self, action: #selector(tapCardLock))
-        viewCardLock.addGestureRecognizer(tapCardLock)
-        
-        let tapChangePin = UITapGestureRecognizer(target: self, action: #selector(tapChangePin))
-        viewChangePin.addGestureRecognizer(tapChangePin)
     }
     
     @objc

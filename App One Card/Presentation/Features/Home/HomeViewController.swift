@@ -45,7 +45,8 @@ class HomeViewController: BaseViewController {
             view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
         }
         
-        btnCardActivation.configure(text: "ACTIVAR TARJETA", status: .enabled)
+        imgQuestions.addShadow(color: UIColor(red: 0.902, green: 0.914, blue: 0.937, alpha: 1), opacity: 1, offset: CGSize(width: 0, height: 6), radius: 5)
+        btnCardActivation.configure(text: "Activar Tarjeta", status: .enabled)
         lblName.text = "BIENVENIDO \(UserObserver.shared.getUser()?.name ?? "")"
         validateStatus(CardObserver.shared.getStatus())
         
@@ -80,15 +81,22 @@ class HomeViewController: BaseViewController {
         viewChangePin.addGestureRecognizer(tapChangePin)
     }
     
-    private func validateStatus(_ status: String?) {
-        if status == "P" {
+    private func validateStatus(_ status: StatusCard?) {
+        if status == .NOT_ACTIVE {
             self.stkOptions.isUserInteractionEnabled = false
             self.stkOptions.alpha = 0.5
             
             self.viewMovements.isHidden = true
             self.viewCardNotActivated.isHidden = false
+            self.viewInfoCardLock.isHidden = true
+        } else if status == .CANCEL {
+            self.stkOptions.isUserInteractionEnabled = false
+            self.stkOptions.alpha = 0.5
+            
+            self.viewMovements.isHidden = true
+            self.viewCardNotActivated.isHidden = true
             self.viewInfoCardLock.isHidden = false
-        } else {
+        } else if status == .ACTIVE || status == .TEMPORARY_LOCKED {
             self.stkOptions.isUserInteractionEnabled = true
             self.stkOptions.alpha = 1
             
@@ -121,7 +129,7 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func cardActivation(_ sender: Any) {
-        
+        viewModel.toCardActivation()
     }
 }
 

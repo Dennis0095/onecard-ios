@@ -43,6 +43,8 @@ class MenuTabBar: UIView {
         preferencesTabBarItem.configure(title: Constants.tab_title_prefs, image: #imageLiteral(resourceName: "ic_preferences"))
         
         homeTabBarItem.isSelectedItem = true
+        
+        contentView.addShadow(opacity: 0.15, offset: CGSize(width: 4, height: 0), radius: 8)
     }
     
     private func addActions() {

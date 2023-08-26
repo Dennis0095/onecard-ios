@@ -9,8 +9,8 @@ import Combine
 import Foundation
 
 protocol CardSessionManagerProtocol {
-    func saveStatus(status: String?)
-    func getStatus() -> String?
+    func saveStatus(status: StatusCard?)
+    func getStatus() -> StatusCard?
 }
 
 class CardSessionManager: CardSessionManagerProtocol {
@@ -19,15 +19,15 @@ class CardSessionManager: CardSessionManagerProtocol {
     
     private init() {}
     
-    func saveStatus(status: String?) {
+    func saveStatus(status: StatusCard?) {
         CardObserver.shared.updateStatus(status: status)
-        UserDefaults.standard.set(status, forKey: Constants.keyCardStatus)
+        UserDefaults.standard.set(status?.rawValue, forKey: Constants.keyCardStatus)
         UserDefaults.standard.synchronize()
     }
     
-    func getStatus() -> String? {
-        if let token = UserDefaults.standard.string(forKey: Constants.keyCardStatus) {
-            return token
+    func getStatus() -> StatusCard? {
+        if let status = UserDefaults.standard.string(forKey: Constants.keyCardStatus) {
+            return StatusCard(rawValue: status)
         } else {
             return nil
         }

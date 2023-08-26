@@ -69,10 +69,10 @@ class MovementsViewModel: MovementsViewModelProtocol {
     }
     
     func consultMovements() {
-        
         guard !isLastPage else { return }
         
         delegate?.showLoader()
+        isLoadingPage = true
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
@@ -86,6 +86,7 @@ class MovementsViewModel: MovementsViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
+                    self.isLoadingPage = false
                     if !self.wasShownViewMovements {
                         self.delegate?.failureGetMovements(error: apiError)
                     } else {
@@ -94,16 +95,16 @@ class MovementsViewModel: MovementsViewModelProtocol {
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader()
+                self.isLoadingPage = false
                 self.wasShownViewMovements = true
                 
-                if self.pageSize < (Int(response.quantity ?? "0") ?? 0) {
+                if self.pageSize < (response.clientMovements?.count ?? 0) {
                     self.isLastPage = true
                 } else {
                     self.currentPage += 1
                 }
                 
                 self.items += response.clientMovements ?? []
-                //self.items = response.clientMovements ?? []
                 self.delegate?.successGetMovements()
             }
         

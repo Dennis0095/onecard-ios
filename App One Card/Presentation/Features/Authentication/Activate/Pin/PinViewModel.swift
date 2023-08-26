@@ -145,6 +145,7 @@ class PinViewModel: PinViewModelProtocol {
                 let error = APIError.defaultError.error()
                 self.delegate?.hideLoader()
                 if response.rc == "0" {
+                    CardSessionManager.shared.saveStatus(status: .ACTIVE)
                     if let success = self.success {
                         success(self.pin)
                     }

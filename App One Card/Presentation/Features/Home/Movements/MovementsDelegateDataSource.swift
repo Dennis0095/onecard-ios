@@ -40,15 +40,11 @@ extension MovementsDelegateDataSource: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let screenHeight = scrollView.frame.size.height
-        
-//        if offsetY > contentHeight - screenHeight * 2, !viewModel.isLoading {
-//            viewModel.currentPage += 1
-//            loadData() // Load more data when scrolled close to the bottom
-//        }
-        if offsetY > contentHeight - screenHeight * 2 {
+        let tableViewContentHeight = scrollView.contentSize.height
+        let tableViewHeight = scrollView.frame.height
+        let scrollOffset = scrollView.contentOffset.y
+
+        if scrollOffset + tableViewHeight >= tableViewContentHeight, !viewModel.isLoadingPage {
             viewModel.consultMovements()
         }
     }

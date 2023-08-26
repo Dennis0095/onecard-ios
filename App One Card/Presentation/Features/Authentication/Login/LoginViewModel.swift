@@ -96,9 +96,9 @@ class LoginViewModel: LoginViewModelProtocol {
                     let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
                     UserSessionManager.shared.saveToken(token: token)
                     UserSessionManager.shared.saveUser(user: decodeUser)
-                    CardSessionManager.shared.saveStatus(status: response.status)
+                    CardSessionManager.shared.saveStatus(status: StatusCard(rawValue: response.status ?? ""))
                     
-                    if response.status == "P" {
+                    if response.status == StatusCard.NOT_ACTIVE.rawValue {
                         self.router.navigateToActivateUser()
                     } else {
                         self.router.navigateToHome()
@@ -118,11 +118,4 @@ class LoginViewModel: LoginViewModelProtocol {
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
     }
-}
-
-enum StatusCard {
-    case P
-    case A
-    case X
-    case C
 }

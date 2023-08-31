@@ -1,5 +1,5 @@
 //
-//  PreferencesTableViewCell.swift
+//  ConfigurationTableViewCell.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 11/06/23.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PreferencesTableViewCell: UITableViewCell {
+class ConfigurationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var imgPreference: UIImageView!
+    @IBOutlet weak var imgConfiguration: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var viewSeparator: UIView!
     
@@ -30,10 +30,10 @@ class PreferencesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(item: PreferenceItem, isLast: Bool, image: UIImage) {
+    func configure(item: ConfigurationItem, isLast: Bool, image: UIImage) {
         self.isLast = isLast
         lblTitle.text = item.title
-        imgPreference.image = image
+        imgConfiguration.image = image
     }
     
 }

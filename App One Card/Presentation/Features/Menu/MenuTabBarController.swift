@@ -19,14 +19,14 @@ class MenuTabBarController: UITabBarController {
     
     var homeRouter: HomeRouterDelegate
     var authRouter: AuthenticationRouterDelegate
-    var preferencesRouter: PreferencesRouterDelegate
+    var configurationRouter: ConfigurationRouterDelegate
     var promotionsRouter: PromotionsRouterDelegate
     var successfulRouter: SuccessfulRouterDelegate
     
-    init(homeRouter: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, preferencesRouter: PreferencesRouterDelegate, successfulRouter: SuccessfulRouterDelegate, promotionsRouter: PromotionsRouterDelegate) {
+    init(homeRouter: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, configurationRouter: ConfigurationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, promotionsRouter: PromotionsRouterDelegate) {
         self.homeRouter = homeRouter
         self.authRouter = authRouter
-        self.preferencesRouter = preferencesRouter
+        self.configurationRouter = configurationRouter
         self.successfulRouter = successfulRouter
         self.promotionsRouter = promotionsRouter
         super.init(nibName: nil, bundle: nil)
@@ -49,11 +49,11 @@ class MenuTabBarController: UITabBarController {
         
         let promViewController = setupPromotions()
         
-        let preferencesViewModel = PreferencesViewModel()
-        preferencesViewModel.router = preferencesRouter
-        let preferencesViewController = PreferencesViewController(viewModel: preferencesViewModel)
+        let configurationViewModel = ConfigurationViewModel()
+        configurationViewModel.router = configurationRouter
+        let configurationViewController = ConfigurationViewController(viewModel: configurationViewModel)
         
-        viewControllers = [homeViewController, promViewController, preferencesViewController]
+        viewControllers = [homeViewController, promViewController, configurationViewController]
         
         view.addSubview(menuTabBar)
         

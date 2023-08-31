@@ -205,7 +205,7 @@ extension AppRouter: AuthenticationRouterDelegate {
     
     func navigateToHome() {
         DispatchQueue.main.async {
-            let menu = MenuTabBarController(homeRouter: self, authRouter: self, preferencesRouter: self, successfulRouter: self, promotionsRouter: self)
+            let menu = MenuTabBarController(homeRouter: self, authRouter: self, configurationRouter: self, successfulRouter: self, promotionsRouter: self)
             let navigationController = UINavigationController(rootViewController: menu)
             navigationController.setNavigationBarHidden(true, animated: true)
             self.window.switchRootViewController(to: navigationController)
@@ -295,7 +295,7 @@ extension AppRouter: SuccessfulRouterDelegate {
     }
 }
 
-extension AppRouter: PreferencesRouterDelegate {
+extension AppRouter: ConfigurationRouterDelegate {
     func confirmLogout(accept: VoidActionHandler?) {
         DispatchQueue.main.async {
             let view = LogoutModalViewController()

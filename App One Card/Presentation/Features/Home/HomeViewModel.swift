@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol {
     func numberOfItems() -> Int
     func item(at index: Int) -> MovementResponse
     func isLast(at index: Int) -> Bool
+    func selectItem(movement: MovementResponse)
 }
 
 protocol HomeViewModelDelegate: LoaderDisplaying { }
@@ -70,6 +71,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 })
             })
         }
+    }
+    
+    func selectItem(movement: MovementResponse) {
+        router.navigateToMovementDetail(movement: movement)
     }
     
     func toMovements() {

@@ -12,7 +12,7 @@ class MenuTabBar: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var homeTabBarItem: MenuTabBarItem!
     @IBOutlet weak var promotionsTabBarItem: MenuTabBarItem!
-    @IBOutlet weak var preferencesTabBarItem: MenuTabBarItem!
+    @IBOutlet weak var configurationTabBarItem: MenuTabBarItem!
     
     var action: ((Int) -> Void)?
     
@@ -40,7 +40,8 @@ class MenuTabBar: UIView {
     private func setupView() {
         homeTabBarItem.configure(title: Constants.tab_title_home, image: #imageLiteral(resourceName: "ic_home"))
         promotionsTabBarItem.configure(title: Constants.tab_title_proms, image: #imageLiteral(resourceName: "ic_prom"))
-        preferencesTabBarItem.configure(title: Constants.tab_title_prefs, image: #imageLiteral(resourceName: "ic_preferences"))
+        configurationTabBarItem.configure(title: Constants.tab_title_config, image: #imageLiteral(resourceName: "ic_configuration"))
+        
         
         homeTabBarItem.isSelectedItem = true
         
@@ -51,7 +52,7 @@ class MenuTabBar: UIView {
         homeTabBarItem.action = { [weak self] in
             self?.homeTabBarItem.isSelectedItem = true
             self?.promotionsTabBarItem.isSelectedItem = false
-            self?.preferencesTabBarItem.isSelectedItem = false
+            self?.configurationTabBarItem.isSelectedItem = false
             
             if let handler = self?.action {
                 handler(0)
@@ -61,17 +62,17 @@ class MenuTabBar: UIView {
         promotionsTabBarItem.action = { [weak self] in
             self?.homeTabBarItem.isSelectedItem = false
             self?.promotionsTabBarItem.isSelectedItem = true
-            self?.preferencesTabBarItem.isSelectedItem = false
+            self?.configurationTabBarItem.isSelectedItem = false
             
             if let handler = self?.action {
                 handler(1)
             }
         }
         
-        preferencesTabBarItem.action = { [weak self] in
+        configurationTabBarItem.action = { [weak self] in
             self?.homeTabBarItem.isSelectedItem = false
             self?.promotionsTabBarItem.isSelectedItem = false
-            self?.preferencesTabBarItem.isSelectedItem = true
+            self?.configurationTabBarItem.isSelectedItem = true
             
             if let handler = self?.action {
                 handler(2)

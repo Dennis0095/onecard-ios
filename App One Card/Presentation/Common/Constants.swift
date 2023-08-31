@@ -26,7 +26,7 @@ class Constants {
     static let congratulations_description: String = "Ha creado su nuevo usuario y clave digital con éxito."
     static let tab_title_home: String = "Inicio"
     static let tab_title_proms: String = "Promociones"
-    static let tab_title_prefs: String = "Preferencias"
+    static let tab_title_config: String = "Configuración"
     static let error: String = "Error"
     
     static let OTP_SHIPPING_SMS: String = "1"

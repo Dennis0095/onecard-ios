@@ -10,9 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuTabBar" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
+                <outlet property="configurationTabBarItem" destination="lYT-rG-EXs" id="ucN-g7-FNq"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="dYB-sq-TuP"/>
                 <outlet property="homeTabBarItem" destination="qhG-dA-43e" id="cEx-QH-ewI"/>
-                <outlet property="preferencesTabBarItem" destination="lYT-rG-EXs" id="NQT-Ss-XE6"/>
                 <outlet property="promotionsTabBarItem" destination="Ccv-7F-GaO" id="7By-0J-HDP"/>
             </connections>
         </placeholder>

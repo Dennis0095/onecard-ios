@@ -157,10 +157,10 @@
 		0D8D9F742A5DDFDC00E6C8C6 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D9F732A5DDFDC00E6C8C6 /* CardRepository.swift */; };
 		0D8D9F762A5DE1B300E6C8C6 /* CardActivationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D9F752A5DE1B300E6C8C6 /* CardActivationResponse.swift */; };
 		0D8D9F782A5DE20900E6C8C6 /* CardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D9F772A5DE20900E6C8C6 /* CardUseCase.swift */; };
-		0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */; };
-		0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */; };
+		0D904CC12A364418007D37D3 /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CBF2A364418007D37D3 /* ConfigurationTableViewCell.swift */; };
+		0D904CC22A364418007D37D3 /* ConfigurationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CC02A364418007D37D3 /* ConfigurationTableViewCell.xib */; };
 		0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */; };
-		0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */; };
+		0D904CC72A369B95007D37D3 /* ConfigurationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC62A369B95007D37D3 /* ConfigurationRouter.swift */; };
 		0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CC92A369DF2007D37D3 /* ProfileViewModel.swift */; };
 		0D904CCD2A369DFF007D37D3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D904CCB2A369DFF007D37D3 /* ProfileViewController.swift */; };
 		0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D904CCC2A369DFF007D37D3 /* ProfileViewController.xib */; };
@@ -179,8 +179,8 @@
 		0DB967642A34FAA00079D432 /* MenuTabBarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967632A34FAA00079D432 /* MenuTabBarItem.xib */; };
 		0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB967662A35238C0079D432 /* HomeViewController.swift */; };
 		0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB967672A35238C0079D432 /* HomeViewController.xib */; };
-		0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9676D2A353A340079D432 /* PreferencesViewController.swift */; };
-		0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9676E2A353A340079D432 /* PreferencesViewController.xib */; };
+		0DB9676F2A353A340079D432 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9676D2A353A340079D432 /* ConfigurationViewController.swift */; };
+		0DB967702A353A340079D432 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9676E2A353A340079D432 /* ConfigurationViewController.xib */; };
 		0DC44F0D2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */; };
 		0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */; };
 		0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */; };
@@ -406,10 +406,10 @@
 		0D8D9F732A5DDFDC00E6C8C6 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		0D8D9F752A5DE1B300E6C8C6 /* CardActivationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActivationResponse.swift; sourceTree = "<group>"; };
 		0D8D9F772A5DE20900E6C8C6 /* CardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUseCase.swift; sourceTree = "<group>"; };
-		0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
-		0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesTableViewCell.xib; sourceTree = "<group>"; };
+		0D904CBF2A364418007D37D3 /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
+		0D904CC02A364418007D37D3 /* ConfigurationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationTableViewCell.xib; sourceTree = "<group>"; };
 		0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
-		0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesRouter.swift; sourceTree = "<group>"; };
+		0D904CC62A369B95007D37D3 /* ConfigurationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationRouter.swift; sourceTree = "<group>"; };
 		0D904CC92A369DF2007D37D3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0D904CCB2A369DFF007D37D3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0D904CCC2A369DFF007D37D3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -428,8 +428,8 @@
 		0DB967632A34FAA00079D432 /* MenuTabBarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTabBarItem.xib; sourceTree = "<group>"; };
 		0DB967662A35238C0079D432 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0DB967672A35238C0079D432 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		0DB9676D2A353A340079D432 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		0DB9676E2A353A340079D432 /* PreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		0DB9676D2A353A340079D432 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		0DB9676E2A353A340079D432 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
 		0DC44F0C2A4CD86C001AAB49 /* ValidatePersonalDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePersonalDataRequest.swift; sourceTree = "<group>"; };
 		0DC44F0E2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePersonaDataResponse.swift; sourceTree = "<group>"; };
 		0DC78BB12A37D1DA0097CCE5 /* EditMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMailViewController.swift; sourceTree = "<group>"; };
@@ -769,7 +769,7 @@
 				0D45B1482A2EDEE900EFC7F4 /* Verification */,
 				0D904CC82A369D74007D37D3 /* Profile */,
 				0DB967652A35237D0079D432 /* Home */,
-				0DB9676C2A353A210079D432 /* Preferences */,
+				0DB9676C2A353A210079D432 /* Configuration */,
 				0DB967542A34A9E20079D432 /* Menu */,
 				0D45B1162A2E928600EFC7F4 /* Authentication */,
 				0D45B10E2A2E749F00EFC7F4 /* Splash */,
@@ -792,7 +792,7 @@
 			children = (
 				0DC78BB92A37D60A0097CCE5 /* SuccessfulRouter.swift */,
 				0DC78BB72A37D49F0097CCE5 /* ProfileRouter.swift */,
-				0D904CC62A369B95007D37D3 /* PreferencesRouter.swift */,
+				0D904CC62A369B95007D37D3 /* ConfigurationRouter.swift */,
 				0D904CD02A3771E6007D37D3 /* VerificationRouter.swift */,
 				0D45B15F2A2FF18500EFC7F4 /* AuthenticationRouter.swift */,
 				0D45B1142A2E759100EFC7F4 /* AppRouter.swift */,
@@ -1042,8 +1042,8 @@
 		0D904CBE2A364402007D37D3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				0D904CBF2A364418007D37D3 /* PreferencesTableViewCell.swift */,
-				0D904CC02A364418007D37D3 /* PreferencesTableViewCell.xib */,
+				0D904CBF2A364418007D37D3 /* ConfigurationTableViewCell.swift */,
+				0D904CC02A364418007D37D3 /* ConfigurationTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1124,17 +1124,17 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		0DB9676C2A353A210079D432 /* Preferences */ = {
+		0DB9676C2A353A210079D432 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				0D50B9AC2A8FD4B90009F624 /* Modal */,
 				0D2474102A467B5B0075E147 /* Frequent Questions */,
 				0D904CBE2A364402007D37D3 /* Cell */,
-				0DB9676D2A353A340079D432 /* PreferencesViewController.swift */,
-				0DB9676E2A353A340079D432 /* PreferencesViewController.xib */,
+				0DB9676D2A353A340079D432 /* ConfigurationViewController.swift */,
+				0DB9676E2A353A340079D432 /* ConfigurationViewController.xib */,
 				0D904CC42A369B15007D37D3 /* PreferencesViewModel.swift */,
 			);
-			path = Preferences;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		0DC78BB02A37D1CA0097CCE5 /* Edit */ = {
@@ -1394,7 +1394,7 @@
 				0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
 				0DE7BD922A82B37B0029015F /* RecoverPasswordViewController.xib in Resources */,
-				0D904CC22A364418007D37D3 /* PreferencesTableViewCell.xib in Resources */,
+				0D904CC22A364418007D37D3 /* ConfigurationTableViewCell.xib in Resources */,
 				0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
 				0D45B15D2A2FC97100EFC7F4 /* SelectCustomViewController.xib in Resources */,
@@ -1404,7 +1404,7 @@
 				B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */,
 				0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */,
 				0D45B11C2A2E92C100EFC7F4 /* LoginViewController.xib in Resources */,
-				0DB967702A353A340079D432 /* PreferencesViewController.xib in Resources */,
+				0DB967702A353A340079D432 /* ConfigurationViewController.xib in Resources */,
 				0D45B16C2A30316900EFC7F4 /* SelectDateViewController.xib in Resources */,
 				0D3A80282A3794D500C32F39 /* Gotham-Book.otf in Resources */,
 				0DC78BC02A37EA8A0097CCE5 /* EditUserViewController.xib in Resources */,
@@ -1513,7 +1513,7 @@
 				0DF183E52A68D655004A0621 /* PromotionsRouter.swift in Sources */,
 				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
 				0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */,
-				0DB9676F2A353A340079D432 /* PreferencesViewController.swift in Sources */,
+				0DB9676F2A353A340079D432 /* ConfigurationViewController.swift in Sources */,
 				0D50B99D2A8FAAFA0009F624 /* FrequentQuestionsViewModel.swift in Sources */,
 				0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */,
 				0D45B1622A2FF77200EFC7F4 /* MembershipDataViewModel.swift in Sources */,
@@ -1522,7 +1522,7 @@
 				0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */,
 				0DD5AFB42A78DEC600EDCBA8 /* UpdatePasswordRequest.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
-				0D904CC12A364418007D37D3 /* PreferencesTableViewCell.swift in Sources */,
+				0D904CC12A364418007D37D3 /* ConfigurationTableViewCell.swift in Sources */,
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
 				0DD692AA2A528B97001D0BB9 /* ConsultMovementsResponse.swift in Sources */,
 				0DF183E02A68D070004A0621 /* PromotionsViewController.swift in Sources */,
@@ -1580,7 +1580,7 @@
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
 				0D3E41F42A50882E00C2546A /* HomeObserver.swift in Sources */,
-				0D904CC72A369B95007D37D3 /* PreferencesRouter.swift in Sources */,
+				0D904CC72A369B95007D37D3 /* ConfigurationRouter.swift in Sources */,
 				0D65EA152A6AEF0500819637 /* ConfigureCardDelegateDataSource.swift in Sources */,
 				0D65EA212A6CF5FE00819637 /* PrepaidCardLockResponse.swift in Sources */,
 				0DF183E72A68D8DA004A0621 /* PromotionsDelegateDataSource.swift in Sources */,

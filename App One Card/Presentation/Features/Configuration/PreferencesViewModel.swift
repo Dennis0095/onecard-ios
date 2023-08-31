@@ -1,5 +1,5 @@
 //
-//  PreferencesViewModel.swift
+//  ConfigurationViewModel.swift
 //  App One Card
 //
 //  Created by Paolo Arambulo on 11/06/23.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol PreferencesViewModelProtocol {
+protocol ConfigurationViewModelProtocol {
     func toProfile()
     func toQuestions()
     func toContact(phoneNumber: String)
     func confirmLogout()
 }
 
-class PreferencesViewModel: PreferencesViewModelProtocol {
-    var router: PreferencesRouterDelegate?
+class ConfigurationViewModel: ConfigurationViewModelProtocol {
+    var router: ConfigurationRouterDelegate?
     
     func toProfile() {
         router?.navigateToProfile()

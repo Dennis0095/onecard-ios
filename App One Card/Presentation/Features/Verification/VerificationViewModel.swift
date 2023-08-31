@@ -86,8 +86,12 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 self.wasShownViewVerification = true
                 self.delegate?.hideLoader()
                 self.otpId = response.otpId
-                self.number = response.truncatedCellphone ?? ""
-                self.email = response.truncatedEmail ?? ""
+                
+                if self.maskPhoneEmail {
+                    self.number = response.truncatedCellphone ?? ""
+                    self.email = response.truncatedEmail ?? ""
+                }
+                
                 self.delegate?.successSendOtp()
             }
         
@@ -119,6 +123,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 self.wasShownViewVerification = true
                 self.delegate?.hideLoader()
                 self.otpId = response.otpId
+                self.number = response.truncatedCellphone ?? ""
+                self.email = response.truncatedEmail ?? ""
                 self.delegate?.successSendOtp()
             }
         

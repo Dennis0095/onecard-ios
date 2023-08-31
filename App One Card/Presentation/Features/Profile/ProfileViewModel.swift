@@ -79,7 +79,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let companyRUC = userResponse?.companyRUC ?? ""
         let username = userResponse?.userName ?? ""
         
-        verificationRouter.navigateToVerification(email: email, number: number, documentType: companyRUC, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "EDITAR CORREO", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
+        verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Editar correo", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
             self?.router.toEditMail(beforeEmail: username, otpId: otpId)
         }
     }
@@ -92,7 +92,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let companyRUC = userResponse?.companyRUC ?? ""
         let username = userResponse?.userName ?? ""
         
-        verificationRouter.navigateToVerification(email: email, number: number, documentType: companyRUC, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "CAMBIO DE USUARIO", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
+        verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Cambio de usuario", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
             self?.router.toEditUser(beforeUsername: username, otpId: otpId)
         }
     }

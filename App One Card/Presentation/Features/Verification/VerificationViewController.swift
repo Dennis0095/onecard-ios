@@ -113,8 +113,7 @@ class VerificationViewController: BaseViewController {
         }
         
         let maskedPhoneNumber = self.viewModel.maskPhoneEmail ? self.viewModel.number : outputString
-        let maskedEmail = self.viewModel.maskPhoneEmail ? self.viewModel.email.maskEmailFirstCharacters() : self.viewModel.email
-        let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(maskedEmail)"
+        let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(self.viewModel.email)"
         let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
 

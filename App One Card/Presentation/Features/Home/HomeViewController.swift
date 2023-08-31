@@ -136,7 +136,12 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: HomeViewModelDelegate { }
+extension HomeViewController: HomeViewModelDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movement = viewModel.items[indexPath.row]
+        viewModel.selectItem(movement: movement)
+    }
+}
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

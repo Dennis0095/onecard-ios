@@ -11,6 +11,7 @@ class LogoutModalViewController: UIViewController {
 
     @IBOutlet weak var btnCancel: PrimaryOutlineButton!
     @IBOutlet weak var btnAccept: PrimaryFilledButton!
+    @IBOutlet weak var viewBackground: UIView!
     
     var accept: VoidActionHandler?
     
@@ -19,6 +20,9 @@ class LogoutModalViewController: UIViewController {
 
         btnCancel.configure(text: "Cancelar")
         btnAccept.configure(text: "Cerrar sesión", status: .enabled)
+        
+        viewBackground.layer.cornerRadius = 16.0
+        viewBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     @IBAction func clickAccept(_ sender: Any) {

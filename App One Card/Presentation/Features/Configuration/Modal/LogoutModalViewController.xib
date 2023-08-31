@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Book.otf">
-            <string>Gotham-Book</string>
+        <array key="Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
         </array>
-        <array key="Gotham-Medium.otf">
-            <string>Gotham-Medium</string>
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -22,6 +22,7 @@
                 <outlet property="btnAccept" destination="AYI-xc-lZc" id="EaB-50-kCD"/>
                 <outlet property="btnCancel" destination="rAt-FU-oOL" id="Yjd-hp-58b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBackground" destination="SZr-sd-waO" id="tlA-O4-Hl3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -34,23 +35,23 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZr-sd-waO">
-                    <rect key="frame" x="0.0" y="652" width="393" height="200"/>
+                    <rect key="frame" x="0.0" y="648.66666666666663" width="393" height="203.33333333333337"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DXP-nn-Y0P">
-                            <rect key="frame" x="18" y="24" width="357" height="50"/>
+                            <rect key="frame" x="18" y="24.000000000000004" width="357" height="53.333333333333343"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿ Está seguro que desea cerrar la sesión?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRS-Uj-0ah">
-                                    <rect key="frame" x="0.0" y="0.0" width="357" height="17"/>
-                                    <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="18.333333333333332"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c6c-Xz-rSe">
-                                    <rect key="frame" x="0.0" y="33" width="357" height="17"/>
+                                    <rect key="frame" x="0.0" y="34.333333333333371" width="357" height="19"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esta a punto de  salir de la App." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx3-o4-oJN">
-                                            <rect key="frame" x="0.0" y="0.0" width="357" height="17"/>
-                                            <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="357" height="19"/>
+                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                             <color key="textColor" name="blue_twilight"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -59,7 +60,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ry2-BJ-XU1">
-                            <rect key="frame" x="18" y="98" width="357" height="44"/>
+                            <rect key="frame" x="18" y="101.33333333333337" width="357" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAt-FU-oOL" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="44"/>

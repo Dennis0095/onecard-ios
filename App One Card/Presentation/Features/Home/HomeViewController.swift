@@ -93,9 +93,12 @@ class HomeViewController: BaseViewController {
             self.stkOptions.isUserInteractionEnabled = false
             self.stkOptions.alpha = 0.5
             
-            self.viewMovements.isHidden = true
+            self.viewMovements.isHidden = false
             self.viewCardNotActivated.isHidden = true
             self.viewInfoCardLock.isHidden = false
+            
+            self.viewModel.balanceInquiry()
+            self.viewModel.consultMovements()
         } else if status == .ACTIVE || status == .TEMPORARY_LOCKED {
             self.stkOptions.isUserInteractionEnabled = true
             self.stkOptions.alpha = 1

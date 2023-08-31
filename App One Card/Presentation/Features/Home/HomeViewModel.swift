@@ -65,7 +65,7 @@ class HomeViewModel: HomeViewModelProtocol {
     func toCardLock() {
         router.confirmCardLock {
             self.router.navigateToCardBlock(navTitle: "Bloqueo de tarjeta", success: { [weak self] idOtp in
-                self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "REGRESAR", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
+                self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
                     self?.router.successfulCardBlock()
                 })
             })
@@ -84,7 +84,7 @@ class HomeViewModel: HomeViewModelProtocol {
         router.navigateToInputCurrentPin { _ in
             self.router.navigateToInputNewPin { newPin in
                 self.router.navigateToInputPinConfirmation(newPin: newPin) { _ in
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: "REGRESAR", image: #imageLiteral(resourceName: "change_pin_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: "Regresar", image: #imageLiteral(resourceName: "change_pin_successfully.svg")) {
                         self.router.backToHome()
                     }
                 }

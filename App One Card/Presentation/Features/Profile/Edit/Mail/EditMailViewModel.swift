@@ -81,7 +81,7 @@ class EditMailViewModel: EditMailViewModelProtocol {
     }
     
     func successfulEdit() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su correo electrónico con éxito.", button: "REGRESAR", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su correo electrónico con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
             self.profileRouter.successfulEditProfile()
         })
     }

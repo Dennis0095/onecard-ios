@@ -98,7 +98,8 @@ class MovementsViewModel: MovementsViewModelProtocol {
                 self.isLoadingPage = false
                 self.wasShownViewMovements = true
                 
-                if self.pageSize < (response.clientMovements?.count ?? 0) {
+                //if self.pageSize < (response.clientMovements?.count ?? 0) {
+                if (response.clientMovements ?? []).isEmpty {
                     self.isLastPage = true
                 } else {
                     self.currentPage += 1

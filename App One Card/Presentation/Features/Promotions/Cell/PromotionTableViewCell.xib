@@ -36,7 +36,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bVh-cv-HZo">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="227.66666666666666"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburguer" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-Tv-Yd3">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UFC-Tv-Yd3">
                                                 <rect key="frame" x="0.0" y="0.0" width="328" height="120"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -104,6 +104,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="imgPromotion" destination="UFC-Tv-Yd3" id="CFa-1M-AZy"/>
                 <outlet property="lblContent" destination="HG3-6e-1vn" id="HgZ-Xq-MGB"/>
                 <outlet property="lblTitle" destination="PWF-Ns-jXm" id="S66-6z-BNW"/>
                 <outlet property="viewSpace" destination="wXz-Xo-MK9" id="6s5-8h-jwo"/>
@@ -112,7 +113,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="hamburguer" width="339" height="120"/>
         <namedColor name="grey100">
             <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

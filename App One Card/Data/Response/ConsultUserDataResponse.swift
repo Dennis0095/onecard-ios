@@ -16,9 +16,9 @@ struct ConsultUserDataResponse: Codable {
     let docType: String?
     let docNumber: String?
     let truncatedCellphone: String?
-    let email: String?
+    var email: String?
     let companyRUC: String?
-    let userName: String?
+    var userName: String?
     let title: String?
     let message: String?
     

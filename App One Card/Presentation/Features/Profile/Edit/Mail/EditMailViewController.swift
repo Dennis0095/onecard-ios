@@ -5,6 +5,8 @@
 //  Created by Paolo Arambulo on 12/06/23.
 //
 
+typealias EditMailSuccessActionHandler = ((_ username: String) -> Void)
+
 import UIKit
 
 class EditMailViewController: BaseViewController {
@@ -14,6 +16,8 @@ class EditMailViewController: BaseViewController {
     @IBOutlet weak var imgBack: UIImageView!
     
     private var viewModel: EditMailViewModelProtocol
+    
+    var success: EditMailSuccessActionHandler?
     
     init(viewModel: EditMailViewModelProtocol) {
         self.viewModel = viewModel
@@ -67,7 +71,10 @@ class EditMailViewController: BaseViewController {
 }
 
 extension EditMailViewController: EditMailViewModelDelegate {
-    func succesUpdate() {
+    func succesUpdate(email: String) {
+        if let completion = success {
+            completion(email)
+        }
         viewModel.successfulEdit()
     }
 }

@@ -50,6 +50,7 @@ class FrequentQuestionsTableViewCell: UITableViewCell {
     @objc
     private func tapBreakDown() {
         lblDescription.isHidden = !lblDescription.isHidden
+        imgBreakDown.image = lblDescription.isHidden ? #imageLiteral(resourceName: "arrow_down_blue.svg") : #imageLiteral(resourceName: "arrow_up_blue.svg")
         if let action = handleBreakDown {
             action()
         }

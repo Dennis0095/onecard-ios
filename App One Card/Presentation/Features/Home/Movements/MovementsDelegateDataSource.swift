@@ -45,7 +45,7 @@ extension MovementsDelegateDataSource: UITableViewDelegate {
         let scrollOffset = scrollView.contentOffset.y
 
         if scrollOffset + tableViewHeight >= tableViewContentHeight, !viewModel.isLoadingPage {
-            viewModel.consultMovements()
+            viewModel.consultLastMovements()
         }
     }
 }

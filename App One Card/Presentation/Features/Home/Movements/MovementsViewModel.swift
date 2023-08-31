@@ -21,6 +21,7 @@ protocol MovementsViewModelProtocol {
     func selectItem(movement: MovementResponse)
     
     func consultMovements()
+    func consultLastMovements()
 }
 
 protocol MovementsViewModelDelegate: LoaderDisplaying {
@@ -69,6 +70,69 @@ class MovementsViewModel: MovementsViewModelProtocol {
     }
     
     func consultMovements() {
+        self.delegate?.showLoader()
+        isLoadingPage = true
+        
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        
+        let request = ConsultMovementsRequest(trackingCode: trackingCode)
+        let paginateRequest = MovementsHistoryRequest(trackingCode: trackingCode, pageSize: String(pageSize), page: String(currentPage))
+
+        let cancellable = Publishers.Zip(
+            movementUseCase.consult(request: request),
+            movementUseCase.paginate(request: paginateRequest)
+        )
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.hideLoader()
+                    self.isLoadingPage = false
+                    if !self.wasShownViewMovements {
+                        self.delegate?.failureGetMovements(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { response in
+                let apiError = APIError.defaultError
+                let error = APIError.defaultError.error()
+                
+                self.delegate?.hideLoader()
+                self.isLoadingPage = false
+                
+                let consultResponse = response.0
+                let paginateResponse = response.1
+                
+                if consultResponse.rc == "0" && paginateResponse.rc == "0" {
+                    let firstMovements = consultResponse.clientMovements ?? []
+                    let lastMovements = paginateResponse.clientMovements ?? []
+                    
+                    self.wasShownViewMovements = true
+                    
+                    if (firstMovements + lastMovements).isEmpty {
+                        self.isLastPage = true
+                    } else {
+                        self.currentPage += 1
+                    }
+                    
+                    self.items += (firstMovements + lastMovements)
+                    self.delegate?.successGetMovements()
+                } else {
+                    if !self.wasShownViewMovements {
+                        self.delegate?.failureGetMovements(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
+    }
+    
+    func consultLastMovements() {
         guard !isLastPage else { return }
         
         delegate?.showLoader()
@@ -98,14 +162,19 @@ class MovementsViewModel: MovementsViewModelProtocol {
                 self.isLoadingPage = false
                 self.wasShownViewMovements = true
                 
-                //if self.pageSize < (response.clientMovements?.count ?? 0) {
                 if (response.clientMovements ?? []).isEmpty {
                     self.isLastPage = true
                 } else {
                     self.currentPage += 1
                 }
                 
-                self.items += response.clientMovements ?? []
+                let filterItems = (self.pageSize == 2 || self.pageSize == 3) ? (response.clientMovements ?? []).filter { a in
+                    return self.items.contains { b in
+                        return (a.sequence != b.sequence) && (a.hour != b.hour) && (a.date != b.date)//filteringObject.id == objectToFilter.id
+                    }
+                } : response.clientMovements ?? []
+                
+                self.items += filterItems
                 self.delegate?.successGetMovements()
             }
         

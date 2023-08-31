@@ -5,6 +5,8 @@
 //  Created by Paolo Arambulo on 12/06/23.
 //
 
+typealias EditUserSuccessActionHandler = ((_ username: String) -> Void)
+
 import UIKit
 
 class EditUserViewController: BaseViewController {
@@ -14,6 +16,8 @@ class EditUserViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     private var viewModel: EditUserViewModelProtocol
+    
+    var success: EditUserSuccessActionHandler?
     
     init(viewModel: EditUserViewModelProtocol) {
         self.viewModel = viewModel
@@ -70,7 +74,10 @@ class EditUserViewController: BaseViewController {
 }
 
 extension EditUserViewController: EditUserViewModelDelegate {
-    func succesUpdate() {
+    func succesUpdate(username: String) {
+        if let completion = success {
+            completion(username)
+        }
         viewModel.successfulEdit()
     }
 }

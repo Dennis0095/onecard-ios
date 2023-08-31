@@ -17,7 +17,7 @@ protocol EditUserViewModelProtocol {
 }
 
 protocol EditUserViewModelDelegate: LoaderDisplaying {
-    func succesUpdate()
+    func succesUpdate(username: String)
 }
 
 class EditUserViewModel: EditUserViewModelProtocol {
@@ -70,14 +70,13 @@ class EditUserViewModel: EditUserViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.success == "1" {
-                    self.delegate?.succesUpdate()
+                    self.delegate?.succesUpdate(username: newUsername)
                 } else {
                     self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         
         cancellable.store(in: &cancellables)
-        
         
     }
     

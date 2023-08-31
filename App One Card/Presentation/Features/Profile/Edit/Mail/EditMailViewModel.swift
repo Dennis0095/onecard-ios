@@ -17,7 +17,7 @@ protocol EditMailViewModelProtocol {
 }
 
 protocol EditMailViewModelDelegate: LoaderDisplaying {
-    func succesUpdate()
+    func succesUpdate(email: String)
 }
 
 class EditMailViewModel: EditMailViewModelProtocol {
@@ -70,7 +70,7 @@ class EditMailViewModel: EditMailViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.success == "1" {
-                    self.delegate?.succesUpdate()
+                    self.delegate?.succesUpdate(email: newEmail)
                 } else {
                     self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }

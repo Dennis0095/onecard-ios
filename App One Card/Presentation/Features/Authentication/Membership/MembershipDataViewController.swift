@@ -44,7 +44,7 @@ class MembershipDataViewController: BaseViewController {
         
         viewModel.documentType = viewModel.documentTypeList.first
         
-        viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down"))
+        viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down_blue"))
         viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: "Ingrese su número de documento", status: .activated, type: .numberPad)
         viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: "Ingrese el RUC", status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)

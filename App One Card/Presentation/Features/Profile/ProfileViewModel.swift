@@ -80,7 +80,12 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let username = userResponse?.userName ?? ""
         
         verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Editar correo", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
-            self?.router.toEditMail(beforeEmail: username, otpId: otpId)
+            self?.router.toEditMail(beforeEmail: username, otpId: otpId) {
+                self?.userResponse?.email = $0
+                if let user = self?.userResponse {
+                    self?.delegate?.showData(user: user)
+                }
+            }
         }
     }
     
@@ -93,7 +98,12 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let username = userResponse?.userName ?? ""
         
         verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Cambio de usuario", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
-            self?.router.toEditUser(beforeUsername: username, otpId: otpId)
+            self?.router.toEditUser(beforeUsername: username, otpId: otpId) {
+                self?.userResponse?.userName = $0
+                if let user = self?.userResponse {
+                    self?.delegate?.showData(user: user)
+                }
+            }
         }
     }
     

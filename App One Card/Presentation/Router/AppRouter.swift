@@ -350,26 +350,28 @@ extension AppRouter: ProfileRouterDelegate {
         }
     }
     
-    func toEditUser(beforeUsername: String, otpId: String) {
+    func toEditUser(beforeUsername: String, otpId: String, success: @escaping EditUserSuccessActionHandler) {
         DispatchQueue.main.async {
             let userDataRepository = UserDataRepository()
             let userUseCase = UserUseCase(userRepository: userDataRepository)
             let viewModel = EditUserViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeUsername: beforeUsername, otpId: otpId)
             let editUserViewController = EditUserViewController(viewModel: viewModel)
             viewModel.delegate = editUserViewController
+            editUserViewController.success = success
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(editUserViewController, animated: true)
             }
         }
     }
     
-    func toEditMail(beforeEmail: String, otpId: String) {
+    func toEditMail(beforeEmail: String, otpId: String, success: @escaping EditMailSuccessActionHandler) {
         DispatchQueue.main.async {
             let userDataRepository = UserDataRepository()
             let userUseCase = UserUseCase(userRepository: userDataRepository)
             let viewModel = EditMailViewModel(profileRouter: self, successfulRouter: self, verificationRouter: self, userUseCase: userUseCase, beforeEmail: beforeEmail, otpId: otpId)
             let editMailViewController = EditMailViewController(viewModel: viewModel)
             viewModel.delegate = editMailViewController
+            editMailViewController.success = success
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(editMailViewController, animated: true)
             }

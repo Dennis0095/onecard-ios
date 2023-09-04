@@ -86,7 +86,14 @@ extension ConfigureCardViewController: ConfigureCardViewModelDelegate {
         DispatchQueue.main.async {
             self.lblTitleError.text = error.error().title
             self.lblDescriptionError.text = error.error().description
-            self.imgError.image = error == .networkError ? #imageLiteral(resourceName: "connection_error_white.svg") : #imageLiteral(resourceName: "something_went_wrong_white.svg")
+            
+            switch error {
+            case .networkError:
+                self.imgError.image = #imageLiteral(resourceName: "connection_error_white.svg")
+            default:
+                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_white.svg")
+            }
+            
             self.viewError.isHidden = false
             self.viewConfigure.isHidden = true
         }

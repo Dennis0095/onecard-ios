@@ -120,12 +120,26 @@ class VerificationViewModel: VerificationViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                self.wasShownViewVerification = true
                 self.delegate?.hideLoader()
-                self.otpId = response.otpId
-                self.number = response.truncatedCellphone ?? ""
-                self.email = response.truncatedEmail ?? ""
-                self.delegate?.successSendOtp()
+                
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                let apiError = APIError.custom(title, description)
+                
+                if response.success == "1" {
+                    self.wasShownViewVerification = true
+                    
+                    self.otpId = response.otpId
+                    self.number = response.truncatedCellphone ?? ""
+                    self.email = response.truncatedEmail ?? ""
+                    self.delegate?.successSendOtp()
+                } else {
+                    if !self.wasShownViewVerification {
+                        self.delegate?.failureSendOtp(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
+                }
             }
         
         cancellable.store(in: &cancellables)

@@ -16,6 +16,7 @@ enum APIError: Error {
     case invalidResponse
     case decodingError
     case defaultError
+    case custom(String, String)
     
     func error() -> CustomError {
         var title = ""
@@ -25,6 +26,9 @@ enum APIError: Error {
         case .networkError:
             title = "Lo sentimos"
             description = "Hubo un problema de conexión, Por favor, inténtelo nuevamente"
+        case .custom(let t, let d):
+            title = t
+            description = d
         default:
             title = "Algo salió mal"
             description = "Por favor, inténtelo nuevamente"

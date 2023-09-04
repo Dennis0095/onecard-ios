@@ -64,6 +64,9 @@ class LoginViewModel: LoginViewModelProtocol {
                 } receiveValue: { response in
                     self.delegate?.hideLoader()
                     if response.success == "1" {
+                        UserSessionManager.shared.saveToken(token: response.token ?? "")
+                        let decodeUser = UserSessionManager.shared.decodedJWT(jwt: response.token ?? "")
+                        UserSessionManager.shared.saveUser(user: decodeUser)
                         self.getStatusCard(token: response.token ?? "")
                     } else {
                         self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
@@ -93,17 +96,14 @@ class LoginViewModel: LoginViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.rc == "0" {
-                    let decodeUser = UserSessionManager.shared.decodedJWT(jwt: token)
-                    UserSessionManager.shared.saveToken(token: token)
-                    UserSessionManager.shared.saveUser(user: decodeUser)
                     CardSessionManager.shared.saveStatus(status: StatusCard(rawValue: response.status ?? ""))
-                    
                     if response.status == StatusCard.NOT_ACTIVE.rawValue {
                         self.router.navigateToActivateUser()
                     } else {
                         self.router.navigateToHome()
                     }
                 } else {
+                    UserSessionManager.shared.clearSession()
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }

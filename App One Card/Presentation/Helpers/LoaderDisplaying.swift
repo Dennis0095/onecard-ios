@@ -36,13 +36,15 @@ extension LoaderDisplaying where Self:UIViewController {
     }
     
     func showError(title: String, description: String, onAccept: VoidActionHandler?) {
-        let view = AlertErrorViewController()
-        view.titleError = title
-        view.descriptionError = description
-        view.accept = onAccept
-        view.modalPresentationStyle = .overFullScreen
-        view.modalTransitionStyle = .crossDissolve
-        self.present(view, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let view = AlertErrorViewController()
+            view.titleError = title
+            view.descriptionError = description
+            view.accept = onAccept
+            view.modalPresentationStyle = .overFullScreen
+            view.modalTransitionStyle = .crossDissolve
+            self.present(view, animated: true, completion: nil)
+        }
     }
 //    func showSnackBar(message: String, iconImage: UIImage, imgColorClose: UIImage, backgroundColor: UIColor, labelColor: UIColor, duration: TimeInterval) {
 //        SnackbarManager.shared.showSnackbar(message: message, iconImage: iconImage, imgColorClose: imgColorClose, backgroundColor: backgroundColor, labelColor: labelColor, duration: duration)

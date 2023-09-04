@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>base_url</key>
-	<string>https://pruebas.odybank.com.pe/gsp-ws/dcp-app/api</string>
+	<string>http://64.225.16.75:8083/app-backend</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>

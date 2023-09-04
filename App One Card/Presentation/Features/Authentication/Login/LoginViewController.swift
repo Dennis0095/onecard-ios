@@ -54,8 +54,8 @@ class LoginViewController: BaseViewController {
             self?.viewModel.password = text
         }
         
-        viewModel.username = "A"
-        viewModel.password = "A"
+        viewModel.username = "josearmasc123"
+        viewModel.password = "mypassjose1234$"
     }
     
     @IBAction func login(_ sender: Any) {

@@ -45,6 +45,12 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
             return
         }
         
+        guard password != newPassword else {
+            delegate?.showError(title: "Clave utilizada recientemente", description: "La clave ingresada es igual a la actual, por favor ingrese una clave diferente", onAccept: nil)
+            
+            return
+        }
+        
         delegate?.showLoader()
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""

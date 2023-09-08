@@ -53,7 +53,7 @@
                                 <constraint firstAttribute="height" constant="40" id="sHm-X7-RrB"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3P-Mt-4jP">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3P-Mt-4jP">
                             <rect key="frame" x="24" y="82" width="305" height="0.0"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                             <color key="textColor" name="blue_lake_front"/>

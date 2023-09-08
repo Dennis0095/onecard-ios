@@ -100,6 +100,7 @@ class APIClient {
                 .decode(type: T.self, decoder: JSONDecoder())
                 .subscribe(on: RunLoop.main)
                 .mapError { error -> APIError in
+                    print(error.localizedDescription)
                     if let apiError = error as? APIError {
                         return apiError
                     } else {

@@ -116,7 +116,7 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.exists == "1" {
-                    self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de clave", stepDescription: "Paso 2 de 3", operationType: "RU", maskPhoneEmail: true) { [weak self] otpId in
+                    self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de clave", stepDescription: "Paso 2 de 3", operationType: "RC", maskPhoneEmail: true) { [weak self] otpId in
                         self?.router.navigateToCreatePassword(otpId: otpId, documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
                     }
                 } else {

@@ -66,7 +66,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         delegate?.showLoader()
         
-        let request = SendOTPRegisterRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: operationType, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
+        let request = SendOTPRegisterRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+                                             operationType: operationType, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
         
         let cancellable = otpUseCase.sendToRegister(request: request)
             .sink { publisher in
@@ -103,7 +104,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL, operationType: operationType, authTrackingCode: authTrackingCode)
+        let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+                                           operationType: operationType, authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)
             .sink { publisher in

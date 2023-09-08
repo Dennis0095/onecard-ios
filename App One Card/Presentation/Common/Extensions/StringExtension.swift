@@ -72,4 +72,5 @@ enum Regex: String{
     //case containLettersAndNumbers = "^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]+$"
     case containLettersAndNumbers = "^(?=.*[a-zA-Z])(?=.*\\d).+$"
     case startsWith9 = "^9"
+    case passwordContainSpecialCharacters = ".*[!@#$%^&*].*"
 }

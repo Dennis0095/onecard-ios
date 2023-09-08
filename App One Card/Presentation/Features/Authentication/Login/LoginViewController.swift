@@ -53,9 +53,6 @@ class LoginViewController: BaseViewController {
         txtPassword.listenChanges = { [weak self] text in
             self?.viewModel.password = text
         }
-        
-        viewModel.username = "josearmasc123"
-        viewModel.password = "mypassjose1234$"
     }
     
     @IBAction func login(_ sender: Any) {

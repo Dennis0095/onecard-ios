@@ -63,7 +63,7 @@ class CardLockViewController: BaseViewController {
         setCount()
         txtCode.configure()
         btnNext.configure(text: buttonTitle, status: .enabled)
-        btnRetry.configure(text: "VOLVER A INTENTAR", status: .enabled)
+        btnRetry.configure(text: "Volver a intentar", status: .enabled)
         sendToNumber = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

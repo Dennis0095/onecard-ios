@@ -65,11 +65,11 @@ class ChangePasswordViewController: BaseViewController {
     
     private func validate() -> Bool {
         txtCurrentPassword.errorMessage = txtCurrentPassword.text.isEmpty ? "Debe ingresar su clave actual." : ""
-        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debe ingresar su nueva clave." : "Debe contener números y letras."
+        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debe ingresar su nueva clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su nueva clave." : "Las claves no coinciden."
         
         txtCurrentPassword.isValid = !txtCurrentPassword.text.isEmpty
-        txtNewPassword.isValid = txtNewPassword.text.validateString(withRegex: .containLettersAndNumbers)
+        txtNewPassword.isValid = txtNewPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtNewPassword.text) && !txtNewPassword.text.isEmpty
         
         return txtCurrentPassword.isValid && txtNewPassword.isValid && txtConfirmPassword.isValid

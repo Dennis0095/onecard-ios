@@ -79,10 +79,10 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : "Debe contener números y letras."
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su clave." : "Las claves no coinciden."
         
-        txtPassword.isValid = txtPassword.text.validateString(withRegex: .alphanumeric)
+        txtPassword.isValid = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty
 
         return txtPassword.isValid && txtConfirmPassword.isValid

@@ -36,7 +36,7 @@ class PromotionsViewController: BaseViewController {
         viewEmpty.isHidden = true
         viewError.isHidden = true
         
-        btnTryAgain.configure(text: "VOLVER A INTENTAR", status: .enabled)
+        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
         
         tblPromotions.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
         tblPromotions.delegate = promotionsDelegateDataSource

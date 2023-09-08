@@ -10,7 +10,7 @@ import Foundation
 struct ValidatePersonaDataResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let exists: String?
+    let exists: Int?
     let title: String?
     let message: String?
     let validExpiration: String?

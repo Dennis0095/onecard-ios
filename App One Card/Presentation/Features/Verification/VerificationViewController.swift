@@ -70,7 +70,7 @@ class VerificationViewController: BaseViewController {
         setCount()
         txtCode.configure()
         btnNext.configure(text: buttonTitle, status: .enabled)
-        btnRetry.configure(text: "VOLVER A INTENTAR", status: .enabled)
+        btnRetry.configure(text: "Volver a intentar", status: .enabled)
         sendToNumber = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -216,9 +216,9 @@ extension VerificationViewController: VerificationViewModelDelegate {
             
             switch error {
             case .networkError:
-                self.imgError.image = #imageLiteral(resourceName: "connection_error_white.svg")
+                self.imgError.image = #imageLiteral(resourceName: "connection_error_blue.svg")
             default:
-                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_white.svg")
+                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_blue.svg")
             }
             
             self.viewError.isHidden = false

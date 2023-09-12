@@ -52,7 +52,7 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
     func fetchFrequentQuestions() {
         delegate?.showLoader()
         
-        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let request = ConsultFrequentQuestionsRequest(authTrackingCode: trackingCode)
         let cancellable = questionUseCase.consult(request: request)
             .sink { publisher in

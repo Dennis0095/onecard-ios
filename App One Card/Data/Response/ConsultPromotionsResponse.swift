@@ -10,7 +10,7 @@ import Foundation
 struct ConsultPromotionsResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let currentPromAmount: String?
+    let currentPromAmount: Int?
     let promotions: [PromotionResponse]?
     let title: String?
     let message: String?

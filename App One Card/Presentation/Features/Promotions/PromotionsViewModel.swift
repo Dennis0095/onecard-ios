@@ -57,7 +57,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     
     func fetchPromotions() {
         delegate?.showLoader()
-        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode)
         let cancellable = promotionUseCase.consult(request: request)
             .sink { publisher in

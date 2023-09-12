@@ -10,7 +10,7 @@ import Foundation
 struct ConsultFrequentQuestionsResponse: Codable {
     let rc: String?
     let rcDesc: String?
-    let currentFreqQues: String?
+    let currentFreqQues: Int?
     let questions: [QuestionResponse]?
     let title: String?
     let message: String?

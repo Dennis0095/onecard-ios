@@ -28,8 +28,8 @@ class WelcomeActivateViewController: BaseViewController {
     }
 
     private func setupView() {
-        btnActivate.configure(text: "ACTIVAR", status: .enabled)
-        btnLater.configure(text: "LO HARÉ LUEGO")
+        btnActivate.configure(text: "Activar", status: .enabled)
+        btnLater.configure(text: "Lo haré luego")
     }
     
     @IBAction func activate(_ sender: Any) {

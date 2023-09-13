@@ -24,9 +24,9 @@ class WelcomeActivateViewModel: WelcomeActivateViewModelProtocol {
     }
     
     func toCardActivation() {
-        router.navigateToPin { _ in
-            self.router.navigateToNewPin { newPin in
-                self.router.navigateToConfirmPin(newPin: newPin) { _ in
+        router.navigateToPin { operationId, _ in
+            self.router.navigateToNewPin { _, newPin in
+                self.router.navigateToConfirmPin(operationId: operationId, newPin: newPin) { _, _ in
                     self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
                         self.router.navigateToHome()
                     }

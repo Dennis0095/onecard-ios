@@ -86,9 +86,9 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func toChangePin() {
-        router.navigateToInputCurrentPin { _ in
-            self.router.navigateToInputNewPin { newPin in
-                self.router.navigateToInputPinConfirmation(newPin: newPin) { _ in
+        router.navigateToInputCurrentPin { operationId, _ in
+            self.router.navigateToInputNewPin { _, newPin in
+                self.router.navigateToInputPinConfirmation(newPin: newPin, operationId: operationId) { _, _ in
                     self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: "Regresar", image: #imageLiteral(resourceName: "change_pin_successfully.svg")) {
                         self.router.backToHome()
                     }
@@ -98,9 +98,9 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func toCardActivation() {
-        authRouter.navigateToPin { _ in
-            self.authRouter.navigateToNewPin { newPin in
-                self.authRouter.navigateToConfirmPin(newPin: newPin) { _ in
+        authRouter.navigateToPin { operationId, _ in
+            self.authRouter.navigateToNewPin { _, newPin in
+                self.authRouter.navigateToConfirmPin(operationId: operationId, newPin: newPin) { _, _ in
                     self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Su tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a su correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
                         self.router.backToHome()
                     }

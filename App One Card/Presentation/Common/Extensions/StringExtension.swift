@@ -67,7 +67,7 @@ enum Regex: String{
     case contain9to12numbers = "^\\d{9,12}$"
     case contain9to12characters = "^.{9,12}$"
     case contain11numbers = "^\\d{11}$"
-    case name = "^[A-Za-z\\s'-]+$"
+    case name = "^[\\p{L}ñÑáéíóúÁÉÍÓÚüÜ\\s'-]+$"
     case alphanumeric = "^[a-zA-Z0-9]+$"
     //case containLettersAndNumbers = "^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]+$"
     case containLettersAndNumbers = "^(?=.*[a-zA-Z])(?=.*\\d).+$"

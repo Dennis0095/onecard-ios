@@ -7,7 +7,7 @@
 
 import UIKit
 
-typealias PinActionHandler = ((String) -> Void)
+typealias PinActionHandler = ((_ operationId: String, _ pin: String) -> Void)
 
 class PinViewController: BaseViewController {
 

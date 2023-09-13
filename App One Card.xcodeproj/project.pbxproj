@@ -36,7 +36,6 @@
 		0D268B3F2A84ABF800350785 /* MovementDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D268B3D2A84ABF800350785 /* MovementDetailViewController.xib */; };
 		0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDF22A44BADC00411486 /* PinViewController.swift */; };
 		0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF32A44BADC00411486 /* PinViewController.xib */; };
-		0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */; };
 		0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */; };
 		0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */; };
 		0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D35EE002A45DD5E00411486 /* HomeRouter.swift */; };
@@ -283,7 +282,6 @@
 		0D268B3D2A84ABF800350785 /* MovementDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovementDetailViewController.xib; sourceTree = "<group>"; };
 		0D35EDF22A44BADC00411486 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		0D35EDF32A44BADC00411486 /* PinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinViewController.xib; sourceTree = "<group>"; };
-		0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardNumber.xib; sourceTree = "<group>"; };
 		0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNumber.swift; sourceTree = "<group>"; };
 		0D35EDFE2A45DCF300411486 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0D35EE002A45DD5E00411486 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -639,7 +637,6 @@
 		0D35EDF82A44BC9700411486 /* ButtonKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				0D35EDF92A44BCC800411486 /* KeyboardNumber.xib */,
 				0D35EDFB2A44BECC00411486 /* KeyboardNumber.swift */,
 			);
 			path = ButtonKeyboard;
@@ -1391,7 +1388,6 @@
 			files = (
 				0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */,
 				0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */,
-				0D35EDFA2A44BCC800411486 /* KeyboardNumber.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
 				0DE7BD922A82B37B0029015F /* RecoverPasswordViewController.xib in Resources */,
 				0D904CC22A364418007D37D3 /* ConfigurationTableViewCell.xib in Resources */,

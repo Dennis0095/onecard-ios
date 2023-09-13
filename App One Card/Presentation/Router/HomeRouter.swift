@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeRouterDelegate: Router {
     func confirmCardLock(accept: VoidActionHandler?)
-    func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler)
+    func navigateToInputPinConfirmation(newPin: String, operationId: String, success: @escaping PinActionHandler)
     func navigateToInputNewPin(success: @escaping PinActionHandler)
     func navigateToInputCurrentPin(success: @escaping PinActionHandler)
     func navigateToCardBlock(navTitle: String, success: @escaping VerificationActionHandler)

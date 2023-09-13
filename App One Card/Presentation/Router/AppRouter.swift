@@ -104,7 +104,7 @@ extension AppRouter: AuthenticationRouterDelegate {
         }
     }
     
-    func navigateToConfirmPin(newPin: String, success: @escaping PinActionHandler) {
+    func navigateToConfirmPin(operationId: String, newPin: String, success: @escaping PinActionHandler) {
         DispatchQueue.main.async {
             let cardRepository = CardDataRepository()
             let keyRepository = KeyDataRepository()
@@ -113,7 +113,8 @@ extension AppRouter: AuthenticationRouterDelegate {
             let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .cardActivation)
             viewModel.success = success
             viewModel.newPin = newPin
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+            viewModel.operationId = operationId
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)
@@ -129,7 +130,7 @@ extension AppRouter: AuthenticationRouterDelegate {
             let keyUseCase = KeyUseCase(keyRepository: keyRepository)
             let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .nothing)
             viewModel.success = success
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 2 de 3", titleDescription: "Ingrese su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN")
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)
@@ -146,7 +147,7 @@ extension AppRouter: AuthenticationRouterDelegate {
             let keyUseCase = KeyUseCase(keyRepository: keyRepository)
             let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
             viewModel.success = success
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "ACTIVACIÓN DE TARJETA", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 1 de 3", titleDescription: "Ingrese el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)
@@ -426,7 +427,7 @@ extension AppRouter: HomeRouterDelegate {
         }
     }
     
-    func navigateToInputPinConfirmation(newPin: String, success: @escaping PinActionHandler) {
+    func navigateToInputPinConfirmation(newPin: String, operationId: String, success: @escaping PinActionHandler) {
         DispatchQueue.main.async {
             let cardRepository = CardDataRepository()
             let keyRepository = KeyDataRepository()
@@ -435,6 +436,7 @@ extension AppRouter: HomeRouterDelegate {
             let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .reassign)
             viewModel.success = success
             viewModel.newPin = newPin
+            viewModel.operationId = operationId
             let viewController = PinViewController(viewModel: viewModel, navTitle: "Cambio de PIN", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {

@@ -34,6 +34,7 @@ class PinViewModel: PinViewModelProtocol {
     
     var pin: String = ""
     var newPin: String = ""
+    var operationId: String = ""
     var pinStep: PinStep
     
     init(router: AuthenticationRouterDelegate, cardUseCase: CardUseCase, keyUseCase: KeyUseCase, pinStep: PinStep) {
@@ -57,7 +58,7 @@ class PinViewModel: PinViewModelProtocol {
             reassign(isCardActivation: true)
         case .nothing:
             if let success = self.success {
-                success(self.pin)
+                success(operationId, self.pin)
             }
         }
     }
@@ -67,7 +68,7 @@ class PinViewModel: PinViewModelProtocol {
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = ValidateKeyRequest(cardTrackingCode: trackingCode, pin: pin, tLocal: "20230511")
+        let request = ValidateKeyRequest(cardTrackingCode: trackingCode, pin: pin, tLocal: DateUtils.shared.getFormattedDate(date: Date(), outputFormat: "yyyyMMddHHmmss"))
         let cancellable = keyUseCase.validate(request: request)
             .sink { publisher in
                 switch publisher {
@@ -83,8 +84,9 @@ class PinViewModel: PinViewModelProtocol {
                 if response.rc == "447" {
                     self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
                 } else if response.rc == "0" {
+                    self.operationId = response.operationId ?? ""
                     if let success = self.success {
-                        success(self.pin)
+                        success(self.operationId, self.pin)
                     }
                 }
             }
@@ -97,7 +99,7 @@ class PinViewModel: PinViewModelProtocol {
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = ReassignKeyRequest(operationId: "", trackingCode: trackingCode, pin: pin, tLocal: "")
+        let request = ReassignKeyRequest(operationId: operationId, trackingCode: trackingCode, pin: pin, tLocal: DateUtils.shared.getFormattedDate(date: Date(), outputFormat: "yyyyMMddHHmmss"))
         
         let cancellable = keyUseCase.reassign(request: request)
             .sink { publisher in
@@ -118,7 +120,7 @@ class PinViewModel: PinViewModelProtocol {
                         self.cardActivation()
                     } else {
                         if let success = self.success {
-                            success(self.pin)
+                            success(self.operationId, self.pin)
                         }
                     }
                 } else {
@@ -132,7 +134,9 @@ class PinViewModel: PinViewModelProtocol {
     func cardActivation() {
         self.delegate?.showLoader()
         
-        let request = CardActivationRequest(trackingCode: "")
+        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
+        
+        let request = CardActivationRequest(trackingCode: trackingCode)
         let cancellable = cardUseCase.activation(request: request)
             .sink { publisher in
                 switch publisher {
@@ -149,7 +153,7 @@ class PinViewModel: PinViewModelProtocol {
                 if response.rc == "0" {
                     CardSessionManager.shared.saveStatus(status: .ACTIVE)
                     if let success = self.success {
-                        success(self.pin)
+                        success(self.operationId, self.pin)
                     }
                 } else {
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)

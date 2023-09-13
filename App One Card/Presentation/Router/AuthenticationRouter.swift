@@ -17,7 +17,7 @@ protocol AuthenticationRouterDelegate: Router {
     func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest)
     func navigateToPin(success: @escaping PinActionHandler)
     func navigateToNewPin(success: @escaping PinActionHandler)
-    func navigateToConfirmPin(newPin: String, success: @escaping PinActionHandler)
+    func navigateToConfirmPin(operationId: String, newPin: String, success: @escaping PinActionHandler)
     func timeExpiredRegister()
     func navigateToLoginInformation(otpId: String, documentType: String, documentNumber: String, companyRUC: String)
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler)

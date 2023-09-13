@@ -498,7 +498,7 @@ extension AppRouter: HomeRouterDelegate {
             let cardUseCase = CardUseCase(cardRepository: cardRepository)
             let viewModel = CardLockViewModel(router: self, successfulRouter: self, otpUseCase: useCase, cardUseCase: cardUseCase)
             viewModel.success = success
-            let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, buttonTitle: "BLOQUEAR")
+            let cardLockViewController = CardLockViewController(viewModel: viewModel, navTitle: navTitle, buttonTitle: "Bloquear")
             viewModel.delegate = cardLockViewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(cardLockViewController, animated: true)

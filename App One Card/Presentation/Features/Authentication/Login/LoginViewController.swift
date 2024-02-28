@@ -13,6 +13,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var txtPassword: OutlinedTextField!
     @IBOutlet weak var btnLogin: PrimaryFilledButton!
     @IBOutlet weak var btnRegister: PrimaryOutlineButton!
+    @IBOutlet weak var lblForgot: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
     private var viewModel: LoginViewModelProtocol
@@ -33,6 +34,8 @@ class LoginViewController: BaseViewController {
         btnRegister.configure(text: Constants.login_register_btn)
         
         connectFields(textFields: txtUser.txt, txtPassword.txt)
+        ui()
+        addGestures()
     }
     
     override func manageScroll() {
@@ -55,16 +58,48 @@ class LoginViewController: BaseViewController {
         }
     }
     
+    //MARK: Funcs
+    
+    private func addGestures() {
+        let tapForgot = UITapGestureRecognizer(target: self, action: #selector(actionForgot))
+        lblForgot.isUserInteractionEnabled = true
+        lblForgot.addGestureRecognizer(tapForgot)
+    }
+    
+    private func ui() {
+        let userString = "usuario"
+        let keyString = "clave digital"
+        let longString = "Olvidé mi usuario o clave digital"
+        let firstLongestWordRange = (longString as NSString).range(of: userString)
+        let secondLongestWordRange = (longString as NSString).range(of: keyString)
+
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
+
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: firstLongestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: secondLongestWordRange)
+        lblForgot.attributedText = attributedString
+    }
+    
+    @objc func actionForgot(gesture: UITapGestureRecognizer) {
+        let text = "Olvidé mi usuario o clave digital"
+        let userString = (text as NSString).range(of: "usuario")
+        let keyString = (text as NSString).range(of: "clave digital")
+        
+        if gesture.didTapAttributedTextInLabel(label: lblForgot, inRange: userString) {
+            
+        } else if gesture.didTapAttributedTextInLabel(label: lblForgot, inRange: keyString) {
+            viewModel.toForgotPassword()
+        }
+    }
+    
+    //MARK: IBActions
+    
     @IBAction func login(_ sender: Any) {
         viewModel.login()
     }
     
     @IBAction func register(_ sender: Any) {
         viewModel.toRegister()
-    }
-    
-    @IBAction func forgotPassword(_ sender: Any) {
-        viewModel.toForgotPassword()
     }
     
 }

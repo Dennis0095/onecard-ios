@@ -21,7 +21,7 @@ enum Route {
     case updateUsername
     case updateEmail
     case updatePassword
-    case sendOTPRegister
+    case sendOTP
     case sendOTPUpdate
     case validateOTPRegister
     case validateOTPUpdate
@@ -36,6 +36,7 @@ enum Route {
     case consultPromotions
     case frequentQuestions
     case recoverPassword
+    case banners
     case without
     
     var description: String {
@@ -50,7 +51,7 @@ enum Route {
             return "/txn-sec/registro-datos-personales-thb"
         case .userRegister:
             return "/txn-sec/registro-usuario-thb"
-        case .sendOTPRegister:
+        case .sendOTP:
             return "/txn-sec/envio-otp-doc"
         case .validateOTPRegister:
             return "/txn-sec/valida-otp-doc"
@@ -96,6 +97,8 @@ enum Route {
             return "/busqueda/txn-finan/consulta-movimientos-hist"
         case .consultFrequentQuestions:
             return "/busqueda/txn-data/consulta-preguntas-frecuentes"
+        case .banners:
+            return "/busqueda/txn-data/consulta-banners"
         case .without:
             return ""
         }

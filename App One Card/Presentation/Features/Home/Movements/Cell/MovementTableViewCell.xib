@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,27 +36,27 @@
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="65"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-d3-PIl">
-                                                <rect key="frame" x="18" y="8" width="288" height="49"/>
+                                                <rect key="frame" x="0.0" y="15.666666666666664" width="324" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-Yi-kBK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="69" height="49"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="34"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7i-Cp-TDn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="49"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7i-Cp-TDn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="19"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                                 <color key="textColor" name="blue_twilight"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Abr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epR-Wo-bse">
-                                                                <rect key="frame" x="0.0" y="49" width="69" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="19" width="75.666666666666671" height="15"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="15"/>
                                                                 <color key="textColor" name="blue_twilight"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvz-Y6-rKq">
-                                                        <rect key="frame" x="215.66666666666666" y="0.0" width="72.333333333333343" height="49"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvz-Y6-rKq">
+                                                        <rect key="frame" x="276.33333333333331" y="0.0" width="47.666666666666686" height="34"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                         <color key="textColor" name="grey80"/>
                                                         <nil key="highlightedColor"/>
@@ -68,9 +68,9 @@
                                         <constraints>
                                             <constraint firstItem="tTd-d3-PIl" firstAttribute="centerY" secondItem="KDQ-fj-0XV" secondAttribute="centerY" id="1W1-pD-n1i"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tTd-d3-PIl" secondAttribute="bottom" constant="8" id="73j-58-HL0"/>
-                                            <constraint firstItem="tTd-d3-PIl" firstAttribute="leading" secondItem="KDQ-fj-0XV" secondAttribute="leading" constant="18" id="JCv-9i-KVr"/>
+                                            <constraint firstItem="tTd-d3-PIl" firstAttribute="leading" secondItem="KDQ-fj-0XV" secondAttribute="leading" id="JCv-9i-KVr"/>
                                             <constraint firstItem="tTd-d3-PIl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KDQ-fj-0XV" secondAttribute="top" constant="8" id="ZqM-pL-H3f"/>
-                                            <constraint firstAttribute="trailing" secondItem="tTd-d3-PIl" secondAttribute="trailing" constant="18" id="nZ1-o0-Cuy"/>
+                                            <constraint firstAttribute="trailing" secondItem="tTd-d3-PIl" secondAttribute="trailing" id="nZ1-o0-Cuy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idh-Tx-7M0">

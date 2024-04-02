@@ -76,7 +76,9 @@ class MenuTabBarController: UITabBarController {
         let useCase = BalanceUseCase(balanceRepository: repository)
         let movementRepository = MovementDataRepository()
         let movementUseCase = MovementUseCase(movementRepository: movementRepository)
-        let viewModel = HomeViewModel(router: homeRouter, authRouter: authRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase)
+        let bannersRepository = BannersDataRepository()
+        let bannersUseCase = BannersUseCase(bannersRepository: bannersRepository)
+        let viewModel = HomeViewModel(router: homeRouter, authRouter: authRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase, bannersUseCase: bannersUseCase)
         let home = HomeViewController(viewModel: viewModel)
         viewModel.delegate = home
         return home

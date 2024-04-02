@@ -53,7 +53,7 @@ class HomeObserver: HomeObserverProtocol {
             .sink { [weak self] amount in
                 if let amount = amount {
                     if let action = self?.listenAmountChanges {
-                        action(amount)
+                        action(amount != "0" ? amount : "-")
                     }
                 }
             }

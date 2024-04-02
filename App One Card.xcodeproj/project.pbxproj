@@ -246,7 +246,17 @@
 		0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */; };
 		0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */; };
 		0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */; };
+		B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */; };
+		B62F01FF2B983E450090ABA8 /* BannersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FE2B983E450090ABA8 /* BannersRepository.swift */; };
+		B62F02012B9840290090ABA8 /* ConsultBannersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */; };
+		B62F02032B9840760090ABA8 /* ConsultBannersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02022B9840760090ABA8 /* ConsultBannersResponse.swift */; };
+		B62F02052B9841410090ABA8 /* BannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02042B9841410090ABA8 /* BannerResponse.swift */; };
+		B62F02072B9841C30090ABA8 /* BannersDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */; };
+		B62F020C2B98487E0090ABA8 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F020A2B98487E0090ABA8 /* BannerCell.swift */; };
+		B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62F020B2B98487E0090ABA8 /* BannerCell.xib */; };
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
+		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
+		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
 		B6D9B6DB2A93FB56006FE21C /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */; };
 		B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */; };
 		B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */; };
@@ -494,7 +504,17 @@
 		0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewController.swift; sourceTree = "<group>"; };
 		0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeActivateViewController.xib; sourceTree = "<group>"; };
 		0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewModel.swift; sourceTree = "<group>"; };
+		B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersUseCase.swift; sourceTree = "<group>"; };
+		B62F01FE2B983E450090ABA8 /* BannersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersRepository.swift; sourceTree = "<group>"; };
+		B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultBannersRequest.swift; sourceTree = "<group>"; };
+		B62F02022B9840760090ABA8 /* ConsultBannersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultBannersResponse.swift; sourceTree = "<group>"; };
+		B62F02042B9841410090ABA8 /* BannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerResponse.swift; sourceTree = "<group>"; };
+		B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersDataRepository.swift; sourceTree = "<group>"; };
+		B62F020A2B98487E0090ABA8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		B62F020B2B98487E0090ABA8 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		B661AE952B8F7A710068889A /* GestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExtension.swift; sourceTree = "<group>"; };
+		B661AEF62B9168760068889A /* ValidateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateType.swift; sourceTree = "<group>"; };
+		B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.otf"; sourceTree = "<group>"; };
 		B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Medium.otf"; sourceTree = "<group>"; };
 		B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
@@ -557,6 +577,8 @@
 				0D6E009E2A87DD3D006277C2 /* MovementsHistoryResponse.swift */,
 				0D50B99E2A8FABB70009F624 /* QuestionResponse.swift */,
 				0D50B9A02A8FAC3D0009F624 /* ConsultFrequentQuestionsResponse.swift */,
+				B62F02022B9840760090ABA8 /* ConsultBannersResponse.swift */,
+				B62F02042B9841410090ABA8 /* BannerResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -572,6 +594,7 @@
 				0D8D9F772A5DE20900E6C8C6 /* CardUseCase.swift */,
 				0D7DCD1D2A723EB0006F9CA5 /* PromotionUseCase.swift */,
 				0D50B9A22A8FAD330009F624 /* QuestionUseCase.swift */,
+				B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -744,6 +767,7 @@
 				0D6DA4F82A5E526B00AC6BB5 /* CardDataRepository.swift */,
 				0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */,
 				0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */,
+				B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -836,6 +860,7 @@
 		0D45B1222A2EA71800EFC7F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B661AEF52B91681C0068889A /* Enums */,
 				0D8636352A8DDA3900954CEE /* Modals */,
 				0D35EDF82A44BC9700411486 /* ButtonKeyboard */,
 				0D243B882A3A4758004E87D3 /* Error */,
@@ -889,6 +914,7 @@
 				0D45B1542A2EEB9600EFC7F4 /* TextFieldExtension.swift */,
 				0D45B1562A2EFCBD00EFC7F4 /* ViewExtension.swift */,
 				B661AE952B8F7A710068889A /* GestureExtension.swift */,
+				B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1027,6 +1053,7 @@
 				0DE7BD9E2A82FFAB0029015F /* ExistsUserRequest.swift */,
 				0D6E00A02A87DD46006277C2 /* MovementsHistoryRequest.swift */,
 				0D50B9A42A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift */,
+				B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1071,6 +1098,7 @@
 				0D8D9F732A5DDFDC00E6C8C6 /* CardRepository.swift */,
 				0D7DCD252A724092006F9CA5 /* PromotionRepository.swift */,
 				0D50B9A62A8FADC40009F624 /* QuestionRepository.swift */,
+				B62F01FE2B983E450090ABA8 /* BannersRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1114,6 +1142,7 @@
 		0DB967652A35237D0079D432 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B62F02082B98483E0090ABA8 /* Banners */,
 				0DF183F62A6978EC004A0621 /* CardLock */,
 				0DD692A12A524DDA001D0BB9 /* Movements */,
 				0D2474042A4667B70075E147 /* ConfigureCard */,
@@ -1313,6 +1342,31 @@
 			path = Activate;
 			sourceTree = "<group>";
 		};
+		B62F02082B98483E0090ABA8 /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				B62F02092B9848500090ABA8 /* Cell */,
+			);
+			path = Banners;
+			sourceTree = "<group>";
+		};
+		B62F02092B9848500090ABA8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B62F020A2B98487E0090ABA8 /* BannerCell.swift */,
+				B62F020B2B98487E0090ABA8 /* BannerCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B661AEF52B91681C0068889A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B661AEF62B9168760068889A /* ValidateType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		B6D9B6D62A93FB2E006FE21C /* Proxima Nova */ = {
 			isa = PBXGroup;
 			children = (
@@ -1354,7 +1408,7 @@
 		0D45B0DB2A2E4EA600EFC7F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
+				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
@@ -1421,6 +1475,7 @@
 				B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */,
 				0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
+				B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */,
 				0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */,
 				0DD692A62A524E16001D0BB9 /* MovementTableViewCell.xib in Resources */,
 				0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */,
@@ -1486,6 +1541,7 @@
 				0DE7BD9F2A82FFAB0029015F /* ExistsUserRequest.swift in Sources */,
 				0DFA7CA22A6DC7E60031178B /* CardLockModalViewController.swift in Sources */,
 				0D50B9A52A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift in Sources */,
+				B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */,
 				0D50B9A92A8FAE1C0009F624 /* QuestionDataRepository.swift in Sources */,
 				0D45B1552A2EEB9700EFC7F4 /* TextFieldExtension.swift in Sources */,
 				0D7DCD222A723F1F006F9CA5 /* ConsultPromotionsResponse.swift in Sources */,
@@ -1496,10 +1552,12 @@
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
 				0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */,
 				0DE336852A5B9B8600597BE8 /* PinOutlinedTextField.swift in Sources */,
+				B62F020C2B98487E0090ABA8 /* BannerCell.swift in Sources */,
 				0D6B916D2A4B90650045D149 /* SendOTPRegisterRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
 				0D0A60F32A7046A7005B447E /* ConsultUserDataResponse.swift in Sources */,
+				B661AEF72B9168760068889A /* ValidateType.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D65EA172A6B032000819637 /* CardStatusRequest.swift in Sources */,
 				0DD692B42A529C19001D0BB9 /* MovementDataRepository.swift in Sources */,
@@ -1543,6 +1601,7 @@
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
 				0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */,
+				B62F01FF2B983E450090ABA8 /* BannersRepository.swift in Sources */,
 				0DE7BD982A82CF4C0029015F /* NewPasswordRequest.swift in Sources */,
 				0D0A60F52A7046B3005B447E /* ConsultUserDataRequest.swift in Sources */,
 				0DFA7CA52A6DEAAD0031178B /* CardLockRequest.swift in Sources */,
@@ -1560,6 +1619,8 @@
 				0DDE79182A4FC37300A52DEB /* ValidateOTPRegisterRequest.swift in Sources */,
 				0D50B9A32A8FAD330009F624 /* QuestionUseCase.swift in Sources */,
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
+				B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */,
+				B62F02052B9841410090ABA8 /* BannerResponse.swift in Sources */,
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
@@ -1618,6 +1679,7 @@
 				0D45B16F2A30372700EFC7F4 /* SelectModel.swift in Sources */,
 				0DE3A13C2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift in Sources */,
 				0DE3A13E2A799E4400A34E06 /* ReassignKeyRequest.swift in Sources */,
+				B62F02012B9840290090ABA8 /* ConsultBannersRequest.swift in Sources */,
 				0D904CCD2A369DFF007D37D3 /* ProfileViewController.swift in Sources */,
 				0DFA7C862A6D8F0A0031178B /* User.swift in Sources */,
 				0D45B1602A2FF18500EFC7F4 /* AuthenticationRouter.swift in Sources */,
@@ -1631,6 +1693,7 @@
 				0DC78BB82A37D49F0097CCE5 /* ProfileRouter.swift in Sources */,
 				0D45B1662A3024DC00EFC7F4 /* PersonalDataViewModel.swift in Sources */,
 				0D6DA4F72A5E525F00AC6BB5 /* KeyDataRepository.swift in Sources */,
+				B62F02032B9840760090ABA8 /* ConsultBannersResponse.swift in Sources */,
 				0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift in Sources */,
 				B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
@@ -1641,6 +1704,7 @@
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 				0D8636382A8DDAB500954CEE /* InactivityModalViewController.swift in Sources */,
+				B62F02072B9841C30090ABA8 /* BannersDataRepository.swift in Sources */,
 				0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */,
 				0D842E4D2A4FD6490059A906 /* UserRegisterRequest.swift in Sources */,
 			);
@@ -1779,21 +1843,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7QJS3CJAFR;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/DEV.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.tests.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "DEV $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1809,20 +1875,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/DEV.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "DEV $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1898,20 +1967,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/PROD.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "PROD $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1981,20 +2053,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/PROD.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "PROD $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2070,20 +2145,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/QA.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "QA $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -2153,20 +2231,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RQC82YSVFL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App One Card/Presentation/config/QA.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = l;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onecard.dev.paolo.App-One-Card";
+				PRODUCT_BUNDLE_IDENTIFIER = pe.onecard.ios;
 				PRODUCT_NAME = "QA $(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

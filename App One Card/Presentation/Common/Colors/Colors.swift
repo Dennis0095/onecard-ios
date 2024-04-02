@@ -32,6 +32,10 @@ class Design {
             return UIColor(hexString: "#6C6F71")
         case .grey100:
             return UIColor(hexString: "#474B4D")
+        case .blue_sky:
+            return UIColor(hexString: "#00A3E0")
+        case .blue_lake_front:
+            return UIColor(hexString: "#004C97")
         }
     }
 }
@@ -42,6 +46,8 @@ enum ColorStyle {
     case accent
     case dark1
     case dark2
+    case blue_sky
+    case blue_lake_front
     case grey5
     case grey20
     case grey40

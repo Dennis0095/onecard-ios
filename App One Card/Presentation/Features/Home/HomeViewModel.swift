@@ -10,6 +10,8 @@ import Combine
 
 protocol HomeViewModelProtocol {
     var items: [MovementResponse] { get set }
+    var banners: [BannerResponse] { get set }
+    var timerBanners: Timer? { get set }
     
     func toCardLock()
     func toConfigureCard()
@@ -18,6 +20,7 @@ protocol HomeViewModelProtocol {
     func toMovements()
     func balanceInquiry()
     func consultMovements()
+    func consultBanners()
     
     func numberOfItems() -> Int
     func item(at index: Int) -> MovementResponse
@@ -25,7 +28,9 @@ protocol HomeViewModelProtocol {
     func selectItem(movement: MovementResponse)
 }
 
-protocol HomeViewModelDelegate: LoaderDisplaying { }
+protocol HomeViewModelDelegate: LoaderDisplaying {
+    func showBanners(isEmpty: Bool)
+}
 
 class HomeViewModel: HomeViewModelProtocol {
     var router: HomeRouterDelegate
@@ -33,17 +38,21 @@ class HomeViewModel: HomeViewModelProtocol {
     var successfulRouter: SuccessfulRouterDelegate
     var delegate: HomeViewModelDelegate?
     var items: [MovementResponse] = []
+    var banners: [BannerResponse] = []
+    var timerBanners: Timer?
     
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
+    private let bannersUseCase: BannersUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol) {
+    init(router: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol, bannersUseCase: BannersUseCase) {
         self.router = router
         self.successfulRouter = successfulRouter
         self.balanceUseCase = balanceUseCase
         self.movementUseCase = movementUseCase
+        self.bannersUseCase = bannersUseCase
         self.authRouter = authRouter
     }
     
@@ -133,9 +142,9 @@ class HomeViewModel: HomeViewModelProtocol {
                         HomeObserver.shared.updateAmount(amount: balance)
                     }
                 } else {
-                    self.delegate?.showError(title: error.title, description: error.description) {
-                        self.balanceInquiry()
-                    }
+//                    self.delegate?.showError(title: error.title, description: response.rcDescription ?? "") {
+//                        self.balanceInquiry()
+//                    }
                 }
                 //}
             }
@@ -164,6 +173,34 @@ class HomeViewModel: HomeViewModelProtocol {
         cancellable.store(in: &cancellables)
     }
     
+    func consultBanners() {
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        
+        let request = ConsultBannersRequest(authTrackingCode: trackingCode)
+        
+        let cancellable = bannersUseCase.consult(request: request)
+            .receive(on: DispatchQueue.main)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
+            } receiveValue: { response in
+                if response.rc == "0" {
+                    self.banners = response.banners ?? []
+                    self.delegate?.showBanners(isEmpty: (response.banners ?? []).isEmpty)
+                } else {
+                    self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
+
+    }
+    
     func cancelRequests() {
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
@@ -183,18 +220,3 @@ enum Currency {
         }
     }
 }
-
-
-//enum SignStandard: String {
-//    case C = "840"
-//    case D = "604"
-//
-//    var type: String {
-//        switch self {
-//        case .C:
-//            return "840"
-//        case .D:
-//            return "604"
-//        }
-//    }
-//}

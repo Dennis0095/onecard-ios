@@ -20,9 +20,9 @@ protocol VerificationViewModelProtocol {
     var maskPhoneEmail: Bool { get set }
     var wasShownViewVerification: Bool { get set }
     
-    func sendOTPToRegister(toNumber: Bool)
+    func sendOTP(toNumber: Bool)
     func sendOTPToUpdate(toNumber: Bool)
-    func validateOTPToRegister()
+    func validateOTP()
     func validateOTPToUpdate()
 }
 
@@ -62,14 +62,17 @@ class VerificationViewModel: VerificationViewModelProtocol {
         self.maskPhoneEmail = maskPhoneEmail
     }
     
-    func sendOTPToRegister(toNumber: Bool) {
+    func sendOTP(toNumber: Bool) {
         
         delegate?.showLoader()
         
-        let request = SendOTPRegisterRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
-                                             operationType: operationType, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
+        let request = SendOTPRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+                                     operationType: operationType,
+                                     documentType: documentType, 
+                                     documentNumber: documentNumber,
+                                     companyRUC: companyRUC)
         
-        let cancellable = otpUseCase.sendToRegister(request: request)
+        let cancellable = otpUseCase.send(request: request)
             .sink { publisher in
                 switch publisher {
                 case .finished: break
@@ -84,16 +87,29 @@ class VerificationViewModel: VerificationViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                self.wasShownViewVerification = true
                 self.delegate?.hideLoader()
-                self.otpId = response.otpId
                 
-                if self.maskPhoneEmail {
-                    self.number = response.truncatedCellphone ?? ""
-                    self.email = response.truncatedEmail ?? ""
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                let apiError = APIError.custom(title, description)
+                
+                if response.success == "1" {
+                    self.wasShownViewVerification = true
+                    self.otpId = response.otpId
+                    
+                    if self.maskPhoneEmail {
+                        self.number = response.truncatedCellphone ?? ""
+                        self.email = response.truncatedEmail ?? ""
+                    }
+                    
+                    self.delegate?.successSendOtp()
+                } else {
+                    if !self.wasShownViewVerification {
+                        self.delegate?.failureSendOtp(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
                 }
-                
-                self.delegate?.successSendOtp()
             }
         
         cancellable.store(in: &cancellables)
@@ -105,7 +121,8 @@ class VerificationViewModel: VerificationViewModelProtocol {
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
         let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
-                                           operationType: operationType, authTrackingCode: authTrackingCode)
+                                           operationType: operationType, 
+                                           authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)
             .sink { publisher in
@@ -147,7 +164,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func validateOTPToRegister() {
+    func validateOTP() {
         guard let otp = self.otpId, let code = self.code else {
             return
         }

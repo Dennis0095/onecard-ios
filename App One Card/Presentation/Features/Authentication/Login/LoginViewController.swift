@@ -75,8 +75,8 @@ class LoginViewController: BaseViewController {
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
 
-        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: firstLongestWordRange)
-        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!], range: secondLongestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: Design.color(.blue_sky)], range: firstLongestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: Design.color(.blue_sky)], range: secondLongestWordRange)
         lblForgot.attributedText = attributedString
     }
     
@@ -86,7 +86,7 @@ class LoginViewController: BaseViewController {
         let keyString = (text as NSString).range(of: "clave digital")
         
         if gesture.didTapAttributedTextInLabel(label: lblForgot, inRange: userString) {
-            
+            viewModel.toForgotUser()
         } else if gesture.didTapAttributedTextInLabel(label: lblForgot, inRange: keyString) {
             viewModel.toForgotPassword()
         }

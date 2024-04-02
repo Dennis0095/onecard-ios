@@ -8,7 +8,7 @@
 import Combine
 
 protocol OTPUseCaseProtocol {
-    func sendToRegister(request: SendOTPRegisterRequest) -> AnyPublisher<SendOTPRegisterResponse, APIError>
+    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, APIError>
     func validateToRegister(request: ValidateOTPRegisterRequest) -> AnyPublisher<ValidateOTPResponse, APIError>
     func sendToUpdate(request: SendOTPUpdateRequest) -> AnyPublisher<SendOTPUpdateResponse, APIError>
     func validateToUpdate(request: ValidateOTPUpdateRequest) -> AnyPublisher<ValidateOTPResponse, APIError>
@@ -21,8 +21,8 @@ class OTPUseCase: OTPUseCaseProtocol {
         self.otpRepository = otpRepository
     }
     
-    func sendToRegister(request: SendOTPRegisterRequest) -> AnyPublisher<SendOTPRegisterResponse, APIError> {
-        return otpRepository.sendToRegister(request: request)
+    func send(request: SendOTPRequest) -> AnyPublisher<SendOTPResponse, APIError> {
+        return otpRepository.send(request: request)
     }
     
     func validateToRegister(request: ValidateOTPRegisterRequest) -> AnyPublisher<ValidateOTPResponse, APIError> {

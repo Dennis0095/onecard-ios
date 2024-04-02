@@ -21,6 +21,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var viewCardNotActivated: UIView!
     @IBOutlet weak var viewInfoCardLock: UIView!
     @IBOutlet weak var btnCardActivation: PrimaryFilledButton!
+    @IBOutlet weak var vBanners: UIView!
+    @IBOutlet weak var cvBanners: UICollectionView!
     
     private var viewModel: HomeViewModelProtocol
     
@@ -34,12 +36,21 @@ class HomeViewController: BaseViewController {
     }
     
     override func initView() {
+        vBanners.isHidden = true
         viewMovements.isHidden = true
         viewCardNotActivated.isHidden = true
         
         tblMovements.register(UINib(nibName: "MovementTableViewCell", bundle: nil), forCellReuseIdentifier: "MovementTableViewCell")
         tblMovements.delegate = self
         tblMovements.dataSource = self
+        
+        cvBanners.register(UINib(nibName: "BannerCell", bundle: nil), forCellWithReuseIdentifier: "BannerCell")
+        cvBanners.delegate = self
+        cvBanners.dataSource = self
+        
+        if let flowLayout = cvBanners.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+        }
         
         [viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
             view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
@@ -55,7 +66,8 @@ class HomeViewController: BaseViewController {
         }
         
         HomeObserver.shared.listenMovementsChanges = { movements in
-            self.viewModel.items = movements
+            //First 3 items
+            self.viewModel.items = Array(movements.prefix(3))
             DispatchQueue.main.async {
                 self.tblMovements.reloadData()
             }
@@ -89,16 +101,16 @@ class HomeViewController: BaseViewController {
             self.viewMovements.isHidden = true
             self.viewCardNotActivated.isHidden = false
             self.viewInfoCardLock.isHidden = true
-        } else if status == .CANCEL {
-            self.stkOptions.isUserInteractionEnabled = false
-            self.stkOptions.alpha = 0.5
-            
-            self.viewMovements.isHidden = false
-            self.viewCardNotActivated.isHidden = true
-            self.viewInfoCardLock.isHidden = false
-            
-            self.viewModel.balanceInquiry()
-            self.viewModel.consultMovements()
+//        } else if status == .CANCEL {
+//            self.stkOptions.isUserInteractionEnabled = false
+//            self.stkOptions.alpha = 0.5
+//            
+//            self.viewMovements.isHidden = false
+//            self.viewCardNotActivated.isHidden = true
+//            self.viewInfoCardLock.isHidden = false
+//            
+//            self.viewModel.balanceInquiry()
+//            self.viewModel.consultMovements()
         } else if status == .ACTIVE || status == .TEMPORARY_LOCKED {
             self.stkOptions.isUserInteractionEnabled = true
             self.stkOptions.alpha = 1
@@ -109,6 +121,7 @@ class HomeViewController: BaseViewController {
             
             self.viewModel.balanceInquiry()
             self.viewModel.consultMovements()
+            self.viewModel.consultBanners()
         }
     }
     
@@ -127,6 +140,15 @@ class HomeViewController: BaseViewController {
         viewModel.toChangePin()
     }
     
+    @objc
+    func scrollToNextItem() {
+        let visibleItemsIndexPaths = cvBanners.indexPathsForVisibleItems
+        if let lastIndexPath = visibleItemsIndexPaths.last, lastIndexPath.item < viewModel.banners.count - 1 {
+            let nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+            cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
     @IBAction func toMovements(_ sender: Any) {
         viewModel.toMovements()
     }
@@ -134,12 +156,33 @@ class HomeViewController: BaseViewController {
     @IBAction func cardActivation(_ sender: Any) {
         viewModel.toCardActivation()
     }
+    
+    @IBAction func moveToLeft(_ sender: Any) {
+        let visibleItemsIndexPaths = cvBanners.indexPathsForVisibleItems
+        if let firstIndexPath = visibleItemsIndexPaths.first, firstIndexPath.item > 0 {
+            let previousIndexPath = IndexPath(item: firstIndexPath.item - 1, section: firstIndexPath.section)
+            cvBanners.scrollToItem(at: previousIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    @IBAction func moveToRight(_ sender: Any) {
+        let visibleItemsIndexPaths = cvBanners.indexPathsForVisibleItems
+        if let lastIndexPath = visibleItemsIndexPaths.last, lastIndexPath.item < viewModel.banners.count - 1 {
+            let nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
+            cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 
 extension HomeViewController: HomeViewModelDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movement = viewModel.items[indexPath.row]
-        viewModel.selectItem(movement: movement)
+    func showBanners(isEmpty: Bool) {
+        DispatchQueue.main.async {
+            self.vBanners.isHidden = isEmpty
+            self.cvBanners.reloadData()
+            
+            self.viewModel.timerBanners?.invalidate()
+            self.viewModel.timerBanners = self.viewModel.banners.count > 1 ? Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.scrollToNextItem), userInfo: nil, repeats: true) : nil
+        }
     }
 }
 
@@ -155,8 +198,47 @@ extension HomeViewController: UITableViewDataSource {
         
         let movement = viewModel.items[indexPath.row]
         cell.setData(movement: movement)
+        
         return cell
     }
 }
 
-extension HomeViewController: UITableViewDelegate {}
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movement = viewModel.items[indexPath.row]
+        viewModel.selectItem(movement: movement)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate { }
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width, height: 146)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.banners.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = cvBanners.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as? BannerCell else {
+            return UICollectionViewCell()
+        }
+        
+        let banner = viewModel.banners[indexPath.row]
+        cell.setData(banner: banner)
+        
+        return cell
+    }
+}

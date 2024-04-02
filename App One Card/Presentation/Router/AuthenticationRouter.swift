@@ -13,6 +13,7 @@ protocol AuthenticationRouterDelegate: Router {
     func navigateToActivateUser()
     func navigateToRegister()
     func navigateToForgotPassword()
+    func navigateToForgotUser()
     func navigateToCreatePassword(otpId: String, documentType: String, documentNumber: String, companyRUC: String)
     func navigateToPersonalData(beforeRequest: ValidateAffiliationRequest)
     func navigateToPin(success: @escaping PinActionHandler)

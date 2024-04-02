@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SendOTPRegisterResponse: Codable {
+struct SendOTPResponse: Codable {
     let rc: String?
     let rcDesc: String?
     let sendOtpSms: String?

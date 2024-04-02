@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol MembershipDataViewModelProtocol {
-    var isRegister: Bool { get set }
+    var validateType: ValidateType { get set }
     var documentTypeList: [SelectModel] { get set }
     var documentType: SelectModel? { get set }
     var documentNumber: String? { get set }
@@ -18,11 +18,10 @@ protocol MembershipDataViewModelProtocol {
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler)
     func validateUserToRegister()
     func validateUserToRecoverPassword()
+    func validateUserToRecoverUser()
 }
 
-protocol MembershipDataViewModelDelegate: LoaderDisplaying {
-    
-}
+protocol MembershipDataViewModelDelegate: LoaderDisplaying {}
 
 class MembershipDataViewModel: MembershipDataViewModelProtocol {
     private let router: AuthenticationRouterDelegate
@@ -42,13 +41,13 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
     var documentType: SelectModel?
     var documentNumber: String?
     var companyRUC: String?
-    var isRegister: Bool
+    var validateType: ValidateType
     
-    init(router: AuthenticationRouterDelegate, verificationRouter: VerificationRouterDelegate, userUseCase: UserUseCaseProtocol, isRegister: Bool) {
+    init(router: AuthenticationRouterDelegate, verificationRouter: VerificationRouterDelegate, userUseCase: UserUseCaseProtocol, validateType: ValidateType) {
         self.router = router
         self.verificationRouter = verificationRouter
         self.userUseCase = userUseCase
-        self.isRegister = isRegister
+        self.validateType = validateType
     }
     
     func showDocumentList(selected: SelectModel?, list: [SelectModel], action: @escaping SelectCustomActionHandler, presented: @escaping VoidActionHandler) {
@@ -117,6 +116,41 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                 self.delegate?.hideLoader()
                 if response.exists == "1" {
                     self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de clave", stepDescription: "Paso 2 de 3", operationType: "RC", maskPhoneEmail: true) { [weak self] otpId in
+                        self?.router.navigateToCreatePassword(otpId: otpId, documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
+                    }
+                } else {
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
+    }
+    
+    func validateUserToRecoverUser() {
+        guard let documentTypeId = documentType?.id, let documentNumber = self.documentNumber, let companyRUC = self.companyRUC else {
+            return
+        }
+        
+        delegate?.showLoader()
+        
+        let request = ExistsUserRequest(documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
+        let cancellable = userUseCase.existsUser(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
+            } receiveValue: { response in
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                
+                self.delegate?.hideLoader()
+                if response.exists == "1" {
+                    self.verificationRouter.navigateToVerification(email: "", number: "", documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Recuperación de usuario", stepDescription: "Paso 1 de 2", operationType: "OU", maskPhoneEmail: true) { [weak self] otpId in
                         self?.router.navigateToCreatePassword(otpId: otpId, documentType: documentTypeId, documentNumber: documentNumber, companyRUC: companyRUC)
                     }
                 } else {

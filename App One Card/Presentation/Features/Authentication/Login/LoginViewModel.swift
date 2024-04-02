@@ -14,6 +14,7 @@ protocol LoginViewModelProtocol {
     
     func toRegister()
     func toForgotPassword()
+    func toForgotUser()
     func login()
     func getStatusCard(token: String)
 }
@@ -99,6 +100,8 @@ class LoginViewModel: LoginViewModelProtocol {
                     CardSessionManager.shared.saveStatus(status: StatusCard(rawValue: response.status ?? ""))
                     if response.status == StatusCard.NOT_ACTIVE.rawValue {
                         self.router.navigateToActivateUser()
+                    } else if response.status == StatusCard.CANCEL.rawValue {
+                        self.delegate?.showError(title: "Tarjeta inválida", description: "El estado de la tsrjeta es inválida para el inicio de sesión", onAccept: nil)
                     } else {
                         self.router.navigateToHome()
                     }
@@ -112,6 +115,10 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func toForgotPassword() {
         router.navigateToForgotPassword()
+    }
+    
+    func toForgotUser() {
+        router.navigateToForgotUser()
     }
     
     func cancelRequests() {

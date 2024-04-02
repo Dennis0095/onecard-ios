@@ -131,10 +131,13 @@ class MembershipDataViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if validate() {
-            if viewModel.isRegister {
+            switch viewModel.validateType {
+            case .REGISTER:
                 viewModel.validateUserToRegister()
-            } else {
+            case .RECOVER_PASSWORD:
                 viewModel.validateUserToRecoverPassword()
+            case .RECOVER_USER:
+                viewModel.validateUserToRecoverUser()
             }
         }
     }

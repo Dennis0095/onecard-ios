@@ -93,7 +93,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = PrepaidCardLockRequest(otpId: otp, otpCode: code, authTrackingCode: authTrackingCode, trackingCode: trackingCode, reason: "CA")
+        let request = PrepaidCardLockRequest(otpId: otp, otpCode: code, authTrackingCode: authTrackingCode, trackingCode: trackingCode, reason: "TE")
         
         let cancellable = cardUseCase.prepaidCardLock(request: request)
             .sink { publisher in

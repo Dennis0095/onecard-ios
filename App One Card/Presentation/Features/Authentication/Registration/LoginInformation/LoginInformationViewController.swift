@@ -96,7 +96,7 @@ class LoginInformationViewController: BaseViewController {
     
     private func validate() -> Bool {
         txtUser.errorMessage = txtUser.text.isEmpty ? "Debe ingresar su usuario." : "Debe contener números y letras."
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : txtPassword.text.count < 6 ? "Mínimo 6 caracteres." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su clave." : "Las claves no coinciden."
         
         txtUser.isValid = txtUser.text.validateString(withRegex: .alphanumeric)

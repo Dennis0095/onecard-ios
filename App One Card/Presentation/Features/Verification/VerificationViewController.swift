@@ -167,8 +167,8 @@ class VerificationViewController: BaseViewController {
     }
     
     private func sendOTP() {
-        if viewModel.operationType == "RU" {
-            viewModel.sendOTPToRegister(toNumber: sendToNumber)
+        if viewModel.operationType == "RU" || viewModel.operationType == "OU" || viewModel.operationType == "RC" {
+            viewModel.sendOTP(toNumber: sendToNumber)
         } else {
             viewModel.sendOTPToUpdate(toNumber: sendToNumber)
         }
@@ -180,8 +180,8 @@ class VerificationViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if txtCode.validateIsValid() {
-            if viewModel.operationType == "RU" {
-                viewModel.validateOTPToRegister()
+            if viewModel.operationType == "RU" || viewModel.operationType == "OU" || viewModel.operationType == "RC" {
+                viewModel.validateOTP()
             } else {
                 viewModel.validateOTPToUpdate()
             }

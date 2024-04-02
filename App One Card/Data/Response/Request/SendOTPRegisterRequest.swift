@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SendOTPRegisterRequest: BaseRequest {
+struct SendOTPRequest: BaseRequest {
     let otpShippingType: String
     let operationType: String
     let documentType: String

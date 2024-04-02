@@ -81,8 +81,10 @@ class PinViewModel: PinViewModelProtocol {
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader()
-                if response.rc == "447" {
+                if response.rc == "55" {
                     self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifique el PIN", onAccept: nil)
+                } else if response.rc == "75" {
+                    self.delegate?.showError(title: "Superó el límite de intentos", description: "Comuníquese con su empleador", onAccept: nil)
                 } else if response.rc == "0" {
                     self.operationId = response.operationId ?? ""
                     if let success = self.success {

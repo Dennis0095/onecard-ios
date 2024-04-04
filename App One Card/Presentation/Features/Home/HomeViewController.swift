@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
+    @IBOutlet weak var viewOneCard: UIView!
     @IBOutlet weak var viewCardLock: UIView!
     @IBOutlet weak var viewConfigureCard: UIView!
     @IBOutlet weak var viewChangePin: UIView!
@@ -52,7 +53,7 @@ class HomeViewController: BaseViewController {
             flowLayout.scrollDirection = .horizontal
         }
         
-        [viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
+        [viewOneCard, viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
             view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
         }
         

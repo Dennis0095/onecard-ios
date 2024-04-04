@@ -11,25 +11,27 @@ protocol LoaderDisplaying {
     func showLoader()
     func hideLoader()
     func showError(title: String, description: String, onAccept: VoidActionHandler?)
-    //func showSnackBar(message: String, iconImage: UIImage, imgColorClose: UIImage, backgroundColor: UIColor, labelColor: UIColor, duration: TimeInterval)
 }
 
 extension LoaderDisplaying where Self:UIViewController {
+    
     func showLoader() {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else { return }
-            let loadingView = LoadingView(frame: window.bounds)
-            window.addSubview(loadingView)
+            if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+                let loadingView = Loading(frame: window.bounds)
+                window.addSubview(loadingView)
+            }
         }
     }
     
     func hideLoader() {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else { return }
-            for view in window.subviews {
-                if let loadingView = view as? LoadingView {
-                    loadingView.dismiss()
-                    break
+            if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+                for view in window.subviews {
+                    if let loadingView = view as? Loading {
+                        loadingView.dismiss()
+                        break
+                    }
                 }
             }
         }
@@ -46,7 +48,5 @@ extension LoaderDisplaying where Self:UIViewController {
             self.present(view, animated: true, completion: nil)
         }
     }
-//    func showSnackBar(message: String, iconImage: UIImage, imgColorClose: UIImage, backgroundColor: UIColor, labelColor: UIColor, duration: TimeInterval) {
-//        SnackbarManager.shared.showSnackbar(message: message, iconImage: iconImage, imgColorClose: imgColorClose, backgroundColor: backgroundColor, labelColor: labelColor, duration: duration)
-//    }
+
 }

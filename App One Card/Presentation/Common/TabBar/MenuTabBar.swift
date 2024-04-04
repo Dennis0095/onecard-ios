@@ -38,10 +38,9 @@ class MenuTabBar: UIView {
     }
     
     private func setupView() {
-        homeTabBarItem.configure(title: Constants.tab_title_home, image: #imageLiteral(resourceName: "ic_home"))
-        promotionsTabBarItem.configure(title: Constants.tab_title_proms, image: #imageLiteral(resourceName: "ic_prom"))
-        configurationTabBarItem.configure(title: Constants.tab_title_config, image: #imageLiteral(resourceName: "ic_configuration"))
-        
+        homeTabBarItem.configure(title: Constants.tab_title_home, image: #imageLiteral(resourceName: "ic_home"), selectedImage: #imageLiteral(resourceName: "ic_home_selected"))
+        promotionsTabBarItem.configure(title: Constants.tab_title_proms, image: #imageLiteral(resourceName: "ic_prom"), selectedImage: #imageLiteral(resourceName: "ic_prom_selected"))
+        configurationTabBarItem.configure(title: Constants.tab_title_config, image: #imageLiteral(resourceName: "ic_configuration"), selectedImage: #imageLiteral(resourceName: "ic_configuration_selected"))
         
         homeTabBarItem.isSelectedItem = true
         

@@ -18,10 +18,14 @@ class MenuTabBarItem: UIView {
     var titleMenu: String?
     var imgMenu: UIImage?
     var action: VoidActionHandler?
+    var selectedImage: UIImage?
+    var unselectedImage: UIImage?
     
     var isSelectedItem: Bool = false {
         didSet {
-            lblTitle.font = !isSelectedItem ? UIFont(name: "ProximaNova-Medium", size: 12) : UIFont(name: "ProximaNova-Bold", size: 12)
+            imgItem.image = isSelectedItem ? selectedImage : unselectedImage
+            lblTitle.font = isSelectedItem ? UIFont(name: "ProximaNova-Bold", size: 12) : UIFont(name: "ProximaNova-Medium", size: 12)
+            lblTitle.textColor = isSelectedItem ? Design.color(.blue_twilight) : Design.color(.grey40)
             viewSelected.isHidden = !isSelectedItem
         }
     }
@@ -45,9 +49,12 @@ class MenuTabBarItem: UIView {
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    func configure(title: String, image: UIImage) {
+    func configure(title: String, image: UIImage, selectedImage: UIImage) {
         lblTitle.text = title
         imgItem.image = image
+        
+        self.selectedImage = selectedImage
+        self.unselectedImage = image
     }
     
     func addActions() {

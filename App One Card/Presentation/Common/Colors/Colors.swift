@@ -25,7 +25,7 @@ class Design {
         case .grey20:
             return UIColor(hexString: "#DADBDB")
         case .grey40:
-            return UIColor(hexString: "#B5B7B8")
+            return UIColor(hexString: "#B7B7B7")
         case .grey60:
             return UIColor(hexString: "#919394")
         case .grey80:
@@ -36,6 +36,8 @@ class Design {
             return UIColor(hexString: "#00A3E0")
         case .blue_lake_front:
             return UIColor(hexString: "#004C97")
+        case .blue_twilight:
+            return UIColor(hexString: "#0D1E3F")
         }
     }
 }
@@ -48,6 +50,7 @@ enum ColorStyle {
     case dark2
     case blue_sky
     case blue_lake_front
+    case blue_twilight
     case grey5
     case grey20
     case grey40

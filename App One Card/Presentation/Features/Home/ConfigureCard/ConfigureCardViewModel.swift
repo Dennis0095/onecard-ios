@@ -132,8 +132,8 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                 if response.0.rc == "0" && response.1.rc == "0" {
                     self.wasShownViewConfigureCard = true
                     self.items = [
-                        ConfigureResponse(id: "1", title: "APAGAR Y PRENDER TARJETA", message: "Recuerde que no podrá hacer uso de su tarjeta mientras esté apagada.", enable: true, isOn: self.cardStatus?.status == "A"),
-                        ConfigureResponse(id: "2", title: "Compras por internet", message: nil, enable: self.cardStatus?.status == "A", isOn: self.onlineShoppingStatus?.status == "S")
+                        ConfigureResponse(id: "1", title: "APAGAR Y PRENDER TARJETA", message: "Recuerde que no podrás hacer uso de tu tarjeta mientras esté apagada.", enable: true, isOn: self.cardStatus?.status == "A"),
+                        ConfigureResponse(id: "2", title: "COMPRAS POR INTERNET", message: nil, enable: self.cardStatus?.status == "A", isOn: self.onlineShoppingStatus?.status == "S")
                     ]
                     self.delegate?.changeStatus()
                     self.delegate?.successGetStatus()
@@ -174,7 +174,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de tu tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a tu correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -198,7 +198,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de tu tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a tu correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -222,7 +222,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de tu tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a tu correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -249,7 +249,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.0.rc == "0" && response.1.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de tu tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a tu correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {
@@ -276,7 +276,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     
                     self.delegate?.hideLoader()
                     if response.0.rc == "0" && response.1.rc == "0" {
-                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de su tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a su correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
+                        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "La configuración de tu tarjeta se ha guardado con éxito. Hemos enviado la constancia de operación a tu correo. ", button: "Regresar", image: #imageLiteral(resourceName: "card_activated_successfully.svg"), accept: {
                             self.router.successfulConfigureCard()
                         })
                     } else {

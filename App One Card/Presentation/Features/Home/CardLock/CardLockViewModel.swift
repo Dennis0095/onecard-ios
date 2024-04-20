@@ -54,7 +54,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
                                            operationType: "BP", authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)
@@ -111,7 +111,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 self.delegate?.hideLoader()
                 if response.otpMatchIndex == "1" {
                     CardObserver.shared.updateStatus(status: .CANCEL)
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Tu tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de tu tarjeta debes enviar un correo electrónico a reposiciones@onecard.pe.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
                         self.router.backToHome()
                     })
                 } else {

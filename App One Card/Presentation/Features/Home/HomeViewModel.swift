@@ -75,7 +75,7 @@ class HomeViewModel: HomeViewModelProtocol {
     func toCardLock() {
         router.confirmCardLock {
             self.router.navigateToCardBlock(navTitle: "Bloqueo de tarjeta", success: { [weak self] idOtp in
-                self?.successfulRouter.navigateToSuccessfulScreen(title: "Su tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de la tarjeta debe comunicarse con su empleador.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
+                self?.successfulRouter.navigateToSuccessfulScreen(title: "Tu tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de tu tarjeta debes enviar un correo electrónico a reposiciones@onecard.pe.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
                     self?.router.successfulCardBlock()
                 })
             })

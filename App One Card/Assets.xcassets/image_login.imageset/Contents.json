@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "image_login.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "image_login.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

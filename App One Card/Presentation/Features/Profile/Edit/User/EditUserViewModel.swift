@@ -81,8 +81,8 @@ class EditUserViewModel: EditUserViewModelProtocol {
     }
     
     func successfulEdit() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su usuario con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
-            self.profileRouter.successfulEditProfile()
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Has modificado tu usuario con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
+            self.profileRouter.logout()
         })
     }
 }

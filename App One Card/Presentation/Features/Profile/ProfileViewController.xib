@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,7 +82,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aa-4V-EAW">
                                                             <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unexpected_error" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-o3-L5g">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="something_went_wrong_blue" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-o3-L5g">
                                                                     <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="148" id="64f-WW-QbC"/>
@@ -171,7 +171,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Ig-jU-2y6">
-                                                    <rect key="frame" x="18" y="34.333333333333343" width="357" height="224.00000000000003"/>
+                                                    <rect key="frame" x="18" y="34.333333333333343" width="357" height="225.00000000000003"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-eN-pzf">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -274,16 +274,23 @@
                                                                 <constraint firstAttribute="height" constant="74" id="nvy-ZE-yXc"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-94-hwA">
+                                                            <rect key="frame" x="0.0" y="223.99999999999997" width="357" height="1"/>
+                                                            <color key="backgroundColor" red="0.85490196080000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="mEr-ba-eNP"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de contacto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlM-VC-Z7T">
-                                                    <rect key="frame" x="18" y="298.33333333333331" width="357" height="18.333333333333314"/>
+                                                    <rect key="frame" x="18" y="299.33333333333331" width="357" height="18.333333333333314"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mc0-Ey-Kx3">
-                                                    <rect key="frame" x="18" y="332.66666666666669" width="357" height="149"/>
+                                                    <rect key="frame" x="18" y="333.66666666666669" width="357" height="149"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygU-Ft-jhY">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -366,13 +373,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos del empleador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kq-1t-LdV">
-                                                    <rect key="frame" x="18" y="521.66666666666663" width="357" height="18.333333333333371"/>
+                                                    <rect key="frame" x="18" y="522.66666666666663" width="357" height="18.333333333333371"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WKe-fg-aoR">
-                                                    <rect key="frame" x="18" y="556" width="357" height="74"/>
+                                                    <rect key="frame" x="18" y="557" width="357" height="78"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAw-Wx-vLf">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -403,16 +410,23 @@
                                                                 <constraint firstAttribute="height" constant="74" id="Tdj-Is-07s"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqX-f1-Imc">
+                                                            <rect key="frame" x="0.0" y="77" width="357" height="1"/>
+                                                            <color key="backgroundColor" red="0.85490196080000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="dau-iZ-cSG"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de la cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krp-T0-nlH">
-                                                    <rect key="frame" x="18" y="670" width="357" height="18.333333333333371"/>
+                                                    <rect key="frame" x="18" y="675" width="357" height="18.333333333333371"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-7C-02j">
-                                                    <rect key="frame" x="18" y="704.33333333333337" width="357" height="153"/>
+                                                    <rect key="frame" x="18" y="709.33333333333337" width="357" height="153"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyp-8w-Qp2">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -579,7 +593,7 @@
     </objects>
     <resources>
         <image name="arrow_left" width="25" height="25"/>
-        <image name="unexpected_error" width="149" height="149"/>
+        <image name="something_went_wrong_blue" width="149" height="149"/>
         <namedColor name="blue_lake_front">
             <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

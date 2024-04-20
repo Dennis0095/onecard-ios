@@ -147,6 +147,9 @@ class HomeViewController: BaseViewController {
         if let lastIndexPath = visibleItemsIndexPaths.last, lastIndexPath.item < viewModel.banners.count - 1 {
             let nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
             cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+        } else if let lastIndexPath = visibleItemsIndexPaths.last, lastIndexPath.item == viewModel.banners.count - 1 {
+            let nextIndexPath = IndexPath(item: 0, section: lastIndexPath.section)
+            cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
         }
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -122,8 +122,8 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Rqi-F0-yZa">
                                                             <rect key="frame" x="18" y="16" width="357" height="272"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese su código de verificación" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="229.33333333333334" height="18.333333333333332"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresa tu código de verificación" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-p1-oqs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="228" height="18.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                                     <color key="textColor" name="blue_lake_front"/>
                                                                     <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GDz-fu-nlh">
                                                                     <rect key="frame" x="0.0" y="42.333333333333343" width="357" height="65"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingrese el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingresa el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILC-n5-f37">
                                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="35"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                                                             <color key="textColor" name="blue_twilight"/>
@@ -171,19 +171,19 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vp3-Fa-fWL">
-                                                                    <rect key="frame" x="0.0" y="231.33333333333331" width="264.66666666666669" height="40.666666666666686"/>
+                                                                    <rect key="frame" x="0.0" y="231.33333333333331" width="271" height="40.666666666666686"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No recibiste el código?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTr-iN-5aD">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="271" height="19"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                                             <color key="textColor" name="grey80"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-yQ-NRc">
-                                                                            <rect key="frame" x="0.0" y="23" width="264.66666666666669" height="17.666666666666671"/>
+                                                                            <rect key="frame" x="0.0" y="23" width="271" height="17.666666666666671"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podrá solicitar un nuevo código en 60 seg." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTB-jP-qRe">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="264.66666666666669" height="17.666666666666668"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podrás solicitar un nuevo código en 60 seg." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTB-jP-qRe">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="17.666666666666668"/>
                                                                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                                                                     <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>

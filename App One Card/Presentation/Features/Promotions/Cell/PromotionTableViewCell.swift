@@ -30,19 +30,7 @@ class PromotionTableViewCell: UITableViewCell {
         
         lblTitle.text = promotion.title
         lblContent.text = promotion.content
-        base64ToImage(base64String: promotion.image ?? "")
+        imgPromotion.base64ToImage(base64String: promotion.image ?? "")
     }
-    
-    private func base64ToImage(base64String: String) {
-        if let imageData = Data(base64Encoded: base64String) {
-            // Create an UIImage from the Data
-            if let image = UIImage(data: imageData) {
-                // Now you have your image
-                // You can display it, save it, or use it as needed
-                imgPromotion.image = image
-            } else {
-                print("Error creating UIImage from Data")
-            }
-        }
-    }
+
 }

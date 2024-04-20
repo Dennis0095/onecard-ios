@@ -53,15 +53,15 @@ class ProfileViewController: BaseViewController {
     private func getDocumentType(id: String) -> String {
         switch id {
         case "1":
-            return "DNI"
+            return Constants.dni
         case "2":
-            return "CARNET EXTRANJERÍA"
+            return Constants.immigration_card
         case "3":
-            return "PASAPORTE"
+            return Constants.passport
         case "5":
-            return "RUC"
+            return Constants.ruc
         case "7":
-            return "PTP"
+            return Constants.ptp
         default:
             return ""
         }

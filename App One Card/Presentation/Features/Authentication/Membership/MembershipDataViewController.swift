@@ -45,8 +45,8 @@ class MembershipDataViewController: BaseViewController {
         viewModel.documentType = viewModel.documentTypeList.first
         
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down_blue"))
-        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: "Ingrese su número de documento", status: .activated, type: .numberPad)
-        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: "Ingrese el RUC", status: .activated)
+        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: "Ingresa tu número de documento", status: .activated, type: .numberPad)
+        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: "Ingresa el RUC", status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         viewDocType.setText(string: viewModel.documentType?.name ?? "DNI")
@@ -102,24 +102,24 @@ class MembershipDataViewController: BaseViewController {
     private func validate() -> Bool {
         switch viewModel.documentType?.id {
         case "1":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su número de documento." : "Debe contener 8 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu número de documento." : "Debe contener 8 números."
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
         case "2":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su carnet de extranjería." : "Debe contener entre 9 a 12 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu carnet de extranjería." : "Debe contener entre 9 a 12 números."
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12numbers)
         case "3":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su pasaporte." : "Debe contener entre 9 a 12 caracteres."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu pasaporte." : "Debe contener entre 9 a 12 caracteres."
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12characters)
         case "5":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su RUC." : "Debe contener 11 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu RUC." : "Debe contener 11 números."
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain11numbers)
         case "7":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingrese su permiso temporal de permanencia." : "Debe contener 9 números.."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu permiso temporal de permanencia." : "Debe contener 9 números.."
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9numbers)
         default: break
         }
         
-        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingrese el RUC." : "Debe contener 11 números."
+        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingresa el RUC." : "Debe contener 11 números."
         viewRuc.isValid = viewRuc.text.validateString(withRegex: .contain11numbers)
         
         return viewDocNumber.isValid && viewRuc.isValid

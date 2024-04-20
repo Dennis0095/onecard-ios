@@ -114,7 +114,7 @@ class VerificationViewController: BaseViewController {
         
         let maskedPhoneNumber = self.viewModel.maskPhoneEmail ? self.viewModel.number : outputString
         let string = sendToNumber ? " \(maskedPhoneNumber)." : " \(self.viewModel.email)"
-        let longString = "Ingrese el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
+        let longString = "Ingresa el código que le hemos enviado al \(sendToNumber ? "número" : "correo")"  + string
         let longestWordRange = (longString as NSString).range(of: string)
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
@@ -125,7 +125,7 @@ class VerificationViewController: BaseViewController {
     
     private func setCount() {
         let countString = "\(countTimer) seg."
-        let longString = "Podrá solicitar un nuevo código en " + countString
+        let longString = "Podrás solicitar un nuevo código en " + countString
         let longestWordRange = (longString as NSString).range(of: countString)
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])

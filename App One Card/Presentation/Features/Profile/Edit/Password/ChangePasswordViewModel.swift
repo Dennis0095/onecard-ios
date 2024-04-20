@@ -46,7 +46,7 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
         }
         
         guard password != newPassword else {
-            delegate?.showError(title: "Clave utilizada recientemente", description: "La clave ingresada es igual a la actual, por favor ingrese una clave diferente", onAccept: nil)
+            delegate?.showError(title: "Clave utilizada recientemente", description: "La clave ingresada es igual a la actual, por favor ingresa una clave diferente", onAccept: nil)
             
             return
         }
@@ -83,8 +83,8 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
     }
     
     func successfulEdit() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha modificado su clave digital con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
-            self.profileRouter.successfulEditProfile()
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Has modificado tu clave digital con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
+            self.profileRouter.logout()
         })
     }
 }

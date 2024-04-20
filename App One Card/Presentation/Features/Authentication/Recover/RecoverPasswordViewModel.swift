@@ -52,7 +52,7 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
     }
     
     func navigateToSuccessfulScreen() {
-        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn, image: #imageLiteral(resourceName: "reset_password_successfully.svg")) {
+        self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: Constants.congratulations_description, button: Constants.login_btn, image: #imageLiteral(resourceName: "congratulations.svg")) {
             self.router.navigateToLogin()
         }
     }
@@ -80,7 +80,7 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.success == "1" {
-                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn, image: #imageLiteral(resourceName: "reset_password_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn, image: #imageLiteral(resourceName: "congratulations.svg")) {
                         self.router.navigateToLogin()
                     }
                 } else {

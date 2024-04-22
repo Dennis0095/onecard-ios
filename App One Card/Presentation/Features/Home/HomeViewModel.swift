@@ -16,6 +16,7 @@ protocol HomeViewModelProtocol {
     func toCardLock()
     func toConfigureCard()
     func toChangePin()
+    func toFrequentQuestions()
     func toCardActivation()
     func toMovements()
     func balanceInquiry()
@@ -104,6 +105,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func toFrequentQuestions() {
+        router.navigatetoFrequentQuestions()
     }
     
     func toCardActivation() {

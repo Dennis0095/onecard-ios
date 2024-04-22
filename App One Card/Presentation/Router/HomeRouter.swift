@@ -16,6 +16,7 @@ protocol HomeRouterDelegate: Router {
     func navigateToConfigureCard()
     func navigateToMovements()
     func navigateToMovementDetail(movement: MovementResponse)
+    func navigatetoFrequentQuestions()
     func successfulCardBlock()
     func successfulConfigureCard()
 }

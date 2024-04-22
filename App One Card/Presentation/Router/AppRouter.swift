@@ -405,6 +405,20 @@ extension AppRouter: ProfileRouterDelegate {
 }
 
 extension AppRouter: HomeRouterDelegate {
+    func navigatetoFrequentQuestions() {
+        DispatchQueue.main.async {
+            let repository = QuestionDataRepository()
+            let useCase = QuestionUseCase(questionRepository: repository)
+            let viewModel = FrequentQuestionsViewModel(questionUseCase: useCase)
+            let frequentQuestionsDelegateDataSource = FrequentQuestionsDelegateDataSource(viewModel: viewModel)
+            let viewController = FrequentQuestionsViewController(viewModel: viewModel, frequentQuestionsDelegateDataSource: frequentQuestionsDelegateDataSource)
+            viewModel.delegate = viewController
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
     func navigateToMovements() {
         DispatchQueue.main.async {
             let movementRepository = MovementDataRepository()

@@ -92,6 +92,9 @@ class HomeViewController: BaseViewController {
         
         let tapChangePin = UITapGestureRecognizer(target: self, action: #selector(tapChangePin))
         viewChangePin.addGestureRecognizer(tapChangePin)
+        
+        let tapFrequenQuestions = UITapGestureRecognizer(target: self, action: #selector(tapFrequentQuestions))
+        imgQuestions.addGestureRecognizer(tapFrequenQuestions)
     }
     
     private func validateStatus(_ status: StatusCard?) {
@@ -139,6 +142,11 @@ class HomeViewController: BaseViewController {
     @objc
     func tapChangePin() {
         viewModel.toChangePin()
+    }
+    
+    @objc
+    func tapFrequentQuestions() {
+        viewModel.toFrequentQuestions()
     }
     
     @objc

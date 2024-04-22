@@ -69,7 +69,7 @@
                                                                     <color key="textColor" name="blue_lake_front"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_btn_question" translatesAutoresizingMaskIntoConstraints="NO" id="Nz3-Yq-7zs">
+                                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_btn_question" translatesAutoresizingMaskIntoConstraints="NO" id="Nz3-Yq-7zs">
                                                                     <rect key="frame" x="317" y="0.0" width="40" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="GLn-hv-tkI"/>

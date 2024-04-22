@@ -154,7 +154,7 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
         let cardActivationRequest = CardActivationRequest(trackingCode: trackingCode)
-        let cardLockRequest = CardLockRequest(trackingCode: trackingCode, reason: "TM")
+        let cardLockRequest = CardLockRequest(trackingCode: trackingCode, reason: "TE")
         let changeCardOnlineShoppingStatusRequest = ChangeCardOnlineShoppingStatusRequest(trackingCode: trackingCode, type: "2", action: items[1].isOn == true ? "S" : "N")
         
         switch configureCardChanges {

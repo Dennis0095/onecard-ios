@@ -86,10 +86,10 @@ class PinViewController: BaseViewController {
     
     private func validate() -> Bool {
         if viewModel.pinStep == .cardActivation {
-            txtPin.errorMessage = txtPin.text.isEmpty ? "Debe ingresar el PIN." : "El PIN no coincide."
+            txtPin.errorMessage = txtPin.text.isEmpty ? "Debes ingresar el PIN." : "El PIN no coincide."
             txtPin.isValid = !txtPin.text.isEmpty && viewModel.newPin == txtPin.text
         } else {
-            txtPin.errorMessage = txtPin.text.isEmpty ? "Debe ingresar el PIN." : "Debe tener 4 dígitos."
+            txtPin.errorMessage = txtPin.text.isEmpty ? "Debes ingresar el PIN." : "Debe tener 4 dígitos."
             txtPin.isValid = txtPin.text.count == 4
         }
         

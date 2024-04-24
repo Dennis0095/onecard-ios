@@ -24,7 +24,7 @@ class SelectDateViewController: UIViewController {
         
         lblTitle.text = textTitle
         
-        pickerItems.locale = Locale.current
+        pickerItems.locale = Locale(identifier: "es_PE")
         pickerItems.date = selectedItem ?? Date()
         pickerItems.maximumDate = Date()
 

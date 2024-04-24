@@ -72,7 +72,11 @@ class EditMailViewModel: EditMailViewModelProtocol {
                 if response.success == "1" {
                     self.delegate?.succesUpdate(email: newEmail)
                 } else {
-                    self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    if response.existsEmail != nil {
+                        self.delegate?.showError(title: "El correo ingresado ya se ha utilizado en otra cuenta", description: "Por favor, ingresa un correo diferente", onAccept: nil)
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
                 }
             }
         

@@ -87,39 +87,3 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         cancellables.removeAll()
     }
 }
-
-//class PromotionsMockViewModel: PromotionsViewModelProtocol {
-//    
-//    var items: [PromotionResponse] = []
-//    var router: PromotionsRouterDelegate
-//    var delegate: PromotionsViewModelDelegate?
-//    
-//    init(router: PromotionsRouterDelegate) {
-//        self.router = router
-//    }
-//    
-//    func numberOfItems() -> Int {
-//        return items.count
-//    }
-//    
-//    func item(at index: Int) -> PromotionResponse {
-//        return items[index]
-//    }
-//    
-//    func isLast(at index: Int) -> Bool {
-//        return (items.count - 1) == index
-//    }
-//    
-//    
-//    func fetchPromotions() {
-//        delegate?.showLoader()
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.delegate?.hideLoader(onHide: nil)
-//            self.items = [PromotionResponse(id: "1", title: "Duplicar tus millas ClubMiles", message: "Pague en una cuota y solicite el fraccionamiento sin intereses en nuestra web"),
-//                              PromotionResponse(id: "1", title: "Duplicar tus millas ClubMiles", message: "Pague en una cuota y solicite el fraccionamiento sin intereses en nuestra web"),
-//                              PromotionResponse(id: "1", title: "Duplicar tus millas ClubMiles", message: "Pague en una cuota y solicite el fraccionamiento sin intereses en nuestra web")]
-//            self.delegate?.showPromotions()
-//        }
-//    }
-//}

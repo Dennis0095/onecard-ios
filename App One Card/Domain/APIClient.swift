@@ -25,7 +25,7 @@ enum APIError: Error {
         switch self {
         case .networkError:
             title = "Lo sentimos"
-            description = "Hubo un problema de conexión, Por favor, inténtelo nuevamente"
+            description = "Hubo un problema de conexión, Por favor, inténtalo nuevamente"
         case .custom(let t, let d):
             title = t
             description = d

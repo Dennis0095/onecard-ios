@@ -56,8 +56,8 @@ class EditUserViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtUser.errorMessage = txtUser.text.isEmpty ? "Debe ingresar el nuevo usuario." : "Debe contener números y letras"
-        txtUser.isValid = txtUser.text.validateString(withRegex: .containLettersAndNumbers)
+        txtUser.errorMessage = txtUser.text.isEmpty ? "Debes ingresar tu usuario." : txtUser.text.count < 8 ? "Mínimo 8 caracteres" : "Debe contener números y letras"
+        txtUser.isValid = txtUser.text.validateString(withRegex: .alphanumeric) && (txtUser.text.count > 7)
         
         return txtUser.isValid
     }

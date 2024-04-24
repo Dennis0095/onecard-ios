@@ -11,6 +11,7 @@ class WelcomeActivateViewController: BaseViewController {
 
     @IBOutlet weak var btnActivate: PrimaryFilledButton!
     @IBOutlet weak var btnLater: PrimaryOutlineButton!
+    @IBOutlet weak var lblName: UILabel!
     
     private var viewModel: WelcomeActivateViewModelProtocol
     
@@ -28,8 +29,11 @@ class WelcomeActivateViewController: BaseViewController {
     }
 
     private func setupView() {
+        let name = UserSessionManager.shared.getUser()?.name ?? ""
+        
         btnActivate.configure(text: "Activar", status: .enabled)
         btnLater.configure(text: "Lo haré luego")
+        lblName.text = "BIENVENIDO \(name)".uppercased()
     }
     
     @IBAction func activate(_ sender: Any) {

@@ -72,7 +72,11 @@ class EditUserViewModel: EditUserViewModelProtocol {
                 if response.success == "1" {
                     self.delegate?.succesUpdate(username: newUsername)
                 } else {
-                    self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    if response.existsUser != nil {
+                        self.delegate?.showError(title: "El usuario está en uso", description: "Por favor, elige otro nombre de usuario", onAccept: nil)
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
                 }
             }
         

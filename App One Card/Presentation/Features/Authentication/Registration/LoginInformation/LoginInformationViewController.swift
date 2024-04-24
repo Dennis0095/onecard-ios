@@ -16,6 +16,9 @@ class LoginInformationViewController: BaseViewController {
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lblTerms: UILabel!
+    @IBOutlet weak var lblAlphanumericUser: UILabel!
+    @IBOutlet weak var lblAlphanumericPassword: UILabel!
+    @IBOutlet weak var lblSpecialCharacterPassword: UILabel!
     
     private var viewModel: LoginInformationViewModelProtocol
     
@@ -95,15 +98,28 @@ class LoginInformationViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtUser.errorMessage = txtUser.text.isEmpty ? "Debe ingresar su usuario." : "Debe contener números y letras."
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : txtPassword.text.count < 6 ? "Mínimo 6 caracteres." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
-        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su clave." : "Las claves no coinciden."
+        txtUser.errorMessage = txtUser.text.isEmpty ? "Debes ingresar tu usuario." : txtUser.text.count < 8 ? "Mínimo 8 caracteres" : nil
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave." : nil
+        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave" : "Las claves no coinciden"
         
-        txtUser.isValid = txtUser.text.validateString(withRegex: .alphanumeric)
-        txtPassword.isValid = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
+        txtUser.isValid = !txtUser.text.isEmpty && txtUser.text.count > 7
+        lblAlphanumericUser.isHidden = !txtUser.isValid
+        let isAlphanumericUser = txtUser.text.validateString(withRegex: .alphanumeric)
+        lblAlphanumericUser.textColor = isAlphanumericUser ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        let isValidUser = txtUser.isValid && isAlphanumericUser
+        
+        txtPassword.isValid = !txtPassword.text.isEmpty
+        lblAlphanumericPassword.isHidden = !txtPassword.isValid
+        lblSpecialCharacterPassword.isHidden = !txtPassword.isValid
+        let isAlphanumericPassword = txtPassword.text.validateString(withRegex: .containLettersAndNumbers) && txtPassword.text.count > 5
+        let isSpecialCharacterPassword = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
+        lblAlphanumericPassword.textColor = isAlphanumericPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        lblSpecialCharacterPassword.textColor = isSpecialCharacterPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        let isValidPassword = txtPassword.isValid && isAlphanumericPassword && isSpecialCharacterPassword
+        
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty
-
-        return txtUser.isValid && txtPassword.isValid && txtConfirmPassword.isValid
+        
+        return isValidUser && isValidPassword && txtConfirmPassword.isValid
     }
     
     @IBAction func next(_ sender: Any) {

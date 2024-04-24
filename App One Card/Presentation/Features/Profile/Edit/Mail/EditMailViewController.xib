@@ -44,7 +44,7 @@
                                 <constraint firstAttribute="height" constant="24" id="NAk-vf-I4k"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editar correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-cj-0qm">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modifica tu correo electrónico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IQ-cj-0qm">
                             <rect key="frame" x="46" y="10.666666666666671" width="329" height="19"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" name="blue_twilight"/>
@@ -72,7 +72,7 @@
                             <rect key="frame" x="0.0" y="80" width="393" height="603"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresa tu nuevo correo electrónico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alq-Xo-FaS">
-                                    <rect key="frame" x="18" y="15.999999999999998" width="357" height="18.333333333333329"/>
+                                    <rect key="frame" x="18" y="15.999999999999998" width="357" height="18.333333333333321"/>
                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>

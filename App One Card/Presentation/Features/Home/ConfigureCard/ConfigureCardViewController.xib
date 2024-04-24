@@ -39,6 +39,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one" translatesAutoresizingMaskIntoConstraints="NO" id="Haz-ya-jJy">
+                    <rect key="frame" x="0.0" y="492" width="393" height="360"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOQ-16-XTA">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <subviews>
@@ -150,7 +153,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, inténtelo nuevamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xK-UO-7Ct">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, inténtalo nuevamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xK-UO-7Ct">
                                                             <rect key="frame" x="0.0" y="181" width="353" height="17"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -222,21 +225,25 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="blue_dark"/>
+            <color key="backgroundColor" name="blue_lake_front"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LOQ-16-XTA" secondAttribute="trailing" id="4BK-1x-czY"/>
+                <constraint firstItem="Haz-ya-jJy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="68g-Rp-dnK"/>
                 <constraint firstItem="LOQ-16-XTA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ibl-Js-RZp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Haz-ya-jJy" secondAttribute="trailing" id="d2s-eb-y8H"/>
                 <constraint firstItem="LOQ-16-XTA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="drO-AU-RTg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LOQ-16-XTA" secondAttribute="bottom" id="kwf-8D-hfu"/>
+                <constraint firstAttribute="bottom" secondItem="Haz-ya-jJy" secondAttribute="bottom" id="uCE-aH-PXl"/>
             </constraints>
             <point key="canvasLocation" x="50" y="7"/>
         </view>
     </objects>
     <resources>
         <image name="arrow_left_white" width="25" height="25"/>
+        <image name="one" width="237" height="360"/>
         <image name="something_went_wrong_white" width="148" height="148"/>
-        <namedColor name="blue_dark">
-            <color red="0.0" green="0.33725490196078434" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="blue_lake_front">
+            <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

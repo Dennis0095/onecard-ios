@@ -77,9 +77,8 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let documentType = userResponse?.docType ?? ""
         let documentNumber = userResponse?.docNumber ?? ""
         let companyRUC = userResponse?.companyRUC ?? ""
-        let username = userResponse?.userName ?? ""
         
-        verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Editar correo", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
+        verificationRouter.navigateToVerification(email: email, number: number, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, navTitle: "Ingresa tu nuevo correo electrónico", stepDescription: "Paso 1 de 2", operationType: "AE", maskPhoneEmail: true) { [weak self] otpId in
             self?.router.toEditMail(beforeEmail: email, otpId: otpId) {
                 self?.userResponse?.email = $0
                 if let user = self?.userResponse {

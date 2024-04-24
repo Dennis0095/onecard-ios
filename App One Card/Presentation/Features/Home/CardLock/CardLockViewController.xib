@@ -94,10 +94,10 @@
                                                             <rect key="frame" x="18" y="15.999999999999986" width="357" height="234.66666666666663"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yws-t6-Gor">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="313.66666666666669" height="68.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="68.666666666666671"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingresa el código que le hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-LM-9Fl">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="313.66666666666669" height="37.666666666666664"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingresa el código que te hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-LM-9Fl">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="37.666666666666664"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                                             <color key="textColor" name="blue_twilight"/>
                                                                             <nil key="highlightedColor"/>
@@ -247,7 +247,7 @@
                                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, inténtelo nuevamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-Av-TIM">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, inténtalo nuevamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkN-Av-TIM">
                                                             <rect key="frame" x="0.0" y="181" width="353" height="17"/>
                                                             <fontDescription key="fontDescription" name="Gotham-Book" family="Gotham" pointSize="14"/>
                                                             <color key="textColor" red="0.2784313725" green="0.29411764709999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

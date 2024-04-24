@@ -60,7 +60,7 @@ class HomeViewController: BaseViewController {
         imgQuestions.addShadow(color: UIColor(red: 0.902, green: 0.914, blue: 0.937, alpha: 1), opacity: 1, offset: CGSize(width: 0, height: 6), radius: 5)
         btnCardActivation.configure(text: "Activar Tarjeta", status: .enabled)
         lblName.text = "BIENVENIDO \(UserObserver.shared.getUser()?.name ?? "")"
-        validateStatus(CardObserver.shared.getStatus())
+        validateStatus()
         
         HomeObserver.shared.listenAmountChanges = { amount in
             self.lblAmount.text = amount
@@ -79,8 +79,10 @@ class HomeViewController: BaseViewController {
         }
         
         CardObserver.shared.listenStatusChanges = { status in
-            self.validateStatus(status)
+            self.validateStatus()
         }
+        
+        self.viewModel.consultBanners()
     }
     
     override func setActions() {
@@ -97,7 +99,8 @@ class HomeViewController: BaseViewController {
         imgQuestions.addGestureRecognizer(tapFrequenQuestions)
     }
     
-    private func validateStatus(_ status: StatusCard?) {
+    private func validateStatus() {
+        let status = CardObserver.shared.getStatus()
         if status == .NOT_ACTIVE {
             self.stkOptions.isUserInteractionEnabled = false
             self.stkOptions.alpha = 0.5
@@ -105,16 +108,16 @@ class HomeViewController: BaseViewController {
             self.viewMovements.isHidden = true
             self.viewCardNotActivated.isHidden = false
             self.viewInfoCardLock.isHidden = true
-//        } else if status == .CANCEL {
-//            self.stkOptions.isUserInteractionEnabled = false
-//            self.stkOptions.alpha = 0.5
-//            
-//            self.viewMovements.isHidden = false
-//            self.viewCardNotActivated.isHidden = true
-//            self.viewInfoCardLock.isHidden = false
-//            
-//            self.viewModel.balanceInquiry()
-//            self.viewModel.consultMovements()
+        } else if status == .CANCEL {
+            self.stkOptions.isUserInteractionEnabled = false
+            self.stkOptions.alpha = 0.5
+            
+            self.viewMovements.isHidden = false
+            self.viewCardNotActivated.isHidden = true
+            self.viewInfoCardLock.isHidden = false
+            
+            self.viewModel.balanceInquiry()
+            self.viewModel.consultMovements()
         } else if status == .ACTIVE || status == .TEMPORARY_LOCKED {
             self.stkOptions.isUserInteractionEnabled = true
             self.stkOptions.alpha = 1
@@ -125,7 +128,6 @@ class HomeViewController: BaseViewController {
             
             self.viewModel.balanceInquiry()
             self.viewModel.consultMovements()
-            self.viewModel.consultBanners()
         }
     }
     

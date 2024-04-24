@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="btnActivate" destination="RQ4-Ys-Im0" id="HlE-JT-wDf"/>
                 <outlet property="btnLater" destination="8Cf-nw-dwN" id="iwt-tc-fNm"/>
+                <outlet property="lblName" destination="osA-ZS-XuL" id="8TZ-aq-Tjg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,13 +41,13 @@
                             <rect key="frame" x="0.0" y="490.66666666666669" width="393" height="203.33333333333331"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO ANDRÉS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
-                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="17.333333333333329"/>
+                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="16.333333333333329"/>
                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
-                                    <rect key="frame" x="18" y="73.333333333333314" width="357" height="75"/>
+                                    <rect key="frame" x="18" y="72.333333333333314" width="357" height="70"/>
                                     <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece Diners One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_twilight"/>

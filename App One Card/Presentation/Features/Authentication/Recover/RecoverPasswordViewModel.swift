@@ -80,7 +80,7 @@ class RecoverPasswordViewModel: RecoverPasswordViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.success == "1" {
-                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Ha restablecido su clave digital con éxito.", button: Constants.login_btn, image: #imageLiteral(resourceName: "congratulations.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Has restablecido tu clave digital con éxito.", button: Constants.login_btn, image: #imageLiteral(resourceName: "congratulations.svg")) {
                         self.router.navigateToLogin()
                     }
                 } else {

@@ -53,7 +53,7 @@ class OutlinedTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

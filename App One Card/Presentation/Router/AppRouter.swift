@@ -127,7 +127,7 @@ extension AppRouter: AuthenticationRouterDelegate {
             viewModel.success = success
             viewModel.newPin = newPin
             viewModel.operationId = operationId
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 3 de 3", titleDescription: "Confirma tu nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)
@@ -160,7 +160,7 @@ extension AppRouter: AuthenticationRouterDelegate {
             let keyUseCase = KeyUseCase(keyRepository: keyRepository)
             let viewModel = PinViewModel(router: self, cardUseCase: cardUseCase, keyUseCase: keyUseCase, pinStep: .validate)
             viewModel.success = success
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 1 de 3", titleDescription: "Ingresa el PIN de la tarjeta", description: "Puede encontrarlo dentro del sobre de la tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Activación de tarjeta", step: "Paso 1 de 3", titleDescription: "Ingresa el PIN de la tarjeta", description: "Puedes encontrarlo dentro del sobre de tu tarjeta.", buttonTitle: Constants.next_btn, placeholder: "PIN de la tarjeta")
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)
@@ -464,7 +464,7 @@ extension AppRouter: HomeRouterDelegate {
             viewModel.success = success
             viewModel.newPin = newPin
             viewModel.operationId = operationId
-            let viewController = PinViewController(viewModel: viewModel, navTitle: "Cambio de PIN", step: "Paso 3 de 3", titleDescription: "Confirme su nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
+            let viewController = PinViewController(viewModel: viewModel, navTitle: "Cambio de PIN", step: "Paso 3 de 3", titleDescription: "Confirma tu nuevo PIN", buttonTitle: Constants.next_btn, placeholder: "Nuevo PIN", isConfirmPin: true)
             viewModel.delegate = viewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(viewController, animated: true)

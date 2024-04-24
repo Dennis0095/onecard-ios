@@ -54,7 +54,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+        let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
                                            operationType: "BP", authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)
@@ -72,12 +72,27 @@ class CardLockViewModel: CardLockViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                self.wasShownViewCardLock = true
                 self.delegate?.hideLoader()
-                self.number = response.truncatedCellphone
-                self.email = response.truncatedEmail
-                self.otpId = response.otpId
-                self.delegate?.successSendOtp()
+                
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                let apiError = APIError.custom(title, description)
+                
+                if response.success == "1" {
+                    self.wasShownViewCardLock = true
+                    self.otpId = response.otpId
+                    
+                    self.number = response.truncatedCellphone ?? ""
+                    self.email = response.truncatedEmail ?? ""
+                    
+                    self.delegate?.successSendOtp()
+                } else {
+                    if !self.wasShownViewCardLock {
+                        self.delegate?.failureSendOtp(error: apiError)
+                    } else {
+                        self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    }
+                }
             }
         
         cancellable.store(in: &cancellables)
@@ -93,7 +108,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
-        let request = PrepaidCardLockRequest(otpId: otp, otpCode: code, authTrackingCode: authTrackingCode, trackingCode: trackingCode, reason: "TE")
+        let request = PrepaidCardLockRequest(otpId: otp, otpCode: code, authTrackingCode: authTrackingCode, trackingCode: trackingCode, reason: "CA")
         
         let cancellable = cardUseCase.prepaidCardLock(request: request)
             .sink { publisher in
@@ -111,7 +126,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 self.delegate?.hideLoader()
                 if response.otpMatchIndex == "1" {
                     CardObserver.shared.updateStatus(status: .CANCEL)
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "Tu tarjeta fue bloqueada", description: "Recuerde que para solicitar la reposición de tu tarjeta debes enviar un correo electrónico a reposiciones@onecard.pe.", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Tu tarjeta fue bloqueada", description: "Recuerda que para solicitar la reposición de tu tarjeta debes enviar un correo a reposiciones@onecard.pe", button: "Regresar", image: #imageLiteral(resourceName: "card_lock_successfully.svg"), accept: {
                         self.router.backToHome()
                     })
                 } else {

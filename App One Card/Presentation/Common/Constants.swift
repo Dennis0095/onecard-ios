@@ -8,7 +8,7 @@
 import Foundation
 
 class Constants {
-    static let placeholder_user: String = "Usuario"
+    static let placeholder_user: String = "Usuario digital"
     static let placeholder_password: String = "Clave digital"
     static let placeholder_name: String = "Nombres"
     static let placeholder_last_name: String = "Apellidos"
@@ -23,7 +23,7 @@ class Constants {
     static let placeholder_document_number: String = "Número de documento"
     static let placeholder_document_type: String = "Tipo de documento"
     static let congratulations: String = "¡Felicidades!"
-    static let congratulations_description: String = "Ha creado su nuevo usuario y clave digital con éxito."
+    static let congratulations_description: String = "Has creado tu nuevo usuario y clave digital con éxito."
     static let tab_title_home: String = "Inicio"
     static let tab_title_proms: String = "Promociones"
     static let tab_title_config: String = "Configuración"

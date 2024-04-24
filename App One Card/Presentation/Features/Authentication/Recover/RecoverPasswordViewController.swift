@@ -29,7 +29,7 @@ class RecoverPasswordViewController: BaseViewController {
     
     override func initView() {
         txtPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true)
-        txtConfirmPassword.configure(placeholder: "Confirme su nueva clave digital", status: .activated, isPassword: true)
+        txtConfirmPassword.configure(placeholder: "Confirma tu nueva clave digital", status: .activated, isPassword: true)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         txtPassword.txt.textContentType = .oneTimeCode
@@ -69,7 +69,7 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     private func setTerms() {
-        let longString = "Al continuar acepta los Términos y condiciones"
+        let longString = "Al continuar aceptas los Términos y condiciones"
         let longestWordRange = (longString as NSString).range(of: "Términos y condiciones")
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
@@ -79,8 +79,8 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debe ingresar su clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
-        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debe confirmar su clave." : "Las claves no coinciden."
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
+        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave." : "Las claves no coinciden."
         
         txtPassword.isValid = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty

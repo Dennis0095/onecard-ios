@@ -17,7 +17,6 @@ protocol PinViewModelProtocol {
     func nextStep()
     func validate()
     func reassign(isCardActivation: Bool)
-    func cardActivation()
 }
 
 protocol PinViewModelDelegate: LoaderDisplaying {}
@@ -84,7 +83,7 @@ class PinViewModel: PinViewModelProtocol {
                 if response.rc == "55" {
                     self.delegate?.showError(title: "El PIN ingresado es incorrecto", description: "Por favor verifica el PIN", onAccept: nil)
                 } else if response.rc == "75" {
-                    self.delegate?.showError(title: "Superó el límite de intentos", description: "Comuníquese con su empleador", onAccept: nil)
+                    self.delegate?.showError(title: "Superaste el límite de intentos", description: "Comunícate con tu empleador", onAccept: nil)
                 } else if response.rc == "0" {
                     self.operationId = response.operationId ?? ""
                     if let success = self.success {
@@ -118,42 +117,6 @@ class PinViewModel: PinViewModelProtocol {
                 
                 self.delegate?.hideLoader()
                 if response.rc == "0" {
-                    if isCardActivation {
-                        self.cardActivation()
-                    } else {
-                        if let success = self.success {
-                            success(self.operationId, self.pin)
-                        }
-                    }
-                } else {
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                }
-            }
-        
-        cancellable.store(in: &cancellables)
-    }
-    
-    func cardActivation() {
-        self.delegate?.showLoader()
-        
-        let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
-        
-        let request = CardActivationRequest(trackingCode: trackingCode)
-        let cancellable = cardUseCase.activation(request: request)
-            .sink { publisher in
-                switch publisher {
-                case .finished: break
-                case .failure(let apiError):
-                    let error = apiError.error()
-                    
-                    self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-                }
-            } receiveValue: { response in
-                let error = APIError.defaultError.error()
-                self.delegate?.hideLoader()
-                if response.rc == "0" {
-                    CardSessionManager.shared.saveStatus(status: .ACTIVE)
                     if let success = self.success {
                         success(self.operationId, self.pin)
                     }

@@ -50,7 +50,7 @@ class OutlinedTextField: UIView {
     
     private let lblError: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.text = ""
         label.textColor = .red
         label.font = UIFont(name: "ProximaNova-Medium", size: 13)
@@ -75,6 +75,8 @@ class OutlinedTextField: UIView {
     }()
     
     internal var keyBoardType: UIKeyboardType = .default
+    
+    internal var maxLength: Int?
     
     internal var hasError: Bool = false
     
@@ -186,8 +188,9 @@ class OutlinedTextField: UIView {
         txt.paddingRight = isPassword ? (34 + 15) : 15
     }
     
-    func configure(placeholder: String? = "", errorMessage: String? = nil, status: OutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false) {
+    func configure(placeholder: String? = "", errorMessage: String? = nil, status: OutlinedTextFieldStatus, type: UIKeyboardType? = nil, isPassword: Bool? = false, maxLength: Int? = nil) {
         lblPlaceholder.text = placeholder
+        self.maxLength = maxLength
         
         if let type = type {
             self.keyBoardType = type
@@ -282,6 +285,8 @@ class OutlinedTextField: UIView {
             }
             lblError.isHidden = false
         }
+        
+        self.layoutIfNeeded()
     }
     
     func showPlaceholderOnTop() {
@@ -394,7 +399,13 @@ extension OutlinedTextField: UITextFieldDelegate {
             let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
             return updatedText.validateString(withRegex: .decimal)
         default:
-            return true
+            if let maxLength = self.maxLength {
+                guard let text = textField.text else { return true }
+                let newLength = text.count + string.count - range.length
+                return newLength <= maxLength
+            } else {
+                return true
+            }
         }
     }
 }

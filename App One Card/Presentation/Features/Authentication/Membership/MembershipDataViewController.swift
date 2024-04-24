@@ -102,19 +102,19 @@ class MembershipDataViewController: BaseViewController {
     private func validate() -> Bool {
         switch viewModel.documentType?.id {
         case "1":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu número de documento." : "Debe contener 8 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu número de documento" : "Debe contener 8 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
         case "2":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu carnet de extranjería." : "Debe contener entre 9 a 12 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu carnet de extranjería" : "Debe contener entre 9 a 12 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12numbers)
         case "3":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu pasaporte." : "Debe contener entre 9 a 12 caracteres."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu pasaporte" : "Debe contener entre 9 a 12 caracteres"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12characters)
         case "5":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu RUC." : "Debe contener 11 números."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu RUC" : "Debe contener 11 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain11numbers)
         case "7":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu permiso temporal de permanencia." : "Debe contener 9 números.."
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu permiso temporal de permanencia" : "Debe contener 9 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9numbers)
         default: break
         }

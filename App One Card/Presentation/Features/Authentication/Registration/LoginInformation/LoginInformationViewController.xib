@@ -77,7 +77,7 @@
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjV-2k-zwm">
                             <rect key="frame" x="0.0" y="80" width="393" height="599"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea un usuario y clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12N-ex-bxm">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea tu usuario y clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12N-ex-bxm">
                                     <rect key="frame" x="18" y="15.999999999999998" width="357" height="17.333333333333329"/>
                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>

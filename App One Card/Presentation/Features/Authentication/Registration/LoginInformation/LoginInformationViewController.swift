@@ -33,8 +33,8 @@ class LoginInformationViewController: BaseViewController {
     
     override func initView() {
         txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
-        txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
-        txtConfirmPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
+        txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 12)
+        txtConfirmPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 12)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         txtPassword.txt.textContentType = .oneTimeCode
@@ -98,8 +98,8 @@ class LoginInformationViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtUser.errorMessage = txtUser.text.isEmpty ? "Debes ingresar tu usuario." : txtUser.text.count < 8 ? "Mínimo 8 caracteres" : nil
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave." : nil
+        txtUser.errorMessage = txtUser.text.isEmpty ? "Debes ingresar tu usuario" : txtUser.text.count < 8 ? "Mínimo 8 caracteres" : nil
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave" : nil
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave" : "Las claves no coinciden"
         
         txtUser.isValid = !txtUser.text.isEmpty && txtUser.text.count > 7

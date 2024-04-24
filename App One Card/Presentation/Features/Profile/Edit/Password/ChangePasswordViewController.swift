@@ -27,9 +27,9 @@ class ChangePasswordViewController: BaseViewController {
     }
     
     override func initView() {
-        txtCurrentPassword.configure(placeholder: "Clave actual", status: .activated, isPassword: true)
-        txtNewPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true)
-        txtConfirmPassword.configure(placeholder: "Confirmación de clave", status: .activated, isPassword: true)
+        txtCurrentPassword.configure(placeholder: "Clave actual", status: .activated, isPassword: true, maxLength: 12)
+        txtNewPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true, maxLength: 12)
+        txtConfirmPassword.configure(placeholder: "Confirmación de clave", status: .activated, isPassword: true, maxLength: 12)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         connectFields(textFields: txtCurrentPassword.txt, txtNewPassword.txt, txtConfirmPassword.txt)
@@ -66,7 +66,7 @@ class ChangePasswordViewController: BaseViewController {
     private func validate() -> Bool {
         txtCurrentPassword.errorMessage = txtCurrentPassword.text.isEmpty ? "Debes ingresar tu clave actual." : ""
         txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debes ingresar tu nueva clave." : txtNewPassword.text.count < 6 ? "Mínimo 6 caracteres" : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
-        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu nueva clave." : "Las claves no coinciden."
+        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu nueva clave." : "Las claves no coinciden"
         
         txtCurrentPassword.isValid = !txtCurrentPassword.text.isEmpty
         txtNewPassword.isValid = txtNewPassword.text.validateString(withRegex: .passwordContainSpecialCharacters) && txtNewPassword.text.validateString(withRegex: .containLettersAndNumbers) && (txtNewPassword.text.count > 5)

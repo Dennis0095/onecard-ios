@@ -189,7 +189,7 @@ extension CardLockViewController: CardLockViewModelDelegate {
             case .networkError:
                 self.imgError.image = #imageLiteral(resourceName: "connection_error_white.svg")
             default:
-                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_white.svg")
+                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_blue.svg")
             }
             
             self.viewError.isHidden = false

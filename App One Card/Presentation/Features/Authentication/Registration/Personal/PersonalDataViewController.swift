@@ -89,11 +89,11 @@ class PersonalDataViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtName.errorMessage = txtName.text.isEmpty ? "Ingresa tus nombres." : "Debe contener solo letras."
-        txtLastName.errorMessage = txtLastName.text.isEmpty ? "Ingresa tus apellidos." : "Debe contener solo letras."
+        txtName.errorMessage = txtName.text.isEmpty ? "Ingresa tus nombres" : "Debe contener solo letras"
+        txtLastName.errorMessage = txtLastName.text.isEmpty ? "Ingresa tus apellidos" : "Debe contener solo letras"
         txtBirthday.errorMessage = "Ingresa tu fecha de nacimiento"
-        txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingresa tu número de celular." : txtPhone.text.validateString(withRegex: .startsWith9) ? "Debe contener 9 números." : "Debe empezar con 9."
-        txtEmail.errorMessage = txtEmail.text.isEmpty ? "Ingresa tu correo electrónico." : "Ingresa un correo válido."
+        txtPhone.errorMessage = txtPhone.text.isEmpty ? "Ingresa tu número de celular" : txtPhone.text.validateString(withRegex: .startsWith9) ? "Debe contener 9 números." : "Debe empezar con 9"
+        txtEmail.errorMessage = txtEmail.text.isEmpty ? "Ingresa tu correo electrónico" : "Ingresa un correo válido"
         
         txtName.isValid = txtName.text.validateString(withRegex: .name)
         txtLastName.isValid = txtLastName.text.validateString(withRegex: .name)

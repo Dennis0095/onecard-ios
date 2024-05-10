@@ -136,7 +136,13 @@ class HomeViewModel: HomeViewModelProtocol {
                 case .failure(let apiError):
                     let error = apiError.error()
                     
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
@@ -170,7 +176,13 @@ class HomeViewModel: HomeViewModelProtocol {
                 case .failure(let apiError):
                     let error = apiError.error()
                     
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 HomeObserver.shared.updateMovements(movements: response.clientMovements)
@@ -192,7 +204,13 @@ class HomeViewModel: HomeViewModelProtocol {
                 case .failure(let apiError):
                     let error = apiError.error()
                     
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 if response.rc == "0" {

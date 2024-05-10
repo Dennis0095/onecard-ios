@@ -55,10 +55,17 @@ class ProfileViewModel: ProfileViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    if !self.wasShownViewProfile {
-                        self.delegate?.failureShowData(error: apiError)
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    switch apiError {
+                    case .expiredSession:
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            self.router.logout(isManual: false)
+                        }
+                    default:
+                        if !self.wasShownViewProfile {
+                            self.delegate?.failureShowData(error: apiError)
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
             } receiveValue: { response in

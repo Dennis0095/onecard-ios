@@ -76,7 +76,13 @@ class PinViewModel: PinViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader()
@@ -110,7 +116,13 @@ class PinViewModel: PinViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()

@@ -65,7 +65,13 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.profileRouter.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
@@ -84,7 +90,7 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
     
     func successfulEdit() {
         self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Has modificado tu clave digital con éxito.", button: "Regresar", image: #imageLiteral(resourceName: "congratulations.svg"), accept: {
-            self.profileRouter.logout()
+            self.profileRouter.logout(isManual: false)
         })
     }
 }

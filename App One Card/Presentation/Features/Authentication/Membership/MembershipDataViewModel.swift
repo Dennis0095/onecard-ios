@@ -70,7 +70,13 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
@@ -107,7 +113,13 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""
@@ -142,7 +154,13 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.router.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 let title = response.title ?? ""

@@ -19,6 +19,8 @@ class LoginInformationViewController: BaseViewController {
     @IBOutlet weak var lblAlphanumericUser: UILabel!
     @IBOutlet weak var lblAlphanumericPassword: UILabel!
     @IBOutlet weak var lblSpecialCharacterPassword: UILabel!
+    @IBOutlet weak var btnAuthorize: CheckboxButton!
+    @IBOutlet weak var lblAuthorize: UILabel!
     
     private var viewModel: LoginInformationViewModelProtocol
     
@@ -43,6 +45,7 @@ class LoginInformationViewController: BaseViewController {
         connectFields(textFields: txtUser.txt, txtPassword.txt, txtConfirmPassword.txt)
         
         setTerms()
+        setAuthorize()
     }
     
     override func setActions() {
@@ -53,6 +56,10 @@ class LoginInformationViewController: BaseViewController {
         let tapTerms = UITapGestureRecognizer(target: self, action: #selector(tapTerms))
         lblTerms.isUserInteractionEnabled = true
         lblTerms.addGestureRecognizer(tapTerms)
+        
+        let tapAuthorize = UITapGestureRecognizer(target: self, action: #selector(tapAuthorize))
+        lblAuthorize.isUserInteractionEnabled = true
+        lblAuthorize.addGestureRecognizer(tapAuthorize)
         
         [txtUser, txtPassword, txtConfirmPassword].forEach {
             $0.selectTextField = { textField in
@@ -87,6 +94,12 @@ class LoginInformationViewController: BaseViewController {
         }
     }
     
+    @objc private func tapAuthorize() {
+        if let url = URL(string: "https://www.google.com") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     private func setTerms() {
         let longString = "Al continuar acepta los Términos y condiciones"
         let longestWordRange = (longString as NSString).range(of: "Términos y condiciones")
@@ -95,6 +108,16 @@ class LoginInformationViewController: BaseViewController {
 
         attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#00A3E0")], range: longestWordRange)
         lblTerms.attributedText = attributedString
+    }
+    
+    private func setAuthorize() {
+        let longString = "Autorizo el tratamiento de mis datos personales para"
+        let longestWordRange = (longString as NSString).range(of: "fines comerciales y/o publicitarios")
+
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
+
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#00A3E0")], range: longestWordRange)
+        lblAuthorize.attributedText = attributedString
     }
     
     private func validate() -> Bool {
@@ -127,6 +150,11 @@ class LoginInformationViewController: BaseViewController {
             viewModel.registerUser()
         }
     }
+    
+    @IBAction func chooseAuthorize(_ sender: Any) {
+        viewModel.chooseAuthorize(btnAuthorize.isChecked)
+    }
+    
 }
 
 extension LoginInformationViewController: LoginInformationViewModelDelegate {

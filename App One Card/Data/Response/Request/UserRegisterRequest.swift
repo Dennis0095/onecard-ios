@@ -14,7 +14,8 @@ struct UserRegisterRequest: BaseRequest {
     let companyRUC: String
     let username: String
     let password: String
-    let password_ok: String
+    let passwordOk: String
+    let authorizeDataProcessing: String
     
     enum CodingKeys: String, CodingKey {
         case otpId = "ID_OTP"
@@ -23,6 +24,7 @@ struct UserRegisterRequest: BaseRequest {
         case companyRUC = "RUC_EMPRESA"
         case username = "NOMBRE_USUARIO"
         case password = "CONTRASENIA"
-        case password_ok = "CONTRASENIA_OK"
+        case passwordOk = "CONTRASENIA_OK"
+        case authorizeDataProcessing = "AUTORIZA_TRATAMIENTO_DATOS"
     }
 }

@@ -36,7 +36,7 @@ class ConfigurationViewModel: ConfigurationViewModelProtocol {
     
     func confirmLogout() {
         router?.confirmLogout {
-            self.router?.logout()
+            self.router?.logout(isManual: true)
         }
     }
 }

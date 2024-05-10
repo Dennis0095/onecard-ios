@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        appRouter = AppRouter(window: window!)
+        let logoutRepository = LogoutDataRepository()
+        let logoutUseCase = LogoutUseCase(repository: logoutRepository)
+        appRouter = AppRouter(window: window!, logoutUseCase: logoutUseCase)
         appRouter?.start()
         
         return true
@@ -74,13 +76,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if self.count == questionTime {
                 appRouter?.confirmInactivity(closeSession: {
                     self.invalidateTimer()
-                    self.appRouter?.logout()
+                    self.appRouter?.logout(isManual: true)
                 }, accept: {
                     self.resetTimer()
                 })
             } else if self.count == endTime {
                 self.invalidateTimer()
-                appRouter?.logout()
+                appRouter?.logout(isManual: false)
             }
         }
     }
@@ -98,18 +100,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if self.count == questionTime {
                     appRouter?.confirmInactivity(closeSession: {
                         self.invalidateTimer()
-                        self.appRouter?.logout()
+                        self.appRouter?.logout(isManual: true)
                     }, accept: {
                         self.resetTimer()
                     })
                 } else if self.count == endTime {
                     self.invalidateTimer()
-                    appRouter?.logout()
+                    appRouter?.logout(isManual: false)
                 }
             }
         } else {
             self.invalidateTimer()
-            appRouter?.logout()
+            appRouter?.logout(isManual: false)
         }
     }
 }

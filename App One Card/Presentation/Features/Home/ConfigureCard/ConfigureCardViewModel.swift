@@ -116,10 +116,17 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    if !self.wasShownViewConfigureCard {
-                        self.delegate?.failureGetStatus(error: apiError)
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    switch apiError {
+                    case.expiredSession:
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            self.router.logout(isManual: false)
+                        }
+                    default:
+                        if !self.wasShownViewConfigureCard {
+                            self.delegate?.failureGetStatus(error: apiError)
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
             } receiveValue: { response in
@@ -167,7 +174,13 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         let error = apiError.error()
                         
                         self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            switch apiError {
+                            case .expiredSession:
+                                self.router.logout(isManual: false)
+                            default: break
+                            }
+                        }
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
@@ -191,7 +204,13 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         let error = apiError.error()
                         
                         self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            switch apiError {
+                            case .expiredSession:
+                                self.router.logout(isManual: false)
+                            default: break
+                            }
+                        }
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
@@ -215,7 +234,13 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         let error = apiError.error()
                         
                         self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            switch apiError {
+                            case .expiredSession:
+                                self.router.logout(isManual: false)
+                            default: break
+                            }
+                        }
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
@@ -242,7 +267,13 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         let error = apiError.error()
                         
                         self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            switch apiError {
+                            case .expiredSession:
+                                self.router.logout(isManual: false)
+                            default: break
+                            }
+                        }
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()
@@ -269,7 +300,13 @@ class ConfigureCardViewModel: ConfigureCardViewModelProtocol {
                         let error = apiError.error()
                         
                         self.delegate?.hideLoader()
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            switch apiError {
+                            case .expiredSession:
+                                self.router.logout(isManual: false)
+                            default: break
+                            }
+                        }
                     }
                 } receiveValue: { response in
                     let error = APIError.defaultError.error()

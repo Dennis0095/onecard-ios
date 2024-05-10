@@ -39,6 +39,9 @@ class Constants {
     static let keyToken = "token"
     static let keyUser = "user"
     static let keyCardStatus = "cardStatus"
+    static let keyLinkRegister = "linkRegister"
+    static let keyLinkDataTreatment = "linkDataTreatment"
+    static let keyLinkRecovery = "linkRecovery"
     
     static let dni = "DNI"
     static let passport = "PASAPORTE"
@@ -50,4 +53,6 @@ class Constants {
     static let ruc_id = "5"
     static let ptp_id = "7"
     static let immigration_card_id = "2"
+    
+    static let defaultLink = "www.google.com"
 }

@@ -7,19 +7,27 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol Router {
+    var cancellables: Set<AnyCancellable> { get }
+    
     func start()
     func backToHome()
-    func logout()
+    func logout(isManual: Bool)
     func confirmInactivity(closeSession: VoidActionHandler?, accept: VoidActionHandler?)
 }
 
 class AppRouter: Router {
     private let window: UIWindow
+    private let logoutUseCase: LogoutUseCaseProtocol
     
-    init(window: UIWindow) {
+    var cancellables = Set<AnyCancellable>()
+    
+    init(window: UIWindow, 
+         logoutUseCase: LogoutUseCaseProtocol) {
         self.window = window
+        self.logoutUseCase = logoutUseCase
     }
     
     func start() {
@@ -35,20 +43,45 @@ class AppRouter: Router {
         }
     }
     
-    func logout() {
+    func logout(isManual: Bool) {
+        let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let logoutRequest = LogoutRequest(authTrackingCode: authTrackingCode)
+        let cancellable = logoutUseCase.logout(request: logoutRequest)
+            .sink { [weak self] publisher in
+                if isManual {
+                    switch publisher {
+                    case .failure(let apiError):
+                        let error = apiError.error()
+                        switch apiError {
+                        case .expiredSession:
+                            self?.showLogoutError(title: error.title, description: error.description) {
+                                self?.navigateToLogin()
+                            }
+                        default:
+                            self?.showLogoutError(title: error.title, description: error.description, onAccept: nil)
+                            DispatchQueue.main.async {
+                                (UIApplication.shared.delegate as! AppDelegate).resetTimer()
+                            }
+                        }
+                    case .finished:
+                        self?.navigateToLogin()
+                    }
+                } else {
+                    self?.navigateToLogin()
+                }
+            } receiveValue: { _ in }
+        cancellable.store(in: &cancellables)
+    }
+    
+    private func showLogoutError(title: String, description: String, onAccept: VoidActionHandler?) {
         DispatchQueue.main.async {
-            let userRepository = UserDataRepository()
-            let userUseCase = UserUseCase(userRepository: userRepository)
-            let cardRepository = CardDataRepository()
-            let cardUseCase = CardUseCase(cardRepository: cardRepository)
-            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
-            let loginViewController = LoginViewController(viewModel: viewModel)
-            viewModel.delegate = loginViewController
-            let navigationController = UINavigationController(rootViewController: loginViewController)
-            navigationController.setNavigationBarHidden(true, animated: true)
-            UserSessionManager.shared.clearSession()
-            (UIApplication.shared.delegate as! AppDelegate).invalidateTimer()
-            self.window.switchRootViewController(to: navigationController)
+            let view = AlertErrorViewController()
+            view.titleError = title
+            view.descriptionError = description
+            view.accept = onAccept
+            view.modalPresentationStyle = .overFullScreen
+            view.modalTransitionStyle = .crossDissolve
+            self.window.rootViewController?.present(view, animated: true, completion: nil)
         }
     }
     
@@ -219,7 +252,11 @@ extension AppRouter: AuthenticationRouterDelegate {
     
     func navigateToHome() {
         DispatchQueue.main.async {
-            let menu = MenuTabBarController(homeRouter: self, authRouter: self, configurationRouter: self, successfulRouter: self, promotionsRouter: self)
+            let menu = MenuTabBarController(homeRouter: self,
+                                            authRouter: self,
+                                            configurationRouter: self,
+                                            successfulRouter: self,
+                                            promotionsRouter: self)
             let navigationController = UINavigationController(rootViewController: menu)
             navigationController.setNavigationBarHidden(true, animated: true)
             self.window.switchRootViewController(to: navigationController)
@@ -228,11 +265,19 @@ extension AppRouter: AuthenticationRouterDelegate {
     
     func navigateToLogin() {
         DispatchQueue.main.async {
+            UserSessionManager.shared.clearSession()
+            (UIApplication.shared.delegate as! AppDelegate).invalidateTimer()
+            
             let userRepository = UserDataRepository()
             let userUseCase = UserUseCase(userRepository: userRepository)
             let cardRepository = CardDataRepository()
             let cardUseCase = CardUseCase(cardRepository: cardRepository)
-            let viewModel = LoginViewModel(router: self, userUseCase: userUseCase, cardUseCase: cardUseCase)
+            let generalRepository = GeneralDataRepository()
+            let generalUseCase = GeneralUseCase(repository: generalRepository)
+            let viewModel = LoginViewModel(router: self,
+                                           userUseCase: userUseCase,
+                                           cardUseCase: cardUseCase,
+                                           generalUseCase: generalUseCase)
             let loginViewController = LoginViewController(viewModel: viewModel)
             viewModel.delegate = loginViewController
             let navigationController = UINavigationController(rootViewController: loginViewController)
@@ -339,7 +384,7 @@ extension AppRouter: ConfigurationRouterDelegate {
         DispatchQueue.main.async {
             let repository = QuestionDataRepository()
             let useCase = QuestionUseCase(questionRepository: repository)
-            let viewModel = FrequentQuestionsViewModel(questionUseCase: useCase)
+            let viewModel = FrequentQuestionsViewModel(profileRouter: self, questionUseCase: useCase)
             let frequentQuestionsDelegateDataSource = FrequentQuestionsDelegateDataSource(viewModel: viewModel)
             let viewController = FrequentQuestionsViewController(viewModel: viewModel, frequentQuestionsDelegateDataSource: frequentQuestionsDelegateDataSource)
             viewModel.delegate = viewController
@@ -409,7 +454,7 @@ extension AppRouter: HomeRouterDelegate {
         DispatchQueue.main.async {
             let repository = QuestionDataRepository()
             let useCase = QuestionUseCase(questionRepository: repository)
-            let viewModel = FrequentQuestionsViewModel(questionUseCase: useCase)
+            let viewModel = FrequentQuestionsViewModel(profileRouter: self, questionUseCase: useCase)
             let frequentQuestionsDelegateDataSource = FrequentQuestionsDelegateDataSource(viewModel: viewModel)
             let viewController = FrequentQuestionsViewController(viewModel: viewModel, frequentQuestionsDelegateDataSource: frequentQuestionsDelegateDataSource)
             viewModel.delegate = viewController

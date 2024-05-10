@@ -14,6 +14,7 @@ enum APIError: Error {
     case invalidURL
     case requestFailed
     case invalidResponse
+    case expiredSession
     case decodingError
     case defaultError
     case custom(String, String)
@@ -29,6 +30,9 @@ enum APIError: Error {
         case .custom(let t, let d):
             title = t
             description = d
+        case .expiredSession:
+            title = "Sesión expirada"
+            description = "Por favor, vuelva a iniciar sesión"
         default:
             title = "Algo salió mal"
             description = "Por favor, inténtelo nuevamente"
@@ -91,7 +95,14 @@ class APIClient {
             return URLSession.shared.dataTaskPublisher(for: urlRequest)
                 .tryMap { (data, response) -> Data in
                     guard let httpResponse = response as? HTTPURLResponse,
+                          401 != httpResponse.statusCode else {
+                        print("Expired Session")
+                        throw APIError.expiredSession
+                    }
+                    
+                    guard let httpResponse = response as? HTTPURLResponse,
                           200..<300 ~= httpResponse.statusCode else {
+                        print("Invalid Response")
                         throw APIError.invalidResponse
                     }
                     
@@ -104,6 +115,7 @@ class APIClient {
                     if let apiError = error as? APIError {
                         return apiError
                     } else {
+                        print("Decoding Error")
                         return APIError.decodingError
                     }
                 }.eraseToAnyPublisher()

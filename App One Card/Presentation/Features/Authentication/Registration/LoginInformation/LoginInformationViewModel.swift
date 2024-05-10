@@ -12,11 +12,13 @@ protocol LoginInformationViewModelProtocol {
     var username: String? { get set }
     var password: String? { get set }
     var passwordOk: String? { get set }
+    var authorizeDataProcessing: String { get set }
     var delegate: LoginInformationViewModelDelegate? { get set }
     
     func registerUser()
     func navigateToSuccessfulScreen()
     func timeExpiredRegister()
+    func chooseAuthorize(_ on: Bool)
 }
 
 protocol LoginInformationViewModelDelegate: LoaderDisplaying {
@@ -28,6 +30,7 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
     var username: String?
     var password: String?
     var passwordOk: String?
+    var authorizeDataProcessing: String = "0"
     var delegate: LoginInformationViewModelDelegate?
     
     private let router: AuthenticationRouterDelegate
@@ -70,7 +73,14 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
             return
         }
         
-        let request = UserRegisterRequest(otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, username: username, password: password, password_ok: passwordOk)
+        let request = UserRegisterRequest(otpId: otpId,
+                                          documentType: documentType,
+                                          documentNumber: documentNumber,
+                                          companyRUC: companyRUC,
+                                          username: username,
+                                          password: password,
+                                          passwordOk: passwordOk,
+                                          authorizeDataProcessing: authorizeDataProcessing)
         
         let cancellable = userUseCase.userRegister(request: request)
             .sink { publisher in
@@ -113,6 +123,10 @@ class LoginInformationViewModel: LoginInformationViewModelProtocol {
             }
         
         cancellable.store(in: &cancellables)
+    }
+    
+    func chooseAuthorize(_ on: Bool) {
+        authorizeDataProcessing = on ? "1" : "0"
     }
     
     func cancelRequests() {

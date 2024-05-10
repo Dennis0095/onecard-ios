@@ -23,14 +23,15 @@ protocol FrequentQuestionsViewModelDelegate: LoaderDisplaying {
 
 class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
     private let questionUseCase: QuestionUseCaseProtocol
-    
     private var cancellables = Set<AnyCancellable>()
     
     var items: [QuestionResponse] = []
+    var profileRouter: ProfileRouterDelegate
     var delegate: FrequentQuestionsViewModelDelegate?
     
-    init(questionUseCase: QuestionUseCaseProtocol) {
+    init(profileRouter: ProfileRouterDelegate, questionUseCase: QuestionUseCaseProtocol) {
         self.questionUseCase = questionUseCase
+        self.profileRouter = profileRouter
     }
     
     deinit {
@@ -62,7 +63,13 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: error.title, description: error.description) {
+                        switch apiError {
+                        case .expiredSession:
+                            self.profileRouter.logout(isManual: false)
+                        default: break
+                        }
+                    }
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader()

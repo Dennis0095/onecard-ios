@@ -33,10 +33,4 @@ class SplashViewModel: SplashViewModelProtocol {
             }
         }
     }
-    
-    func didSelectItem(withID id: String) {
-        // Handle the selection logic
-        // Call the router to navigate to the details view with the selected ID
-        //router.navigateToDetails(withID: id)
-    }
 }

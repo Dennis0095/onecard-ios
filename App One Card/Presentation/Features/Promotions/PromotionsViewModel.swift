@@ -67,10 +67,17 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
-                    if !self.wasShownViewPromotions {
-                        self.delegate?.failureShowPromotions(error: apiError)
-                    } else {
-                        self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    switch apiError {
+                    case .expiredSession:
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            self.router.logout(isManual: false)
+                        }
+                    default:
+                        if !self.wasShownViewPromotions {
+                            self.delegate?.failureShowPromotions(error: apiError)
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
                     }
                 }
             } receiveValue: { response in

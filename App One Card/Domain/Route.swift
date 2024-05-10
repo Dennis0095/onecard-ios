@@ -37,6 +37,8 @@ enum Route {
     case frequentQuestions
     case recoverPassword
     case banners
+    case consultGeneralParameters
+    case logout
     case without
     
     var description: String {
@@ -99,6 +101,10 @@ enum Route {
             return "/busqueda/txn-data/consulta-preguntas-frecuentes"
         case .banners:
             return "/busqueda/txn-data/consulta-banners"
+        case .consultGeneralParameters:
+            return "/busqueda/txn-data/consulta-parametros-generales-front"
+        case .logout:
+            return "/txn-admin-auth/logout"
         case .without:
             return ""
         }

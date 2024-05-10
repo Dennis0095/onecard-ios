@@ -64,8 +64,6 @@
 		0D45B0E72A2E4EA600EFC7F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */; };
 		0D45B0F02A2E4EAC00EFC7F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0EF2A2E4EAC00EFC7F4 /* Assets.xcassets */; };
 		0D45B0F32A2E4EAC00EFC7F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0F12A2E4EAC00EFC7F4 /* LaunchScreen.storyboard */; };
-		0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1032A2E587B00EFC7F4 /* PROD.plist */; };
-		0D45B1062A2E588D00EFC7F4 /* QA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1052A2E588D00EFC7F4 /* QA.plist */; };
 		0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B1082A2E5A1C00EFC7F4 /* Environment.swift */; };
 		0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B10F2A2E74B700EFC7F4 /* SplashViewController.swift */; };
 		0D45B1122A2E74B700EFC7F4 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1102A2E74B700EFC7F4 /* SplashViewController.xib */; };
@@ -246,6 +244,20 @@
 		0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */; };
 		0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */; };
 		0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */; };
+		B60AC4992BED295A000C2917 /* GeneralParametersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4982BED295A000C2917 /* GeneralParametersResponse.swift */; };
+		B60AC49B2BED2C21000C2917 /* GeneralUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC49A2BED2C21000C2917 /* GeneralUseCase.swift */; };
+		B60AC49D2BED2C58000C2917 /* GeneralRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC49C2BED2C58000C2917 /* GeneralRepository.swift */; };
+		B60AC49F2BED2D0A000C2917 /* GeneralDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC49E2BED2D0A000C2917 /* GeneralDataRepository.swift */; };
+		B60AC4A12BED33E9000C2917 /* GeneralSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4A02BED33E9000C2917 /* GeneralSessionManager.swift */; };
+		B60AC4A32BED48FC000C2917 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */; };
+		B60AC4A72BED49EF000C2917 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4A62BED49EF000C2917 /* LogoutUseCase.swift */; };
+		B60AC4A92BED4AC2000C2917 /* LogoutRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4A82BED4AC2000C2917 /* LogoutRepository.swift */; };
+		B60AC4AB2BED4B06000C2917 /* LogoutDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4AA2BED4B06000C2917 /* LogoutDataRepository.swift */; };
+		B60AC4AF2BED544E000C2917 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */; };
+		B60AC4CD2BED8FB0000C2917 /* ProximaNova-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */; };
+		B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */; };
+		B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */; };
+		B62A864E2BEDA4F3001B23F0 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */; };
 		B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */; };
 		B62F01FF2B983E450090ABA8 /* BannersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FE2B983E450090ABA8 /* BannersRepository.swift */; };
 		B62F02012B9840290090ABA8 /* ConsultBannersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */; };
@@ -257,11 +269,6 @@
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
 		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
 		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
-		B6D9B6DB2A93FB56006FE21C /* Proxima Nova Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */; };
-		B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */; };
-		B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */; };
-		B6D9B6DE2A93FB56006FE21C /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */; };
-		B6EE77702B8EBE65009F4995 /* DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0F42A2E4EAC00EFC7F4 /* DEV.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -504,6 +511,20 @@
 		0DFC4CDF2A4272500011AA97 /* WelcomeActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewController.swift; sourceTree = "<group>"; };
 		0DFC4CE02A4272500011AA97 /* WelcomeActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeActivateViewController.xib; sourceTree = "<group>"; };
 		0DFC4CE32A42785B0011AA97 /* WelcomeActivateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeActivateViewModel.swift; sourceTree = "<group>"; };
+		B60AC4982BED295A000C2917 /* GeneralParametersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralParametersResponse.swift; sourceTree = "<group>"; };
+		B60AC49A2BED2C21000C2917 /* GeneralUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUseCase.swift; sourceTree = "<group>"; };
+		B60AC49C2BED2C58000C2917 /* GeneralRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRepository.swift; sourceTree = "<group>"; };
+		B60AC49E2BED2D0A000C2917 /* GeneralDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralDataRepository.swift; sourceTree = "<group>"; };
+		B60AC4A02BED33E9000C2917 /* GeneralSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSessionManager.swift; sourceTree = "<group>"; };
+		B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		B60AC4A62BED49EF000C2917 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
+		B60AC4A82BED4AC2000C2917 /* LogoutRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRepository.swift; sourceTree = "<group>"; };
+		B60AC4AA2BED4B06000C2917 /* LogoutDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutDataRepository.swift; sourceTree = "<group>"; };
+		B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Medium.otf"; sourceTree = "<group>"; };
+		B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
+		B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersUseCase.swift; sourceTree = "<group>"; };
 		B62F01FE2B983E450090ABA8 /* BannersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersRepository.swift; sourceTree = "<group>"; };
 		B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultBannersRequest.swift; sourceTree = "<group>"; };
@@ -515,10 +536,6 @@
 		B661AE952B8F7A710068889A /* GestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExtension.swift; sourceTree = "<group>"; };
 		B661AEF62B9168760068889A /* ValidateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateType.swift; sourceTree = "<group>"; };
 		B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
-		B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.otf"; sourceTree = "<group>"; };
-		B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Medium.otf"; sourceTree = "<group>"; };
-		B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
-		B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +563,7 @@
 		0D243F232A47EF9000399600 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				0D6B916B2A4B90120045D149 /* Request */,
 				0D3E41EB2A50661200C2546A /* BalanceInquiryResponse.swift */,
 				0D8D9F752A5DE1B300E6C8C6 /* CardActivationResponse.swift */,
 				0DFA7CA62A6DEAB50031178B /* CardLockResponse.swift */,
@@ -562,7 +580,6 @@
 				0D65EA202A6CF5FE00819637 /* PrepaidCardLockResponse.swift */,
 				0D7DCD232A723FB9006F9CA5 /* PromotionResponse.swift */,
 				0D8D9F6F2A5DDD2400E6C8C6 /* ReassignKeyResponse.swift */,
-				0D6B916B2A4B90120045D149 /* Request */,
 				0D6B91702A4B92F70045D149 /* SendOTPRegisterResponse.swift */,
 				0D0A60FE2A70E1E7005B447E /* SendOTPUpdateResponse.swift */,
 				0D7DCD2B2A724A58006F9CA5 /* UpdateEmailResponse.swift */,
@@ -579,6 +596,8 @@
 				0D50B9A02A8FAC3D0009F624 /* ConsultFrequentQuestionsResponse.swift */,
 				B62F02022B9840760090ABA8 /* ConsultBannersResponse.swift */,
 				B62F02042B9841410090ABA8 /* BannerResponse.swift */,
+				B60AC4982BED295A000C2917 /* GeneralParametersResponse.swift */,
+				B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -595,6 +614,8 @@
 				0D7DCD1D2A723EB0006F9CA5 /* PromotionUseCase.swift */,
 				0D50B9A22A8FAD330009F624 /* QuestionUseCase.swift */,
 				B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */,
+				B60AC49A2BED2C21000C2917 /* GeneralUseCase.swift */,
+				B60AC4A62BED49EF000C2917 /* LogoutUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -671,7 +692,10 @@
 		0D3A800E2A3794BF00C32F39 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				B6D9B6D62A93FB2E006FE21C /* Proxima Nova */,
+				B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */,
+				B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */,
+				B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */,
+				B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */,
 				0D3A801B2A3794D500C32F39 /* Gotham-Black.otf */,
 				0D3A800F2A3794D400C32F39 /* Gotham-BlackItalic.otf */,
 				0D3A80102A3794D400C32F39 /* Gotham-Bold.otf */,
@@ -768,6 +792,8 @@
 				0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */,
 				0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */,
 				B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */,
+				B60AC49E2BED2D0A000C2917 /* GeneralDataRepository.swift */,
+				B60AC4AA2BED4B06000C2917 /* LogoutDataRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1054,6 +1080,7 @@
 				0D6E00A02A87DD46006277C2 /* MovementsHistoryRequest.swift */,
 				0D50B9A42A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift */,
 				B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */,
+				B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1099,6 +1126,8 @@
 				0D7DCD252A724092006F9CA5 /* PromotionRepository.swift */,
 				0D50B9A62A8FADC40009F624 /* QuestionRepository.swift */,
 				B62F01FE2B983E450090ABA8 /* BannersRepository.swift */,
+				B60AC49C2BED2C58000C2917 /* GeneralRepository.swift */,
+				B60AC4A82BED4AC2000C2917 /* LogoutRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1310,6 +1339,7 @@
 			children = (
 				0D0A60F62A70996D005B447E /* UserSessionManager.swift */,
 				0D0A60F82A7099C1005B447E /* CardSessionManager.swift */,
+				B60AC4A02BED33E9000C2917 /* GeneralSessionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1365,17 +1395,6 @@
 				B661AEF62B9168760068889A /* ValidateType.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		B6D9B6D62A93FB2E006FE21C /* Proxima Nova */ = {
-			isa = PBXGroup;
-			children = (
-				B6D9B6DA2A93FB56006FE21C /* Proxima Nova Black.otf */,
-				B6D9B6D92A93FB56006FE21C /* Proxima Nova Bold.otf */,
-				B6D9B6D72A93FB56006FE21C /* Proxima Nova Light.otf */,
-				B6D9B6D82A93FB56006FE21C /* Proxima Nova Medium.otf */,
-			);
-			path = "Proxima Nova";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1444,7 +1463,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EE77702B8EBE65009F4995 /* DEV.plist in Resources */,
 				0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */,
 				0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
@@ -1453,26 +1471,25 @@
 				0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
 				0D45B15D2A2FC97100EFC7F4 /* SelectCustomViewController.xib in Resources */,
+				B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */,
 				0D3A80222A3794D500C32F39 /* Gotham-XLightItalic.otf in Resources */,
 				0D45B0F32A2E4EAC00EFC7F4 /* LaunchScreen.storyboard in Resources */,
 				0D3A80242A3794D500C32F39 /* Gotham-Thin.otf in Resources */,
-				B6D9B6DD2A93FB56006FE21C /* Proxima Nova Bold.otf in Resources */,
-				0D45B1042A2E587B00EFC7F4 /* PROD.plist in Resources */,
 				0D45B11C2A2E92C100EFC7F4 /* LoginViewController.xib in Resources */,
 				0DB967702A353A340079D432 /* ConfigurationViewController.xib in Resources */,
 				0D45B16C2A30316900EFC7F4 /* SelectDateViewController.xib in Resources */,
+				B60AC4CD2BED8FB0000C2917 /* ProximaNova-Medium.otf in Resources */,
 				0D3A80282A3794D500C32F39 /* Gotham-Book.otf in Resources */,
 				0DC78BC02A37EA8A0097CCE5 /* EditUserViewController.xib in Resources */,
 				0D243B8E2A3A47AD004E87D3 /* AlertErrorViewController.xib in Resources */,
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
-				B6D9B6DB2A93FB56006FE21C /* Proxima Nova Light.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
 				0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
+				B62A864E2BEDA4F3001B23F0 /* ProximaNova-Black.otf in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
-				B6D9B6DC2A93FB56006FE21C /* Proxima Nova Medium.otf in Resources */,
 				0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
 				B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */,
@@ -1497,15 +1514,14 @@
 				0D3A80202A3794D500C32F39 /* Gotham-Bold.otf in Resources */,
 				0D24740F2A466A5B0075E147 /* ConfigureCardTableViewCell.xib in Resources */,
 				0DC78BD02A396EFC0097CCE5 /* loading.json in Resources */,
-				0D45B1062A2E588D00EFC7F4 /* QA.plist in Resources */,
 				0DB967602A34F4220079D432 /* MenuTabBar.xib in Resources */,
 				0D2474142A467BF80075E147 /* FrequentQuestionsViewController.xib in Resources */,
 				0D3A802C2A3794D500C32F39 /* Gotham-MediumItalic.otf in Resources */,
 				0DF183EC2A68D952004A0621 /* PromotionTableViewCell.xib in Resources */,
 				0D3A80272A3794D500C32F39 /* Gotham-BoldItalic.otf in Resources */,
+				B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
 				0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */,
-				B6D9B6DE2A93FB56006FE21C /* Proxima Nova Black.otf in Resources */,
 				0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1521,8 +1537,10 @@
 				0D6E00A12A87DD46006277C2 /* MovementsHistoryRequest.swift in Sources */,
 				0DD692AE2A529180001D0BB9 /* MovementResponse.swift in Sources */,
 				0D8D9F782A5DE20900E6C8C6 /* CardUseCase.swift in Sources */,
+				B60AC4A32BED48FC000C2917 /* LogoutResponse.swift in Sources */,
 				0DE7BD942A82BED10029015F /* RecoverPasswordViewModel.swift in Sources */,
 				0DB9675D2A34EF250079D432 /* MenuTabBar.swift in Sources */,
+				B60AC4992BED295A000C2917 /* GeneralParametersResponse.swift in Sources */,
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
 				0D8D9F6A2A5DDB9300E6C8C6 /* CardActivationRequest.swift in Sources */,
 				0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */,
@@ -1540,6 +1558,7 @@
 				0D45B11B2A2E92C100EFC7F4 /* LoginViewController.swift in Sources */,
 				0DE7BD9F2A82FFAB0029015F /* ExistsUserRequest.swift in Sources */,
 				0DFA7CA22A6DC7E60031178B /* CardLockModalViewController.swift in Sources */,
+				B60AC4AF2BED544E000C2917 /* LogoutRequest.swift in Sources */,
 				0D50B9A52A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift in Sources */,
 				B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */,
 				0D50B9A92A8FAE1C0009F624 /* QuestionDataRepository.swift in Sources */,
@@ -1611,6 +1630,7 @@
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
 				0D268B3E2A84ABF800350785 /* MovementDetailViewController.swift in Sources */,
 				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,
+				B60AC49D2BED2C58000C2917 /* GeneralRepository.swift in Sources */,
 				0DE7BD912A82B37B0029015F /* RecoverPasswordViewController.swift in Sources */,
 				0D904CC52A369B15007D37D3 /* PreferencesViewModel.swift in Sources */,
 				0D35EDF42A44BADC00411486 /* PinViewController.swift in Sources */,
@@ -1621,6 +1641,7 @@
 				0D24740A2A4667E40075E147 /* ConfigureCardViewModel.swift in Sources */,
 				B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */,
 				B62F02052B9841410090ABA8 /* BannerResponse.swift in Sources */,
+				B60AC4A92BED4AC2000C2917 /* LogoutRepository.swift in Sources */,
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
@@ -1631,6 +1652,8 @@
 				0D45B14F2A2EE32700EFC7F4 /* OutlinedTextField.swift in Sources */,
 				0D45B13B2A2EC3B500EFC7F4 /* PrimaryOutlineButton.swift in Sources */,
 				0DD692A52A524E16001D0BB9 /* MovementTableViewCell.swift in Sources */,
+				B60AC4A72BED49EF000C2917 /* LogoutUseCase.swift in Sources */,
+				B60AC49F2BED2D0A000C2917 /* GeneralDataRepository.swift in Sources */,
 				0D45B1532A2EEA7200EFC7F4 /* StringExtension.swift in Sources */,
 				0D45B1112A2E74B700EFC7F4 /* SplashViewController.swift in Sources */,
 				0D0A61032A70F9D8005B447E /* UpdateUsernameResponse.swift in Sources */,
@@ -1659,6 +1682,7 @@
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */,
+				B60AC4A12BED33E9000C2917 /* GeneralSessionManager.swift in Sources */,
 				0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D6E009F2A87DD3D006277C2 /* MovementsHistoryResponse.swift in Sources */,
@@ -1666,6 +1690,7 @@
 				0DF183EB2A68D952004A0621 /* PromotionTableViewCell.swift in Sources */,
 				0DA061D72A495EF40096DCD1 /* UserDataRepository.swift in Sources */,
 				0DD692AC2A528C29001D0BB9 /* ConsultMovementsRequest.swift in Sources */,
+				B60AC49B2BED2C21000C2917 /* GeneralUseCase.swift in Sources */,
 				0D8D9F762A5DE1B300E6C8C6 /* CardActivationResponse.swift in Sources */,
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0DFA7CA72A6DEAB50031178B /* CardLockResponse.swift in Sources */,
@@ -1704,6 +1729,7 @@
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 				0D8636382A8DDAB500954CEE /* InactivityModalViewController.swift in Sources */,
+				B60AC4AB2BED4B06000C2917 /* LogoutDataRepository.swift in Sources */,
 				B62F02072B9841C30090ABA8 /* BannersDataRepository.swift in Sources */,
 				0D6B916F2A4B921B0045D149 /* OTPDataRepository.swift in Sources */,
 				0D842E4D2A4FD6490059A906 /* UserRegisterRequest.swift in Sources */,
@@ -1774,6 +1800,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;

@@ -17,6 +17,7 @@ protocol LoginViewModelProtocol {
     func toForgotUser()
     func login()
     func getStatusCard(token: String)
+    func onAppear()
 }
 
 protocol LoginViewModelDelegate: LoaderDisplaying {}
@@ -29,13 +30,18 @@ class LoginViewModel: LoginViewModelProtocol {
     
     private let userUseCase: UserUseCaseProtocol
     private let cardUseCase: CardUseCaseProtocol
+    private let generalUseCase: GeneralUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: AuthenticationRouterDelegate, userUseCase: UserUseCaseProtocol, cardUseCase: CardUseCaseProtocol) {
+    init(router: AuthenticationRouterDelegate,
+         userUseCase: UserUseCaseProtocol,
+         cardUseCase: CardUseCaseProtocol,
+         generalUseCase: GeneralUseCaseProtocol) {
         self.router = router
         self.userUseCase = userUseCase
         self.cardUseCase = cardUseCase
+        self.generalUseCase = generalUseCase
     }
     
     deinit {
@@ -119,6 +125,44 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func toForgotUser() {
         router.navigateToForgotUser()
+    }
+    
+    func onAppear() {
+        defaultGeneralParameters()
+        getGeneralParameters()
+    }
+    
+    private func defaultGeneralParameters() {
+        GeneralSessionManager.shared.saveLink(link: Constants.defaultLink, key: Constants.keyLinkRegister)
+        GeneralSessionManager.shared.saveLink(link: Constants.defaultLink, key: Constants.keyLinkDataTreatment)
+        GeneralSessionManager.shared.saveLink(link: Constants.defaultLink, key: Constants.keyLinkRecovery)
+    }
+    
+    private func getGeneralParameters() {
+        let cancellable = generalUseCase.getParameters()
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.hideLoader()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
+            } receiveValue: { response in
+                let error = APIError.defaultError.error()
+                
+                self.delegate?.hideLoader()
+                if response.rc == "0" {
+                    GeneralSessionManager.shared.saveLink(link: response.termsRegister, key: Constants.keyLinkRegister)
+                    GeneralSessionManager.shared.saveLink(link: response.termsDataTreatment, key: Constants.keyLinkDataTreatment)
+                    GeneralSessionManager.shared.saveLink(link: response.termsRecovery, key: Constants.keyLinkRecovery)
+                } else {
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                }
+            }
+        cancellable.store(in: &cancellables)
+
     }
     
     func cancelRequests() {

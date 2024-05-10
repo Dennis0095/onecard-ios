@@ -22,10 +22,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginInformationViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
+                <outlet property="btnAuthorize" destination="FXf-1R-l7r" id="Yd4-N2-Y2S"/>
                 <outlet property="btnNext" destination="NgQ-T7-fc1" id="ftj-lg-Du6"/>
                 <outlet property="imgBack" destination="VgE-kj-A5T" id="Fzp-dQ-bSm"/>
                 <outlet property="lblAlphanumericPassword" destination="BUc-LI-x54" id="GvV-kf-fYz"/>
                 <outlet property="lblAlphanumericUser" destination="Zlf-uE-yaE" id="vc5-Av-bct"/>
+                <outlet property="lblAuthorize" destination="grx-1f-IKj" id="1ua-8m-u92"/>
                 <outlet property="lblSpecialCharacterPassword" destination="zQA-SV-Uoo" id="bQQ-mP-Huz"/>
                 <outlet property="lblTerms" destination="dtG-Gl-KYK" id="N0X-SZ-pE0"/>
                 <outlet property="scrollView" destination="PjV-2k-zwm" id="553-Mf-s6K"/>
@@ -75,7 +77,7 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjV-2k-zwm">
-                            <rect key="frame" x="0.0" y="80" width="393" height="599"/>
+                            <rect key="frame" x="0.0" y="80" width="393" height="541.33333333333337"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea tu usuario y clave digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12N-ex-bxm">
                                     <rect key="frame" x="18" y="15.999999999999998" width="357" height="17.333333333333329"/>
@@ -137,27 +139,46 @@
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al continuar aceptas los Términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Gl-KYK">
-                                    <rect key="frame" x="18" y="365.33333333333331" width="357" height="17.666666666666686"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autorizo el tratamiento de mis datos personales para fines comerciales y/o publicitarios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grx-1f-IKj">
+                                    <rect key="frame" x="48" y="342.33333333333331" width="327" height="35"/>
                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_twilight"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXf-1R-l7r" customClass="CheckboxButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="18" y="342.33333333333331" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="22O-ck-C9l"/>
+                                        <constraint firstAttribute="width" constant="20" id="fav-AX-iNn"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="chooseAuthorize:" destination="-1" eventType="touchUpInside" id="j70-bQ-TfA"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="12N-ex-bxm" firstAttribute="centerX" secondItem="PjV-2k-zwm" secondAttribute="centerX" id="0GM-RV-C9q"/>
                                 <constraint firstItem="12N-ex-bxm" firstAttribute="leading" secondItem="PjV-2k-zwm" secondAttribute="leading" constant="18" id="2pA-lF-lzv"/>
-                                <constraint firstItem="dtG-Gl-KYK" firstAttribute="top" secondItem="JyJ-XU-Swg" secondAttribute="bottom" constant="43" id="F8Y-hG-amE"/>
-                                <constraint firstAttribute="bottom" secondItem="dtG-Gl-KYK" secondAttribute="bottom" id="H4k-7v-aML"/>
-                                <constraint firstAttribute="trailing" secondItem="dtG-Gl-KYK" secondAttribute="trailing" constant="18" id="HPm-Py-jyL"/>
+                                <constraint firstItem="grx-1f-IKj" firstAttribute="leading" secondItem="FXf-1R-l7r" secondAttribute="trailing" constant="10" id="7ii-4O-ZaH"/>
                                 <constraint firstItem="JyJ-XU-Swg" firstAttribute="top" secondItem="12N-ex-bxm" secondAttribute="bottom" constant="24" id="Ksh-qs-ZFR"/>
+                                <constraint firstItem="grx-1f-IKj" firstAttribute="top" secondItem="JyJ-XU-Swg" secondAttribute="bottom" constant="20" id="T0M-7c-A73"/>
                                 <constraint firstItem="12N-ex-bxm" firstAttribute="top" secondItem="PjV-2k-zwm" secondAttribute="top" constant="16" id="Uck-qD-8bU"/>
+                                <constraint firstAttribute="bottom" secondItem="grx-1f-IKj" secondAttribute="bottom" id="Xww-aD-nt5"/>
+                                <constraint firstAttribute="trailing" secondItem="grx-1f-IKj" secondAttribute="trailing" constant="18" id="Yb6-cg-e6a"/>
+                                <constraint firstItem="FXf-1R-l7r" firstAttribute="top" secondItem="grx-1f-IKj" secondAttribute="top" id="Yig-M6-NhC"/>
+                                <constraint firstItem="FXf-1R-l7r" firstAttribute="leading" secondItem="PjV-2k-zwm" secondAttribute="leading" constant="18" id="hGp-fi-3Sm"/>
                                 <constraint firstAttribute="trailing" secondItem="JyJ-XU-Swg" secondAttribute="trailing" constant="18" id="pEO-IS-c4O"/>
                                 <constraint firstItem="JyJ-XU-Swg" firstAttribute="leading" secondItem="PjV-2k-zwm" secondAttribute="leading" constant="18" id="u9S-Ka-i0I"/>
-                                <constraint firstItem="dtG-Gl-KYK" firstAttribute="leading" secondItem="PjV-2k-zwm" secondAttribute="leading" constant="18" id="utP-Ps-sWu"/>
                                 <constraint firstAttribute="trailing" secondItem="12N-ex-bxm" secondAttribute="trailing" constant="18" id="xrO-bv-4tS"/>
                             </constraints>
                         </scrollView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al continuar aceptas los Términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Gl-KYK">
+                            <rect key="frame" x="18" y="641.33333333333337" width="357" height="17.666666666666629"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
+                            <color key="textColor" name="blue_twilight"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgQ-T7-fc1" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
                             <rect key="frame" x="18" y="699" width="357" height="44"/>
                             <constraints>
@@ -175,15 +196,18 @@
                         <constraint firstItem="u5S-gM-myv" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" id="39n-6N-rCc"/>
                         <constraint firstItem="VgE-kj-A5T" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" constant="18" id="6Ns-AD-uxX"/>
                         <constraint firstItem="u28-bX-jDf" firstAttribute="centerY" secondItem="VgE-kj-A5T" secondAttribute="centerY" id="7P8-Ti-Fm4"/>
+                        <constraint firstAttribute="trailing" secondItem="dtG-Gl-KYK" secondAttribute="trailing" constant="18" id="A87-Aq-nJf"/>
                         <constraint firstAttribute="trailing" secondItem="NgQ-T7-fc1" secondAttribute="trailing" constant="18" id="B3A-yH-QgZ"/>
                         <constraint firstItem="VgE-kj-A5T" firstAttribute="top" secondItem="fyH-hm-t1T" secondAttribute="top" constant="8" id="BeU-8q-S4K"/>
+                        <constraint firstItem="dtG-Gl-KYK" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" constant="18" id="ERN-bs-xNP"/>
                         <constraint firstItem="u28-bX-jDf" firstAttribute="leading" secondItem="VgE-kj-A5T" secondAttribute="trailing" constant="4" id="Fdi-bs-7Mn"/>
                         <constraint firstAttribute="trailing" secondItem="u5S-gM-myv" secondAttribute="trailing" id="HWG-MW-cRc"/>
                         <constraint firstAttribute="trailing" secondItem="PjV-2k-zwm" secondAttribute="trailing" id="Jr6-Ol-n2K"/>
                         <constraint firstAttribute="trailing" secondItem="u28-bX-jDf" secondAttribute="trailing" constant="18" id="gB4-cV-pmL"/>
-                        <constraint firstItem="NgQ-T7-fc1" firstAttribute="top" secondItem="PjV-2k-zwm" secondAttribute="bottom" constant="20" id="gkp-nf-jaD"/>
+                        <constraint firstItem="NgQ-T7-fc1" firstAttribute="top" secondItem="dtG-Gl-KYK" secondAttribute="bottom" constant="40" id="huF-Og-p3G"/>
                         <constraint firstAttribute="bottom" secondItem="NgQ-T7-fc1" secondAttribute="bottom" constant="16" id="ioC-20-AB0"/>
                         <constraint firstItem="PjV-2k-zwm" firstAttribute="top" secondItem="u5S-gM-myv" secondAttribute="bottom" id="jBZ-eI-CuY"/>
+                        <constraint firstItem="dtG-Gl-KYK" firstAttribute="top" secondItem="PjV-2k-zwm" secondAttribute="bottom" constant="20" id="khB-9B-c76"/>
                         <constraint firstItem="u5S-gM-myv" firstAttribute="top" secondItem="VgE-kj-A5T" secondAttribute="bottom" constant="8" id="pZB-vt-knb"/>
                         <constraint firstItem="PjV-2k-zwm" firstAttribute="leading" secondItem="fyH-hm-t1T" secondAttribute="leading" id="vwl-uX-LJY"/>
                     </constraints>
@@ -197,7 +221,7 @@
                 <constraint firstItem="fyH-hm-t1T" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="IIU-ih-W5c"/>
                 <constraint firstItem="fyH-hm-t1T" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="N7a-hX-aOK"/>
             </constraints>
-            <point key="canvasLocation" x="7" y="20"/>
+            <point key="canvasLocation" x="6.8702290076335872" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

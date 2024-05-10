@@ -36,6 +36,8 @@ class LoginViewController: BaseViewController {
         connectFields(textFields: txtUser.txt, txtPassword.txt)
         ui()
         addGestures()
+        
+        viewModel.onAppear()
     }
     
     override func manageScroll() {

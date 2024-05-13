@@ -257,6 +257,11 @@
 		B60AC4CD2BED8FB0000C2917 /* ProximaNova-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */; };
 		B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */; };
 		B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */; };
+		B62A32B92BF280810058AFE9 /* PromotionDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */; };
+		B62A32BB2BF2821D0058AFE9 /* PromotionDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */; };
+		B62A32BF2BF295970058AFE9 /* PromotionTermsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62A32BE2BF295970058AFE9 /* PromotionTermsViewController.xib */; };
+		B62A32C02BF295970058AFE9 /* PromotionTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32BD2BF295970058AFE9 /* PromotionTermsViewController.swift */; };
+		B62A32C22BF29BF10058AFE9 /* PromotionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32C12BF29BF10058AFE9 /* PromotionDetailViewModel.swift */; };
 		B62A864E2BEDA4F3001B23F0 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */; };
 		B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */; };
 		B62F01FF2B983E450090ABA8 /* BannersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F01FE2B983E450090ABA8 /* BannersRepository.swift */; };
@@ -266,6 +271,8 @@
 		B62F02072B9841C30090ABA8 /* BannersDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */; };
 		B62F020C2B98487E0090ABA8 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62F020A2B98487E0090ABA8 /* BannerCell.swift */; };
 		B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62F020B2B98487E0090ABA8 /* BannerCell.xib */; };
+		B64030A02BF0667D0061C1E6 /* PromotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640309E2BF0667D0061C1E6 /* PromotionDetailViewController.swift */; };
+		B64030A12BF0667D0061C1E6 /* PromotionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B640309F2BF0667D0061C1E6 /* PromotionDetailViewController.xib */; };
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
 		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
 		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
@@ -525,6 +532,11 @@
 		B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Medium.otf"; sourceTree = "<group>"; };
 		B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
 		B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailResponse.swift; sourceTree = "<group>"; };
+		B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailRequest.swift; sourceTree = "<group>"; };
+		B62A32BD2BF295970058AFE9 /* PromotionTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTermsViewController.swift; sourceTree = "<group>"; };
+		B62A32BE2BF295970058AFE9 /* PromotionTermsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionTermsViewController.xib; sourceTree = "<group>"; };
+		B62A32C12BF29BF10058AFE9 /* PromotionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailViewModel.swift; sourceTree = "<group>"; };
 		B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersUseCase.swift; sourceTree = "<group>"; };
 		B62F01FE2B983E450090ABA8 /* BannersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersRepository.swift; sourceTree = "<group>"; };
 		B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultBannersRequest.swift; sourceTree = "<group>"; };
@@ -533,6 +545,8 @@
 		B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersDataRepository.swift; sourceTree = "<group>"; };
 		B62F020A2B98487E0090ABA8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		B62F020B2B98487E0090ABA8 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
+		B640309E2BF0667D0061C1E6 /* PromotionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailViewController.swift; sourceTree = "<group>"; };
+		B640309F2BF0667D0061C1E6 /* PromotionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionDetailViewController.xib; sourceTree = "<group>"; };
 		B661AE952B8F7A710068889A /* GestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExtension.swift; sourceTree = "<group>"; };
 		B661AEF62B9168760068889A /* ValidateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateType.swift; sourceTree = "<group>"; };
 		B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
@@ -598,6 +612,7 @@
 				B62F02042B9841410090ABA8 /* BannerResponse.swift */,
 				B60AC4982BED295A000C2917 /* GeneralParametersResponse.swift */,
 				B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */,
+				B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1081,6 +1096,7 @@
 				0D50B9A42A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift */,
 				B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */,
 				B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */,
+				B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1286,6 +1302,8 @@
 		0DF183DD2A68CF57004A0621 /* Promotions */ = {
 			isa = PBXGroup;
 			children = (
+				B62A32BC2BF295800058AFE9 /* Terms */,
+				B640309D2BF0666D0061C1E6 /* Detail */,
 				0DF183E82A68D93F004A0621 /* Cell */,
 				0DF183DE2A68D070004A0621 /* PromotionsViewController.swift */,
 				0DF183DF2A68D070004A0621 /* PromotionsViewController.xib */,
@@ -1372,6 +1390,15 @@
 			path = Activate;
 			sourceTree = "<group>";
 		};
+		B62A32BC2BF295800058AFE9 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				B62A32BD2BF295970058AFE9 /* PromotionTermsViewController.swift */,
+				B62A32BE2BF295970058AFE9 /* PromotionTermsViewController.xib */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
 		B62F02082B98483E0090ABA8 /* Banners */ = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1414,16 @@
 				B62F020B2B98487E0090ABA8 /* BannerCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B640309D2BF0666D0061C1E6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B640309E2BF0667D0061C1E6 /* PromotionDetailViewController.swift */,
+				B640309F2BF0667D0061C1E6 /* PromotionDetailViewController.xib */,
+				B62A32C12BF29BF10058AFE9 /* PromotionDetailViewModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		B661AEF52B91681C0068889A /* Enums */ = {
@@ -1463,6 +1500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64030A12BF0667D0061C1E6 /* PromotionDetailViewController.xib in Resources */,
 				0D3A80262A3794D500C32F39 /* Gotham-Medium.otf in Resources */,
 				0DF183F12A6908BB004A0621 /* ChangePasswordViewController.xib in Resources */,
 				0D3A80232A3794D500C32F39 /* Gotham-UltraItalic.otf in Resources */,
@@ -1522,6 +1560,7 @@
 				B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
 				0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */,
+				B62A32BF2BF295970058AFE9 /* PromotionTermsViewController.xib in Resources */,
 				0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1550,6 +1589,8 @@
 				0D2474182A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift in Sources */,
 				0DE7BDA12A8300190029015F /* ExistsUserResponse.swift in Sources */,
 				0DF183F52A6972D1004A0621 /* MovementsDelegateDataSource.swift in Sources */,
+				B62A32BB2BF2821D0058AFE9 /* PromotionDetailRequest.swift in Sources */,
+				B62A32C02BF295970058AFE9 /* PromotionTermsViewController.swift in Sources */,
 				0DD692A82A528A61001D0BB9 /* MovementsViewModel.swift in Sources */,
 				0DF183F02A6908BB004A0621 /* ChangePasswordViewController.swift in Sources */,
 				0D45B14C2A2EE14100EFC7F4 /* PersonalDataViewController.swift in Sources */,
@@ -1616,6 +1657,7 @@
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
 				0D0A61012A70F9D1005B447E /* UpdateUsernameRequest.swift in Sources */,
 				0D8D9F702A5DDD2400E6C8C6 /* ReassignKeyResponse.swift in Sources */,
+				B62A32B92BF280810058AFE9 /* PromotionDetailResponse.swift in Sources */,
 				0D24740E2A466A5B0075E147 /* ConfigureCardTableViewCell.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
@@ -1710,6 +1752,7 @@
 				0D45B1602A2FF18500EFC7F4 /* AuthenticationRouter.swift in Sources */,
 				0D904CCA2A369DF2007D37D3 /* ProfileViewModel.swift in Sources */,
 				0DB967682A35238C0079D432 /* HomeViewController.swift in Sources */,
+				B62A32C22BF29BF10058AFE9 /* PromotionDetailViewModel.swift in Sources */,
 				0D2474132A467BF80075E147 /* FrequentQuestionsViewController.swift in Sources */,
 				0DC78BD32A396F300097CCE5 /* Loading.swift in Sources */,
 				0DC78BBA2A37D60A0097CCE5 /* SuccessfulRouter.swift in Sources */,
@@ -1720,6 +1763,7 @@
 				0D6DA4F72A5E525F00AC6BB5 /* KeyDataRepository.swift in Sources */,
 				B62F02032B9840760090ABA8 /* ConsultBannersResponse.swift in Sources */,
 				0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift in Sources */,
+				B64030A02BF0667D0061C1E6 /* PromotionDetailViewController.swift in Sources */,
 				B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,

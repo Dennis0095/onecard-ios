@@ -11,4 +11,8 @@ class PromotionDataRepository: PromotionRepository {
     func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, APIError> {
         return APIClient.callAPI(route: .consultPromotions, method: .post, request: request)
     }
+    
+    func detail(request: PromotionDetailRequest) -> AnyPublisher<PromotionDetailResponse, APIError> {
+        return APIClient.callAPI(route: .promotionDetail, method: .post, request: request)
+    }
 }

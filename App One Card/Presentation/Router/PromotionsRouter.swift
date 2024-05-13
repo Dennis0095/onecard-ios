@@ -7,4 +7,7 @@
 
 import Foundation
 
-protocol PromotionsRouterDelegate: Router {}
+protocol PromotionsRouterDelegate: Router {
+    func toPromotionDetail(detail: PromotionDetailResponse)
+    func showTermsConditions(terms: String)
+}

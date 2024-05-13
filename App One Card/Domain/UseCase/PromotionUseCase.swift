@@ -9,6 +9,7 @@ import Combine
 
 protocol PromotionUseCaseProtocol {
     func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, APIError>
+    func getDetail(request: PromotionDetailRequest) -> AnyPublisher<PromotionDetailResponse, APIError>
 }
 
 class PromotionUseCase: PromotionUseCaseProtocol {
@@ -21,5 +22,9 @@ class PromotionUseCase: PromotionUseCaseProtocol {
     
     func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, APIError> {
         return promotionRepository.consult(request: request)
+    }
+    
+    func getDetail(request: PromotionDetailRequest) -> AnyPublisher<PromotionDetailResponse, APIError> {
+        return promotionRepository.detail(request: request)
     }
 }

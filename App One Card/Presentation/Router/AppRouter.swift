@@ -593,4 +593,29 @@ extension AppRouter: HomeRouterDelegate {
     }
 }
 
-extension AppRouter: PromotionsRouterDelegate {}
+extension AppRouter: PromotionsRouterDelegate {
+    func toPromotionDetail(detail: PromotionDetailResponse) {
+        DispatchQueue.main.async {
+            let viewModel = PromotionDetailViewModel(detail: detail,
+                                                     router: self)
+            let promotionDetail = PromotionDetailViewController(viewModel: viewModel)
+            viewModel.delegate = promotionDetail
+            
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.present(promotionDetail, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func showTermsConditions(terms: String) {
+        DispatchQueue.main.async {
+            let view = PromotionTermsViewController(termsConditions: terms)
+            
+            view.modalPresentationStyle = .overFullScreen
+            view.modalTransitionStyle = .crossDissolve
+            if let presentedViewController = self.window.rootViewController?.presentedViewController {
+                presentedViewController.present(view, animated: true, completion: nil)
+            }
+        }
+    }
+}

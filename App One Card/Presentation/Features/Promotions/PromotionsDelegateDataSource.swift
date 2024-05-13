@@ -35,4 +35,10 @@ extension PromotionsDelegateDataSource: UITableViewDataSource {
     }
 }
 
-extension PromotionsDelegateDataSource: UITableViewDelegate {}
+extension PromotionsDelegateDataSource: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.item(at: indexPath.row)
+        
+        viewModel.getDetail(promotionCode: item.promotionCode ?? "")
+    }
+}

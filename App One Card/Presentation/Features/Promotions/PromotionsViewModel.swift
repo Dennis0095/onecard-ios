@@ -17,6 +17,7 @@ protocol PromotionsViewModelProtocol {
     func item(at index: Int) -> PromotionResponse
     func isLast(at index: Int) -> Bool
     func fetchPromotions()
+    func getDetail(promotionCode: String)
 }
 
 protocol PromotionsViewModelDelegate: LoaderDisplaying {
@@ -85,6 +86,39 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 self.items = response.promotions ?? []
                 self.delegate?.hideLoader()
                 self.delegate?.showPromotions()
+            }
+        cancellable.store(in: &cancellables)
+    }
+    
+    func getDetail(promotionCode: String) {
+        delegate?.showLoader()
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let request = PromotionDetailRequest(authTrackingCode: trackingCode, promotionId: promotionCode)
+        let cancellable = promotionUseCase.getDetail(request: request)
+            .sink { [weak self] publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self?.delegate?.hideLoader()
+                    switch apiError {
+                    case .expiredSession:
+                        self?.delegate?.showError(title: error.title, description: error.description) {
+                            self?.router.logout(isManual: false)
+                        }
+                    default:
+                        self?.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    }
+                }
+            } receiveValue: { [weak self] response in
+                self?.delegate?.hideLoader()
+                
+                if response.found == 1 {
+                    self?.router.toPromotionDetail(detail: response)
+                } else {
+                    self?.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
+                }
             }
         cancellable.store(in: &cancellables)
     }

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ProximaNova-Bold.otf">
+        <array key="Proxima Nova Bold.otf">
             <string>ProximaNova-Bold</string>
         </array>
-        <array key="ProximaNova-Medium.otf">
+        <array key="Proxima Nova Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
@@ -91,7 +91,7 @@
                                 <constraint firstAttribute="height" constant="1" id="hyi-0L-XD8"/>
                             </constraints>
                         </view>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSD-eJ-fCf">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSD-eJ-fCf">
                             <rect key="frame" x="20" y="82" width="353" height="150"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="Lug-fp-Wz7"/>
@@ -152,7 +152,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_place" translatesAutoresizingMaskIntoConstraints="NO" id="zdD-sD-pMN">
-                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="OY3-Wq-cay"/>
                                                                 <constraint firstAttribute="height" constant="30" id="yeU-zh-gUb"/>
@@ -162,17 +162,17 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="zdD-sD-pMN" secondAttribute="bottom" id="31j-HN-GUj"/>
+                                                        <constraint firstItem="zdD-sD-pMN" firstAttribute="leading" secondItem="IWa-ie-v6r" secondAttribute="leading" id="Hct-PG-Uen"/>
                                                         <constraint firstItem="zdD-sD-pMN" firstAttribute="top" secondItem="IWa-ie-v6r" secondAttribute="top" id="HuU-dK-IBM"/>
-                                                        <constraint firstItem="zdD-sD-pMN" firstAttribute="centerX" secondItem="IWa-ie-v6r" secondAttribute="centerX" id="MB7-Np-1wl"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lugar donde puedes canjear la promoción" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l79-TR-nP6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lugar donde puedes canjear la promoción" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l79-TR-nP6">
                                                     <rect key="frame" x="0.0" y="35" width="313" height="41.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N43-Qd-jxc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N43-Qd-jxc">
                                                     <rect key="frame" x="0.0" y="81.666666666666686" width="313" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -199,7 +199,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_validity" translatesAutoresizingMaskIntoConstraints="NO" id="fNm-9F-hbT">
-                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="JqT-bc-0aX"/>
                                                                 <constraint firstAttribute="height" constant="30" id="ZpP-R3-hk9"/>
@@ -209,17 +209,17 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="fNm-9F-hbT" firstAttribute="top" secondItem="hx6-Qc-WIe" secondAttribute="top" id="3ge-VZ-tbC"/>
-                                                        <constraint firstItem="fNm-9F-hbT" firstAttribute="centerX" secondItem="hx6-Qc-WIe" secondAttribute="centerX" id="O2V-bC-fl0"/>
                                                         <constraint firstAttribute="bottom" secondItem="fNm-9F-hbT" secondAttribute="bottom" id="WhJ-Em-YB7"/>
+                                                        <constraint firstItem="fNm-9F-hbT" firstAttribute="leading" secondItem="hx6-Qc-WIe" secondAttribute="leading" id="pgv-B5-wgd"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vigencia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-eT-fjj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vigencia" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-eT-fjj">
                                                     <rect key="frame" x="0.0" y="35" width="313" height="39.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zU-DY-6m8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zU-DY-6m8">
                                                     <rect key="frame" x="0.0" y="79.666666666666742" width="313" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -246,7 +246,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_terms_conditions" translatesAutoresizingMaskIntoConstraints="NO" id="yef-sk-Baj">
-                                                            <rect key="frame" x="141.66666666666666" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="55Y-Tt-RwH"/>
                                                                 <constraint firstAttribute="height" constant="30" id="Mcx-Sa-Ep0"/>
@@ -255,8 +255,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="yef-sk-Baj" firstAttribute="leading" secondItem="das-iM-xU9" secondAttribute="leading" id="P6I-Xg-XKz"/>
                                                         <constraint firstAttribute="bottom" secondItem="yef-sk-Baj" secondAttribute="bottom" id="Ptf-ZC-faE"/>
-                                                        <constraint firstItem="yef-sk-Baj" firstAttribute="centerX" secondItem="das-iM-xU9" secondAttribute="centerX" id="dBJ-63-AgU"/>
                                                         <constraint firstItem="yef-sk-Baj" firstAttribute="top" secondItem="das-iM-xU9" secondAttribute="top" id="lqJ-hs-OKD"/>
                                                     </constraints>
                                                 </view>

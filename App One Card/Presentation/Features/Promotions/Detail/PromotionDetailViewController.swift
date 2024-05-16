@@ -67,7 +67,10 @@ class PromotionDetailViewController: UIViewController {
     }
     
     private func setCornerRadius() {
-        [ivPromotion, viewValidity, viewTermsConditions, viewPlace, viewPromotion].forEach { view in
+        ivPromotion.clipsToBounds = true
+        ivPromotion.layer.cornerRadius = 10
+        
+        [viewValidity, viewTermsConditions, viewPlace, viewPromotion].forEach { view in
             view.clipsToBounds = true
             view.layer.cornerRadius = 5
         }

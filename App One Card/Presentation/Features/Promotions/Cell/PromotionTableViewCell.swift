@@ -9,6 +9,7 @@ import UIKit
 
 class PromotionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var viewSpace: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblContent: UILabel!
@@ -27,8 +28,11 @@ class PromotionTableViewCell: UITableViewCell {
         lblPrice.font = UIFont(name: "ProximaNova-Bold", size: 17)
         lblPreviousPrice.font = UIFont(name: "ProximaNova-Medium", size: 16)
         
-        viewPrice.layer.masksToBounds = true
         viewPrice.layer.cornerRadius = 5
+        
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 10
+        self.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
     }
     
     func setData(promotion: PromotionResponse, isLast: Bool) {

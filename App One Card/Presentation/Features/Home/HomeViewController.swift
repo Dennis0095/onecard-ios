@@ -176,15 +176,14 @@ class HomeViewController: BaseViewController {
         if let firstIndexPath = visibleItemsIndexPaths.first, firstIndexPath.item > 0 {
             let previousIndexPath = IndexPath(item: firstIndexPath.item - 1, section: firstIndexPath.section)
             cvBanners.scrollToItem(at: previousIndexPath, at: .centeredHorizontally, animated: true)
+        } else if let firstIndexPath = visibleItemsIndexPaths.first, firstIndexPath.item == 0 {
+            let nextIndexPath = IndexPath(item: viewModel.banners.count - 1, section: firstIndexPath.section)
+            cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
         }
     }
     
     @IBAction func moveToRight(_ sender: Any) {
-        let visibleItemsIndexPaths = cvBanners.indexPathsForVisibleItems
-        if let lastIndexPath = visibleItemsIndexPaths.last, lastIndexPath.item < viewModel.banners.count - 1 {
-            let nextIndexPath = IndexPath(item: lastIndexPath.item + 1, section: lastIndexPath.section)
-            cvBanners.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
-        }
+        scrollToNextItem()
     }
 }
 

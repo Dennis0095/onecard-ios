@@ -66,7 +66,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         delegate?.showLoader()
         
-        let request = SendOTPRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+        let request = SendOTPRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
                                      operationType: operationType,
                                      documentType: documentType, 
                                      documentNumber: documentNumber,
@@ -120,7 +120,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
                                            operationType: operationType, 
                                            authTrackingCode: authTrackingCode)
         

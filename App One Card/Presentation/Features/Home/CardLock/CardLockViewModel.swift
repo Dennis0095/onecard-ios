@@ -54,7 +54,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
         
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         
-        let request = SendOTPUpdateRequest(otpShippingType: "2",//toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
+        let request = SendOTPUpdateRequest(otpShippingType: toNumber ? Constants.OTP_SHIPPING_SMS : Constants.OTP_SHIPPING_EMAIL,
                                            operationType: "BP", authTrackingCode: authTrackingCode)
         
         let cancellable = otpUseCase.sendToUpdate(request: request)

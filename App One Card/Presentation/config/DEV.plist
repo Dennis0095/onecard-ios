@@ -15,6 +15,6 @@
 		<string>ProximaNova-Black.otf</string>
 	</array>
 	<key>base_url</key>
-	<string>http://64.225.16.75:8083/app-backend</string>
+	<string>http://200.62.220.241:8083/app-backend</string>
 </dict>
 </plist>

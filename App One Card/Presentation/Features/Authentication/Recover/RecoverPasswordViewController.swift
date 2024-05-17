@@ -93,7 +93,7 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     @objc private func tapTerms() {
-        if let url = URL(string: "https://www.google.com") {
+        if let url = URL(string: GeneralSessionManager.shared.getLink(key: Constants.keyLinkRecovery)) {
             UIApplication.shared.open(url)
         }
     }

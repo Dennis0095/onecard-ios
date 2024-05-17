@@ -20,6 +20,7 @@ class PromotionDetailViewController: UIViewController {
     @IBOutlet weak var lblPromotion: UILabel!
     @IBOutlet weak var lblPlaces: UILabel!
     @IBOutlet weak var lblValidity: UILabel!
+    @IBOutlet weak var lblClose: UILabel!
     @IBOutlet weak var viewPromotion: UIView!
     
     private let viewModel: PromotionDetailViewModelProtocol
@@ -42,8 +43,16 @@ class PromotionDetailViewController: UIViewController {
         
         setCornerRadius()
         addActions()
+        ui()
         
         viewModel.onAppear()
+    }
+    
+    private func ui() {
+        lblClose.font = UIFont(name: "ProximaNova-Medium", size: 15)
+        lblTitle.font = UIFont(name: "ProximaNova-Medium", size: 18)
+        lblSubtitle.font = UIFont(name: "ProximaNova-Medium", size: 12)
+        lblDescription.font = UIFont(name: "ProximaNova-Light", size: 12)
     }
     
     private func addActions() {

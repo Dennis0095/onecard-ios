@@ -33,6 +33,9 @@ class PromotionTableViewCell: UITableViewCell {
         containerView.clipsToBounds = true
         containerView.layer.cornerRadius = 10
         self.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
+        
+        imgPromotion.layer.masksToBounds = true
+        imgPromotion.layer.cornerRadius = 10
     }
     
     func setData(promotion: PromotionResponse, isLast: Bool) {

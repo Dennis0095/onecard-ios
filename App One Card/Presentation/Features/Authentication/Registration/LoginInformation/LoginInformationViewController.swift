@@ -89,13 +89,13 @@ class LoginInformationViewController: BaseViewController {
     }
     
     @objc private func tapTerms() {
-        if let url = URL(string: "https://www.google.com") {
+        if let url = URL(string: GeneralSessionManager.shared.getLink(key: Constants.keyLinkRegister)) {
             UIApplication.shared.open(url)
         }
     }
     
     @objc private func tapAuthorize() {
-        if let url = URL(string: "https://www.google.com") {
+        if let url = URL(string: GeneralSessionManager.shared.getLink(key: Constants.keyLinkDataTreatment)) {
             UIApplication.shared.open(url)
         }
     }

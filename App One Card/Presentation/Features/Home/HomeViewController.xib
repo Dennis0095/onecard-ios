@@ -142,7 +142,7 @@
                                                                                 </label>
                                                                             </subviews>
                                                                         </stackView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_card" translatesAutoresizingMaskIntoConstraints="NO" id="qDm-wo-CVK">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_card" translatesAutoresizingMaskIntoConstraints="NO" id="qDm-wo-CVK">
                                                                             <rect key="frame" x="0.0" y="96" width="134" height="80"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="80" id="pCK-tw-9jO"/>

@@ -45,13 +45,13 @@ class MembershipDataViewController: BaseViewController {
         viewModel.documentType = viewModel.documentTypeList.first
         
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down_blue"))
-        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: "Ingresa tu número de documento", status: .activated, type: .numberPad)
-        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: "Ingresa el RUC", status: .activated)
+        viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: Constants.enter_dni, status: .activated, type: .numberPad)
+        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: Constants.enter_ruc, status: .activated)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
-        viewDocType.setText(string: viewModel.documentType?.name ?? "DNI")
+        viewDocType.setText(string: viewModel.documentType?.name ?? Constants.dni)
         viewDocType.status = .defaultData
-        viewDocNumber.setPlaceholder(placeholder: viewModel.documentType?.name ?? "DNI")
+        viewDocNumber.setPlaceholder(placeholder: viewModel.documentType?.placeholderName ?? Constants.dni_placeholder)
 
         connectFields(textFields: viewDocNumber.txt, viewRuc.txt)
     }
@@ -66,9 +66,9 @@ class MembershipDataViewController: BaseViewController {
                 if let item = item {
                     self?.viewModel.documentType = item
                     self?.viewDocType.setText(string: item.name)
-                    self?.viewDocNumber.setPlaceholder(placeholder: item.name)
+                    self?.viewDocNumber.setPlaceholder(placeholder: item.placeholderName)
                     switch item.id {
-                    case "3":
+                    case Constants.passport_id:
                         self?.viewDocNumber.txt.keyboardType = .namePhonePad
                     default:
                         self?.viewDocNumber.txt.keyboardType = .numberPad
@@ -102,16 +102,16 @@ class MembershipDataViewController: BaseViewController {
     private func validate() -> Bool {
         switch viewModel.documentType?.id {
         case "1":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu número de documento" : "Debe contener 8 números"
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? Constants.enter_dni : Constants.must_contain_8_numbers
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain8numbers)
         case "2":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu carnet de extranjería" : "Debe contener entre 9 a 12 números"
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? Constants.enter_immigration_card : Constants.must_contain_between_9_to_12_numbers
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12numbers)
         case "3":
             viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu pasaporte" : "Debe contener entre 9 a 12 caracteres"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12characters)
         case "5":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu RUC" : "Debe contener 11 números"
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? Constants.enter_ruc : "Debe contener 11 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain11numbers)
         case "7":
             viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu permiso temporal de permanencia" : "Debe contener 9 números"
@@ -119,7 +119,7 @@ class MembershipDataViewController: BaseViewController {
         default: break
         }
         
-        viewRuc.errorMessage = viewRuc.text.isEmpty ? "Ingresa el RUC." : "Debe contener 11 números."
+        viewRuc.errorMessage = viewRuc.text.isEmpty ? Constants.enter_ruc : "Debe contener 11 números."
         viewRuc.isValid = viewRuc.text.validateString(withRegex: .contain11numbers)
         
         return viewDocNumber.isValid && viewRuc.isValid

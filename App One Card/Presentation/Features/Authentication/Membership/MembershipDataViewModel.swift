@@ -32,11 +32,11 @@ class MembershipDataViewModel: MembershipDataViewModelProtocol {
     
     var delegate: MembershipDataViewModelDelegate?
     var documentTypeList: [SelectModel] = [
-        SelectModel(id: Constants.dni_id, name: Constants.dni),
-        SelectModel(id: Constants.immigration_card_id, name: Constants.immigration_card),
-        SelectModel(id: Constants.passport_id, name: Constants.passport),
-        SelectModel(id: Constants.ruc_id, name: Constants.ruc),
-        SelectModel(id: Constants.ptp_id, name: Constants.ptp)
+        SelectModel(id: Constants.dni_id, name: Constants.dni, placeholderName: Constants.dni_placeholder),
+        SelectModel(id: Constants.immigration_card_id, name: Constants.immigration_card, placeholderName: Constants.immigration_card_placeholder),
+        SelectModel(id: Constants.passport_id, name: Constants.passport, placeholderName: Constants.passport_placeholder),
+        SelectModel(id: Constants.ruc_id, name: Constants.ruc, placeholderName: Constants.ruc_placeholder),
+        SelectModel(id: Constants.ptp_id, name: Constants.ptp, placeholderName: Constants.ptp_placeholder)
     ]
     var documentType: SelectModel?
     var documentNumber: String?

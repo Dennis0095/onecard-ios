@@ -36,6 +36,29 @@ class Constants {
     //MARK: Login error
     static let login_error_incomplete_data: String = "Por favor, ingresa todos los datos solicitados."
     
+    static let must_contain_between_9_to_12_numbers = "Debe contener entre 9 a 12 números"
+    static let must_contain_8_numbers = "Debe contener 8 números"
+    static let enter_immigration_card = "Ingresa tu carnet de extranjería"
+    static let enter_dni = "Ingresa tu número de documento"
+    static let enter_ruc = "Ingresa el RUC de la empresa donde trabajas"
+    static let dni = "DNI"
+    static let dni_placeholder = "Número de documento"
+    static let passport = "PASAPORTE"
+    static let passport_placeholder = "Pasaporte"
+    static let ruc = "RUC"
+    static let ruc_placeholder = "RUC"
+    static let ptp = "PTP"
+    static let ptp_placeholder = "Permiso temporal de permanencia"
+    static let immigration_card = "CARNET DE EXTRANJERÍA"
+    static let immigration_card_placeholder = "Carnet de extranjería"
+    static let dni_id = "1"
+    static let immigration_card_id = "2"
+    static let passport_id = "3"
+    static let ruc_id = "5"
+    static let ptp_id = "7"
+    
+    static let defaultLink = "www.google.com"
+    
     //MARK: Keys User Defaults
     static let keyToken = "token"
     static let keyUser = "user"
@@ -43,17 +66,4 @@ class Constants {
     static let keyLinkRegister = "linkRegister"
     static let keyLinkDataTreatment = "linkDataTreatment"
     static let keyLinkRecovery = "linkRecovery"
-    
-    static let dni = "DNI"
-    static let passport = "PASAPORTE"
-    static let ruc = "RUC"
-    static let ptp = "PTP"
-    static let immigration_card = "CARNET DE EXTRANJERÍA"
-    static let dni_id = "1"
-    static let passport_id = "3"
-    static let ruc_id = "5"
-    static let ptp_id = "7"
-    static let immigration_card_id = "2"
-    
-    static let defaultLink = "www.google.com"
 }

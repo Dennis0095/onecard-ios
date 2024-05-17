@@ -10,4 +10,5 @@ import Foundation
 struct SelectModel {
     var id: String
     var name: String
+    var placeholderName: String
 }

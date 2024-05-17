@@ -18,8 +18,8 @@ class CardLockModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        btnCancel.configure(text: "CANCELAR")
-        btnAccept.configure(text: "CONTINUAR", status: .enabled)
+        btnCancel.configure(text: Constants.cancel)
+        btnAccept.configure(text: Constants.next_btn, status: .enabled)
         
         viewBackground.layer.cornerRadius = 16.0
         viewBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

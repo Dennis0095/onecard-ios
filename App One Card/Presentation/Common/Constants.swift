@@ -29,6 +29,8 @@ class Constants {
     static let tab_title_config: String = "Configuración"
     static let error: String = "Error"
     static let missingData: String = "Datos faltantes"
+    static let cancel: String = "Cancelar"
+    static let close_session: String = "Cerrar sesión"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"

@@ -19,8 +19,8 @@ class InactivityModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        btnCloseSession.configure(text: "Cerrar sesión")
-        btnContinue.configure(text: "Continuar", status: .enabled)
+        btnCloseSession.configure(text: Constants.close_session)
+        btnContinue.configure(text: Constants.next_btn, status: .enabled)
         
         viewBackground.layer.cornerRadius = 16.0
         viewBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

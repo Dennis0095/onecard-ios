@@ -24,6 +24,10 @@ class BaseViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        resetTimer()
+    }
+    
+    private func resetTimer() {
         guard let _ = UserSessionManager.shared.getUser() else {
             return
         }

@@ -32,7 +32,7 @@ enum APIError: Error {
             description = d
         case .expiredSession:
             title = "Sesión expirada"
-            description = "Por favor, vuelva a iniciar sesión"
+            description = "Por favor, vuelve a iniciar sesión"
         default:
             title = "Algo salió mal"
             description = "Por favor, inténtelo nuevamente"

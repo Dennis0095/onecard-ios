@@ -61,6 +61,12 @@ class HomeViewModel: HomeViewModelProtocol {
         cancelRequests()
     }
     
+    private func getAmountReal(amount: String) -> String {
+        let amountConvert = amount.substring(with: 6..<(amount.count - 2))
+        let amountDecimal = amount.substring(from: (amount.count - 2))
+        return "\(amountConvert).\(amountDecimal)"
+    }
+    
     func numberOfItems() -> Int {
         return items.count
     }
@@ -150,7 +156,7 @@ class HomeViewModel: HomeViewModelProtocol {
                 //self.delegate?.hideLoader {
                 if response.rc == "0" {
                     DispatchQueue.main.async {
-                        let balance = response.amount?.convertStringToDecimalAndFormat(sign: response.sign ?? "")
+                        let balance = self.getAmountReal(amount: response.amount ?? "").convertStringToDecimalAndFormat(sign: response.sign ?? "")
                         HomeObserver.shared.updateAmount(amount: balance)
                     }
                 } else {

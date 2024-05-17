@@ -275,6 +275,9 @@
 		B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62F020B2B98487E0090ABA8 /* BannerCell.xib */; };
 		B64030A02BF0667D0061C1E6 /* PromotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B640309E2BF0667D0061C1E6 /* PromotionDetailViewController.swift */; };
 		B64030A12BF0667D0061C1E6 /* PromotionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B640309F2BF0667D0061C1E6 /* PromotionDetailViewController.xib */; };
+		B65B17952BF7EF2E00C5F0AF /* DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0F42A2E4EAC00EFC7F4 /* DEV.plist */; };
+		B65B17962BF7EF3000C5F0AF /* PROD.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1032A2E587B00EFC7F4 /* PROD.plist */; };
+		B65B17972BF7EF3200C5F0AF /* QA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1052A2E588D00EFC7F4 /* QA.plist */; };
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
 		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
 		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
@@ -1530,12 +1533,15 @@
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
 				0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */,
+				B65B17972BF7EF3200C5F0AF /* QA.plist in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
+				B65B17962BF7EF3000C5F0AF /* PROD.plist in Resources */,
 				0DC78BD42A396F300097CCE5 /* Loading.xib in Resources */,
 				B62A864E2BEDA4F3001B23F0 /* ProximaNova-Black.otf in Resources */,
 				0D35EDF52A44BADC00411486 /* PinViewController.xib in Resources */,
 				0D50B9B02A8FD6B70009F624 /* LogoutModalViewController.xib in Resources */,
 				0D3A80292A3794D500C32F39 /* Gotham-Light.otf in Resources */,
+				B65B17952BF7EF2E00C5F0AF /* DEV.plist in Resources */,
 				B62F020D2B98487E0090ABA8 /* BannerCell.xib in Resources */,
 				0DFA7C9D2A6DB9D50031178B /* CardLockViewController.xib in Resources */,
 				0DD692A62A524E16001D0BB9 /* MovementTableViewCell.xib in Resources */,

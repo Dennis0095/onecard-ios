@@ -9,7 +9,9 @@ import Foundation
 
 class Constants {
     static let welcome: String = "BIENVENIDO"
-    static let placeholder_user: String = "Usuario digital"
+    static let placeholder_user: String = "Usuario"
+    static let placeholder_digital_user: String = "Usuario digital"
+    static let confirm_your_digital_key: String = "Confirma tu clave digital"
     static let placeholder_password: String = "Clave digital"
     static let placeholder_name: String = "Nombres"
     static let placeholder_last_name: String = "Apellidos"

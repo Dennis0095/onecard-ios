@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Proxima Nova Bold.otf">
+        <array key="ProximaNova-Bold.otf">
             <string>ProximaNova-Bold</string>
         </array>
-        <array key="Proxima Nova Medium.otf">
+        <array key="ProximaNova-Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
@@ -49,16 +49,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-FT-Z15">
-                    <rect key="frame" x="264" y="74.666666666666671" width="109" height="30"/>
+                    <rect key="frame" x="271" y="74.666666666666671" width="102" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cerrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grw-3b-Jky">
-                            <rect key="frame" x="20" y="4.3333333333333286" width="49" height="21"/>
-                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                            <rect key="frame" x="20" y="5.3333333333333286" width="42" height="19"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-dm-38F">
-                            <rect key="frame" x="74" y="6.3333333333333286" width="25" height="17.333333333333336"/>
+                            <rect key="frame" x="67" y="6.3333333333333286" width="25" height="17.333333333333336"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="hId-tV-Y50"/>
                                 <constraint firstAttribute="width" constant="25" id="qND-HE-RFL"/>
@@ -99,22 +99,22 @@
                             </constraints>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yuW-HH-vpV">
-                            <rect key="frame" x="20" y="220" width="353" height="133.66666666666663"/>
+                            <rect key="frame" x="20" y="219.99999999999997" width="353" height="122.66666666666666"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgQ-SJ-u85">
-                                    <rect key="frame" x="0.0" y="0.0" width="353" height="21"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="22.666666666666668"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N24-Vk-jTy">
-                                    <rect key="frame" x="0.0" y="31" width="353" height="21.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="32.666666666666686" width="353" height="15"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4D9-Jc-T1y">
-                                    <rect key="frame" x="0.0" y="62.333333333333314" width="353" height="40"/>
+                                    <rect key="frame" x="0.0" y="57.666666666666686" width="353" height="40"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sS5-r9-pf6">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
@@ -133,15 +133,15 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNL-gW-dTf">
-                                    <rect key="frame" x="0.0" y="112.33333333333331" width="353" height="21.333333333333343"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="107.66666666666669" width="353" height="15"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-n6-BjK">
-                            <rect key="frame" x="20" y="373.66666666666674" width="353" height="359.33333333333326"/>
+                            <rect key="frame" x="20" y="362.66666666666674" width="353" height="359.33333333333326"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3MX-Zw-1ST">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="123"/>

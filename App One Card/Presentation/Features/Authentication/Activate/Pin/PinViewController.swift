@@ -47,7 +47,7 @@ class PinViewController: BaseViewController {
     }
     
     override func initView() {
-        txtPin.configure(placeholder: "", errorMessage: "Debe tener 4 dígitos.", status: .activated, isPassword: true)
+        txtPin.configure(placeholder: "", errorMessage: "Debe tener 4 dígitos", status: .activated, isPassword: true)
         btnNext.configure(text: buttonTitle, status: .enabled)
         configure()
     }
@@ -85,11 +85,13 @@ class PinViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        if viewModel.pinStep == .cardActivation {
+        if viewModel.pinStep == .cardActivation || viewModel.pinStep == .reassign {
             txtPin.errorMessage = txtPin.text.isEmpty ? "Debes ingresar el PIN." : "El PIN no coincide."
+            print(viewModel.newPin)
+            print(txtPin.text)
             txtPin.isValid = !txtPin.text.isEmpty && viewModel.newPin == txtPin.text
         } else {
-            txtPin.errorMessage = txtPin.text.isEmpty ? "Debes ingresar el PIN." : "Debe tener 4 dígitos."
+            txtPin.errorMessage = txtPin.text.isEmpty ? "Debes ingresar el PIN" : "Debe tener 4 dígitos"
             txtPin.isValid = txtPin.text.count == 4
         }
         

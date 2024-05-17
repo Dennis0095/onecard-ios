@@ -128,7 +128,7 @@ class PinViewModel: PinViewModelProtocol {
                 let error = APIError.defaultError.error()
                 
                 self.delegate?.hideLoader()
-                if response.rc == "0" {
+                if response.validExpiration == "1" && response.success == "1" {
                     if let success = self.success {
                         success(self.operationId, self.pin)
                     }

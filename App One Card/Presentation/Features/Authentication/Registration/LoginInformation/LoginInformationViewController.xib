@@ -139,12 +139,6 @@
                                         </view>
                                     </subviews>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autorizo el tratamiento de mis datos personales para fines comerciales y/o publicitarios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grx-1f-IKj">
-                                    <rect key="frame" x="48" y="342.33333333333331" width="327" height="35"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
-                                    <color key="textColor" name="blue_twilight"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXf-1R-l7r" customClass="CheckboxButton" customModule="DEV_App_One_Card" customModuleProvider="target">
                                     <rect key="frame" x="18" y="342.33333333333331" width="20" height="20"/>
                                     <constraints>
@@ -156,6 +150,12 @@
                                         <action selector="chooseAuthorize:" destination="-1" eventType="touchUpInside" id="j70-bQ-TfA"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autorizo el tratamiento de mis datos personales para fines comerciales y/o publicitarios." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grx-1f-IKj">
+                                    <rect key="frame" x="48" y="342.33333333333331" width="327" height="32.666666666666686"/>
+                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="13"/>
+                                    <color key="textColor" name="blue_twilight"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="12N-ex-bxm" firstAttribute="centerX" secondItem="PjV-2k-zwm" secondAttribute="centerX" id="0GM-RV-C9q"/>

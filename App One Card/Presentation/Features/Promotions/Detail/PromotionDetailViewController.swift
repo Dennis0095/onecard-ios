@@ -43,16 +43,8 @@ class PromotionDetailViewController: UIViewController {
         
         setCornerRadius()
         addActions()
-        ui()
         
         viewModel.onAppear()
-    }
-    
-    private func ui() {
-        lblClose.font = UIFont(name: "ProximaNova-Medium", size: 15)
-        lblTitle.font = UIFont(name: "ProximaNova-Medium", size: 18)
-        lblSubtitle.font = UIFont(name: "ProximaNova-Medium", size: 12)
-        lblDescription.font = UIFont(name: "ProximaNova-Light", size: 12)
     }
     
     private func addActions() {

@@ -36,7 +36,7 @@ class LoginInformationViewController: BaseViewController {
     override func initView() {
         txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
         txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 12)
-        txtConfirmPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 12)
+        txtConfirmPassword.configure(placeholder: Constants.confirm_your_digital_key, status: .activated, isPassword: true, maxLength: 12)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         txtPassword.txt.textContentType = .oneTimeCode
@@ -111,12 +111,12 @@ class LoginInformationViewController: BaseViewController {
     }
     
     private func setAuthorize() {
-        let longString = "Autorizo el tratamiento de mis datos personales para"
+        let longString = "Autorizo el tratamiento de mis datos personales para fines comerciales y/o publicitarios."
         let longestWordRange = (longString as NSString).range(of: "fines comerciales y/o publicitarios")
 
-        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 13)!])
 
-        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#00A3E0")], range: longestWordRange)
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 13)!, NSAttributedString.Key.foregroundColor: UIColor(hexString: "#00A3E0")], range: longestWordRange)
         lblAuthorize.attributedText = attributedString
     }
     

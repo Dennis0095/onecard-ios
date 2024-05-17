@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,14 +36,11 @@
                     <rect key="frame" x="20" y="285" width="353" height="282"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KP6-of-kNL">
-                            <rect key="frame" x="20" y="20" width="104" height="30"/>
+                            <rect key="frame" x="20" y="20" width="30" height="30"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hj1-5w-Pm4">
-                                    <rect key="frame" x="5" y="2.6666666666666856" width="15" height="25"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="15" id="ITh-y2-LVe"/>
-                                    </constraints>
-                                    <imageReference key="image" image="arrow_left_white" symbolScale="small" renderingMode="hierarchical-single">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <imageReference key="image" image="arrow_left_blue" symbolScale="small" renderingMode="hierarchical-single">
                                         <hierarchicalColors>
                                             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color systemColor="secondaryLabelColor"/>
@@ -52,21 +48,15 @@
                                         </hierarchicalColors>
                                     </imageReference>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jU0-Fg-kuN">
-                                    <rect key="frame" x="25" y="4.6666666666666856" width="69" height="21"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
-                            <color key="backgroundColor" name="blue_lake_front"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="Hj1-5w-Pm4" firstAttribute="centerY" secondItem="KP6-of-kNL" secondAttribute="centerY" id="9wb-BZ-Cpc"/>
-                                <constraint firstItem="jU0-Fg-kuN" firstAttribute="centerY" secondItem="KP6-of-kNL" secondAttribute="centerY" id="ANJ-pS-PHo"/>
-                                <constraint firstAttribute="trailing" secondItem="jU0-Fg-kuN" secondAttribute="trailing" constant="10" id="UGR-dy-UaV"/>
-                                <constraint firstItem="Hj1-5w-Pm4" firstAttribute="leading" secondItem="KP6-of-kNL" secondAttribute="leading" constant="5" id="ajH-TA-hS2"/>
+                                <constraint firstAttribute="width" constant="30" id="Upg-PK-z5Y"/>
+                                <constraint firstItem="Hj1-5w-Pm4" firstAttribute="top" secondItem="KP6-of-kNL" secondAttribute="top" id="YCj-Ag-aAT"/>
                                 <constraint firstAttribute="height" constant="30" id="fVY-pl-Xpp"/>
-                                <constraint firstItem="jU0-Fg-kuN" firstAttribute="leading" secondItem="Hj1-5w-Pm4" secondAttribute="trailing" constant="5" id="oj1-NH-fid"/>
+                                <constraint firstAttribute="bottom" secondItem="Hj1-5w-Pm4" secondAttribute="bottom" id="qww-TV-n0f"/>
+                                <constraint firstItem="Hj1-5w-Pm4" firstAttribute="leading" secondItem="KP6-of-kNL" secondAttribute="leading" id="s2B-ee-OxZ"/>
+                                <constraint firstAttribute="trailing" secondItem="Hj1-5w-Pm4" secondAttribute="trailing" id="yP7-LT-eh6"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TÉRMINOS Y CONDICIONES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXE-Ec-YI5">
@@ -126,10 +116,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow_left_white" width="25" height="25"/>
-        <namedColor name="blue_lake_front">
-            <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="arrow_left_blue" width="24" height="25"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

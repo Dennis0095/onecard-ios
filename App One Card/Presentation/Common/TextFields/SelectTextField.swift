@@ -47,6 +47,7 @@ class SelectTextField: UIView {
         view.addSubview(lblSelected)
         view.addSubview(imgSelect)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 8
         return view
     }()
     

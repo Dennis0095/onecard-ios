@@ -35,7 +35,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey100)
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,7 +56,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey60)
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -181,6 +181,9 @@ class SelectTextField: UIView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapSelect))
         imgSelect.isUserInteractionEnabled = true
         imgSelect.addGestureRecognizer(tap)
+        
+        lblSelected.isUserInteractionEnabled = true
+        lblSelected.addGestureRecognizer(tap)
     }
     
     func configure(placeholder: String? = "", errorMessage: String? = nil, status: SelectTextFieldStatus, imageSelect: UIImage) {
@@ -281,7 +284,7 @@ class SelectTextField: UIView {
         isPlaceholderOnTop = true
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 12)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 13)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.topAnchor.constraint(equalTo: self.viewContainer.topAnchor, constant: -8),
@@ -303,7 +306,7 @@ class SelectTextField: UIView {
         isPlaceholderOnTop = false
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 14)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 15)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),

@@ -105,7 +105,7 @@ extension AppRouter: AuthenticationRouterDelegate {
             let repository = UserDataRepository()
             let useCase = UserUseCase(userRepository: repository)
             let viewModel = RecoverPasswordViewModel(router: self, successfulRouter: self, userUseCase: useCase, otpId: otpId, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC)
-            let recoverPasswordViewController = RecoverPasswordViewController(viewModel: viewModel)//LoginInformationViewController(viewModel: viewModel)
+            let recoverPasswordViewController = RecoverPasswordViewController(viewModel: viewModel)
             viewModel.delegate = recoverPasswordViewController
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.pushViewController(recoverPasswordViewController, animated: true)

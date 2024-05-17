@@ -173,7 +173,7 @@
                                 <constraint firstAttribute="trailing" secondItem="12N-ex-bxm" secondAttribute="trailing" constant="18" id="xrO-bv-4tS"/>
                             </constraints>
                         </scrollView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al continuar aceptas los Términos y condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Gl-KYK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Al continuar aceptas los Términos y Condiciones" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtG-Gl-KYK">
                             <rect key="frame" x="18" y="641.33333333333337" width="357" height="17.666666666666629"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                             <color key="textColor" name="blue_twilight"/>

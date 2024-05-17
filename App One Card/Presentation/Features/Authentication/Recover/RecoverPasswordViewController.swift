@@ -69,8 +69,8 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     private func setTerms() {
-        let longString = "Al continuar aceptas los Términos y condiciones"
-        let longestWordRange = (longString as NSString).range(of: "Términos y condiciones")
+        let longString = "Al continuar aceptas los Términos y Condiciones"
+        let longestWordRange = (longString as NSString).range(of: "Términos y Condiciones")
 
         let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 14)!])
 

@@ -28,6 +28,7 @@ class Constants {
     static let tab_title_proms: String = "Promociones"
     static let tab_title_config: String = "Configuración"
     static let error: String = "Error"
+    static let missingData: String = "Datos faltantes"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"

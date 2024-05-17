@@ -54,7 +54,7 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func login() {
         if self.username.isEmpty || self.password.isEmpty {
-            delegate?.showError(title: Constants.error, description: Constants.login_error_incomplete_data, onAccept: nil)
+            delegate?.showError(title: Constants.missingData, description: Constants.login_error_incomplete_data, onAccept: nil)
         } else {
             delegate?.showLoader()
             let request = LoginRequest(user: username, password: password)

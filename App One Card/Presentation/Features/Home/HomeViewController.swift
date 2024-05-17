@@ -53,8 +53,11 @@ class HomeViewController: BaseViewController {
             flowLayout.scrollDirection = .horizontal
         }
         
+        imgQuestions.addShadow(color: UIColor(hexString: "#E6E9EF"), radius: 10)
+        
         [viewOneCard, viewConfigureCard, viewCardLock, viewChangePin].forEach { view in
-            view.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
+            view?.layer.cornerRadius = 4
+            view?.addShadow(opacity: 0.08, offset: CGSize(width: 2, height: 4), radius: 8)
         }
         
         imgQuestions.addShadow(color: UIColor(red: 0.902, green: 0.914, blue: 0.937, alpha: 1), opacity: 1, offset: CGSize(width: 0, height: 6), radius: 5)

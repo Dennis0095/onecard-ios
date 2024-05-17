@@ -23,7 +23,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kM2-oh-Uxd">
                                 <rect key="frame" x="0.0" y="0.0" width="297" height="146"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_card" translatesAutoresizingMaskIntoConstraints="NO" id="sim-SG-T8y">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sim-SG-T8y">
                                         <rect key="frame" x="0.0" y="0.0" width="297" height="146"/>
                                     </imageView>
                                 </subviews>
@@ -54,7 +54,4 @@
             <point key="canvasLocation" x="3.8167938931297707" y="53.521126760563384"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="one_card" width="163" height="208"/>
-    </resources>
 </document>

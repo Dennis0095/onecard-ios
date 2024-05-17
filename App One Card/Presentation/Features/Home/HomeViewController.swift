@@ -226,7 +226,14 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate { }
+extension HomeViewController: UICollectionViewDelegate { 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let banner = viewModel.banners[indexPath.row]
+        if let url = URL(string: banner.link ?? "") {
+            UIApplication.shared.open(url)
+        }
+    }
+}
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

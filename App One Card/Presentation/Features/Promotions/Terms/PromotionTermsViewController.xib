@@ -79,7 +79,7 @@
                             <rect key="frame" x="20" y="112" width="313" height="150"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7op-tC-8C2">
-                                    <rect key="frame" x="0.0" y="0.0" width="47" height="20.333333333333332"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="20.333333333333332"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -90,6 +90,7 @@
                                 <constraint firstItem="7op-tC-8C2" firstAttribute="top" secondItem="QzC-Rt-xAT" secondAttribute="top" id="ddi-eg-Tgc"/>
                                 <constraint firstAttribute="trailing" secondItem="7op-tC-8C2" secondAttribute="trailing" id="nEC-2O-PFz"/>
                                 <constraint firstItem="7op-tC-8C2" firstAttribute="leading" secondItem="QzC-Rt-xAT" secondAttribute="leading" id="vKt-nv-SLZ"/>
+                                <constraint firstItem="7op-tC-8C2" firstAttribute="centerX" secondItem="QzC-Rt-xAT" secondAttribute="centerX" id="wE9-HD-YTB"/>
                                 <constraint firstAttribute="bottom" secondItem="7op-tC-8C2" secondAttribute="bottom" id="xaS-qK-o5G"/>
                             </constraints>
                         </scrollView>

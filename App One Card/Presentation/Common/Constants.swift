@@ -36,6 +36,9 @@ class Constants {
     //MARK: Login error
     static let login_error_incomplete_data: String = "Por favor, ingresa todos los datos solicitados."
     
+    static let user_is_in_use = "El usuario está en uso"
+    static let please_choose_another_username = "Por favor, elige otro nombre de usuario."
+    
     static let must_contain_between_9_to_12_numbers = "Debe contener entre 9 a 12 números"
     static let must_contain_8_numbers = "Debe contener 8 números"
     static let enter_immigration_card = "Ingresa tu carnet de extranjería"

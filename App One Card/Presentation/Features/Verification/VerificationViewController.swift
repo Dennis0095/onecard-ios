@@ -167,7 +167,7 @@ class VerificationViewController: BaseViewController {
     }
     
     private func sendOTP() {
-        if viewModel.operationType == "RU" || viewModel.operationType == "OU" || viewModel.operationType == "RC" {
+        if viewModel.operationType == "RU" || viewModel.operationType == Constants.user_recovery_operation_type || viewModel.operationType == "RC" {
             viewModel.sendOTP(toNumber: sendToNumber)
         } else {
             viewModel.sendOTPToUpdate(toNumber: sendToNumber)
@@ -180,7 +180,7 @@ class VerificationViewController: BaseViewController {
     
     @IBAction func next(_ sender: Any) {
         if txtCode.validateIsValid() {
-            if viewModel.operationType == "RU" || viewModel.operationType == "OU" || viewModel.operationType == "RC" {
+            if viewModel.operationType == "RU" || viewModel.operationType == Constants.user_recovery_operation_type || viewModel.operationType == "RC" {
                 viewModel.validateOTP()
             } else {
                 viewModel.validateOTPToUpdate()
@@ -210,6 +210,23 @@ extension VerificationViewController: VerificationViewModelDelegate {
     }
     
     func failureSendOtp(error: APIError) {
+        DispatchQueue.main.async {
+            self.lblTitleError.text = error.error().title
+            self.lblMessageError.text = error.error().description
+            
+            switch error {
+            case .networkError:
+                self.imgError.image = #imageLiteral(resourceName: "connection_error_blue.svg")
+            default:
+                self.imgError.image = #imageLiteral(resourceName: "something_went_wrong_blue.svg")
+            }
+            
+            self.viewError.isHidden = false
+            self.viewVerification.isHidden = true
+        }
+    }
+    
+    func failureRecoverUser(error: APIError) {
         DispatchQueue.main.async {
             self.lblTitleError.text = error.error().title
             self.lblMessageError.text = error.error().description

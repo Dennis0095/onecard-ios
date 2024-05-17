@@ -47,4 +47,8 @@ class UserDataRepository: UserRepository {
     func createNewPassword(request: NewPasswordRequest) -> AnyPublisher<NewPasswordResponse, APIError> {
         return APIClient.callAPI(route: .recoverPassword, method: .post, request: request)
     }
+    
+    func userRecovery(request: UserRecoveryRequest) -> AnyPublisher<UserRecoveryResponse, APIError> {
+        return APIClient.callAPI(route: .userRecovery, method: .post, request: request)
+    }
 }

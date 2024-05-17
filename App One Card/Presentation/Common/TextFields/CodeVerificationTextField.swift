@@ -30,7 +30,7 @@ class CodeVerificationTextField: UITextField {
         label.numberOfLines = 1
         label.text = "Debe contener 6 números"
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 13)
         label.isHidden = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -72,10 +72,11 @@ class CodeVerificationTextField: UITextField {
     
     private func createViewsStackView(with count: Int) -> UIStackView {
         let stackView = UIStackView()
+        let spacing: CGFloat = 4
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.spacing = 4
+        stackView.spacing = spacing
         stackView.distribution = .fill
         
         for _ in 1 ... count {
@@ -91,9 +92,12 @@ class CodeVerificationTextField: UITextField {
             
             digitLabels.append(label)
             
+            let totalSpacing: CGFloat = CGFloat((count - 1)) * spacing
+            let width = (self.frame.size.width - totalSpacing) / CGFloat(count)
+            
             NSLayoutConstraint.activate([
-                label.heightAnchor.constraint(equalToConstant: 56),
-                label.widthAnchor.constraint(equalToConstant: 56),
+                label.heightAnchor.constraint(equalToConstant: width),
+                label.widthAnchor.constraint(equalToConstant: width),
             ])
             
         }

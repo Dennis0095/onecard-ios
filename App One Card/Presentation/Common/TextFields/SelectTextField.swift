@@ -66,7 +66,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = .red
-        label.font = UIFont(name: "Gotham-Book", size: 14)
+        label.font = UIFont(name: "ProximaNova-Medium", size: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -182,8 +182,13 @@ class SelectTextField: UIView {
         imgSelect.isUserInteractionEnabled = true
         imgSelect.addGestureRecognizer(tap)
         
+        let tapText = UITapGestureRecognizer(target: self, action: #selector(tapSelect))
         lblSelected.isUserInteractionEnabled = true
-        lblSelected.addGestureRecognizer(tap)
+        lblSelected.addGestureRecognizer(tapText)
+        
+        let tapPlaceholder = UITapGestureRecognizer(target: self, action: #selector(tapSelectPlaceholder))
+        lblPlaceholder.isUserInteractionEnabled = true
+        lblPlaceholder.addGestureRecognizer(tapPlaceholder)
     }
     
     func configure(placeholder: String? = "", errorMessage: String? = nil, status: SelectTextFieldStatus, imageSelect: UIImage) {
@@ -204,7 +209,7 @@ class SelectTextField: UIView {
         case .defaultData:
             alpha = 1.0
             viewPlaceholder.backgroundColor = .white
-            lblPlaceholder.textColor = Design.color(.grey60)
+            lblPlaceholder.textColor = (text.isEmpty) ? Design.color(.grey60) : Design.color(.grey100)
             viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
@@ -215,7 +220,7 @@ class SelectTextField: UIView {
         case .activated:
             alpha = 1.0
             viewPlaceholder.backgroundColor = .white
-            lblPlaceholder.textColor = Design.color(.grey60)
+            lblPlaceholder.textColor = (text.isEmpty) ? Design.color(.grey60) : Design.color(.grey100)
             viewSelected.layer.borderColor = Design.color(.grey20).cgColor
             
             if errorMessage != nil {
@@ -278,6 +283,8 @@ class SelectTextField: UIView {
                 showPlaceholderOnTop()
             }
         }
+        
+        self.layoutIfNeeded()
     }
     
     func showPlaceholderOnTop() {
@@ -326,6 +333,12 @@ class SelectTextField: UIView {
     
     @objc func tapSelect() {
         if let select = self.action {
+            select()
+        }
+    }
+    
+    @objc func tapSelectPlaceholder() {
+        if let select = self.action, text.isEmpty {
             select()
         }
     }

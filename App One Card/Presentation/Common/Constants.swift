@@ -8,6 +8,7 @@
 import Foundation
 
 class Constants {
+    static let welcome: String = "BIENVENIDO"
     static let placeholder_user: String = "Usuario digital"
     static let placeholder_password: String = "Clave digital"
     static let placeholder_name: String = "Nombres"
@@ -63,6 +64,8 @@ class Constants {
     static let ptp_id = "7"
     
     static let defaultLink = "www.google.com"
+    
+    static let user_recovery_operation_type = "OU"
     
     //MARK: Keys User Defaults
     static let keyToken = "token"

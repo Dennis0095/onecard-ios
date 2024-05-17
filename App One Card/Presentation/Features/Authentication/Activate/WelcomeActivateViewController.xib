@@ -35,19 +35,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_activate" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-ZJ-jVy">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="490.66666666666669"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="520"/>
                         </imageView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCZ-ub-UcS">
-                            <rect key="frame" x="0.0" y="490.66666666666669" width="393" height="203.33333333333331"/>
+                            <rect key="frame" x="0.0" y="520" width="393" height="174"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO ANDRÉS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
-                                    <rect key="frame" x="18" y="31.999999999999943" width="357" height="17.333333333333329"/>
+                                    <rect key="frame" x="18" y="32" width="357" height="17.333333333333329"/>
                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
-                                    <rect key="frame" x="18" y="73.333333333333314" width="357" height="75"/>
+                                    <rect key="frame" x="18" y="73.333333333333371" width="357" height="75"/>
                                     <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                     <color key="textColor" name="blue_twilight"/>
@@ -98,7 +98,6 @@
                         <constraint firstItem="8zB-ZJ-jVy" firstAttribute="centerX" secondItem="8rD-KN-77z" secondAttribute="centerX" id="gU2-e5-6zZ"/>
                         <constraint firstItem="ZCZ-ub-UcS" firstAttribute="top" secondItem="8zB-ZJ-jVy" secondAttribute="bottom" id="iXN-Wo-PJx"/>
                         <constraint firstAttribute="trailing" secondItem="ZCZ-ub-UcS" secondAttribute="trailing" id="kjP-bj-OcQ"/>
-                        <constraint firstItem="8zB-ZJ-jVy" firstAttribute="height" secondItem="8rD-KN-77z" secondAttribute="height" multiplier="0.6" id="oOK-4s-UwA"/>
                         <constraint firstAttribute="trailing" secondItem="8zB-ZJ-jVy" secondAttribute="trailing" id="sfR-kr-daY"/>
                         <constraint firstItem="zc2-TB-zgs" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" constant="18" id="uan-6B-ey5"/>
                         <constraint firstItem="8zB-ZJ-jVy" firstAttribute="top" secondItem="8rD-KN-77z" secondAttribute="top" id="uma-xK-Zv0"/>
@@ -119,7 +118,7 @@
         </view>
     </objects>
     <resources>
-        <image name="bg_activate" width="375" height="465"/>
+        <image name="bg_activate" width="420" height="520"/>
         <namedColor name="blue_lake_front">
             <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

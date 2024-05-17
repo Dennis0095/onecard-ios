@@ -218,10 +218,10 @@ class OutlinedTextField: UIView {
         switch status {
         case .activated:
             alpha = 1.0
-            lblPlaceholder.textColor = Design.color(.grey60)
+            lblPlaceholder.textColor = (text.isEmpty) ? Design.color(.grey60) : Design.color(.grey100)
             txt.layer.borderColor = Design.color(.grey20).cgColor
             txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
+            txt.textColor = Design.color(.blue_twilight)
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = true
             
@@ -234,7 +234,7 @@ class OutlinedTextField: UIView {
             txt.layer.borderColor = Design.color(.primary).cgColor
             lblPlaceholder.textColor = Design.color(.grey100)
             txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
+            txt.textColor = Design.color(.blue_twilight)
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = true
             
@@ -247,7 +247,7 @@ class OutlinedTextField: UIView {
             lblPlaceholder.textColor = Design.color(.grey60)
             txt.layer.borderColor = Design.color(.grey20).cgColor
             txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
+            txt.textColor = Design.color(.blue_twilight)
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = false
             
@@ -258,7 +258,7 @@ class OutlinedTextField: UIView {
         case .errorUnfocused:
             alpha = 1.0
             txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
+            txt.textColor = Design.color(.blue_twilight)
             txt.layer.borderColor = Design.color(.grey20).cgColor
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = true
@@ -273,7 +273,7 @@ class OutlinedTextField: UIView {
         case .errorFocused:
             alpha = 1.0
             txt.backgroundColor = .white
-            txt.textColor = Design.color(.grey100)
+            txt.textColor = Design.color(.blue_twilight)
             txt.layer.borderColor = Design.color(.primary).cgColor
             viewPlaceholder.backgroundColor = .white
             txt.isEnabled = true
@@ -316,7 +316,7 @@ class OutlinedTextField: UIView {
         isPlaceholderOnTop = false
         viewPlaceholder.removeAllConstraints()
         
-        lblPlaceholder.font = UIFont(name: "Gotham-Book", size: 14)
+        lblPlaceholder.font = UIFont(name: "ProximaNova-Medium", size: 15)
         
         NSLayoutConstraint.activate([
             viewPlaceholder.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),

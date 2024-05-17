@@ -36,6 +36,7 @@ enum Route {
     case consultPromotions
     case frequentQuestions
     case recoverPassword
+    case userRecovery
     case banners
     case consultGeneralParameters
     case promotionDetail
@@ -108,6 +109,8 @@ enum Route {
             return "/txn-admin-auth/logout"
         case .promotionDetail:
             return "/busqueda/txn-data/consulta-promociones-detalle"
+        case .userRecovery:
+            return "/txn-sec/recuperacion-usuario"
         case .without:
             return ""
         }

@@ -33,7 +33,7 @@ class WelcomeActivateViewController: BaseViewController {
         
         btnActivate.configure(text: "Activar", status: .enabled)
         btnLater.configure(text: "Lo haré luego")
-        lblName.text = "BIENVENIDO \(name)".uppercased()
+        lblName.text = "\(Constants.welcome), \(name)".uppercased()
     }
     
     @IBAction func activate(_ sender: Any) {

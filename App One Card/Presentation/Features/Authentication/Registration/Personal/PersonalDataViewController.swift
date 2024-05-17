@@ -61,9 +61,9 @@ class PersonalDataViewController: BaseViewController {
                     self.txtBirthday.setText(string: strDate)
                     self.viewModel.birthday = strDate
                 }
-                self.txtBirthday.status = self.txtBirthday.isValid ? .activated : .error
+                self.txtBirthday.status = .activated
             }, presented: {
-                self.txtBirthday.status = self.txtBirthday.isValid ? .focused : .errorFocused
+                self.txtBirthday.status = .focused
             })
         }
         

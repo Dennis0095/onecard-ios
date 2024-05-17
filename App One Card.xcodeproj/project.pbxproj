@@ -257,6 +257,8 @@
 		B60AC4CD2BED8FB0000C2917 /* ProximaNova-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */; };
 		B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */; };
 		B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */; };
+		B6133C0E2BF7DE14001DB44D /* UserRecoveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */; };
+		B6133C102BF7DE62001DB44D /* UserRecoveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */; };
 		B62A32B92BF280810058AFE9 /* PromotionDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */; };
 		B62A32BB2BF2821D0058AFE9 /* PromotionDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */; };
 		B62A32BF2BF295970058AFE9 /* PromotionTermsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B62A32BE2BF295970058AFE9 /* PromotionTermsViewController.xib */; };
@@ -532,6 +534,8 @@
 		B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Medium.otf"; sourceTree = "<group>"; };
 		B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
 		B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecoveryRequest.swift; sourceTree = "<group>"; };
+		B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecoveryResponse.swift; sourceTree = "<group>"; };
 		B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailResponse.swift; sourceTree = "<group>"; };
 		B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailRequest.swift; sourceTree = "<group>"; };
 		B62A32BD2BF295970058AFE9 /* PromotionTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTermsViewController.swift; sourceTree = "<group>"; };
@@ -613,6 +617,7 @@
 				B60AC4982BED295A000C2917 /* GeneralParametersResponse.swift */,
 				B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */,
 				B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */,
+				B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1097,6 +1102,7 @@
 				B62F02002B9840290090ABA8 /* ConsultBannersRequest.swift */,
 				B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */,
 				B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */,
+				B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1625,6 +1631,7 @@
 				0D65EA292A6D00E700819637 /* ChangeCardOnlineShoppingStatusResponse.swift in Sources */,
 				0DC882582A6457A000DAD073 /* LoaderDisplaying.swift in Sources */,
 				0D45B1712A303B9800EFC7F4 /* DateUtils.swift in Sources */,
+				B6133C0E2BF7DE14001DB44D /* UserRecoveryRequest.swift in Sources */,
 				0D6B91712A4B92F70045D149 /* SendOTPRegisterResponse.swift in Sources */,
 				0D50B9AB2A8FAED00009F624 /* FrequentQuestionsDelegateDataSource.swift in Sources */,
 				0DFA7C9F2A6DBC660031178B /* CardLockViewModel.swift in Sources */,
@@ -1649,6 +1656,7 @@
 				0D50B99F2A8FABB70009F624 /* QuestionResponse.swift in Sources */,
 				0DF183E32A68D3B4004A0621 /* PromotionsViewModel.swift in Sources */,
 				0D65EA192A6B036800819637 /* CardStatusResponse.swift in Sources */,
+				B6133C102BF7DE62001DB44D /* UserRecoveryResponse.swift in Sources */,
 				0DF183F32A696D1C004A0621 /* ChangePasswordViewModel.swift in Sources */,
 				0D8D9F722A5DDE1000E6C8C6 /* KeyUseCase.swift in Sources */,
 				0D7DCD1E2A723EB0006F9CA5 /* PromotionUseCase.swift in Sources */,

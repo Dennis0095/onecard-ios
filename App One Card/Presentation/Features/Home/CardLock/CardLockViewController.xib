@@ -90,11 +90,11 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-0R-Ocq">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="643"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="EHJ-8q-bCn">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="EHJ-8q-bCn">
                                                             <rect key="frame" x="18" y="15.999999999999986" width="357" height="234.66666666666663"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yws-t6-Gor">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="68.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="68.666666666666671"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para continuar, Ingresa el código que te hemos enviado al número ******321." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-LM-9Fl">
                                                                             <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="37.666666666666664"/>
@@ -116,18 +116,17 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EEX-lK-P2C">
-                                                                    <rect key="frame" x="0.0" y="92.666666666666657" width="50" height="76"/>
+                                                                    <rect key="frame" x="0.0" y="92.666666666666657" width="357" height="76"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="qAm-lp-xlD" customClass="CodeVerificationTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="akp-A6-f6K"/>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" id="rFO-aC-IEc"/>
                                                                             </constraints>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVp-iP-iEX">
-                                                                            <rect key="frame" x="0.0" y="56.000000000000028" width="50" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="56.000000000000028" width="357" height="20"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="s8H-B5-Vwe"/>
@@ -135,11 +134,11 @@
                                                                         </view>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9QR-Wu-djI">
-                                                                    <rect key="frame" x="0.0" y="192.66666666666669" width="290.33333333333331" height="42"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9QR-Wu-djI">
+                                                                    <rect key="frame" x="0.0" y="192.66666666666669" width="357" height="42"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No recibiste el código?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjQ-De-Spj">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="290.33333333333331" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="19"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                                             <color key="textColor" name="grey80"/>
                                                                             <nil key="highlightedColor"/>

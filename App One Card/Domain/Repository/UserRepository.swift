@@ -9,6 +9,7 @@ import Combine
 
 protocol UserRepository {
     func login(request: LoginRequest) -> AnyPublisher<LoginResponse, APIError>
+    func userRecovery(request: UserRecoveryRequest) -> AnyPublisher<UserRecoveryResponse, APIError>
     func validateAffiliation(request: ValidateAffiliationRequest) -> AnyPublisher<ValidateAffiliationResponse, APIError>
     func validatePersonalData(request: ValidatePersonalDataRequest) -> AnyPublisher<ValidatePersonaDataResponse, APIError>
     func userRegister(request: UserRegisterRequest) -> AnyPublisher<UserRegisterResponse, APIError>

@@ -323,11 +323,25 @@ extension AppRouter: AuthenticationRouterDelegate {
 }
 
 extension AppRouter: VerificationRouterDelegate {
-    func navigateToVerification(email: String, number: String, documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, operationType: String, maskPhoneEmail: Bool, success: @escaping VerificationActionHandler) {
+    func navigateToVerification(email: String, number: String, documentType: String, documentNumber: String, companyRUC: String, navTitle: String, stepDescription: String, operationType: String, maskPhoneEmail: Bool, success: VerificationActionHandler?) {
         DispatchQueue.main.async {
             let repository = OTPDataRepository()
             let useCase = OTPUseCase(otpRepository: repository)
-            let viewModel = VerificationViewModel(router: self, otpUseCase: useCase, documentType: documentType, documentNumber: documentNumber, companyRUC: companyRUC, email: email, number: number, operationType: operationType, maskPhoneEmail: maskPhoneEmail)
+            
+            let userRepository = UserDataRepository()
+            let userUseCase = UserUseCase(userRepository: userRepository)
+            let viewModel = VerificationViewModel(router: self,
+                                                  successfulRouter: self,
+                                                  authRouter: self,
+                                                  otpUseCase: useCase,
+                                                  userUseCase: userUseCase,
+                                                  documentType: documentType,
+                                                  documentNumber: documentNumber,
+                                                  companyRUC: companyRUC,
+                                                  email: email,
+                                                  number: number,
+                                                  operationType: operationType,
+                                                  maskPhoneEmail: maskPhoneEmail)
             viewModel.success = success
             let verificationViewController = VerificationViewController(viewModel: viewModel, navTitle: navTitle, step: stepDescription, titleDescription: "Ingresa tu código de validación", buttonTitle: Constants.next_btn)
             viewModel.delegate = verificationViewController

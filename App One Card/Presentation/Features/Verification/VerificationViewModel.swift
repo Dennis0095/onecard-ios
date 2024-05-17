@@ -29,6 +29,7 @@ protocol VerificationViewModelProtocol {
 protocol VerificationViewModelDelegate: LoaderDisplaying {
     func successSendOtp()
     func failureSendOtp(error: APIError)
+    func failureRecoverUser(error: APIError)
 }
 
 class VerificationViewModel: VerificationViewModelProtocol {
@@ -46,12 +47,17 @@ class VerificationViewModel: VerificationViewModelProtocol {
     var delegate: VerificationViewModelDelegate?
     
     private let otpUseCase: OTPUseCase
+    private let userUseCase: UserUseCase
     private let router: Router
+    private let successfulRouter: SuccessfulRouterDelegate
+    private let authRouter: AuthenticationRouterDelegate
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: Router, otpUseCase: OTPUseCase, documentType: String, documentNumber: String, companyRUC: String, email: String, number: String, operationType: String, maskPhoneEmail: Bool) {
+    init(router: Router, successfulRouter: SuccessfulRouterDelegate, authRouter: AuthenticationRouterDelegate, otpUseCase: OTPUseCase, userUseCase: UserUseCase, documentType: String, documentNumber: String, companyRUC: String, email: String, number: String, operationType: String, maskPhoneEmail: Bool) {
         self.router = router
+        self.successfulRouter = successfulRouter
+        self.authRouter = authRouter
         self.otpUseCase = otpUseCase
         self.documentType = documentType
         self.documentNumber = documentNumber
@@ -60,6 +66,42 @@ class VerificationViewModel: VerificationViewModelProtocol {
         self.email = email
         self.number = number
         self.maskPhoneEmail = maskPhoneEmail
+        self.userUseCase = userUseCase
+    }
+    
+    private func userRecovery(otpId: String, documentType: String, documentNumber: String, companyRUC: String) {
+        delegate?.showLoader()
+        
+        let request = UserRecoveryRequest(otpId: otpId,
+                                          documentType: documentType,
+                                          documentNumber: documentNumber,
+                                          companyRUC: companyRUC)
+        
+        let cancellable = userUseCase.userRecovery(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    self.delegate?.hideLoader()
+                    self.delegate?.failureRecoverUser(error: apiError)
+                }
+            } receiveValue: { response in
+                self.delegate?.hideLoader()
+                
+                let title = response.title ?? ""
+                let description = response.message ?? ""
+                let apiError = APIError.custom(title, description)
+                
+                if response.success == "1" {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su usuario digital es:", description: response.userName ?? "", button: "Ingresar", image: #imageLiteral(resourceName: "user_recovery_successfully.svg")) {
+                        self.authRouter.navigateToLogin()
+                    }
+                } else {
+                    self.delegate?.failureRecoverUser(error: apiError)
+                }
+            }
+        
+        cancellable.store(in: &cancellables)
     }
     
     func sendOTP(toNumber: Bool) {
@@ -190,17 +232,24 @@ class VerificationViewModel: VerificationViewModelProtocol {
                     self.delegate?.hideLoader()
                     self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
-            } receiveValue: { response in
+            } receiveValue: { [weak self] response in
                 let title = response.title ?? ""
                 let description = response.message ?? ""
                 
-                self.delegate?.hideLoader()
+                self?.delegate?.hideLoader()
                 if response.indexMatchOTP == "1" {
-                    if let action = self.success {
-                        action(otp)
+                    if self?.operationType == Constants.user_recovery_operation_type {
+                        self?.userRecovery(otpId: otp,
+                                           documentType: self?.documentType ?? "",
+                                           documentNumber: self?.documentNumber ?? "",
+                                          companyRUC: self?.companyRUC ?? "")
+                    } else {
+                        if let action = self?.success {
+                            action(otp)
+                        }
                     }
                 } else {
-                    self.delegate?.showError(title: title, description: description, onAccept: nil)
+                    self?.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         

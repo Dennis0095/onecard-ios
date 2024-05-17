@@ -27,7 +27,7 @@ class WelcomeActivateViewModel: WelcomeActivateViewModelProtocol {
         router.navigateToPin { operationId, _ in
             self.router.navigateToNewPin { _, newPin in
                 self.router.navigateToConfirmPin(operationId: operationId, newPin: newPin) { _, _ in
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Tu tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a tu correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Tu tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a tu correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
                         CardSessionManager.shared.saveStatus(status: .ACTIVE)
                         self.router.navigateToHome()
                     }

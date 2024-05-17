@@ -99,7 +99,7 @@ class HomeViewModel: HomeViewModelProtocol {
         router.navigateToInputCurrentPin { operationId, _ in
             self.router.navigateToInputNewPin { _, newPin in
                 self.router.navigateToInputPinConfirmation(newPin: newPin, operationId: operationId) { _, _ in
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Has cambiado tu PIN con éxito. Hemos enviado la constancia de operación a tu correo.", button: "Regresar", image: #imageLiteral(resourceName: "change_pin_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Has cambiado tu PIN con éxito. Hemos enviado la constancia de operación a tu correo.", button: "Regresar", image: #imageLiteral(resourceName: "change_pin_successfully.svg")) {
                         self.router.backToHome()
                     }
                 }
@@ -115,7 +115,7 @@ class HomeViewModel: HomeViewModelProtocol {
         authRouter.navigateToPin { operationId, _ in
             self.authRouter.navigateToNewPin { _, newPin in
                 self.authRouter.navigateToConfirmPin(operationId: operationId, newPin: newPin) { _, _ in
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "¡Felicidades!", description: "Tu tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a tu correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: Constants.congratulations, description: "Tu tarjeta ha sido activada con éxito. Hemos enviado la constancia de operación a tu correo.", button: Constants.accept, image: #imageLiteral(resourceName: "card_activated_successfully.svg")) {
                         CardSessionManager.shared.saveStatus(status: .ACTIVE)
                         self.router.backToHome()
                     }

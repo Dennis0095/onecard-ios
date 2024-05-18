@@ -16,7 +16,7 @@
         <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </array>
-        <array key="Proxima Nova Medium.otf">
+        <array key="ProximaNova-Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
@@ -75,7 +75,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWM-rl-khG">
                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="719"/>
                                     <subviews>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="amc-ou-TTE">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="amc-ou-TTE">
                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="719"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <inset key="scrollIndicatorInsets" minX="18" minY="0.0" maxX="18" maxY="0.0"/>

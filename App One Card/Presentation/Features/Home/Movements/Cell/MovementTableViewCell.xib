@@ -9,72 +9,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Proxima Nova Light.otf">
+        <array key="ProximaNova-Light.otf">
             <string>ProximaNova-Light</string>
         </array>
-        <array key="Proxima Nova Medium.otf">
+        <array key="ProximaNova-Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="MovementTableViewCell" customModule="DEV_App_One_Card" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="324" height="66"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="MovementTableViewCell" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="66"/>
+                <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gwe-2q-fn1">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="66"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eMS-jK-On9">
-                                <rect key="frame" x="18" y="0.0" width="288" height="66"/>
+                                <rect key="frame" x="18" y="0.0" width="288" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDQ-fj-0XV">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="59"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-d3-PIl">
-                                                <rect key="frame" x="0.0" y="15.666666666666664" width="288" height="34"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-Yi-kBK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="34"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7i-Cp-TDn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="19"/>
-                                                                <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
-                                                                <color key="textColor" name="blue_twilight"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Abr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epR-Wo-bse">
-                                                                <rect key="frame" x="0.0" y="19" width="75.666666666666671" height="15"/>
-                                                                <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="15"/>
-                                                                <color key="textColor" name="blue_twilight"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvz-Y6-rKq">
-                                                        <rect key="frame" x="240.33333333333329" y="0.0" width="47.666666666666657" height="34"/>
-                                                        <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" name="grey80"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7i-Cp-TDn">
+                                                <rect key="frame" x="0.0" y="10" width="183" height="19"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
+                                                <color key="textColor" name="blue_twilight"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S/ 0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wvz-Y6-rKq">
+                                                <rect key="frame" x="188" y="10" width="100" height="39"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Ogt-AM-sSZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
+                                                <color key="textColor" name="grey80"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Abr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epR-Wo-bse">
+                                                <rect key="frame" x="0.0" y="29" width="40.333333333333336" height="15"/>
+                                                <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="15"/>
+                                                <color key="textColor" name="blue_twilight"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="tTd-d3-PIl" firstAttribute="centerY" secondItem="KDQ-fj-0XV" secondAttribute="centerY" id="1W1-pD-n1i"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tTd-d3-PIl" secondAttribute="bottom" constant="8" id="73j-58-HL0"/>
-                                            <constraint firstItem="tTd-d3-PIl" firstAttribute="leading" secondItem="KDQ-fj-0XV" secondAttribute="leading" id="JCv-9i-KVr"/>
-                                            <constraint firstItem="tTd-d3-PIl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KDQ-fj-0XV" secondAttribute="top" constant="8" id="ZqM-pL-H3f"/>
-                                            <constraint firstAttribute="trailing" secondItem="tTd-d3-PIl" secondAttribute="trailing" id="nZ1-o0-Cuy"/>
+                                            <constraint firstItem="Wvz-Y6-rKq" firstAttribute="top" secondItem="KDQ-fj-0XV" secondAttribute="top" constant="10" id="EBY-D3-idK"/>
+                                            <constraint firstItem="epR-Wo-bse" firstAttribute="leading" secondItem="KDQ-fj-0XV" secondAttribute="leading" id="EcO-Rw-bPN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wvz-Y6-rKq" secondAttribute="trailing" id="EgM-W9-FvL"/>
+                                            <constraint firstItem="Wvz-Y6-rKq" firstAttribute="leading" secondItem="R7i-Cp-TDn" secondAttribute="trailing" constant="5" id="FDh-jw-28C"/>
+                                            <constraint firstItem="Wvz-Y6-rKq" firstAttribute="centerY" secondItem="KDQ-fj-0XV" secondAttribute="centerY" id="OVC-u3-mpG"/>
+                                            <constraint firstItem="R7i-Cp-TDn" firstAttribute="leading" secondItem="KDQ-fj-0XV" secondAttribute="leading" id="awf-1W-htg"/>
+                                            <constraint firstItem="epR-Wo-bse" firstAttribute="top" secondItem="R7i-Cp-TDn" secondAttribute="bottom" id="dzn-4C-g6d"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="epR-Wo-bse" secondAttribute="bottom" constant="10" id="hHg-pm-UUC"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Wvz-Y6-rKq" secondAttribute="bottom" constant="10" id="q7b-De-b9Q"/>
+                                            <constraint firstItem="R7i-Cp-TDn" firstAttribute="top" secondItem="KDQ-fj-0XV" secondAttribute="top" constant="10" id="xlg-39-M22"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-X7-z22">
-                                        <rect key="frame" x="0.0" y="65" width="288" height="1"/>
+                                        <rect key="frame" x="0.0" y="59" width="288" height="1"/>
                                         <color key="backgroundColor" name="grey20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="djF-vO-6O9"/>
@@ -107,7 +105,7 @@
                 <outlet property="lblDate" destination="epR-Wo-bse" id="3w7-e4-NuD"/>
                 <outlet property="lblDescription" destination="R7i-Cp-TDn" id="3z5-lt-UO1"/>
             </connections>
-            <point key="canvasLocation" x="-25.954198473282442" y="27.464788732394368"/>
+            <point key="canvasLocation" x="-25.954198473282442" y="2.8169014084507045"/>
         </tableViewCell>
     </objects>
     <resources>

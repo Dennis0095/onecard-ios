@@ -9,13 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Proxima Nova Black.otf">
+        <array key="ProximaNova-Black.otf">
             <string>ProximaNova-Black</string>
         </array>
-        <array key="Proxima Nova Bold.otf">
+        <array key="ProximaNova-Bold.otf">
             <string>ProximaNova-Bold</string>
         </array>
-        <array key="Proxima Nova Medium.otf">
+        <array key="ProximaNova-Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
@@ -52,7 +52,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="wlx-O9-TAF">
-                                    <rect key="frame" x="0.0" y="13" width="393" height="687.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="13" width="393" height="711.33333333333337"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-G9-xJE">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="282"/>
@@ -263,13 +263,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKT-X0-thV">
-                                            <rect key="frame" x="0.0" y="306" width="393" height="183.66666666666663"/>
+                                            <rect key="frame" x="0.0" y="306" width="393" height="207.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-fU-xDG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="183.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="207.66666666666666"/>
                                                     <subviews>
                                                         <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82a-9V-Xdg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="183.66666666666666"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="207.66666666666666"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Últimos movimientos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-Wt-75t">
                                                                     <rect key="frame" x="18" y="0.0" width="0.0" height="19.666666666666668"/>
@@ -288,11 +288,11 @@
                                                                         <action selector="toMovements:" destination="-1" eventType="touchUpInside" id="Jks-8v-Dvq"/>
                                                                     </connections>
                                                                 </button>
-                                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X3t-04-XdG">
-                                                                    <rect key="frame" x="0.0" y="27.666666666666686" width="46" height="156"/>
+                                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X3t-04-XdG">
+                                                                    <rect key="frame" x="0.0" y="27.666666666666686" width="46" height="180"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="156" id="lRf-xY-OX2"/>
+                                                                        <constraint firstAttribute="height" priority="250" constant="220" id="iyr-uF-IEW"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -313,10 +313,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-Vh-KRA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="183.66666666666666"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="207.66666666666666"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="92a-c7-xuY">
-                                                                    <rect key="frame" x="20" y="57.333333333333314" width="353" height="69"/>
+                                                                    <rect key="frame" x="20" y="69.333333333333314" width="353" height="69"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es necesario que actives tu tarjeta " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btH-tV-iYd">
                                                                             <rect key="frame" x="61.333333333333329" y="0.0" width="230.66666666666669" height="19"/>
@@ -361,7 +361,7 @@
                                             </constraints>
                                         </view>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xly-Ay-z35">
-                                            <rect key="frame" x="0.0" y="513.66666666666663" width="393" height="173.66666666666663"/>
+                                            <rect key="frame" x="0.0" y="537.66666666666663" width="393" height="173.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-8y-1GM">
                                                     <rect key="frame" x="18" y="0.0" width="357" height="173.66666666666666"/>

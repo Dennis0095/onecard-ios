@@ -12,6 +12,7 @@ import UIKit
 @IBDesignable
 class PaddedTextField: UITextField {
     
+    @IBInspectable var showKeyboard: Bool = true
     @IBInspectable var paddingLeft: CGFloat = 0
     @IBInspectable var paddingRight: CGFloat = 0
     @IBInspectable var paddingTop: CGFloat = 0
@@ -29,4 +30,7 @@ class PaddedTextField: UITextField {
         return textRect(forBounds: bounds)
     }
     
+    override var canBecomeFirstResponder: Bool {
+        return showKeyboard
+    }
 }

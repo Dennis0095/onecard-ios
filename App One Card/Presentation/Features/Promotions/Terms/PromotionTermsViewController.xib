@@ -13,6 +13,9 @@
         <array key="ProximaNova-Bold.otf">
             <string>ProximaNova-Bold</string>
         </array>
+        <array key="ProximaNova-Medium.otf">
+            <string>ProximaNova-Medium</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionTermsViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
@@ -83,11 +86,11 @@
                                     <rect key="frame" x="0.0" y="82" width="313" height="50"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C34-5l-AmV">
-                                            <rect key="frame" x="0.0" y="0.0" width="313" height="20.333333333333332"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="21.333333333333332"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7op-tC-8C2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="21.333333333333332"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

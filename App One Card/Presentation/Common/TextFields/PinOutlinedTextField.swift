@@ -32,6 +32,7 @@ class PinOutlinedTextField: UIView {
     
     public lazy var txt: PaddedTextField = {
         let textfield = PaddedTextField()
+        textfield.showKeyboard = false
         textfield.paddingLeft = 15
         textfield.font = UIFont(name: "ProximaNova-Medium", size: 15)
         textfield.translatesAutoresizingMaskIntoConstraints = false

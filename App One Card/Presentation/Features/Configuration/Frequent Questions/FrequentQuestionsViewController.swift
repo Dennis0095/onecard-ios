@@ -30,6 +30,8 @@ class FrequentQuestionsViewController: BaseViewController {
         tbQuestions.dataSource = frequentQuestionsDelegateDataSource
         
         tbQuestions.register(UINib(nibName: "FrequentQuestionsTableViewCell", bundle: nil), forCellReuseIdentifier: "FrequentQuestionsTableViewCell")
+        tbQuestions.register(UINib(nibName: "FrequentQuestionsHeaderTableViewCell", bundle: nil), forHeaderFooterViewReuseIdentifier: "FrequentQuestionsHeaderTableViewCell")
+        tbQuestions.tableFooterView = nil
         
         viewModel.fetchFrequentQuestions()
     }

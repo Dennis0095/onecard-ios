@@ -6,13 +6,16 @@
 //
 
 import Combine
+import UIKit
 
 protocol FrequentQuestionsViewModelProtocol {
-    var items: [QuestionResponse] { get set }
+    var categories: [QuestionCategoryResponse] { get set }
     var delegate: FrequentQuestionsViewModelDelegate? { get set }
     
-    func numberOfItems() -> Int
-    func item(at index: Int) -> QuestionResponse
+    func numberOfSections() -> Int
+    func numberOfItemsBySection(section: Int) -> Int
+    func category(at index: Int) -> QuestionCategoryResponse
+    func question(indexPath: IndexPath) -> QuestionResponse
     func isLast(at index: Int) -> Bool
     func fetchFrequentQuestions()
 }
@@ -25,7 +28,7 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
     private let questionUseCase: QuestionUseCaseProtocol
     private var cancellables = Set<AnyCancellable>()
     
-    var items: [QuestionResponse] = []
+    var categories: [QuestionCategoryResponse] = []
     var profileRouter: ProfileRouterDelegate
     var delegate: FrequentQuestionsViewModelDelegate?
     
@@ -38,16 +41,24 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
         cancelRequests()
     }
     
-    func numberOfItems() -> Int {
-        return items.count
+    func numberOfSections() -> Int {
+        return categories.count
     }
     
-    func item(at index: Int) -> QuestionResponse {
-        return items[index]
+    func numberOfItemsBySection(section: Int) -> Int {
+        return categories[section].questions?.count ?? 0
+    }
+    
+    func category(at index: Int) -> QuestionCategoryResponse {
+        return categories[index]
+    }
+    
+    func question(indexPath: IndexPath) -> QuestionResponse {
+        return (categories[indexPath.section].questions ?? [])[indexPath.row]
     }
     
     func isLast(at index: Int) -> Bool {
-        return (items.count - 1) == index
+        return (categories.count - 1) == index
     }
     
     func fetchFrequentQuestions() {
@@ -73,7 +84,7 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
                 }
             } receiveValue: { response in
                 self.delegate?.hideLoader()
-                self.items = response.questions ?? []
+                self.categories = response.categories ?? []
                 self.delegate?.showQuestions()
             }
         cancellable.store(in: &cancellables)

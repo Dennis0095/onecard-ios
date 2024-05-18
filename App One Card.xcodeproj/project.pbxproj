@@ -278,6 +278,9 @@
 		B65B17952BF7EF2E00C5F0AF /* DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B0F42A2E4EAC00EFC7F4 /* DEV.plist */; };
 		B65B17962BF7EF3000C5F0AF /* PROD.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1032A2E587B00EFC7F4 /* PROD.plist */; };
 		B65B17972BF7EF3200C5F0AF /* QA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D45B1052A2E588D00EFC7F4 /* QA.plist */; };
+		B65B17992BF822C700C5F0AF /* QuestionCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B17982BF822C700C5F0AF /* QuestionCategoryResponse.swift */; };
+		B65B179B2BF8276C00C5F0AF /* FrequentQuestionsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65B179A2BF8276C00C5F0AF /* FrequentQuestionsHeaderTableViewCell.swift */; };
+		B65B179D2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B179C2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib */; };
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
 		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
 		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
@@ -554,6 +557,9 @@
 		B62F020B2B98487E0090ABA8 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		B640309E2BF0667D0061C1E6 /* PromotionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailViewController.swift; sourceTree = "<group>"; };
 		B640309F2BF0667D0061C1E6 /* PromotionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionDetailViewController.xib; sourceTree = "<group>"; };
+		B65B17982BF822C700C5F0AF /* QuestionCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCategoryResponse.swift; sourceTree = "<group>"; };
+		B65B179A2BF8276C00C5F0AF /* FrequentQuestionsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequentQuestionsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B65B179C2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		B661AE952B8F7A710068889A /* GestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExtension.swift; sourceTree = "<group>"; };
 		B661AEF62B9168760068889A /* ValidateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateType.swift; sourceTree = "<group>"; };
 		B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
@@ -621,6 +627,7 @@
 				B60AC4A22BED48FC000C2917 /* LogoutResponse.swift */,
 				B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */,
 				B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */,
+				B65B17982BF822C700C5F0AF /* QuestionCategoryResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -681,6 +688,8 @@
 			children = (
 				0D2474162A467D8D0075E147 /* FrequentQuestionsTableViewCell.swift */,
 				0D2474172A467D8D0075E147 /* FrequentQuestionsTableViewCell.xib */,
+				B65B179A2BF8276C00C5F0AF /* FrequentQuestionsHeaderTableViewCell.swift */,
+				B65B179C2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1549,6 +1558,7 @@
 				0D3A802A2A3794D500C32F39 /* Gotham-Ultra.otf in Resources */,
 				0D3A802B2A3794D500C32F39 /* Gotham-Black.otf in Resources */,
 				0D45B14D2A2EE14100EFC7F4 /* PersonalDataViewController.xib in Resources */,
+				B65B179D2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib in Resources */,
 				0D45B1752A30400000EFC7F4 /* VerificationViewController.xib in Resources */,
 				0D3A80212A3794D500C32F39 /* Gotham-LightItalic.otf in Resources */,
 				0D8636392A8DDAB500954CEE /* InactivityModalViewController.xib in Resources */,
@@ -1614,6 +1624,7 @@
 				B60AC4AF2BED544E000C2917 /* LogoutRequest.swift in Sources */,
 				0D50B9A52A8FAD8E0009F624 /* ConsultFrequentQuestionsRequest.swift in Sources */,
 				B62F01FD2B983E190090ABA8 /* BannersUseCase.swift in Sources */,
+				B65B17992BF822C700C5F0AF /* QuestionCategoryResponse.swift in Sources */,
 				0D50B9A92A8FAE1C0009F624 /* QuestionDataRepository.swift in Sources */,
 				0D45B1552A2EEB9700EFC7F4 /* TextFieldExtension.swift in Sources */,
 				0D7DCD222A723F1F006F9CA5 /* ConsultPromotionsResponse.swift in Sources */,
@@ -1674,6 +1685,7 @@
 				B62A32B92BF280810058AFE9 /* PromotionDetailResponse.swift in Sources */,
 				0D24740E2A466A5B0075E147 /* ConfigureCardTableViewCell.swift in Sources */,
 				0D45B1592A2FB3BD00EFC7F4 /* SelectTextField.swift in Sources */,
+				B65B179B2BF8276C00C5F0AF /* FrequentQuestionsHeaderTableViewCell.swift in Sources */,
 				0DD692B22A529B71001D0BB9 /* MovementUseCase.swift in Sources */,
 				0D65EA1D2A6B0C4A00819637 /* CardOnlineShoppingStatusResponse.swift in Sources */,
 				B62F01FF2B983E450090ABA8 /* BannersRepository.swift in Sources */,

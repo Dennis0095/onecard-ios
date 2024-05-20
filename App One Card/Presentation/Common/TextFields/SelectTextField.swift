@@ -35,7 +35,7 @@ class SelectTextField: UIView {
         label.numberOfLines = 1
         label.text = ""
         label.textColor = Design.color(.grey100)
-        label.font = UIFont(name: "ProximaNova-Medium", size: 15)
+        label.font = UIFont(name: "ProximaNova-Bold", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

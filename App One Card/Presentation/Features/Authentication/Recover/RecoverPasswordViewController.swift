@@ -15,6 +15,8 @@ class RecoverPasswordViewController: BaseViewController {
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lblTerms: UILabel!
+    @IBOutlet weak var lblAlphanumericPassword: UILabel!
+    @IBOutlet weak var lblSpecialCharacterPassword: UILabel!
     
     private var viewModel: RecoverPasswordViewModelProtocol
     
@@ -82,10 +84,19 @@ class RecoverPasswordViewController: BaseViewController {
         txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave." : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*."
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave." : "Las claves no coinciden"
         
+        txtPassword.isValid = !txtPassword.text.isEmpty
+        lblAlphanumericPassword.isHidden = !txtPassword.isValid
+        lblSpecialCharacterPassword.isHidden = !txtPassword.isValid
+        let isAlphanumericPassword = txtPassword.text.validateString(withRegex: .containLettersAndNumbers) && txtPassword.text.count > 5
+        let isSpecialCharacterPassword = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
+        lblAlphanumericPassword.textColor = isAlphanumericPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        lblSpecialCharacterPassword.textColor = isSpecialCharacterPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        let isValidPassword = txtPassword.isValid && isAlphanumericPassword && isSpecialCharacterPassword
+        
         txtPassword.isValid = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty
 
-        return txtPassword.isValid && txtConfirmPassword.isValid
+        return isValidPassword && txtConfirmPassword.isValid
     }
     
     @objc private func tapBack() {

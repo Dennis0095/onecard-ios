@@ -36,6 +36,7 @@ class PinOutlinedTextField: UIView {
         textfield.paddingLeft = 15
         textfield.font = UIFont(name: "ProximaNova-Medium", size: 15)
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        textfield.layer.cornerRadius = 8
         return textfield
     }()
     

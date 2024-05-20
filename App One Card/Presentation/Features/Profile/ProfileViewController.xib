@@ -16,13 +16,13 @@
         <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </array>
-        <array key="Proxima Nova Black.otf">
+        <array key="ProximaNova-Black.otf">
             <string>ProximaNova-Black</string>
         </array>
-        <array key="Proxima Nova Bold.otf">
+        <array key="ProximaNova-Bold.otf">
             <string>ProximaNova-Bold</string>
         </array>
-        <array key="Proxima Nova Medium.otf">
+        <array key="ProximaNova-Medium.otf">
             <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
@@ -290,7 +290,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mc0-Ey-Kx3">
-                                                    <rect key="frame" x="18" y="333.66666666666669" width="357" height="149"/>
+                                                    <rect key="frame" x="18" y="333.66666666666669" width="357" height="150"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygU-Ft-jhY">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -370,16 +370,23 @@
                                                                 <constraint firstItem="4eB-F4-5yx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pfl-ol-juw" secondAttribute="trailing" constant="10" id="yqD-11-pbf"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaJ-CE-Sx1">
+                                                            <rect key="frame" x="0.0" y="148.99999999999994" width="357" height="1"/>
+                                                            <color key="backgroundColor" red="0.85490196080000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="38S-ib-lxA"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos del empleador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kq-1t-LdV">
-                                                    <rect key="frame" x="18" y="522.66666666666663" width="357" height="18.333333333333371"/>
+                                                    <rect key="frame" x="18" y="523.66666666666663" width="357" height="18.333333333333371"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WKe-fg-aoR">
-                                                    <rect key="frame" x="18" y="557" width="357" height="78"/>
+                                                    <rect key="frame" x="18" y="558" width="357" height="78"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAw-Wx-vLf">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -420,13 +427,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datos de la cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krp-T0-nlH">
-                                                    <rect key="frame" x="18" y="675" width="357" height="18.333333333333371"/>
+                                                    <rect key="frame" x="18" y="676" width="357" height="18.333333333333371"/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ja1-7C-02j">
-                                                    <rect key="frame" x="18" y="709.33333333333337" width="357" height="153"/>
+                                                    <rect key="frame" x="18" y="710.33333333333337" width="357" height="156"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyp-8w-Qp2">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="74"/>
@@ -517,6 +524,13 @@
                                                                 <constraint firstItem="P7Y-7J-i6W" firstAttribute="centerY" secondItem="ZWt-eg-k3T" secondAttribute="centerY" id="hEB-8N-oOB"/>
                                                                 <constraint firstAttribute="height" constant="74" id="muY-qh-VzK"/>
                                                                 <constraint firstItem="B0u-eg-Vte" firstAttribute="centerY" secondItem="sGv-HF-w1d" secondAttribute="centerY" id="v7z-W9-2W0"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-tF-Yu2">
+                                                            <rect key="frame" x="0.0" y="155" width="357" height="1"/>
+                                                            <color key="backgroundColor" red="0.85490196080000003" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="PcM-3W-QxJ"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>

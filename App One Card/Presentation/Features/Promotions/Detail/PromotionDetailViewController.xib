@@ -22,7 +22,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionDetailViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="ivPromotion" destination="gSD-eJ-fCf" id="l8f-9J-L9f"/>
-                <outlet property="lblClose" destination="Grw-3b-Jky" id="SKN-b1-p9T"/>
                 <outlet property="lblDescription" destination="bNL-gW-dTf" id="FcO-Qd-2Nc"/>
                 <outlet property="lblPlaces" destination="N43-Qd-jxc" id="ZDm-CT-zWM"/>
                 <outlet property="lblPromotion" destination="sS5-r9-pf6" id="B4Z-19-Jeo"/>
@@ -49,37 +48,30 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WP-FT-Z15">
-                    <rect key="frame" x="271" y="74.666666666666671" width="102" height="30"/>
+                    <rect key="frame" x="343" y="74.666666666666671" width="30" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cerrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grw-3b-Jky">
-                            <rect key="frame" x="20" y="5.3333333333333286" width="42" height="19"/>
-                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9HR-dm-38F">
-                            <rect key="frame" x="67" y="6.3333333333333286" width="25" height="17.333333333333336"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sye-gb-8Fo">
+                            <rect key="frame" x="0.0" y="4" width="30" height="22.333333333333336"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="hId-tV-Y50"/>
-                                <constraint firstAttribute="width" constant="25" id="qND-HE-RFL"/>
+                                <constraint firstAttribute="height" constant="30" id="Hha-yc-Vqg"/>
+                                <constraint firstAttribute="width" constant="30" id="TbJ-Qj-fr8"/>
                             </constraints>
                             <imageReference key="image" image="xmark" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
                                 <hierarchicalColors>
-                                    <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color name="blue_lake_front"/>
                                     <color systemColor="secondaryLabelColor"/>
                                     <color systemColor="tertiaryLabelColor"/>
                                 </hierarchicalColors>
                             </imageReference>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" name="blue_lake_front"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="Grw-3b-Jky" firstAttribute="leading" secondItem="4WP-FT-Z15" secondAttribute="leading" constant="20" id="8HU-Fr-iXV"/>
-                        <constraint firstItem="Grw-3b-Jky" firstAttribute="centerY" secondItem="4WP-FT-Z15" secondAttribute="centerY" id="JGa-Pv-2X5"/>
+                        <constraint firstAttribute="trailing" secondItem="sye-gb-8Fo" secondAttribute="trailing" id="8EY-jI-WQd"/>
+                        <constraint firstItem="sye-gb-8Fo" firstAttribute="top" secondItem="4WP-FT-Z15" secondAttribute="top" id="Bd0-y9-NaE"/>
+                        <constraint firstAttribute="bottom" secondItem="sye-gb-8Fo" secondAttribute="bottom" id="FbN-Bj-5hj"/>
                         <constraint firstAttribute="height" constant="30" id="Sli-aK-tx2"/>
-                        <constraint firstAttribute="trailing" secondItem="9HR-dm-38F" secondAttribute="trailing" constant="10" id="ZHr-qp-i8y"/>
-                        <constraint firstItem="9HR-dm-38F" firstAttribute="leading" secondItem="Grw-3b-Jky" secondAttribute="trailing" constant="5" id="uvM-lt-xvD"/>
-                        <constraint firstItem="9HR-dm-38F" firstAttribute="centerY" secondItem="4WP-FT-Z15" secondAttribute="centerY" id="yoy-mn-qPK"/>
+                        <constraint firstItem="sye-gb-8Fo" firstAttribute="leading" secondItem="4WP-FT-Z15" secondAttribute="leading" id="cbp-p1-d1B"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOX-rd-Qtl">
@@ -168,14 +160,14 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lugar donde puedes canjear la promoción:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l79-TR-nP6">
-                                                    <rect key="frame" x="0.0" y="34.999999999999943" width="313" height="41.666666666666657"/>
-                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="34.999999999999943" width="313" height="44"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N43-Qd-jxc">
-                                                    <rect key="frame" x="0.0" y="81.666666666666686" width="313" height="21.333333333333329"/>
-                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="83.999999999999943" width="313" height="19"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -215,14 +207,14 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vigencia:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCh-eT-fjj">
-                                                    <rect key="frame" x="0.0" y="35" width="313" height="39.666666666666657"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="35" width="313" height="42"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zU-DY-6m8">
-                                                    <rect key="frame" x="0.0" y="79.666666666666742" width="313" height="21.333333333333329"/>
-                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="82" width="313" height="19"/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -263,7 +255,7 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver Términos y Condiciones" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C82-2Y-OZ8">
                                                     <rect key="frame" x="0.0" y="35" width="313" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" name="blue_lake_front"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -328,10 +320,10 @@
             <color red="0.0" green="0.63921568627450975" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

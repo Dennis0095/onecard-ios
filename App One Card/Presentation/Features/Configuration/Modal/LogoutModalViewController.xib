@@ -9,11 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Proxima Nova Bold.otf">
+        <array key="ProximaNova-Bold.otf">
             <string>ProximaNova-Bold</string>
-        </array>
-        <array key="Proxima Nova Medium.otf">
-            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -35,10 +32,10 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZr-sd-waO">
-                    <rect key="frame" x="0.0" y="648.66666666666663" width="393" height="203.33333333333337"/>
+                    <rect key="frame" x="0.0" y="683.66666666666663" width="393" height="168.33333333333337"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DXP-nn-Y0P">
-                            <rect key="frame" x="18" y="24.000000000000004" width="357" height="53.333333333333343"/>
+                            <rect key="frame" x="18" y="24" width="357" height="18.333333333333329"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Estás seguro que deseas cerrar la sesión?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRS-Uj-0ah">
                                     <rect key="frame" x="0.0" y="0.0" width="357" height="18.333333333333332"/>
@@ -46,21 +43,10 @@
                                     <color key="textColor" name="blue_lake_front"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c6c-Xz-rSe">
-                                    <rect key="frame" x="0.0" y="34.333333333333371" width="357" height="19"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estás a punto de salir de la App." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx3-o4-oJN">
-                                            <rect key="frame" x="0.0" y="0.0" width="357" height="19"/>
-                                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
-                                            <color key="textColor" name="blue_twilight"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ry2-BJ-XU1">
-                            <rect key="frame" x="18" y="101.33333333333337" width="357" height="44"/>
+                            <rect key="frame" x="18" y="66.333333333333371" width="357" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAt-FU-oOL" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="44"/>
@@ -115,9 +101,6 @@
     <resources>
         <namedColor name="blue_lake_front">
             <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="blue_twilight">
-            <color red="0.050980392156862744" green="0.11764705882352941" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

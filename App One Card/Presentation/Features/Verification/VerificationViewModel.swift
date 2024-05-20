@@ -93,7 +93,7 @@ class VerificationViewModel: VerificationViewModelProtocol {
                 let apiError = APIError.custom(title, description)
                 
                 if response.success == "1" {
-                    self.successfulRouter.navigateToSuccessfulScreen(title: "Su usuario digital es:", description: response.userName ?? "", button: "Ingresar", image: #imageLiteral(resourceName: "user_recovery_successfully.svg")) {
+                    self.successfulRouter.navigateToSuccessfulScreen(title: "Tu usuario digital es:", description: response.userName ?? "", button: "Ingresar", image: #imageLiteral(resourceName: "user_recovery_successfully.svg")) {
                         self.authRouter.navigateToLogin()
                     }
                 } else {

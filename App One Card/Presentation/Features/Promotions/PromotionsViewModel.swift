@@ -9,6 +9,10 @@ import Combine
 
 protocol PromotionsViewModelProtocol {
     var wasShownViewPromotions: Bool { get set }
+    var currentPage: Int { get set }
+    var isLoadingPage: Bool { get set }
+    var isLastPage: Bool { get set }
+    
     var items: [PromotionResponse] { get set }
     var router: PromotionsRouterDelegate { get set }
     var delegate: PromotionsViewModelDelegate? { get set }
@@ -31,6 +35,11 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     private var cancellables = Set<AnyCancellable>()
     
     var wasShownViewPromotions: Bool = false
+    var isLoadingPage: Bool = false
+    var currentPage: Int = 0
+    var pageSize: Int = 20
+    var isLastPage: Bool = false
+    
     var items: [PromotionResponse] = []
     var router: PromotionsRouterDelegate
     var delegate: PromotionsViewModelDelegate?
@@ -57,9 +66,15 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     }
     
     func fetchPromotions() {
+        guard !isLastPage else { return }
+        
         delegate?.showLoader()
+        isLoadingPage = true
+        
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
-        let request = ConsultPromotionsRequest(authTrackingCode: trackingCode)
+        let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
+                                               pageSize: String(pageSize),
+                                               page: String(currentPage))
         let cancellable = promotionUseCase.consult(request: request)
             .sink { publisher in
                 switch publisher {
@@ -68,6 +83,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                     let error = apiError.error()
                     
                     self.delegate?.hideLoader()
+                    self.isLoadingPage = false
                     switch apiError {
                     case .expiredSession:
                         self.delegate?.showError(title: error.title, description: error.description) {
@@ -82,9 +98,17 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                     }
                 }
             } receiveValue: { response in
-                self.wasShownViewPromotions = true
-                self.items = response.promotions ?? []
                 self.delegate?.hideLoader()
+                self.isLoadingPage = false
+                self.wasShownViewPromotions = true
+                
+                if (response.promotions ?? []).isEmpty || (response.promotions ?? []).count < self.pageSize {
+                    self.isLastPage = true
+                } else {
+                    self.currentPage += 1
+                }
+                
+                self.items += response.promotions ?? []
                 self.delegate?.showPromotions()
             }
         cancellable.store(in: &cancellables)

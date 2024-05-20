@@ -12,6 +12,7 @@ struct ConsultPromotionsResponse: Codable {
     let rcDesc: String?
     let currentPromAmount: Int?
     let promotions: [PromotionResponse]?
+    let totalPromotions: Int?
     let title: String?
     let message: String?
     
@@ -19,6 +20,7 @@ struct ConsultPromotionsResponse: Codable {
         case rc = "RC"
         case rcDesc = "RC_DESC"
         case currentPromAmount = "CANTIDAD_PROMO_VIGENTES"
+        case totalPromotions = "TOTAL_PROMOCIONES"
         case promotions = "PROMOCIONES"
         case title = "TITULO"
         case message = "MENSAJE"

@@ -41,4 +41,14 @@ extension PromotionsDelegateDataSource: UITableViewDelegate {
         
         viewModel.getDetail(promotionCode: item.promotionCode ?? "")
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let tableViewContentHeight = scrollView.contentSize.height
+        let tableViewHeight = scrollView.frame.height
+        let scrollOffset = scrollView.contentOffset.y
+
+        if scrollOffset + tableViewHeight >= tableViewContentHeight, !viewModel.isLoadingPage {
+            viewModel.fetchPromotions()
+        }
+    }
 }

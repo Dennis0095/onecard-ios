@@ -23,6 +23,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
             <connections>
                 <outlet property="btnCardActivation" destination="wIn-qG-uVu" id="YgF-5M-djH"/>
+                <outlet property="btnMoveToLeft" destination="Gfq-K7-pJL" id="As8-ld-hfJ"/>
+                <outlet property="btnMoveToRight" destination="j2c-ws-b8b" id="zCp-2w-UYr"/>
                 <outlet property="cvBanners" destination="XYC-NW-Fco" id="bcR-Qz-1vy"/>
                 <outlet property="imgQuestions" destination="Nz3-Yq-7zs" id="iAT-VT-O5e"/>
                 <outlet property="lblAmount" destination="4Ab-X7-Tnt" id="mSv-Nt-ayW"/>
@@ -177,8 +179,8 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurar Tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-oW-B92">
-                                                                                    <rect key="frame" x="52" y="16.666666666666657" width="155" height="15"/>
-                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                                                                    <rect key="frame" x="52" y="15.999999999999998" width="155" height="16.333333333333329"/>
+                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="13"/>
                                                                                     <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -205,8 +207,8 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bloqueo de Tarjeta" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIX-Fa-7GT">
-                                                                                    <rect key="frame" x="52" y="16.666666666666686" width="155" height="15"/>
-                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                                                                    <rect key="frame" x="52" y="15.999999999999998" width="155" height="16.333333333333329"/>
+                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="13"/>
                                                                                     <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -231,8 +233,8 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cambiar PIN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7C-4Z-phw">
-                                                                                    <rect key="frame" x="52" y="16.666666666666686" width="155" height="15"/>
-                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="12"/>
+                                                                                    <rect key="frame" x="52" y="15.999999999999998" width="155" height="16.333333333333329"/>
+                                                                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="13"/>
                                                                                     <color key="textColor" name="blue_twilight"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>

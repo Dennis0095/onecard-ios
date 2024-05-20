@@ -24,6 +24,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var btnCardActivation: PrimaryFilledButton!
     @IBOutlet weak var vBanners: UIView!
     @IBOutlet weak var cvBanners: UICollectionView!
+    @IBOutlet weak var btnMoveToLeft: UIButton!
+    @IBOutlet weak var btnMoveToRight: UIButton!
     
     private var viewModel: HomeViewModelProtocol
     
@@ -195,6 +197,9 @@ extension HomeViewController: HomeViewModelDelegate {
         DispatchQueue.main.async {
             self.vBanners.isHidden = isEmpty
             self.cvBanners.reloadData()
+            
+            self.btnMoveToLeft.isHidden = self.viewModel.banners.count < 2
+            self.btnMoveToRight.isHidden = self.viewModel.banners.count < 2
             
             self.viewModel.timerBanners?.invalidate()
             self.viewModel.timerBanners = self.viewModel.banners.count > 1 ? Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.scrollToNextItem), userInfo: nil, repeats: true) : nil

@@ -54,7 +54,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="wlx-O9-TAF">
-                                    <rect key="frame" x="0.0" y="13" width="393" height="711.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="13" width="393" height="765.33333333333337"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-G9-xJE">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="282"/>
@@ -363,10 +363,10 @@
                                             </constraints>
                                         </view>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xly-Ay-z35">
-                                            <rect key="frame" x="0.0" y="537.66666666666663" width="393" height="173.66666666666663"/>
+                                            <rect key="frame" x="0.0" y="537.66666666666663" width="393" height="227.66666666666663"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-8y-1GM">
-                                                    <rect key="frame" x="18" y="0.0" width="357" height="173.66666666666666"/>
+                                                    <rect key="frame" x="18" y="0.0" width="357" height="227.66666666666666"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destacados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqt-fn-t7a">
                                                             <rect key="frame" x="0.0" y="0.0" width="357" height="19.666666666666668"/>
@@ -375,13 +375,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-TN-RG3">
-                                                            <rect key="frame" x="0.0" y="27.666666666666742" width="357" height="146"/>
+                                                            <rect key="frame" x="0.0" y="27.666666666666742" width="357" height="200"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-FX-chy">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="146"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="200"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfq-K7-pJL">
-                                                                            <rect key="frame" x="0.0" y="60.666666666666629" width="28" height="25"/>
+                                                                            <rect key="frame" x="0.0" y="87.666666666666629" width="28" height="25"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="arrow_left_blue"/>
                                                                             <connections>
@@ -398,10 +398,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XYC-NW-Fco">
-                                                                    <rect key="frame" x="28" y="0.0" width="301" height="146"/>
+                                                                    <rect key="frame" x="28" y="0.0" width="301" height="200"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="146" id="zej-Ab-A9F"/>
+                                                                        <constraint firstAttribute="height" constant="200" id="zej-Ab-A9F"/>
                                                                     </constraints>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oaf-mO-pGS">
                                                                         <size key="itemSize" width="128" height="128"/>
@@ -411,10 +411,10 @@
                                                                     </collectionViewFlowLayout>
                                                                 </collectionView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itw-cE-7Ni">
-                                                                    <rect key="frame" x="329" y="0.0" width="28" height="146"/>
+                                                                    <rect key="frame" x="329" y="0.0" width="28" height="200"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2c-ws-b8b">
-                                                                            <rect key="frame" x="0.0" y="60.666666666666629" width="28" height="25"/>
+                                                                            <rect key="frame" x="0.0" y="87.666666666666629" width="28" height="25"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="arrow_right_blue"/>
                                                                             <connections>

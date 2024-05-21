@@ -33,12 +33,11 @@ class FrequentQuestionsTableViewCell: UITableViewCell {
         lblTitle.addGestureRecognizer(tapTitle)
     }
     
-    func setData(title: String, description: String, isExpanded: Bool, isLast: Bool) {
+    func setData(title: String, description: String, isExpanded: Bool) {
         lblTitle.text = title
         lblDescription.text = description
         lblDescription.isHidden = !isExpanded
         imgBreakDown.image = !isExpanded ? #imageLiteral(resourceName: "arrow_down_blue.svg") : #imageLiteral(resourceName: "arrow_up_blue.svg")
-        viewSeparator.isHidden = !isLast
     }
     
     @objc

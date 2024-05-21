@@ -36,7 +36,7 @@ extension FrequentQuestionsDelegateDataSource: UITableViewDataSource {
         let item = viewModel.question(indexPath: index)
         let isExpanded = indexsToExpanded.isEmpty ? false : indexsToExpanded.filter { $0 == index }.isEmpty ? false : true
         
-        cell.setData(title: item.question ?? "", description: item.answer ?? "", isExpanded: isExpanded, isLast: viewModel.isLastQuestion(at: indexPath))
+        cell.setData(title: item.question ?? "", description: item.answer ?? "", isExpanded: isExpanded)
         
         cell.handleBreakDown = {
             if self.indexsToExpanded.isEmpty {
@@ -68,7 +68,7 @@ extension FrequentQuestionsDelegateDataSource: UITableViewDataSource {
         return header
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
 }

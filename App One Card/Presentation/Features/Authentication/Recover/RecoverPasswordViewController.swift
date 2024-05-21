@@ -81,8 +81,8 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave." : nil
-        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave." : "Las claves no coinciden"
+        txtPassword.errorMessage = txtPassword.text.isEmpty ? "Debes ingresar tu clave" : nil
+        txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu clave" : "Las claves no coinciden"
         
         txtPassword.isValid = !txtPassword.text.isEmpty
         lblAlphanumericPassword.isHidden = !txtPassword.isValid

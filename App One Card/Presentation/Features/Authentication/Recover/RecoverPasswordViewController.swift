@@ -93,7 +93,6 @@ class RecoverPasswordViewController: BaseViewController {
         lblSpecialCharacterPassword.textColor = isSpecialCharacterPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
         let isValidPassword = txtPassword.isValid && isAlphanumericPassword && isSpecialCharacterPassword
         
-        txtPassword.isValid = txtPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtPassword.text) && !txtPassword.text.isEmpty
 
         return isValidPassword && txtConfirmPassword.isValid

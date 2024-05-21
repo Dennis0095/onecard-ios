@@ -17,6 +17,7 @@ protocol FrequentQuestionsViewModelProtocol {
     func category(at index: Int) -> QuestionCategoryResponse
     func question(indexPath: IndexPath) -> QuestionResponse
     func isLast(at index: Int) -> Bool
+    func isLastQuestion(at indexPath: IndexPath) -> Bool
     func fetchFrequentQuestions()
 }
 
@@ -59,6 +60,11 @@ class FrequentQuestionsViewModel: FrequentQuestionsViewModelProtocol {
     
     func isLast(at index: Int) -> Bool {
         return (categories.count - 1) == index
+    }
+    
+    func isLastQuestion(at indexPath: IndexPath) -> Bool {
+        let questions = categories[indexPath.section].questions ?? []
+        return questions.count > 1 ? (questions.count - 1) == indexPath.row : true
     }
     
     func fetchFrequentQuestions() {

@@ -35,7 +35,7 @@ enum APIError: Error {
             description = "Por favor, vuelve a iniciar sesión"
         default:
             title = "Algo salió mal"
-            description = "Por favor, inténtelo nuevamente"
+            description = "Por favor, inténtalo nuevamente"
         }
         
         return CustomError(title: title, description: description)

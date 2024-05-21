@@ -35,6 +35,7 @@ class VerificationViewController: BaseViewController {
     private var buttonTitle: String
     private var step: String?
     private var timer = Timer()
+    private var hasAppearedBefore = false
     
     private var countTimer: Int = 60 {
         didSet {
@@ -75,6 +76,16 @@ class VerificationViewController: BaseViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.sendOTP()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        hasAppearedBefore = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if hasAppearedBefore {
+            self.resetTime()
         }
     }
     

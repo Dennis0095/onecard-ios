@@ -95,6 +95,9 @@ class PinViewModel: PinViewModelProtocol {
                     if let success = self.success {
                         success(self.operationId, self.pin)
                     }
+                } else {
+                    let error = APIError.defaultError.error()
+                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
                 }
             }
         

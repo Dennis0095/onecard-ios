@@ -39,7 +39,7 @@ class ProfileViewController: BaseViewController {
         viewError.isHidden = true
         viewProfile.isHidden = true
         
-        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
+        btnTryAgain.configure(text: Constants.try_again, status: .enabled)
         
         viewModel.getUserData()
     }

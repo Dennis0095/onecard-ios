@@ -38,6 +38,11 @@ class Constants {
     static let activate: String = "Activar"
     static let i_will_later: String = "Lo haré luego"
     static let activate_card: String = "Activar Tarjeta"
+    static let you_sure_male: String = "¿Estás seguro que deseas bloquear tu tarjeta ONE CARD?"
+    static let you_sure_female: String = "¿Estás segura que deseas bloquear tu tarjeta ONE CARD?"
+    static let you_sure_logout_male: String = "¿Estás seguro que deseas cerrar sesión?"
+    static let you_sure_logout_female: String = "¿Estás segura que deseas cerrar sesión?"
+    static let try_again: String = "Volver a intentar"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"

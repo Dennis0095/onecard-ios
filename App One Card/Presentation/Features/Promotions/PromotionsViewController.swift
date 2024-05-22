@@ -16,7 +16,9 @@ class PromotionsViewController: BaseViewController {
     @IBOutlet weak var imgError: UIImageView!
     @IBOutlet weak var lblTitleError: UILabel!
     @IBOutlet weak var lblMessageError: UILabel!
+    @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var btnTryAgain: PrimaryFilledButton!
+    @IBOutlet weak var btnSearch: UIButton!
     
     private var viewModel: PromotionsViewModelProtocol
     private var promotionsDelegateDataSource: PromotionsDelegateDataSource
@@ -33,30 +35,54 @@ class PromotionsViewController: BaseViewController {
 
     override func initView() {
         viewPromotions.isHidden = true
-        viewEmpty.isHidden = true
         viewError.isHidden = true
         
-        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
+        btnTryAgain.configure(text: Constants.try_again, status: .enabled)
         
         tblPromotions.register(UINib(nibName: "PromotionTableViewCell", bundle: nil), forCellReuseIdentifier: "PromotionTableViewCell")
         tblPromotions.delegate = promotionsDelegateDataSource
         tblPromotions.dataSource = promotionsDelegateDataSource
         
-        viewModel.fetchPromotions()
+        btnSearch.layer.cornerRadius = 8
+        txtSearch.delegate = self
+        txtSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        viewModel.paginate()
+    }
+    
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
+        viewModel.filter = textField.text ?? ""
+        if textField.text?.isEmpty ?? false {
+            textField.resignFirstResponder()
+            textField.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                textField.isEnabled = true
+            }
+            viewModel.filterPromotions()
+        }
     }
     
     @IBAction func tryAgain(_ sender: Any) {
-        viewModel.fetchPromotions()
+        viewModel.paginate()
     }
     
+    @IBAction func searchPromotions(_ sender: Any) {
+        guard !viewModel.filter.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, viewModel.filter.count > 2 else { return }
+        
+        txtSearch.resignFirstResponder()
+        viewModel.filterPromotions()
+    }
 }
 
 extension PromotionsViewController: PromotionsViewModelDelegate {
     func showPromotions() {
         DispatchQueue.main.async {
             self.viewError.isHidden = true
+            self.viewPromotions.isHidden = false
+            
+            self.tblPromotions.isHidden = self.viewModel.items.isEmpty
             self.viewEmpty.isHidden = !self.viewModel.items.isEmpty
-            self.viewPromotions.isHidden = self.viewModel.items.isEmpty
             
             self.tblPromotions.reloadData()
         }
@@ -76,7 +102,27 @@ extension PromotionsViewController: PromotionsViewModelDelegate {
             
             self.viewError.isHidden = false
             self.viewPromotions.isHidden = true
-            self.viewEmpty.isHidden = true
         }
+    }
+}
+
+extension PromotionsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        txtSearch.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        
+        if prospectiveText.count > 100 {
+            return false
+        }
+        
+        let allowedCharacters = CharacterSet.alphanumerics
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacters.isSuperset(of: characterSet)
     }
 }

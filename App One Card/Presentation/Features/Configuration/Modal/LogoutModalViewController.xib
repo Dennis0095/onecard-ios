@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="btnAccept" destination="AYI-xc-lZc" id="EaB-50-kCD"/>
                 <outlet property="btnCancel" destination="rAt-FU-oOL" id="Yjd-hp-58b"/>
+                <outlet property="lblYouSure" destination="KRS-Uj-0ah" id="v5p-Ha-1lf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBackground" destination="SZr-sd-waO" id="tlA-O4-Hl3"/>
             </connections>

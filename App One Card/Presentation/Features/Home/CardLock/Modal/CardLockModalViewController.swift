@@ -12,6 +12,7 @@ class CardLockModalViewController: UIViewController {
     @IBOutlet weak var btnCancel: PrimaryOutlineButton!
     @IBOutlet weak var btnAccept: PrimaryFilledButton!
     @IBOutlet weak var viewBackground: UIView!
+    @IBOutlet weak var lblYouSure: UILabel!
     
     var accept: VoidActionHandler?
     
@@ -23,6 +24,9 @@ class CardLockModalViewController: UIViewController {
         
         viewBackground.layer.cornerRadius = 16.0
         viewBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        let sureText = UserSessionManager.shared.getUser()?.sex == "F" ? Constants.you_sure_female : Constants.you_sure_male
+        lblYouSure.text = sureText
     }
     
     @IBAction func clickAccept(_ sender: Any) {

@@ -12,6 +12,7 @@ protocol PromotionsViewModelProtocol {
     var currentPage: Int { get set }
     var isLoadingPage: Bool { get set }
     var isLastPage: Bool { get set }
+    var filter: String { get set }
     
     var items: [PromotionResponse] { get set }
     var router: PromotionsRouterDelegate { get set }
@@ -20,7 +21,8 @@ protocol PromotionsViewModelProtocol {
     func numberOfItems() -> Int
     func item(at index: Int) -> PromotionResponse
     func isLast(at index: Int) -> Bool
-    func fetchPromotions()
+    func paginate()
+    func filterPromotions()
     func getDetail(promotionCode: String)
 }
 
@@ -39,6 +41,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     var currentPage: Int = 0
     var pageSize: Int = 20
     var isLastPage: Bool = false
+    var filter: String = ""
     
     var items: [PromotionResponse] = []
     var router: PromotionsRouterDelegate
@@ -65,7 +68,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         return (items.count - 1) == index
     }
     
-    func fetchPromotions() {
+    func paginate() {
         guard !isLastPage else { return }
         
         delegate?.showLoader()
@@ -74,7 +77,8 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
                                                pageSize: String(pageSize),
-                                               page: String(currentPage))
+                                               page: String(currentPage),
+                                               filter: filter)
         let cancellable = promotionUseCase.consult(request: request)
             .sink { publisher in
                 switch publisher {
@@ -109,6 +113,57 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 }
                 
                 self.items += response.promotions ?? []
+                self.delegate?.showPromotions()
+            }
+        cancellable.store(in: &cancellables)
+    }
+    
+    func filterPromotions() { 
+        currentPage = 0
+        isLastPage = false
+        
+        delegate?.showLoader()
+        isLoadingPage = true
+        
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
+                                               pageSize: String(pageSize),
+                                               page: String(currentPage),
+                                               filter: filter)
+        let cancellable = promotionUseCase.consult(request: request)
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let apiError):
+                    let error = apiError.error()
+                    
+                    self.delegate?.hideLoader()
+                    self.isLoadingPage = false
+                    switch apiError {
+                    case .expiredSession:
+                        self.delegate?.showError(title: error.title, description: error.description) {
+                            self.router.logout(isManual: false)
+                        }
+                    default:
+                        if !self.wasShownViewPromotions {
+                            self.delegate?.failureShowPromotions(error: apiError)
+                        } else {
+                            self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                        }
+                    }
+                }
+            } receiveValue: { response in
+                self.delegate?.hideLoader()
+                self.isLoadingPage = false
+                self.wasShownViewPromotions = true
+                
+                if (response.promotions ?? []).isEmpty || (response.promotions ?? []).count < self.pageSize {
+                    self.isLastPage = true
+                } else {
+                    self.currentPage += 1
+                }
+                
+                self.items = response.promotions ?? []
                 self.delegate?.showPromotions()
             }
         cancellable.store(in: &cancellables)

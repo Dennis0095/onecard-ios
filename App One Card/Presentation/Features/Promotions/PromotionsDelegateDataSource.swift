@@ -48,7 +48,7 @@ extension PromotionsDelegateDataSource: UITableViewDelegate {
         let scrollOffset = scrollView.contentOffset.y
 
         if scrollOffset + tableViewHeight >= tableViewContentHeight, !viewModel.isLoadingPage {
-            viewModel.fetchPromotions()
+            viewModel.paginate()
         }
     }
 }

@@ -20,7 +20,6 @@ class PromotionDetailViewController: UIViewController {
     @IBOutlet weak var lblPromotion: UILabel!
     @IBOutlet weak var lblPlaces: UILabel!
     @IBOutlet weak var lblValidity: UILabel!
-    @IBOutlet weak var lblClose: UILabel!
     @IBOutlet weak var viewPromotion: UIView!
     
     private let viewModel: PromotionDetailViewModelProtocol

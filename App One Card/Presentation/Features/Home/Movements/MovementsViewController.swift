@@ -40,7 +40,7 @@ class MovementsViewController: BaseViewController {
         
         tblMovements.register(UINib(nibName: "MovementTableViewCell", bundle: nil), forCellReuseIdentifier: "MovementTableViewCell")
         
-        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
+        btnTryAgain.configure(text: Constants.try_again, status: .enabled)
         
         viewModel.consultMovements()
     }

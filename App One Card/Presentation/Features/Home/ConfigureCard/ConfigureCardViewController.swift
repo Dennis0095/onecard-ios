@@ -42,7 +42,7 @@ class ConfigureCardViewController: BaseViewController {
         tbConfigureCard.register(UINib(nibName: "ConfigureCardTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfigureCardTableViewCell")
         
         btnSave.configure(text: "GUARDAR CAMBIOS", status: .disabled)
-        btnTryAgain.configure(text: "Volver a intentar", status: .enabled)
+        btnTryAgain.configure(text: Constants.try_again, status: .enabled)
         
         viewModel.getCardStatusAndOnlineShoppingStatus()
     }

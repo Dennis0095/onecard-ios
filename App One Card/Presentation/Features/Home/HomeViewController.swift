@@ -64,7 +64,9 @@ class HomeViewController: BaseViewController {
         
         imgQuestions.addShadow(color: UIColor(red: 0.902, green: 0.914, blue: 0.937, alpha: 1), opacity: 1, offset: CGSize(width: 0, height: 6), radius: 5)
         btnCardActivation.configure(text: "Activar Tarjeta", status: .enabled)
-        lblName.text = "\(Constants.welcome), \(UserObserver.shared.getUser()?.name ?? "")"
+        
+        let welcomeSex = UserSessionManager.shared.getUser()?.sex == "F" ? Constants.welcome_female : Constants.welcome_male
+        lblName.text = "\(welcomeSex), \(UserObserver.shared.getUser()?.name ?? "")"
         validateStatus()
         
         HomeObserver.shared.listenAmountChanges = { amount in
@@ -80,7 +82,8 @@ class HomeViewController: BaseViewController {
         }
         
         UserObserver.shared.listenChanges = { user in
-            self.lblName.text = "\(Constants.welcome), \(user.name ?? "")"
+            let welcomeSex = UserSessionManager.shared.getUser()?.sex == "F" ? Constants.welcome_female : Constants.welcome_male
+            self.lblName.text = "\(welcomeSex), \(user.name ?? "")"
         }
         
         CardObserver.shared.listenStatusChanges = { status in

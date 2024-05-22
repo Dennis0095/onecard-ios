@@ -46,7 +46,8 @@ class UserSessionManager: UserSessionManagerProtocol {
             let user = User(user: payload["usuario"] as? String,
                             name: payload["nombreAfiliado"] as? String,
                             cardTrackingCode: payload["codigoSeguimientoTarjeta"] as? String,
-                            authTrackingCode: payload["codigoSeguimientoAuth"] as? String)
+                            authTrackingCode: payload["codigoSeguimientoAuth"] as? String, 
+                            sex: payload["sexo"] as? String)
             return user
         } catch {
             return nil

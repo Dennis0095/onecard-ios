@@ -29,11 +29,12 @@ class WelcomeActivateViewController: BaseViewController {
     }
 
     private func setupView() {
+        let welcomeSex = UserSessionManager.shared.getUser()?.sex == "F" ? Constants.welcome_female : Constants.welcome_male
         let name = UserSessionManager.shared.getUser()?.name ?? ""
         
-        btnActivate.configure(text: "Activar", status: .enabled)
-        btnLater.configure(text: "Lo haré luego")
-        lblName.text = "\(Constants.welcome), \(name)".uppercased()
+        btnActivate.configure(text: Constants.activate, status: .enabled)
+        btnLater.configure(text: Constants.i_will_later)
+        lblName.text = "\(welcomeSex), \(name)".uppercased()
     }
     
     @IBAction func activate(_ sender: Any) {

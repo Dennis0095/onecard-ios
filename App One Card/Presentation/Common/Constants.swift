@@ -8,7 +8,8 @@
 import Foundation
 
 class Constants {
-    static let welcome: String = "BIENVENIDO"
+    static let welcome_male: String = "BIENVENIDO"
+    static let welcome_female: String = "BIENVENIDA"
     static let placeholder_user: String = "Usuario"
     static let placeholder_digital_user: String = "Usuario digital"
     static let confirm_your_digital_key: String = "Confirma tu clave digital"
@@ -34,6 +35,8 @@ class Constants {
     static let missingData: String = "Datos faltantes"
     static let cancel: String = "Cancelar"
     static let close_session: String = "Cerrar sesión"
+    static let activate: String = "Activar"
+    static let i_will_later: String = "Lo haré luego"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"

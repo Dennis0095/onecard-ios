@@ -12,4 +12,5 @@ struct User: Codable {
     let name: String?
     let cardTrackingCode: String?
     let authTrackingCode: String?
+    let sex: String?
 }

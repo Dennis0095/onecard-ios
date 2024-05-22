@@ -39,7 +39,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     var wasShownViewPromotions: Bool = false
     var isLoadingPage: Bool = false
     var currentPage: Int = 0
-    var pageSize: Int = 20
+    var pageSize: Int = 10
     var isLastPage: Bool = false
     var filter: String = ""
     

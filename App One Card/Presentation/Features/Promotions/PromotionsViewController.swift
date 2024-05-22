@@ -52,8 +52,9 @@ class PromotionsViewController: BaseViewController {
     
     @objc
     func textFieldDidChange(_ textField: UITextField) {
-        viewModel.filter = textField.text ?? ""
         if textField.text?.isEmpty ?? false {
+            viewModel.filter = ""
+            
             textField.resignFirstResponder()
             textField.isEnabled = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -68,7 +69,8 @@ class PromotionsViewController: BaseViewController {
     }
     
     @IBAction func searchPromotions(_ sender: Any) {
-        guard !viewModel.filter.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, viewModel.filter.count > 2 else { return }
+        guard let text = txtSearch.text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, text.count > 2 else { return }
+        viewModel.filter = text
         
         txtSearch.resignFirstResponder()
         viewModel.filterPromotions()

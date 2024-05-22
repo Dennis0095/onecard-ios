@@ -11,10 +11,18 @@ class InactivityModalViewController: UIViewController {
 
     @IBOutlet weak var btnContinue: PrimaryFilledButton!
     @IBOutlet weak var btnCloseSession: PrimaryOutlineButton!
+    @IBOutlet weak var lblCount: UILabel!
     @IBOutlet weak var viewBackground: UIView!
     
     var accept: VoidActionHandler?
     var closeSession: VoidActionHandler?
+    
+    private var timer = Timer()
+    private var countTimer: Int = 40 {
+        didSet {
+            setCount()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +32,37 @@ class InactivityModalViewController: UIViewController {
         
         viewBackground.layer.cornerRadius = 16.0
         viewBackground.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        setCount()
+        initTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.timer.invalidate()
+    }
+    
+    private func setCount() {
+        let countString = "\(countTimer) seg."
+        let longString = "Por tu seguridad, la sesión se cerrará dentro de " + countString
+        let longestWordRange = (longString as NSString).range(of: countString)
+
+        let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 15)!])
+
+        attributedString.setAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 15)!], range: longestWordRange)
+        lblCount.attributedText = attributedString
+    }
+    
+    private func initTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,   selector: (#selector(self.timerAction)), userInfo: nil, repeats: true)
+    }
+    
+    @objc
+    private func timerAction() {
+        countTimer-=1
+        
+        if countTimer == 0 {
+            timer.invalidate()
+        }
     }
     
     @IBAction func clickContinue(_ sender: Any) {

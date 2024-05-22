@@ -63,7 +63,7 @@ class HomeViewController: BaseViewController {
         }
         
         imgQuestions.addShadow(color: UIColor(red: 0.902, green: 0.914, blue: 0.937, alpha: 1), opacity: 1, offset: CGSize(width: 0, height: 6), radius: 5)
-        btnCardActivation.configure(text: "Activar Tarjeta", status: .enabled)
+        btnCardActivation.configure(text: Constants.activate_card, status: .enabled)
         
         let welcomeSex = UserSessionManager.shared.getUser()?.sex == "F" ? Constants.welcome_female : Constants.welcome_male
         lblName.text = "\(welcomeSex), \(UserObserver.shared.getUser()?.name ?? "")"

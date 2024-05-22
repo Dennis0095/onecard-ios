@@ -37,6 +37,7 @@ class Constants {
     static let close_session: String = "Cerrar sesión"
     static let activate: String = "Activar"
     static let i_will_later: String = "Lo haré luego"
+    static let activate_card: String = "Activar Tarjeta"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"

@@ -120,7 +120,7 @@ extension PromotionsViewController: UITextFieldDelegate {
             return false
         }
         
-        let allowedCharacters = CharacterSet.alphanumerics
+        let allowedCharacters = CharacterSet.alphanumerics.union(CharacterSet.whitespaces)
         let characterSet = CharacterSet(charactersIn: string)
         
         return allowedCharacters.isSuperset(of: characterSet)

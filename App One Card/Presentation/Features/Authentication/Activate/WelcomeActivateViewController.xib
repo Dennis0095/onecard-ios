@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Proxima Nova Medium.otf">
+            <string>ProximaNova-Medium</string>
+        </array>
         <array key="ProximaNova-Black.otf">
             <string>ProximaNova-Black</string>
-        </array>
-        <array key="ProximaNova-Medium.otf">
-            <string>ProximaNova-Medium</string>
         </array>
     </customFonts>
     <objects>

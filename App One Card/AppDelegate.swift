@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appRouter: Router?
     var window: UIWindow?
     var count: Int = 0
-    private let endTime: Int = 300
-    private let questionTime: Int = 260
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -73,14 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         countTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
             guard let self = self else { return }
             count += 1
-            if self.count == questionTime {
+            if self.count == Constants.question_time {
                 appRouter?.confirmInactivity(closeSession: {
                     self.invalidateTimer()
                     self.appRouter?.logout(isManual: true)
                 }, accept: {
                     self.resetTimer()
                 })
-            } else if self.count == endTime {
+            } else if self.count == Constants.end_time {
                 self.invalidateTimer()
                 appRouter?.logout(isManual: false)
             }
@@ -93,21 +91,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func resumeTimer() {
         invalidateTimer()
-        if count < endTime {
+        if count < Constants.end_time {
             countTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 guard let self = self else { return }
                 count += 1
-                if self.count == questionTime {
+                if self.count == Constants.question_time {
                     appRouter?.confirmInactivity(closeSession: {
                         self.invalidateTimer()
                         self.appRouter?.logout(isManual: true)
                     }, accept: {
                         self.resetTimer()
                     })
-                } else if self.count == endTime {
-                    self.invalidateTimer()
-                    appRouter?.logout(isManual: false)
-                }
+                } 
+//                else if self.count == Constants.end_time {
+//                    self.invalidateTimer()
+//                    appRouter?.logout(isManual: false)
+//                }
             }
         } else {
             self.invalidateTimer()

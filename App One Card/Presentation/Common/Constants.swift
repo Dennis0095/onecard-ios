@@ -78,6 +78,10 @@ class Constants {
     
     static let user_recovery_operation_type = "OU"
     
+    static let end_time = 300
+    static let question_time = 260
+    static let time_left = (end_time - question_time)
+    
     //MARK: Keys User Defaults
     static let keyToken = "token"
     static let keyUser = "user"

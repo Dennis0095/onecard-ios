@@ -209,16 +209,11 @@ class OutlinedTextField: UIView {
         lblPlaceholder.text = placeholder
     }
     
-    func setText(text: String) {
-        self.text = text
-        txt.text = text
-    }
-    
     func changeStatus(status: OutlinedTextFieldStatus) {
         switch status {
         case .activated:
             alpha = 1.0
-            lblPlaceholder.textColor = (text.isEmpty) ? Design.color(.grey60) : Design.color(.grey100)
+            lblPlaceholder.textColor = (txt.text?.isEmpty ?? false) ? Design.color(.grey60) : Design.color(.grey100)
             txt.layer.borderColor = Design.color(.grey20).cgColor
             txt.backgroundColor = .white
             txt.textColor = Design.color(.blue_twilight)

@@ -18,7 +18,7 @@ class InactivityModalViewController: UIViewController {
     var closeSession: VoidActionHandler?
     
     private var timer = Timer()
-    private var countTimer: Int = 40 {
+    private var countTimer: Int = Constants.time_left {
         didSet {
             setCount()
         }
@@ -62,6 +62,12 @@ class InactivityModalViewController: UIViewController {
         
         if countTimer == 0 {
             timer.invalidate()
+            
+            self.presentingViewController?.dismiss(animated: true) {
+                if let completion = self.closeSession {
+                    completion()
+                }
+            }
         }
     }
     

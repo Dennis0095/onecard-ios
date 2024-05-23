@@ -14,6 +14,8 @@ class ChangePasswordViewController: BaseViewController {
     @IBOutlet weak var btnNext: PrimaryFilledButton!
     @IBOutlet weak var imgBack: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var lblAlphanumericPassword: UILabel!
+    @IBOutlet weak var lblSpecialCharacterPassword: UILabel!
     
     private var viewModel: ChangePasswordViewModelProtocol
     
@@ -65,14 +67,22 @@ class ChangePasswordViewController: BaseViewController {
     
     private func validate() -> Bool {
         txtCurrentPassword.errorMessage = txtCurrentPassword.text.isEmpty ? "Debes ingresar tu clave actual" : ""
-        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debes ingresar tu nueva clave" : txtNewPassword.text.count < 6 ? "Mínimo 6 caracteres" : "Debe de contener números, letras y al menos uno de estos caracteres !,@,#,$,%,^,&,*"
+        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debes ingresar tu clave" : nil
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu nueva clave" : "Las claves no coinciden"
         
         txtCurrentPassword.isValid = !txtCurrentPassword.text.isEmpty
-        txtNewPassword.isValid = txtNewPassword.text.validateString(withRegex: .passwordContainSpecialCharacters) && txtNewPassword.text.validateString(withRegex: .containLettersAndNumbers) && (txtNewPassword.text.count > 5)
+        txtNewPassword.isValid = !txtNewPassword.text.isEmpty
+        lblAlphanumericPassword.isHidden = !txtNewPassword.isValid
+        lblSpecialCharacterPassword.isHidden = !txtNewPassword.isValid
+        let isAlphanumericPassword = txtNewPassword.text.validateString(withRegex: .containLettersAndNumbers) && txtNewPassword.text.count > 5
+        let isSpecialCharacterPassword = txtNewPassword.text.validateString(withRegex: .passwordContainSpecialCharacters)
+        lblAlphanumericPassword.textColor = isAlphanumericPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        lblSpecialCharacterPassword.textColor = isSpecialCharacterPassword ? UIColor(hexString: "#949494") : UIColor(hexString: "#E41313")
+        let isValidPassword = txtNewPassword.isValid && isAlphanumericPassword && isSpecialCharacterPassword
+        
         txtConfirmPassword.isValid = (txtConfirmPassword.text == txtNewPassword.text) && !txtNewPassword.text.isEmpty
         
-        return txtCurrentPassword.isValid && txtNewPassword.isValid && txtConfirmPassword.isValid
+        return txtCurrentPassword.isValid && isValidPassword && txtConfirmPassword.isValid
     }
     
     @objc private func tapBack() {

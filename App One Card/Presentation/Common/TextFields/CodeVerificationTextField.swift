@@ -77,7 +77,7 @@ class CodeVerificationTextField: UITextField {
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.spacing = spacing
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         
         for _ in 1 ... count {
             let label = UILabel()
@@ -96,8 +96,8 @@ class CodeVerificationTextField: UITextField {
             let width = (self.frame.size.width - totalSpacing) / CGFloat(count)
             
             NSLayoutConstraint.activate([
-                label.heightAnchor.constraint(equalToConstant: width),
-                //label.widthAnchor.constraint(equalToConstant: width),
+                label.heightAnchor.constraint(equalToConstant: 45),
+                label.widthAnchor.constraint(equalToConstant: 45),
             ])
             
         }

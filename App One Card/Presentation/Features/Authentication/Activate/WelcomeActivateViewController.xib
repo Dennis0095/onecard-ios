@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -28,80 +28,67 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rD-KN-77z">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_activate" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-ZJ-jVy">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="520"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bg_activate" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-ZJ-jVy">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="394.5"/>
                         </imageView>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCZ-ub-UcS">
-                            <rect key="frame" x="0.0" y="520" width="393" height="298"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
+                            <rect key="frame" x="18" y="426.5" width="339" height="17.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
+                            <color key="textColor" name="blue_lake_front"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
+                            <rect key="frame" x="18" y="460" width="339" height="75"/>
+                            <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
+                            <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
+                            <color key="textColor" name="blue_twilight"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-TB-zgs">
+                            <rect key="frame" x="18" y="551" width="339" height="104"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO ANDRÉS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osA-ZS-XuL">
-                                    <rect key="frame" x="18" y="32" width="357" height="17.333333333333329"/>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="14"/>
-                                    <color key="textColor" name="blue_lake_front"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-ou-Qka">
-                                    <rect key="frame" x="18" y="73.333333333333371" width="357" height="75"/>
-                                    <string key="text">Para comenzar a disfrutar de todos lo beneficios que te ofrece One Card, es necesario que actives tu tarjeta. Asegúrate de tenerla contigo durante el proceso de activación.</string>
-                                    <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="15"/>
-                                    <color key="textColor" name="blue_twilight"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zc2-TB-zgs">
-                                    <rect key="frame" x="18" y="180.33333333333337" width="357" height="104"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ4-Ys-Im0" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="357" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="pjq-TI-O6A"/>
-                                            </constraints>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <connections>
-                                                <action selector="activate:" destination="-1" eventType="touchUpInside" id="I7G-rz-mox"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-nw-dwN" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="60" width="357" height="44"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <connections>
-                                                <action selector="later:" destination="-1" eventType="touchUpInside" id="0f7-kG-nWe"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ4-Ys-Im0" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="339" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="pjq-TI-O6A"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="activate:" destination="-1" eventType="touchUpInside" id="I7G-rz-mox"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-nw-dwN" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="60" width="339" height="44"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="later:" destination="-1" eventType="touchUpInside" id="0f7-kG-nWe"/>
+                                    </connections>
+                                </button>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="zc2-TB-zgs" firstAttribute="leading" secondItem="ZCZ-ub-UcS" secondAttribute="leading" constant="18" id="0h1-nw-suc"/>
-                                <constraint firstAttribute="trailing" secondItem="ZSW-ou-Qka" secondAttribute="trailing" constant="18" id="Bf0-qb-Wfb"/>
-                                <constraint firstItem="osA-ZS-XuL" firstAttribute="leading" secondItem="ZCZ-ub-UcS" secondAttribute="leading" constant="18" id="SO4-MC-4O1"/>
-                                <constraint firstItem="zc2-TB-zgs" firstAttribute="top" secondItem="ZSW-ou-Qka" secondAttribute="bottom" constant="32" id="ShI-sm-nu6"/>
-                                <constraint firstItem="ZSW-ou-Qka" firstAttribute="leading" secondItem="ZCZ-ub-UcS" secondAttribute="leading" constant="18" id="VcM-Wr-Vpa"/>
-                                <constraint firstItem="osA-ZS-XuL" firstAttribute="top" secondItem="ZCZ-ub-UcS" secondAttribute="top" constant="32" id="WqK-wQ-mUu"/>
-                                <constraint firstAttribute="trailing" secondItem="osA-ZS-XuL" secondAttribute="trailing" constant="18" id="Ysg-eC-Ewy"/>
-                                <constraint firstAttribute="bottom" secondItem="zc2-TB-zgs" secondAttribute="bottom" constant="12" id="aby-fF-AFI"/>
-                                <constraint firstAttribute="trailing" secondItem="zc2-TB-zgs" secondAttribute="trailing" constant="18" id="reQ-mm-zTA"/>
-                                <constraint firstItem="ZSW-ou-Qka" firstAttribute="top" secondItem="osA-ZS-XuL" secondAttribute="bottom" constant="24" id="uC0-XM-3v6"/>
-                                <constraint firstItem="osA-ZS-XuL" firstAttribute="centerX" secondItem="ZCZ-ub-UcS" secondAttribute="centerX" id="zGQ-KH-xy4"/>
-                            </constraints>
-                        </scrollView>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" id="85J-Ee-Le7"/>
-                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="centerX" secondItem="8rD-KN-77z" secondAttribute="centerX" id="RZp-w8-B6N"/>
+                        <constraint firstItem="osA-ZS-XuL" firstAttribute="top" secondItem="8zB-ZJ-jVy" secondAttribute="bottom" constant="32" id="7cO-OI-j27"/>
+                        <constraint firstAttribute="bottom" secondItem="zc2-TB-zgs" secondAttribute="bottom" constant="12" id="9QJ-dB-cFH"/>
+                        <constraint firstAttribute="trailing" secondItem="zc2-TB-zgs" secondAttribute="trailing" constant="18" id="Qdz-TO-20x"/>
+                        <constraint firstItem="zc2-TB-zgs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZSW-ou-Qka" secondAttribute="bottom" constant="16" id="TeY-j8-Q4c"/>
                         <constraint firstItem="8zB-ZJ-jVy" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" id="WnX-q1-VcZ"/>
-                        <constraint firstAttribute="bottom" secondItem="ZCZ-ub-UcS" secondAttribute="bottom" id="dH7-ns-VQB"/>
+                        <constraint firstItem="ZSW-ou-Qka" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" constant="18" id="WrA-7K-O2p"/>
+                        <constraint firstItem="osA-ZS-XuL" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" constant="18" id="YjE-g5-m2I"/>
+                        <constraint firstItem="zc2-TB-zgs" firstAttribute="leading" secondItem="8rD-KN-77z" secondAttribute="leading" constant="18" id="ce8-kP-wvO"/>
+                        <constraint firstAttribute="trailing" secondItem="ZSW-ou-Qka" secondAttribute="trailing" constant="18" id="fY6-zq-pjT"/>
                         <constraint firstItem="8zB-ZJ-jVy" firstAttribute="centerX" secondItem="8rD-KN-77z" secondAttribute="centerX" id="gU2-e5-6zZ"/>
-                        <constraint firstItem="ZCZ-ub-UcS" firstAttribute="top" secondItem="8zB-ZJ-jVy" secondAttribute="bottom" id="iXN-Wo-PJx"/>
-                        <constraint firstAttribute="trailing" secondItem="ZCZ-ub-UcS" secondAttribute="trailing" id="kjP-bj-OcQ"/>
                         <constraint firstAttribute="trailing" secondItem="8zB-ZJ-jVy" secondAttribute="trailing" id="sfR-kr-daY"/>
                         <constraint firstItem="8zB-ZJ-jVy" firstAttribute="top" secondItem="8rD-KN-77z" secondAttribute="top" id="uma-xK-Zv0"/>
+                        <constraint firstAttribute="trailing" secondItem="osA-ZS-XuL" secondAttribute="trailing" constant="18" id="xms-MJ-Bk9"/>
+                        <constraint firstItem="ZSW-ou-Qka" firstAttribute="top" secondItem="osA-ZS-XuL" secondAttribute="bottom" constant="16" id="xog-fi-XhR"/>
                     </constraints>
                 </view>
             </subviews>

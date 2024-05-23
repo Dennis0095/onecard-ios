@@ -43,8 +43,18 @@ class MovementDetailViewController: BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    private func getAmountRealMovement(amount: String) -> String {
+        if amount.count < 4 {
+            return "0.00"
+        }
+        
+        let amountConvert = amount.substring(to: amount.count - 2)
+        let amountDecimal = amount.substring(from: (amount.count - 2))
+        return "\(amountConvert).\(amountDecimal)"
+    }
+    
     private func setData() {
-        let amount = m.amount?.convertStringToDecimalAndFormat(sign: m.amountSign ?? "")
+        let amount = getAmountRealMovement(amount: m.amount ?? "").convertStringToDecimalAndFormat(sign: m.amountSign ?? "")
         lblAmount.textColor = m.amountSign == "-" ? #colorLiteral(red: 0.4235294118, green: 0.4352941176, blue: 0.4431372549, alpha: 1) : #colorLiteral(red: 0, green: 0.337254902, blue: 0.6235294118, alpha: 1)
         lblAmount.text = amount
         lblTrade.text = m.trade ?? ""

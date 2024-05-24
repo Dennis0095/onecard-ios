@@ -14,6 +14,10 @@
 		<string>ProximaNova-Light.otf</string>
 		<string>ProximaNova-Black.otf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+	</array>
 	<key>base_url</key>
 	<string>http://64.225.16.75:8083/app-backend</string>
 </dict>

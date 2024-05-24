@@ -135,6 +135,8 @@ class CardLockViewModel: CardLockViewModelProtocol {
                 }
             } receiveValue: { response in
                 let error = APIError.defaultError.error()
+                let title = response.title ?? error.title
+                let description = response.message ?? error.description
                 
                 self.delegate?.hideLoader()
                 if response.otpMatchIndex == "1" {
@@ -143,7 +145,7 @@ class CardLockViewModel: CardLockViewModelProtocol {
                         self.router.backToHome()
                     })
                 } else {
-                    self.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
+                    self.delegate?.showError(title: title, description: description, onAccept: nil)
                 }
             }
         cancellable.store(in: &cancellables)

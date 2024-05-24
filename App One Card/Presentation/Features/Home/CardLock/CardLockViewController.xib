@@ -115,11 +115,11 @@
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EEX-lK-P2C">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EEX-lK-P2C">
                                                                     <rect key="frame" x="0.0" y="92.666666666666657" width="357" height="76"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="56" translatesAutoresizingMaskIntoConstraints="NO" id="qAm-lp-xlD" customClass="CodeVerificationTextField" customModule="DEV_App_One_Card" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="56"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="56"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" id="rFO-aC-IEc"/>

@@ -823,7 +823,6 @@
 				0D45B10C2A2E5ECF00EFC7F4 /* Domain */,
 				0D45B10B2A2E5ECC00EFC7F4 /* Data */,
 				0D45B10A2A2E5DB400EFC7F4 /* Presentation */,
-				0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */,
 				0D45B0EF2A2E4EAC00EFC7F4 /* Assets.xcassets */,
 				0D45B0F12A2E4EAC00EFC7F4 /* LaunchScreen.storyboard */,
 			);
@@ -1577,6 +1576,7 @@
 		B69FCD582C0069310021A920 /* CompositionRoot */ = {
 			isa = PBXGroup;
 			children = (
+				0D45B0E62A2E4EA600EFC7F4 /* AppDelegate.swift */,
 			);
 			path = CompositionRoot;
 			sourceTree = "<group>";

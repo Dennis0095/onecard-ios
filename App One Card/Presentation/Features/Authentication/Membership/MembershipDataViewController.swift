@@ -69,9 +69,9 @@ class MembershipDataViewController: BaseViewController {
                     self?.viewDocNumber.setPlaceholder(placeholder: item.placeholderName)
                     switch item.id {
                     case Constants.passport_id, Constants.immigration_card_id:
-                        self?.viewDocNumber.txt.keyboardType = .namePhonePad
+                        self?.viewDocNumber.keyBoardType = .namePhonePad
                     default:
-                        self?.viewDocNumber.txt.keyboardType = .numberPad
+                        self?.viewDocNumber.keyBoardType = .numberPad
                     }
                 }
                 self?.viewDocType.status = .activated

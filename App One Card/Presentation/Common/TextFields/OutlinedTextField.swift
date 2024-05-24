@@ -75,7 +75,11 @@ class OutlinedTextField: UIView {
         return imageView
     }()
     
-    internal var keyBoardType: UIKeyboardType = .default
+    internal var keyBoardType: UIKeyboardType = .default {
+        didSet {
+            txt.keyboardType = keyBoardType
+        }
+    }
     
     internal var maxLength: Int?
     
@@ -195,7 +199,6 @@ class OutlinedTextField: UIView {
         
         if let type = type {
             self.keyBoardType = type
-            txt.keyboardType = type
         }
         
         self.errorMessage = errorMessage

@@ -67,7 +67,7 @@ class PromotionFiltersViewModel: PromotionFiltersViewModelProtocol {
     }
     
     func clearFilters() {
-        self.categories = useCase.resetCategories()
+        self.categories = useCase.resetCategories(beforeCategories: self.categories)
         delegate?.clearFilters()
     }
 

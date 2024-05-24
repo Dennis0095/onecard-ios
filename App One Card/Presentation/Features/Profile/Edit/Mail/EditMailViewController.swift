@@ -52,7 +52,7 @@ class EditMailViewController: BaseViewController {
     }
     
     private func validate() -> Bool {
-        txtMail.errorMessage = txtMail.text.isEmpty ? "Ingresa el correo electrónico." : "Ingresa un correo válido."
+        txtMail.errorMessage = txtMail.text.isEmpty ? "Ingresa tu correo electrónico." : "Ingresa un correo válido."
         
         txtMail.isValid = txtMail.text.validateString(withRegex: .email)
         

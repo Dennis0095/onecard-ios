@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PromotionFiltersViewController: UIViewController {
+class PromotionFiltersViewController: BaseViewController {
 
     @IBOutlet weak var btnApply: PrimaryFilledButton!
     @IBOutlet weak var btnClear: PrimaryOutlineButton!
@@ -28,9 +28,7 @@ class PromotionFiltersViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func initView() {
         btnApply.configure(text: Constants.apply_filters, status: .enabled)
         btnClear.configure(text: Constants.clear_filters)
         

@@ -46,7 +46,7 @@ class MembershipDataViewController: BaseViewController {
         
         viewDocType.configure(placeholder: Constants.placeholder_document_type, errorMessage: Constants.error, status: .activated, imageSelect: #imageLiteral(resourceName: "arrow_down_blue"))
         viewDocNumber.configure(placeholder: Constants.placeholder_document_number, errorMessage: Constants.enter_dni, status: .activated, type: .numberPad)
-        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: Constants.enter_ruc, status: .activated)
+        viewRuc.configure(placeholder: Constants.placeholder_ruc, errorMessage: Constants.enter_ruc, status: .activated, type: .numberPad)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         viewDocType.setText(string: viewModel.documentType?.name ?? Constants.dni)
@@ -68,7 +68,7 @@ class MembershipDataViewController: BaseViewController {
                     self?.viewDocType.setText(string: item.name)
                     self?.viewDocNumber.setPlaceholder(placeholder: item.placeholderName)
                     switch item.id {
-                    case Constants.passport_id:
+                    case Constants.passport_id, Constants.immigration_card_id:
                         self?.viewDocNumber.txt.keyboardType = .namePhonePad
                     default:
                         self?.viewDocNumber.txt.keyboardType = .numberPad
@@ -111,7 +111,7 @@ class MembershipDataViewController: BaseViewController {
             viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu pasaporte" : "Debe contener entre 9 a 12 caracteres"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain9to12characters)
         case "5":
-            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? Constants.enter_ruc : "Debe contener 11 números"
+            viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? Constants.enter_your_ruc : "Debe contener 11 números"
             viewDocNumber.isValid = viewDocNumber.text.validateString(withRegex: .contain11numbers)
         case "7":
             viewDocNumber.errorMessage = viewDocNumber.text.isEmpty ? "Ingresa tu permiso temporal de permanencia" : "Debe contener 9 números"

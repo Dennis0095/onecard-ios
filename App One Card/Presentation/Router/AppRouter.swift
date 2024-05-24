@@ -92,9 +92,15 @@ class AppRouter: Router {
             view.accept = accept
             view.modalPresentationStyle = .overFullScreen
             view.modalTransitionStyle = .crossDissolve
-            if let navigationController = self.window.rootViewController as? UINavigationController {
-                navigationController.present(view, animated: true, completion: nil)
+            
+            guard let presentedViewController = self.window.rootViewController?.presentedViewController else {
+                guard let navigationController = self.window.rootViewController as? UINavigationController else {
+                    return
+                }
+                navigationController.present(view, animated: true)
+                return
             }
+            presentedViewController.present(view, animated: true, completion: nil)
         }
     }
 }

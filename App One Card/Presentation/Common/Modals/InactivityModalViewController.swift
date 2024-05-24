@@ -63,11 +63,7 @@ class InactivityModalViewController: UIViewController {
         if countTimer == 0 {
             timer.invalidate()
             
-            self.presentingViewController?.dismiss(animated: true) {
-                if let completion = self.closeSession {
-                    completion()
-                }
-            }
+            self.presentingViewController?.dismiss(animated: true)
         }
     }
     

@@ -67,7 +67,7 @@ class ChangePasswordViewController: BaseViewController {
     
     private func validate() -> Bool {
         txtCurrentPassword.errorMessage = txtCurrentPassword.text.isEmpty ? "Debes ingresar tu clave actual" : ""
-        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debes ingresar tu clave" : nil
+        txtNewPassword.errorMessage = txtNewPassword.text.isEmpty ? "Debes ingresar tu nueva clave" : nil
         txtConfirmPassword.errorMessage = txtConfirmPassword.text.isEmpty ? "Debes confirmar tu nueva clave" : "Las claves no coinciden"
         
         txtCurrentPassword.isValid = !txtCurrentPassword.text.isEmpty

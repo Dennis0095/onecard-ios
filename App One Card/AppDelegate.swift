@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         backgroundTask = application.beginBackgroundTask { [weak self] in
             // Clean up the background task and timer when it expires
             self?.endBackgroundTask()
-            self?.invalidateTimer()
+            //self?.invalidateTimer()
         }
         
         guard let _ = UserSessionManager.shared.getUser() else {
@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         endBackgroundTask()
-        invalidateTimer()
+        //invalidateTimer()
+        
+        print("Count entrando a foreground:", count)
         
         guard let _ = UserSessionManager.shared.getUser() else {
             return

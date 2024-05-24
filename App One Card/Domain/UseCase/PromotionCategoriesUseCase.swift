@@ -12,7 +12,7 @@ protocol PromotionCategoriesUseCaseProtocol {
     func getCategories(request: BaseRequest)
     func retryGetCategories(request: BaseRequest, success: @escaping (_ categories: [PromotionCategory]) -> Void)
     func getCategories() -> [PromotionCategory]?
-    func resetCategories() -> [PromotionCategory]
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory]
     func saveChoosedCategories(categories: [PromotionCategory])
     func getChoosedCategories() -> [CategoryFilterRequest]?
 }
@@ -40,8 +40,8 @@ class PromotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol {
         return localRepository.getCategories()
     }
     
-    func resetCategories() -> [PromotionCategory] {
-        localRepository.resetCategories()
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory] {
+        localRepository.resetCategories(beforeCategories: beforeCategories)
     }
     
     func saveChoosedCategories(categories: [PromotionCategory]) {

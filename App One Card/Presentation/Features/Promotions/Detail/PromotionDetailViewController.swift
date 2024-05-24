@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PromotionDetailViewController: UIViewController {
+class PromotionDetailViewController: BaseViewController {
 
     @IBOutlet weak var viewClose: UIView!
     @IBOutlet weak var viewPlace: UIView!
@@ -34,19 +34,16 @@ class PromotionDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func initView() {
         priceFormatter.minimumIntegerDigits = 1
         priceFormatter.minimumFractionDigits = 2
         
         setCornerRadius()
-        addActions()
         
         viewModel.onAppear()
     }
     
-    private func addActions() {
+    override func setActions() {
         let tapClose = UITapGestureRecognizer(target: self, action: #selector(tapClose))
         viewClose.isUserInteractionEnabled = true
         viewClose.addGestureRecognizer(tapClose)

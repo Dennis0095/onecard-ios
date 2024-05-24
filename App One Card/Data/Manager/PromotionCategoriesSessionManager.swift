@@ -10,7 +10,7 @@ import Foundation
 protocol PromotionCategoriesSessionManagerProtocol {
     func saveCategories(categories: [PromotionCategory]?)
     func getCategories() -> [PromotionCategory]?
-    func resetCategories() -> [PromotionCategory]
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory]
     func saveChoosedCategories(categories: [PromotionCategory])
     func getChoosedCategories() -> [CategoryFilterRequest]?
 }
@@ -47,41 +47,23 @@ class PromotionCategoriesSessionManager: PromotionCategoriesSessionManagerProtoc
         }
     }
     
-    func resetCategories() -> [PromotionCategory] {
-        if let categories = getCategories() {
-            let list = categories.map {
-                PromotionCategory(id: $0.id,
-                                  name: $0.name,
-                                  subCategories: $0.subCategories?.map { PromotionSubCategory(id: $0.id,
-                                                                                             name: $0.name,
-                                                                                             isChoosed: false) },
-                                  isExpanded: $0.isExpanded)
-            }
-            saveCategories(categories: list)
-            return list
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory] {
+        let newList = beforeCategories.map {
+            PromotionCategory(id: $0.id,
+                              name: $0.name,
+                              subCategories: $0.subCategories?.map { PromotionSubCategory(id: $0.id,
+                                                                                         name: $0.name,
+                                                                                         isChoosed: false) },
+                              isExpanded: $0.isExpanded)
         }
-        return []
+        saveCategories(categories: newList)
+        return newList
     }
     
     func saveChoosedCategories(categories: [PromotionCategory]) {
         saveCategories(categories: categories)
     }
-    
-//    func getChoosedCategories() -> [CategoryFilterRequest]? {
-//        if let categories = getCategories() {
-//            return categories.filter { category in
-//                (category.subCategories ?? []).contains(where: { subCategory in
-//                    subCategory.isChoosed == true
-//                })
-//            }.compactMap { category in
-//                CategoryFilterRequest(categoryId: category.id ?? "",
-//                                      subCategories: (category.subCategories ?? []).filter({ subCategory in
-//                    subCategory.isChoosed == true
-//                }).map { $0.id ?? "" })
-//            }
-//        }
-//        return nil
-//    }
+
     func getChoosedCategories() -> [CategoryFilterRequest]? {
         guard let categories = getCategories() else { return nil }
         

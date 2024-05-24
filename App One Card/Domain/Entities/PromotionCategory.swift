@@ -12,9 +12,9 @@ class PromotionCategory: Codable {
     var name: String?
     var subCategories: [PromotionSubCategory]?
     
-    var isExpanded: Bool = false
+    var isExpanded: Bool = true
     
-    init(id: String? = nil, name: String? = nil, subCategories: [PromotionSubCategory]? = nil, isExpanded: Bool = false) {
+    init(id: String? = nil, name: String? = nil, subCategories: [PromotionSubCategory]? = nil, isExpanded: Bool = true) {
         self.id = id
         self.name = name
         self.subCategories = subCategories

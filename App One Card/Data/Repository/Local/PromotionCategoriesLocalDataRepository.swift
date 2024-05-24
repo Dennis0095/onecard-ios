@@ -24,8 +24,8 @@ class PromotionCategoriesLocalDataRepository: PromotionCategoriesLocalRepository
         return session.getCategories()
     }
     
-    func resetCategories() -> [PromotionCategory] {
-        return session.resetCategories()
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory] {
+        return session.resetCategories(beforeCategories: beforeCategories)
     }
     
     func saveChoosedCategories(categories: [PromotionCategory]) {

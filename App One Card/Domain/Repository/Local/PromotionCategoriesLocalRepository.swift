@@ -11,7 +11,7 @@ import Combine
 protocol PromotionCategoriesLocalRepository {
     func saveCategories(categories: [PromotionCategory]?)
     func getCategories() -> [PromotionCategory]?
-    func resetCategories() -> [PromotionCategory]
+    func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory]
     func saveChoosedCategories(categories: [PromotionCategory])
     func getChoosedCategories() -> [CategoryFilterRequest]?
 }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ProximaNova-Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionFiltersViewController" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <connections>
+                <outlet property="btnApply" destination="C6D-Da-6k1" id="5vC-75-1Wq"/>
+                <outlet property="btnClear" destination="vxr-dE-AJ1" id="x4a-3G-L7J"/>
+                <outlet property="tbFilters" destination="uY8-Kr-wAH" id="BqK-QE-pq9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filtros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1T-ns-aWB">
+                    <rect key="frame" x="171" y="79" width="51" height="22"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="18"/>
+                    <color key="textColor" name="grey100"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yo-sV-HY0">
+                    <rect key="frame" x="350.66666666666669" y="79" width="22.333333333333314" height="22"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal">
+                        <imageReference key="image" image="xmark" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color name="blue_lake_front"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </state>
+                    <connections>
+                        <action selector="close:" destination="-1" eventType="touchUpInside" id="XmV-ef-g7o"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uY8-Kr-wAH">
+                    <rect key="frame" x="0.0" y="121" width="393" height="623"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GpP-f5-Plm">
+                    <rect key="frame" x="20" y="764" width="353" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6D-Da-6k1" customClass="PrimaryFilledButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Bql-lt-psE"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="applyFilters:" destination="-1" eventType="touchUpInside" id="62q-Y0-8DO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-dE-AJ1" customClass="PrimaryOutlineButton" customModule="DEV_App_One_Card" customModuleProvider="target">
+                            <rect key="frame" x="186.66666666666663" y="0.0" width="166.33333333333337" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="RLt-N5-hnD"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="clearFilters:" destination="-1" eventType="touchUpInside" id="yXf-De-OMe"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="uY8-Kr-wAH" firstAttribute="top" secondItem="l1T-ns-aWB" secondAttribute="bottom" constant="20" id="3Zu-Oo-ZsB"/>
+                <constraint firstItem="l1T-ns-aWB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4zp-Tp-baI"/>
+                <constraint firstItem="l1T-ns-aWB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="CAy-vz-Acj"/>
+                <constraint firstItem="uY8-Kr-wAH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Fhj-zh-Nsg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GpP-f5-Plm" secondAttribute="bottom" constant="10" id="Ogr-Ft-n8B"/>
+                <constraint firstItem="GpP-f5-Plm" firstAttribute="top" secondItem="uY8-Kr-wAH" secondAttribute="bottom" constant="20" id="U52-0R-NB3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uY8-Kr-wAH" secondAttribute="trailing" id="Ve2-Zu-QVe"/>
+                <constraint firstItem="3Yo-sV-HY0" firstAttribute="centerY" secondItem="l1T-ns-aWB" secondAttribute="centerY" id="ZmD-jH-jEy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Yo-sV-HY0" secondAttribute="trailing" constant="20" id="frT-vC-Vt6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GpP-f5-Plm" secondAttribute="trailing" constant="20" id="nbR-yj-30E"/>
+                <constraint firstItem="GpP-f5-Plm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rax-lQ-mxt"/>
+            </constraints>
+            <point key="canvasLocation" x="-1" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="blue_lake_front">
+            <color red="0.0" green="0.29803921568627451" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey100">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

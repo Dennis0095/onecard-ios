@@ -632,4 +632,25 @@ extension AppRouter: PromotionsRouterDelegate {
             }
         }
     }
+    
+    func toFilters(categories: [PromotionCategory]) {
+        DispatchQueue.main.async {
+            let dataSource = PromotionsCategoriesDataSourceImpl()
+            let localDataSource = PromotionsCategoriesLocalDataSourceImpl()
+            let repository = PromotionCategoriesDataRepository(dataSource: dataSource,
+                                                               localDataSource: localDataSource)
+            let localRepository = PromotionCategoriesLocalDataRepository()
+            let useCase = PromotionCategoriesUseCase(repository: repository,
+                                                     localRepository: localRepository)
+            let viewModel = PromotionFiltersViewModel(useCase: useCase,
+                                                      categories: categories)
+            let promotionFiltersDelegateDataSource = PromotionFiltersDelegateDataSource(viewModel: viewModel)
+            let filterViewController = PromotionFiltersViewController(viewModel: viewModel, promotionFiltersDelegateDataSource: promotionFiltersDelegateDataSource)
+            viewModel.delegate = filterViewController
+            
+            if let navigationController = self.window.rootViewController as? UINavigationController {
+                navigationController.present(filterViewController, animated: true, completion: nil)
+            }
+        }
+    }
 }

@@ -24,6 +24,7 @@ protocol PromotionsViewModelProtocol {
     func paginate()
     func filterPromotions()
     func getDetail(promotionCode: String)
+    func showFilters()
 }
 
 protocol PromotionsViewModelDelegate: LoaderDisplaying {
@@ -33,6 +34,7 @@ protocol PromotionsViewModelDelegate: LoaderDisplaying {
 
 class PromotionsViewModel: PromotionsViewModelProtocol {
     private let promotionUseCase: PromotionUseCaseProtocol
+    private let promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -47,9 +49,12 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     var router: PromotionsRouterDelegate
     var delegate: PromotionsViewModelDelegate?
     
-    init(router: PromotionsRouterDelegate, promotionUseCase: PromotionUseCase) {
+    init(router: PromotionsRouterDelegate,
+         promotionUseCase: PromotionUseCaseProtocol,
+         promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol) {
         self.router = router
         self.promotionUseCase = promotionUseCase
+        self.promotionCategoriesUseCase = promotionCategoriesUseCase
     }
     
     deinit {
@@ -68,6 +73,18 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         return (items.count - 1) == index
     }
     
+    func showFilters() {
+        if let categories = promotionCategoriesUseCase.getCategories() {
+            router.toFilters(categories: categories)
+        } else {
+            let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+            let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
+            promotionCategoriesUseCase.retryGetCategories(request: request) { [weak self] categories in
+                self?.router.toFilters(categories: categories)
+            }
+        }
+    }
+    
     func paginate() {
         guard !isLastPage else { return }
         
@@ -75,10 +92,13 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         isLoadingPage = true
         
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let categoryFilterRequest = promotionCategoriesUseCase.getChoosedCategories()
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
                                                pageSize: String(pageSize),
                                                page: String(currentPage),
-                                               filter: filter)
+                                               filter: filter,
+                                               categoryFilter: categoryFilterRequest)
+        
         let cancellable = promotionUseCase.consult(request: request)
             .sink { publisher in
                 switch publisher {
@@ -126,10 +146,12 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         isLoadingPage = true
         
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let categoryFilterRequest = promotionCategoriesUseCase.getChoosedCategories()
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
                                                pageSize: String(pageSize),
                                                page: String(currentPage),
-                                               filter: filter)
+                                               filter: filter,
+                                               categoryFilter: categoryFilterRequest)
         let cancellable = promotionUseCase.consult(request: request)
             .sink { publisher in
                 switch publisher {

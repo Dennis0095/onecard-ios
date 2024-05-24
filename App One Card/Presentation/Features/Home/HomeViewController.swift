@@ -91,6 +91,7 @@ class HomeViewController: BaseViewController {
         }
         
         self.viewModel.consultBanners()
+        self.viewModel.getPromotionCategories()
     }
     
     override func setActions() {

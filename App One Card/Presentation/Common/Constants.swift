@@ -43,6 +43,8 @@ class Constants {
     static let you_sure_logout_male: String = "¿Estás seguro que deseas cerrar sesión?"
     static let you_sure_logout_female: String = "¿Estás segura que deseas cerrar sesión?"
     static let try_again: String = "Volver a intentar"
+    static let apply_filters: String = "Aplicar filtros"
+    static let clear_filters: String = "Borrar filtros"
     
     static let OTP_SHIPPING_SMS: String = "1"
     static let OTP_SHIPPING_EMAIL: String = "2"
@@ -85,6 +87,7 @@ class Constants {
     //MARK: Keys User Defaults
     static let keyToken = "token"
     static let keyUser = "user"
+    static let keyPromotionCategories = "promotionCategories"
     static let keyCardStatus = "cardStatus"
     static let keyLinkRegister = "linkRegister"
     static let keyLinkDataTreatment = "linkDataTreatment"

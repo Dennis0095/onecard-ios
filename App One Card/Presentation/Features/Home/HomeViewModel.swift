@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol {
     func balanceInquiry()
     func consultMovements()
     func consultBanners()
+    func getPromotionCategories()
     
     func numberOfItems() -> Int
     func item(at index: Int) -> MovementResponse
@@ -45,16 +46,24 @@ class HomeViewModel: HomeViewModelProtocol {
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
     private let bannersUseCase: BannersUseCaseProtocol
+    private let promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(router: HomeRouterDelegate, authRouter: AuthenticationRouterDelegate, successfulRouter: SuccessfulRouterDelegate, balanceUseCase: BalanceUseCaseProtocol, movementUseCase: MovementUseCaseProtocol, bannersUseCase: BannersUseCase) {
+    init(router: HomeRouterDelegate, 
+         authRouter: AuthenticationRouterDelegate,
+         successfulRouter: SuccessfulRouterDelegate,
+         balanceUseCase: BalanceUseCaseProtocol,
+         movementUseCase: MovementUseCaseProtocol,
+         bannersUseCase: BannersUseCase,
+         promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol) {
         self.router = router
         self.successfulRouter = successfulRouter
         self.balanceUseCase = balanceUseCase
         self.movementUseCase = movementUseCase
         self.bannersUseCase = bannersUseCase
         self.authRouter = authRouter
+        self.promotionCategoriesUseCase = promotionCategoriesUseCase
     }
     
     deinit {
@@ -170,7 +179,13 @@ class HomeViewModel: HomeViewModelProtocol {
         cancellable.store(in: &cancellables)
     }
     
-    func consultMovements() {        
+    func getPromotionCategories() {
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
+        promotionCategoriesUseCase.getCategories(request: request)
+    }
+    
+    func consultMovements() {
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
         
         let request = ConsultMovementsRequest(trackingCode: trackingCode)

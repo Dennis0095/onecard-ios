@@ -69,11 +69,15 @@ class PromotionsViewController: BaseViewController {
     }
     
     @IBAction func searchPromotions(_ sender: Any) {
-        guard let text = txtSearch.text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, text.count > 2 else { return }
-        viewModel.filter = text
+        //guard let text = txtSearch.text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, text.count > 2 else { return }
+        viewModel.filter = txtSearch.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
         txtSearch.resignFirstResponder()
         viewModel.filterPromotions()
+    }
+    
+    @IBAction func showFilters(_ sender: Any) {
+        viewModel.showFilters()
     }
 }
 

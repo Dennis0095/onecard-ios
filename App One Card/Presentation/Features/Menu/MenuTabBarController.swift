@@ -78,7 +78,20 @@ class MenuTabBarController: UITabBarController {
         let movementUseCase = MovementUseCase(movementRepository: movementRepository)
         let bannersRepository = BannersDataRepository()
         let bannersUseCase = BannersUseCase(bannersRepository: bannersRepository)
-        let viewModel = HomeViewModel(router: homeRouter, authRouter: authRouter, successfulRouter: successfulRouter, balanceUseCase: useCase, movementUseCase: movementUseCase, bannersUseCase: bannersUseCase)
+        let promotionCategoriesDataSource = PromotionsCategoriesDataSourceImpl()
+        let promotionCategoriesLocalDataSource = PromotionsCategoriesLocalDataSourceImpl()
+        let promotionCategoriesRepository = PromotionCategoriesDataRepository(dataSource: promotionCategoriesDataSource,
+                                                                              localDataSource: promotionCategoriesLocalDataSource)
+        let promotionCategoriesLocalRepository = PromotionCategoriesLocalDataRepository()
+        let promotionCategoriesUseCase = PromotionCategoriesUseCase(repository: promotionCategoriesRepository,
+                                                                    localRepository: promotionCategoriesLocalRepository)
+        let viewModel = HomeViewModel(router: homeRouter,
+                                      authRouter: authRouter,
+                                      successfulRouter: successfulRouter,
+                                      balanceUseCase: useCase,
+                                      movementUseCase: movementUseCase,
+                                      bannersUseCase: bannersUseCase,
+                                      promotionCategoriesUseCase: promotionCategoriesUseCase)
         let home = HomeViewController(viewModel: viewModel)
         viewModel.delegate = home
         return home
@@ -87,7 +100,17 @@ class MenuTabBarController: UITabBarController {
     private func setupPromotions() -> PromotionsViewController {
         let promotionRepository = PromotionDataRepository()
         let promotionUseCase = PromotionUseCase(promotionRepository: promotionRepository)
-        let viewModel = PromotionsViewModel(router: promotionsRouter, promotionUseCase: promotionUseCase)
+        
+        let promotionsCategoriesDataSource = PromotionsCategoriesDataSourceImpl()
+        let promotionsCategoriesLocalDataSource = PromotionsCategoriesLocalDataSourceImpl()
+        let promotionCategoriesRepository = PromotionCategoriesDataRepository(dataSource: promotionsCategoriesDataSource,
+                                                                              localDataSource: promotionsCategoriesLocalDataSource)
+        let promotionCategoriesLocalRepository = PromotionCategoriesLocalDataRepository()
+        let promotionCategoriesUseCase = PromotionCategoriesUseCase(repository: promotionCategoriesRepository,
+                                                                            localRepository: promotionCategoriesLocalRepository)
+        let viewModel = PromotionsViewModel(router: promotionsRouter,
+                                            promotionUseCase: promotionUseCase,
+                                            promotionCategoriesUseCase: promotionCategoriesUseCase)
         let promotionsDelegateDataSource = PromotionsDelegateDataSource(viewModel: viewModel)
         let promotions = PromotionsViewController(viewModel: viewModel, promotionsDelegateDataSource: promotionsDelegateDataSource)
         viewModel.delegate = promotions

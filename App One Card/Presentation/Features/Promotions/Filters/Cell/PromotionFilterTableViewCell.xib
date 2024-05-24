@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Medium.otf">
+            <string>Gotham-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="31" id="KGk-i7-Jjw" customClass="PromotionFilterTableViewCell" customModule="DEV_App_One_Card" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJD-VH-Kd4">
+                        <rect key="frame" x="25" y="5" width="19" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="erc-jz-9jR"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="checkbox_unchecked"/>
+                        <connections>
+                            <action selector="choose:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dcB-WV-YOZ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subcategory" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eE-lD-UuZ">
+                        <rect key="frame" x="54" y="5" width="90" height="20"/>
+                        <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="14"/>
+                        <color key="textColor" name="grey100"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BJD-VH-Kd4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="B14-V2-0st"/>
+                    <constraint firstItem="0eE-lD-UuZ" firstAttribute="centerY" secondItem="BJD-VH-Kd4" secondAttribute="centerY" id="EtV-Fe-mvY"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BJD-VH-Kd4" secondAttribute="bottom" constant="5" id="LTv-6l-DFr"/>
+                    <constraint firstItem="0eE-lD-UuZ" firstAttribute="leading" secondItem="BJD-VH-Kd4" secondAttribute="trailing" constant="10" id="MJm-30-fEq"/>
+                    <constraint firstItem="BJD-VH-Kd4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="TyP-XB-DQ0"/>
+                    <constraint firstItem="0eE-lD-UuZ" firstAttribute="top" secondItem="BJD-VH-Kd4" secondAttribute="top" id="ZoC-eN-O0i"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0eE-lD-UuZ" secondAttribute="trailing" constant="18" id="eoh-m7-azZ"/>
+                    <constraint firstAttribute="bottom" secondItem="0eE-lD-UuZ" secondAttribute="bottom" constant="5" id="mrA-ag-xnl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnChoose" destination="BJD-VH-Kd4" id="x0G-wS-CpR"/>
+                <outlet property="lblSubCategory" destination="0eE-lD-UuZ" id="3nU-n9-yTc"/>
+            </connections>
+            <point key="canvasLocation" x="13.740458015267174" y="15.140845070422536"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkbox_unchecked" width="19" height="18"/>
+        <namedColor name="grey100">
+            <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

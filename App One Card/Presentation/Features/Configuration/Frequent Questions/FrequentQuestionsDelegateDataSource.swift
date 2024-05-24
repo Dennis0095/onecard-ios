@@ -32,25 +32,24 @@ extension FrequentQuestionsDelegateDataSource: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let index = IndexPath(row: indexPath.row, section: indexPath.section)
-        let item = viewModel.question(indexPath: index)
-        let isExpanded = indexsToExpanded.isEmpty ? false : indexsToExpanded.filter { $0 == index }.isEmpty ? false : true
+        let item = viewModel.question(indexPath: indexPath)
+        let isExpanded = indexsToExpanded.isEmpty ? false : indexsToExpanded.filter { $0 == indexPath }.isEmpty ? false : true
         
         cell.setData(title: item.question ?? "", description: item.answer ?? "", isExpanded: isExpanded)
         
         cell.handleBreakDown = {
             if self.indexsToExpanded.isEmpty {
-                self.indexsToExpanded.append(index)
+                self.indexsToExpanded.append(indexPath)
             } else {
-                if let i = self.indexsToExpanded.firstIndex(of: index) {
+                if let i = self.indexsToExpanded.firstIndex(of: indexPath) {
                     self.indexsToExpanded.remove(at: i)
                 } else {
-                    self.indexsToExpanded.append(index)
+                    self.indexsToExpanded.append(indexPath)
                 }
             }
 
             tableView.beginUpdates()
-            tableView.reloadRows(at: [index], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
         

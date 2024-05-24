@@ -257,6 +257,11 @@
 		B60AC4CD2BED8FB0000C2917 /* ProximaNova-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */; };
 		B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */; };
 		B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60AC4C82BED8FB0000C2917 /* ProximaNova-Bold.otf */; };
+		B610D8122C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610D8102C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.swift */; };
+		B610D8132C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B610D8112C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.xib */; };
+		B610D8162C0089F3000C22E6 /* PromotionFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610D8142C0089F3000C22E6 /* PromotionFilterTableViewCell.swift */; };
+		B610D8172C0089F3000C22E6 /* PromotionFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B610D8152C0089F3000C22E6 /* PromotionFilterTableViewCell.xib */; };
+		B610D81B2C00B5EA000C22E6 /* CategoryFilterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610D81A2C00B5EA000C22E6 /* CategoryFilterRequest.swift */; };
 		B6133C0E2BF7DE14001DB44D /* UserRecoveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */; };
 		B6133C102BF7DE62001DB44D /* UserRecoveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */; };
 		B62A32B92BF280810058AFE9 /* PromotionDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */; };
@@ -283,7 +288,26 @@
 		B65B179D2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B179C2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib */; };
 		B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AE952B8F7A710068889A /* GestureExtension.swift */; };
 		B661AEF72B9168760068889A /* ValidateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661AEF62B9168760068889A /* ValidateType.swift */; };
+		B69FCD2C2BFFE2630021A920 /* PromotionFiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD2B2BFFE2630021A920 /* PromotionFiltersViewModel.swift */; };
+		B69FCD2E2BFFE3550021A920 /* PromotionCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD2D2BFFE3550021A920 /* PromotionCategoriesUseCase.swift */; };
+		B69FCD302BFFE3A30021A920 /* PromotionCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD2F2BFFE3A30021A920 /* PromotionCategoriesRequest.swift */; };
+		B69FCD322BFFE3D10021A920 /* PromotionCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD312BFFE3D10021A920 /* PromotionCategoriesResponse.swift */; };
+		B69FCD342BFFE51C0021A920 /* PromotionCategoriesSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD332BFFE51C0021A920 /* PromotionCategoriesSessionManager.swift */; };
+		B69FCD362BFFE5EC0021A920 /* PromotionCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD352BFFE5EC0021A920 /* PromotionCategoriesRepository.swift */; };
+		B69FCD382BFFE64F0021A920 /* PromotionCategoriesLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD372BFFE64F0021A920 /* PromotionCategoriesLocalDataRepository.swift */; };
+		B69FCD3A2BFFE77B0021A920 /* PromotionCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD392BFFE77B0021A920 /* PromotionCategoryResponse.swift */; };
+		B69FCD3C2BFFE8660021A920 /* PromotionSubCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD3B2BFFE8660021A920 /* PromotionSubCategoryResponse.swift */; };
+		B69FCD3F2C00143A0021A920 /* PromotionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD3E2C00143A0021A920 /* PromotionCategory.swift */; };
+		B69FCD432C0014BC0021A920 /* PromotionSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD422C0014BC0021A920 /* PromotionSubCategory.swift */; };
+		B69FCD452C0017C20021A920 /* PromotionCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD442C0017C20021A920 /* PromotionCategories.swift */; };
+		B69FCD492C001B730021A920 /* PromotionCategoriesDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD482C001B730021A920 /* PromotionCategoriesDataRepository.swift */; };
+		B69FCD4C2C0023580021A920 /* PromotionCategoriesLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD4B2C0023580021A920 /* PromotionCategoriesLocalRepository.swift */; };
+		B69FCD512C003D750021A920 /* PromotionsCategoriesDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD502C003D750021A920 /* PromotionsCategoriesDataSourceImpl.swift */; };
+		B69FCD552C0064F30021A920 /* PromotionsCategoriesLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD542C0064F30021A920 /* PromotionsCategoriesLocalDataSourceImpl.swift */; };
+		B69FCD5A2C007F830021A920 /* PromotionFiltersDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FCD592C007F830021A920 /* PromotionFiltersDelegateDataSource.swift */; };
 		B6C733342BA346CC003DB0FF /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */; };
+		B6C773AD2BFFDF0500C53A71 /* PromotionFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C773AB2BFFDF0500C53A71 /* PromotionFiltersViewController.swift */; };
+		B6C773AE2BFFDF0500C53A71 /* PromotionFiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C773AC2BFFDF0500C53A71 /* PromotionFiltersViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -540,6 +564,11 @@
 		B60AC4C92BED8FB0000C2917 /* ProximaNova-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Medium.otf"; sourceTree = "<group>"; };
 		B60AC4CA2BED8FB0000C2917 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Black.otf"; sourceTree = "<group>"; };
 		B60AC4CB2BED8FB0000C2917 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		B610D8102C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionFilterHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B610D8112C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionFilterHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		B610D8142C0089F3000C22E6 /* PromotionFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionFilterTableViewCell.swift; sourceTree = "<group>"; };
+		B610D8152C0089F3000C22E6 /* PromotionFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionFilterTableViewCell.xib; sourceTree = "<group>"; };
+		B610D81A2C00B5EA000C22E6 /* CategoryFilterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterRequest.swift; sourceTree = "<group>"; };
 		B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecoveryRequest.swift; sourceTree = "<group>"; };
 		B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecoveryResponse.swift; sourceTree = "<group>"; };
 		B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionDetailResponse.swift; sourceTree = "<group>"; };
@@ -562,7 +591,26 @@
 		B65B179C2BF827CA00C5F0AF /* FrequentQuestionsHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrequentQuestionsHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		B661AE952B8F7A710068889A /* GestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExtension.swift; sourceTree = "<group>"; };
 		B661AEF62B9168760068889A /* ValidateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateType.swift; sourceTree = "<group>"; };
+		B69FCD2B2BFFE2630021A920 /* PromotionFiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionFiltersViewModel.swift; sourceTree = "<group>"; };
+		B69FCD2D2BFFE3550021A920 /* PromotionCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesUseCase.swift; sourceTree = "<group>"; };
+		B69FCD2F2BFFE3A30021A920 /* PromotionCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesRequest.swift; sourceTree = "<group>"; };
+		B69FCD312BFFE3D10021A920 /* PromotionCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesResponse.swift; sourceTree = "<group>"; };
+		B69FCD332BFFE51C0021A920 /* PromotionCategoriesSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesSessionManager.swift; sourceTree = "<group>"; };
+		B69FCD352BFFE5EC0021A920 /* PromotionCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesRepository.swift; sourceTree = "<group>"; };
+		B69FCD372BFFE64F0021A920 /* PromotionCategoriesLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesLocalDataRepository.swift; sourceTree = "<group>"; };
+		B69FCD392BFFE77B0021A920 /* PromotionCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoryResponse.swift; sourceTree = "<group>"; };
+		B69FCD3B2BFFE8660021A920 /* PromotionSubCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSubCategoryResponse.swift; sourceTree = "<group>"; };
+		B69FCD3E2C00143A0021A920 /* PromotionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategory.swift; sourceTree = "<group>"; };
+		B69FCD422C0014BC0021A920 /* PromotionSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSubCategory.swift; sourceTree = "<group>"; };
+		B69FCD442C0017C20021A920 /* PromotionCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategories.swift; sourceTree = "<group>"; };
+		B69FCD482C001B730021A920 /* PromotionCategoriesDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesDataRepository.swift; sourceTree = "<group>"; };
+		B69FCD4B2C0023580021A920 /* PromotionCategoriesLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionCategoriesLocalRepository.swift; sourceTree = "<group>"; };
+		B69FCD502C003D750021A920 /* PromotionsCategoriesDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsCategoriesDataSourceImpl.swift; sourceTree = "<group>"; };
+		B69FCD542C0064F30021A920 /* PromotionsCategoriesLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionsCategoriesLocalDataSourceImpl.swift; sourceTree = "<group>"; };
+		B69FCD592C007F830021A920 /* PromotionFiltersDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionFiltersDelegateDataSource.swift; sourceTree = "<group>"; };
 		B6C733332BA346CC003DB0FF /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		B6C773AB2BFFDF0500C53A71 /* PromotionFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionFiltersViewController.swift; sourceTree = "<group>"; };
+		B6C773AC2BFFDF0500C53A71 /* PromotionFiltersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionFiltersViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +676,9 @@
 				B62A32B82BF280810058AFE9 /* PromotionDetailResponse.swift */,
 				B6133C0F2BF7DE62001DB44D /* UserRecoveryResponse.swift */,
 				B65B17982BF822C700C5F0AF /* QuestionCategoryResponse.swift */,
+				B69FCD312BFFE3D10021A920 /* PromotionCategoriesResponse.swift */,
+				B69FCD392BFFE77B0021A920 /* PromotionCategoryResponse.swift */,
+				B69FCD3B2BFFE8660021A920 /* PromotionSubCategoryResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -646,6 +697,7 @@
 				B62F01FC2B983E190090ABA8 /* BannersUseCase.swift */,
 				B60AC49A2BED2C21000C2917 /* GeneralUseCase.swift */,
 				B60AC4A62BED49EF000C2917 /* LogoutUseCase.swift */,
+				B69FCD2D2BFFE3550021A920 /* PromotionCategoriesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -767,6 +819,7 @@
 		0D45B0E52A2E4EA600EFC7F4 /* App One Card */ = {
 			isa = PBXGroup;
 			children = (
+				B69FCD582C0069310021A920 /* CompositionRoot */,
 				0D45B10C2A2E5ECF00EFC7F4 /* Domain */,
 				0D45B10B2A2E5ECC00EFC7F4 /* Data */,
 				0D45B10A2A2E5DB400EFC7F4 /* Presentation */,
@@ -813,19 +866,10 @@
 		0D45B10B2A2E5ECC00EFC7F4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B69FCD4F2C003C5D0021A920 /* DataSource */,
+				B69FCD3D2BFFED0C0021A920 /* Repository */,
 				0D243F232A47EF9000399600 /* Response */,
 				0DFA7C7D2A6D8AAD0031178B /* Manager */,
-				0DA061D62A495EF40096DCD1 /* UserDataRepository.swift */,
-				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
-				0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */,
-				0DD692B32A529C19001D0BB9 /* MovementDataRepository.swift */,
-				0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */,
-				0D6DA4F82A5E526B00AC6BB5 /* CardDataRepository.swift */,
-				0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */,
-				0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */,
-				B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */,
-				B60AC49E2BED2D0A000C2917 /* GeneralDataRepository.swift */,
-				B60AC4AA2BED4B06000C2917 /* LogoutDataRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1115,6 +1159,8 @@
 				B60AC4AE2BED544E000C2917 /* LogoutRequest.swift */,
 				B62A32BA2BF2821D0058AFE9 /* PromotionDetailRequest.swift */,
 				B6133C0D2BF7DE14001DB44D /* UserRecoveryRequest.swift */,
+				B69FCD2F2BFFE3A30021A920 /* PromotionCategoriesRequest.swift */,
+				B610D81A2C00B5EA000C22E6 /* CategoryFilterRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1151,6 +1197,7 @@
 		0D904CCF2A377035007D37D3 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B69FCD4A2C0023530021A920 /* Local */,
 				0D243F292A47FB5B00399600 /* UserRepository.swift */,
 				0D6B91692A4B8EFC0045D149 /* OTPRepository.swift */,
 				0D3E41EF2A506AE300C2546A /* BalanceRepository.swift */,
@@ -1162,6 +1209,7 @@
 				B62F01FE2B983E450090ABA8 /* BannersRepository.swift */,
 				B60AC49C2BED2C58000C2917 /* GeneralRepository.swift */,
 				B60AC4A82BED4AC2000C2917 /* LogoutRepository.swift */,
+				B69FCD352BFFE5EC0021A920 /* PromotionCategoriesRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1320,6 +1368,7 @@
 		0DF183DD2A68CF57004A0621 /* Promotions */ = {
 			isa = PBXGroup;
 			children = (
+				B6C773AA2BFFDEE900C53A71 /* Filters */,
 				B62A32BC2BF295800058AFE9 /* Terms */,
 				B640309D2BF0666D0061C1E6 /* Detail */,
 				0DF183E82A68D93F004A0621 /* Cell */,
@@ -1376,6 +1425,7 @@
 				0D0A60F62A70996D005B447E /* UserSessionManager.swift */,
 				0D0A60F82A7099C1005B447E /* CardSessionManager.swift */,
 				B60AC4A02BED33E9000C2917 /* GeneralSessionManager.swift */,
+				B69FCD332BFFE51C0021A920 /* PromotionCategoriesSessionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1384,6 +1434,9 @@
 			isa = PBXGroup;
 			children = (
 				0DFA7C852A6D8F0A0031178B /* User.swift */,
+				B69FCD3E2C00143A0021A920 /* PromotionCategory.swift */,
+				B69FCD422C0014BC0021A920 /* PromotionSubCategory.swift */,
+				B69FCD442C0017C20021A920 /* PromotionCategories.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1450,6 +1503,105 @@
 				B661AEF62B9168760068889A /* ValidateType.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		B69FCD3D2BFFED0C0021A920 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD472C0018800021A920 /* Local */,
+				B69FCD462C00187B0021A920 /* Cloud */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B69FCD462C00187B0021A920 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				0DA061D62A495EF40096DCD1 /* UserDataRepository.swift */,
+				0D6B916E2A4B921B0045D149 /* OTPDataRepository.swift */,
+				0D3E41F12A506BAF00C2546A /* BalanceDataRepository.swift */,
+				0DD692B32A529C19001D0BB9 /* MovementDataRepository.swift */,
+				0D6DA4F62A5E525E00AC6BB5 /* KeyDataRepository.swift */,
+				0D6DA4F82A5E526B00AC6BB5 /* CardDataRepository.swift */,
+				0D7DCD272A7240D1006F9CA5 /* PromotionDataRepository.swift */,
+				0D50B9A82A8FAE1C0009F624 /* QuestionDataRepository.swift */,
+				B62F02062B9841C30090ABA8 /* BannersDataRepository.swift */,
+				B60AC49E2BED2D0A000C2917 /* GeneralDataRepository.swift */,
+				B60AC4AA2BED4B06000C2917 /* LogoutDataRepository.swift */,
+				B69FCD482C001B730021A920 /* PromotionCategoriesDataRepository.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		B69FCD472C0018800021A920 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD372BFFE64F0021A920 /* PromotionCategoriesLocalDataRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		B69FCD4A2C0023530021A920 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD4B2C0023580021A920 /* PromotionCategoriesLocalRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		B69FCD4F2C003C5D0021A920 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD532C005E280021A920 /* Cloud */,
+				B69FCD522C005E240021A920 /* Local */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B69FCD522C005E240021A920 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD542C0064F30021A920 /* PromotionsCategoriesLocalDataSourceImpl.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		B69FCD532C005E280021A920 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD502C003D750021A920 /* PromotionsCategoriesDataSourceImpl.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		B69FCD582C0069310021A920 /* CompositionRoot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompositionRoot;
+			sourceTree = "<group>";
+		};
+		B69FCD5B2C007FFA0021A920 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B610D8102C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.swift */,
+				B610D8112C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.xib */,
+				B610D8142C0089F3000C22E6 /* PromotionFilterTableViewCell.swift */,
+				B610D8152C0089F3000C22E6 /* PromotionFilterTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B6C773AA2BFFDEE900C53A71 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				B69FCD5B2C007FFA0021A920 /* Cell */,
+				B6C773AB2BFFDF0500C53A71 /* PromotionFiltersViewController.swift */,
+				B6C773AC2BFFDF0500C53A71 /* PromotionFiltersViewController.xib */,
+				B69FCD2B2BFFE2630021A920 /* PromotionFiltersViewModel.swift */,
+				B69FCD592C007F830021A920 /* PromotionFiltersDelegateDataSource.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1525,6 +1677,7 @@
 				0DE7BD922A82B37B0029015F /* RecoverPasswordViewController.xib in Resources */,
 				0D904CC22A364418007D37D3 /* ConfigurationTableViewCell.xib in Resources */,
 				0DFA7CA32A6DC7E60031178B /* CardLockModalViewController.xib in Resources */,
+				B6C773AE2BFFDF0500C53A71 /* PromotionFiltersViewController.xib in Resources */,
 				0D3A801F2A3794D500C32F39 /* Gotham-BlackItalic.otf in Resources */,
 				0D45B15D2A2FC97100EFC7F4 /* SelectCustomViewController.xib in Resources */,
 				B60AC4D12BED9185000C2917 /* ProximaNova-Bold.otf in Resources */,
@@ -1541,6 +1694,7 @@
 				0DB967482A33F0E20079D432 /* LoginInformationViewController.xib in Resources */,
 				0D3A802E2A3794D500C32F39 /* Gotham-XLight.otf in Resources */,
 				0DC78BB42A37D1DA0097CCE5 /* EditMailViewController.xib in Resources */,
+				B610D8132C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.xib in Resources */,
 				0D2474082A4667CD0075E147 /* ConfigureCardViewController.xib in Resources */,
 				B65B17972BF7EF3200C5F0AF /* QA.plist in Resources */,
 				0DFC4CE22A4272500011AA97 /* WelcomeActivateViewController.xib in Resources */,
@@ -1582,6 +1736,7 @@
 				B60AC4CF2BED8FB0000C2917 /* ProximaNova-Light.otf in Resources */,
 				0D45B1452A2EDA6100EFC7F4 /* MembershipDataViewController.xib in Resources */,
 				0DB967692A35238C0079D432 /* HomeViewController.xib in Resources */,
+				B610D8172C0089F3000C22E6 /* PromotionFilterTableViewCell.xib in Resources */,
 				B62A32BF2BF295970058AFE9 /* PromotionTermsViewController.xib in Resources */,
 				0D904CCE2A369DFF007D37D3 /* ProfileViewController.xib in Resources */,
 			);
@@ -1604,6 +1759,8 @@
 				B60AC4992BED295A000C2917 /* GeneralParametersResponse.swift in Sources */,
 				0D45B1382A2EC28E00EFC7F4 /* WindowExtension.swift in Sources */,
 				0D8D9F6A2A5DDB9300E6C8C6 /* CardActivationRequest.swift in Sources */,
+				B69FCD2C2BFFE2630021A920 /* PromotionFiltersViewModel.swift in Sources */,
+				B69FCD362BFFE5EC0021A920 /* PromotionCategoriesRepository.swift in Sources */,
 				0D243B8D2A3A47AD004E87D3 /* AlertErrorViewController.swift in Sources */,
 				0D76F8412A586E5800A0D6EB /* PinViewModel.swift in Sources */,
 				0D45B1782A3042F600EFC7F4 /* CodeVerificationTextField.swift in Sources */,
@@ -1631,15 +1788,18 @@
 				0D50B9A72A8FADC40009F624 /* QuestionRepository.swift in Sources */,
 				0D904CD12A3771E6007D37D3 /* VerificationRouter.swift in Sources */,
 				0D45B1312A2EABF500EFC7F4 /* Colors.swift in Sources */,
+				B69FCD342BFFE51C0021A920 /* PromotionCategoriesSessionManager.swift in Sources */,
 				0D8D9F6E2A5DDD1800E6C8C6 /* ValidateKeyResponse.swift in Sources */,
 				0D45B17A2A304B5300EFC7F4 /* VerificationViewModel.swift in Sources */,
 				0D6B91682A4B8EAF0045D149 /* OTPUseCase.swift in Sources */,
+				B6C773AD2BFFDF0500C53A71 /* PromotionFiltersViewController.swift in Sources */,
 				0DE336852A5B9B8600597BE8 /* PinOutlinedTextField.swift in Sources */,
 				B62F020C2B98487E0090ABA8 /* BannerCell.swift in Sources */,
 				0D6B916D2A4B90650045D149 /* SendOTPRegisterRequest.swift in Sources */,
 				0D45B1092A2E5A1C00EFC7F4 /* Environment.swift in Sources */,
 				0DC78BBF2A37EA8A0097CCE5 /* EditUserViewController.swift in Sources */,
 				0D0A60F32A7046A7005B447E /* ConsultUserDataResponse.swift in Sources */,
+				B69FCD552C0064F30021A920 /* PromotionsCategoriesLocalDataSourceImpl.swift in Sources */,
 				B661AEF72B9168760068889A /* ValidateType.swift in Sources */,
 				0DB967522A3401F50079D432 /* SuccessfulViewController.swift in Sources */,
 				0D65EA172A6B032000819637 /* CardStatusRequest.swift in Sources */,
@@ -1655,6 +1815,7 @@
 				0D3E41EE2A506AD800C2546A /* BalanceUseCase.swift in Sources */,
 				0DF183E52A68D655004A0621 /* PromotionsRouter.swift in Sources */,
 				0DB967622A34FA970079D432 /* MenuTabBarItem.swift in Sources */,
+				B69FCD5A2C007F830021A920 /* PromotionFiltersDelegateDataSource.swift in Sources */,
 				0DB967582A34EC040079D432 /* MenuTabBarController.swift in Sources */,
 				0DB9676F2A353A340079D432 /* ConfigurationViewController.swift in Sources */,
 				0D50B99D2A8FAAFA0009F624 /* FrequentQuestionsViewModel.swift in Sources */,
@@ -1664,6 +1825,7 @@
 				0D7DCD262A724092006F9CA5 /* PromotionRepository.swift in Sources */,
 				0D3E41F22A506BAF00C2546A /* BalanceDataRepository.swift in Sources */,
 				0DD5AFB42A78DEC600EDCBA8 /* UpdatePasswordRequest.swift in Sources */,
+				B610D8122C0086BF000C22E6 /* PromotionFilterHeaderTableViewCell.swift in Sources */,
 				0DB967472A33F0E20079D432 /* LoginInformationViewController.swift in Sources */,
 				0D904CC12A364418007D37D3 /* ConfigurationTableViewCell.swift in Sources */,
 				0DB9674A2A33F0F40079D432 /* LoginInformationViewModel.swift in Sources */,
@@ -1671,14 +1833,18 @@
 				0DF183E02A68D070004A0621 /* PromotionsViewController.swift in Sources */,
 				0D7DCD2C2A724A58006F9CA5 /* UpdateEmailResponse.swift in Sources */,
 				0D50B99F2A8FABB70009F624 /* QuestionResponse.swift in Sources */,
+				B69FCD3F2C00143A0021A920 /* PromotionCategory.swift in Sources */,
 				0DF183E32A68D3B4004A0621 /* PromotionsViewModel.swift in Sources */,
 				0D65EA192A6B036800819637 /* CardStatusResponse.swift in Sources */,
 				B6133C102BF7DE62001DB44D /* UserRecoveryResponse.swift in Sources */,
+				B69FCD452C0017C20021A920 /* PromotionCategories.swift in Sources */,
 				0DF183F32A696D1C004A0621 /* ChangePasswordViewModel.swift in Sources */,
 				0D8D9F722A5DDE1000E6C8C6 /* KeyUseCase.swift in Sources */,
 				0D7DCD1E2A723EB0006F9CA5 /* PromotionUseCase.swift in Sources */,
+				B610D8162C0089F3000C22E6 /* PromotionFilterTableViewCell.swift in Sources */,
 				0DC882542A63A65D00DAD073 /* LoginResponse.swift in Sources */,
 				0DD692B02A529B2B001D0BB9 /* MovementRepository.swift in Sources */,
+				B69FCD302BFFE3A30021A920 /* PromotionCategoriesRequest.swift in Sources */,
 				0D45B1152A2E759100EFC7F4 /* AppRouter.swift in Sources */,
 				0D0A61012A70F9D1005B447E /* UpdateUsernameRequest.swift in Sources */,
 				0D8D9F702A5DDD2400E6C8C6 /* ReassignKeyResponse.swift in Sources */,
@@ -1696,6 +1862,7 @@
 				0DD5AFB62A78DED000EDCBA8 /* UpdatePasswordResponse.swift in Sources */,
 				0DFA7C9C2A6DB9D50031178B /* CardLockViewController.swift in Sources */,
 				0D65EA1B2A6B0BEA00819637 /* CardOnlineShoppingStatusRequest.swift in Sources */,
+				B69FCD492C001B730021A920 /* PromotionCategoriesDataRepository.swift in Sources */,
 				0D268B3E2A84ABF800350785 /* MovementDetailViewController.swift in Sources */,
 				0D0A60FD2A70E0DF005B447E /* ValidateOTPUpdateRequest.swift in Sources */,
 				B60AC49D2BED2C58000C2917 /* GeneralRepository.swift in Sources */,
@@ -1713,6 +1880,7 @@
 				0D3E41EA2A5065D600C2546A /* BalanceInquiryRequest.swift in Sources */,
 				0D3E41EC2A50661200C2546A /* BalanceInquiryResponse.swift in Sources */,
 				0D45B1512A2EE84000EFC7F4 /* PaddedTextField.swift in Sources */,
+				B69FCD322BFFE3D10021A920 /* PromotionCategoriesResponse.swift in Sources */,
 				0D0A60FF2A70E1E7005B447E /* SendOTPUpdateResponse.swift in Sources */,
 				0DDE791A2A4FC3C400A52DEB /* ValidateOTPResponse.swift in Sources */,
 				0D6B916A2A4B8EFC0045D149 /* OTPRepository.swift in Sources */,
@@ -1730,6 +1898,7 @@
 				0D7DCD282A7240D1006F9CA5 /* PromotionDataRepository.swift in Sources */,
 				0D35EDFC2A44BECC00411486 /* KeyboardNumber.swift in Sources */,
 				0D45B15C2A2FC97100EFC7F4 /* SelectCustomViewController.swift in Sources */,
+				B69FCD3A2BFFE77B0021A920 /* PromotionCategoryResponse.swift in Sources */,
 				0D45B11E2A2E9C1600EFC7F4 /* LoginViewModel.swift in Sources */,
 				0DFC4CE42A42785B0011AA97 /* WelcomeActivateViewModel.swift in Sources */,
 				0D3E41F42A50882E00C2546A /* HomeObserver.swift in Sources */,
@@ -1747,6 +1916,7 @@
 				0D3E41F02A506AE300C2546A /* BalanceRepository.swift in Sources */,
 				0D65EA272A6D00D100819637 /* ChangeCardOnlineShoppingStatusRequest.swift in Sources */,
 				0D0A60F72A70996E005B447E /* UserSessionManager.swift in Sources */,
+				B69FCD382BFFE64F0021A920 /* PromotionCategoriesLocalDataRepository.swift in Sources */,
 				0DC78BC22A37EA980097CCE5 /* EditUserViewModel.swift in Sources */,
 				0D35EE012A45DD5E00411486 /* HomeRouter.swift in Sources */,
 				0D0A60F92A7099C1005B447E /* CardSessionManager.swift in Sources */,
@@ -1754,7 +1924,9 @@
 				0D8D9F682A5DD89400E6C8C6 /* ValidateKeyRequest.swift in Sources */,
 				0DFC4CE12A4272500011AA97 /* WelcomeActivateViewController.swift in Sources */,
 				0D6E009F2A87DD3D006277C2 /* MovementsHistoryResponse.swift in Sources */,
+				B610D81B2C00B5EA000C22E6 /* CategoryFilterRequest.swift in Sources */,
 				0D6B91732A4B98A30045D149 /* ValidateAffiliationRequest.swift in Sources */,
+				B69FCD512C003D750021A920 /* PromotionsCategoriesDataSourceImpl.swift in Sources */,
 				0DF183EB2A68D952004A0621 /* PromotionTableViewCell.swift in Sources */,
 				0DA061D72A495EF40096DCD1 /* UserDataRepository.swift in Sources */,
 				0DD692AC2A528C29001D0BB9 /* ConsultMovementsRequest.swift in Sources */,
@@ -1763,12 +1935,14 @@
 				0D45B1202A2EA68A00EFC7F4 /* SplashViewModel.swift in Sources */,
 				0DFA7CA72A6DEAB50031178B /* CardLockResponse.swift in Sources */,
 				0D6DA4F92A5E526B00AC6BB5 /* CardDataRepository.swift in Sources */,
+				B69FCD3C2BFFE8660021A920 /* PromotionSubCategoryResponse.swift in Sources */,
 				0D7DCD2A2A724A4C006F9CA5 /* UpdateEmailRequest.swift in Sources */,
 				0D2474072A4667CD0075E147 /* ConfigureCardViewController.swift in Sources */,
 				0D45B1742A30400000EFC7F4 /* VerificationViewController.swift in Sources */,
 				0D7DCD242A723FB9006F9CA5 /* PromotionResponse.swift in Sources */,
 				0D45B16B2A30316900EFC7F4 /* SelectDateViewController.swift in Sources */,
 				0D8D9F6C2A5DDBC700E6C8C6 /* KeyRepository.swift in Sources */,
+				B69FCD4C2C0023580021A920 /* PromotionCategoriesLocalRepository.swift in Sources */,
 				0D45B16F2A30372700EFC7F4 /* SelectModel.swift in Sources */,
 				0DE3A13C2A799B7D00A34E06 /* ValidateOTPUpdateResponse.swift in Sources */,
 				0DE3A13E2A799E4400A34E06 /* ReassignKeyRequest.swift in Sources */,
@@ -1791,12 +1965,14 @@
 				0DC44F0F2A4CD94A001AAB49 /* ValidatePersonaDataResponse.swift in Sources */,
 				B64030A02BF0667D0061C1E6 /* PromotionDetailViewController.swift in Sources */,
 				B661AE962B8F7A710068889A /* GestureExtension.swift in Sources */,
+				B69FCD432C0014BC0021A920 /* PromotionSubCategory.swift in Sources */,
 				0D35EDFF2A45DCF300411486 /* HomeViewModel.swift in Sources */,
 				0D45B1342A2EAC3200EFC7F4 /* ColorExtension.swift in Sources */,
 				0D6B91752A4B9E3E0045D149 /* ValidateAffiliationResponse.swift in Sources */,
 				0D243F2A2A47FB5B00399600 /* UserRepository.swift in Sources */,
 				0D45B12E2A2EAB6600EFC7F4 /* PrimaryFilledButton.swift in Sources */,
 				0D45B1362A2EAF2400EFC7F4 /* Constants.swift in Sources */,
+				B69FCD2E2BFFE3550021A920 /* PromotionCategoriesUseCase.swift in Sources */,
 				0DC78BB32A37D1DA0097CCE5 /* EditMailViewController.swift in Sources */,
 				0D8636382A8DDAB500954CEE /* InactivityModalViewController.swift in Sources */,
 				B60AC4AB2BED4B06000C2917 /* LogoutDataRepository.swift in Sources */,

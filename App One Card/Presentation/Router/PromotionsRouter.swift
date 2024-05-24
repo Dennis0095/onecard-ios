@@ -9,6 +9,6 @@ import Foundation
 
 protocol PromotionsRouterDelegate: Router {
     func toPromotionDetail(detail: PromotionDetailResponse)
-    func toFilters(categories: [PromotionCategory])
+    func toFilters(categories: [PromotionCategory], filter: VoidActionHandler?)
     func showTermsConditions(terms: String)
 }

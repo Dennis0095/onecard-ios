@@ -61,11 +61,17 @@ class PromotionsViewController: BaseViewController {
                 textField.isEnabled = true
             }
             viewModel.filterPromotions()
+            
+            //MARK: RESET TIMER
+            resetTimer()
         }
     }
     
     @IBAction func tryAgain(_ sender: Any) {
         viewModel.paginate()
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
     
     @IBAction func searchPromotions(_ sender: Any) {
@@ -74,10 +80,16 @@ class PromotionsViewController: BaseViewController {
         
         txtSearch.resignFirstResponder()
         viewModel.filterPromotions()
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
     
     @IBAction func showFilters(_ sender: Any) {
         viewModel.showFilters()
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
 }
 
@@ -109,6 +121,11 @@ extension PromotionsViewController: PromotionsViewModelDelegate {
             self.viewError.isHidden = false
             self.viewPromotions.isHidden = true
         }
+    }
+    
+    func movingScrollView() {
+        //MARK: RESET TIMER
+        resetTimer()
     }
 }
 

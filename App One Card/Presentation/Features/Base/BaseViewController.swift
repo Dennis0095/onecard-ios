@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
         resetTimer()
     }
     
-    private func resetTimer() {
+    func resetTimer() {
         guard let _ = UserSessionManager.shared.getUser() else {
             return
         }

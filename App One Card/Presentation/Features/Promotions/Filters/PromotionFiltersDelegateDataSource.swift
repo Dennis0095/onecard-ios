@@ -76,4 +76,8 @@ extension PromotionFiltersDelegateDataSource: UITableViewDataSource {
     }
 }
 
-extension PromotionFiltersDelegateDataSource: UITableViewDelegate {}
+extension PromotionFiltersDelegateDataSource: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        viewModel.moveScroll()
+    }
+}

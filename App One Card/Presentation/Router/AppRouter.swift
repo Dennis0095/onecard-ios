@@ -639,7 +639,7 @@ extension AppRouter: PromotionsRouterDelegate {
         }
     }
     
-    func toFilters(categories: [PromotionCategory]) {
+    func toFilters(categories: [PromotionCategory], filter: VoidActionHandler?) {
         DispatchQueue.main.async {
             let dataSource = PromotionsCategoriesDataSourceImpl()
             let localDataSource = PromotionsCategoriesLocalDataSourceImpl()
@@ -653,6 +653,7 @@ extension AppRouter: PromotionsRouterDelegate {
             let promotionFiltersDelegateDataSource = PromotionFiltersDelegateDataSource(viewModel: viewModel)
             let filterViewController = PromotionFiltersViewController(viewModel: viewModel, promotionFiltersDelegateDataSource: promotionFiltersDelegateDataSource)
             viewModel.delegate = filterViewController
+            filterViewController.filter = filter
             
             if let navigationController = self.window.rootViewController as? UINavigationController {
                 navigationController.present(filterViewController, animated: true, completion: nil)

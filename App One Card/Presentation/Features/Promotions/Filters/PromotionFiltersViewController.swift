@@ -16,6 +16,8 @@ class PromotionFiltersViewController: BaseViewController {
     private let viewModel: PromotionFiltersViewModelProtocol
     private var promotionFiltersDelegateDataSource: PromotionFiltersDelegateDataSource
     
+    var filter: VoidActionHandler?
+    
     init(viewModel: PromotionFiltersViewModelProtocol,
          promotionFiltersDelegateDataSource: PromotionFiltersDelegateDataSource) {
         self.viewModel = viewModel
@@ -43,15 +45,27 @@ class PromotionFiltersViewController: BaseViewController {
     @IBAction func applyFilters(_ sender: Any) {
         self.dismiss(animated: true) {
             self.viewModel.applyFilters()
+            if let completion = self.filter {
+                completion()
+            }
         }
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
     
     @IBAction func clearFilters(_ sender: Any) {
         viewModel.clearFilters()
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
     
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true)
+        
+        //MARK: RESET TIMER
+        resetTimer()
     }
     
 }
@@ -65,5 +79,10 @@ extension PromotionFiltersViewController: PromotionFiltersViewModelDelegate {
     
     func clearFilters() {
         tbFilters.reloadData()
+    }
+    
+    func movingScrollView() {
+        //MARK: RESET TIMER
+        resetTimer()
     }
 }

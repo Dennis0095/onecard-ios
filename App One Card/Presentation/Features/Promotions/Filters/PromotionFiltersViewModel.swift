@@ -18,10 +18,12 @@ protocol PromotionFiltersViewModelProtocol {
     func isExpanded(section: Int) -> Bool
     func numberOfSections() -> Int
     func numberOfItemsBySection(section: Int) -> Int
+    func moveScroll()
 }
 
 protocol PromotionFiltersViewModelDelegate {
     func expandedSection(section: Int)
+    func movingScrollView()
     func clearFilters()
 }
 
@@ -64,6 +66,7 @@ class PromotionFiltersViewModel: PromotionFiltersViewModelProtocol {
     
     func applyFilters() {
         useCase.saveChoosedCategories(categories: categories)
+        delegate?.clearFilters()
     }
     
     func clearFilters() {
@@ -74,6 +77,10 @@ class PromotionFiltersViewModel: PromotionFiltersViewModelProtocol {
     func expandedSection(section: Int) {
         categories[section].isExpanded = !categories[section].isExpanded
         delegate?.expandedSection(section: section)
+    }
+    
+    func moveScroll() {
+        delegate?.movingScrollView()
     }
     
 }

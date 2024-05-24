@@ -25,11 +25,13 @@ protocol PromotionsViewModelProtocol {
     func filterPromotions()
     func getDetail(promotionCode: String)
     func showFilters()
+    func moveScroll()
 }
 
 protocol PromotionsViewModelDelegate: LoaderDisplaying {
     func showPromotions()
     func failureShowPromotions(error: APIError)
+    func movingScrollView()
 }
 
 class PromotionsViewModel: PromotionsViewModelProtocol {
@@ -41,7 +43,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     var wasShownViewPromotions: Bool = false
     var isLoadingPage: Bool = false
     var currentPage: Int = 0
-    var pageSize: Int = 10
+    var pageSize: Int = 3
     var isLastPage: Bool = false
     var filter: String = ""
     
@@ -75,12 +77,16 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     
     func showFilters() {
         if let categories = promotionCategoriesUseCase.getCategories() {
-            router.toFilters(categories: categories)
+            router.toFilters(categories: categories) {
+                self.filterPromotions()
+            }
         } else {
             let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
             let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
             promotionCategoriesUseCase.retryGetCategories(request: request) { [weak self] categories in
-                self?.router.toFilters(categories: categories)
+                self?.router.toFilters(categories: categories) {
+                    self?.filterPromotions()
+                }
             }
         }
     }
@@ -222,6 +228,10 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
                 }
             }
         cancellable.store(in: &cancellables)
+    }
+    
+    func moveScroll() {
+        delegate?.movingScrollView()
     }
     
     func cancelRequests() {

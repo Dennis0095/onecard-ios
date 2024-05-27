@@ -10,5 +10,5 @@ import Combine
 
 protocol PromotionCategoriesRepository {
     func getCategories(request: BaseRequest)
-    func retryGetCategories(request: BaseRequest, success: @escaping (_ categories: [PromotionCategory]) -> Void)
+    func retryGetCategories(request: BaseRequest, success: @escaping ([PromotionCategory]) -> Void, error: @escaping (APIError) -> Void)
 }

@@ -30,15 +30,23 @@ class PromotionCategoriesDataRepository: PromotionCategoriesRepository {
             }
         cancellable.store(in: &cancellables)
     }
-    
-    func retryGetCategories(request: BaseRequest, success: @escaping (_ categories: [PromotionCategory]) -> Void) {
+
+    func retryGetCategories(request: BaseRequest, success: @escaping ([PromotionCategory]) -> Void, error: @escaping (APIError) -> Void) {
         let cancellable = dataSource.getCategories(request: request)
-            .sink { _ in }
+            .sink { publisher in
+                switch publisher {
+                case .finished: break
+                case .failure(let err):
+                    error(err)
+                }
+            }
             receiveValue: { [weak self] response in
                 guard let self = self else { return }
                 if let categories = response.toPromotionCategories().categories {
                     localDataSource.saveCategories(categories: categories)
                     success(categories)
+                } else {
+                    error(APIError.defaultError)
                 }
             }
         cancellable.store(in: &cancellables)

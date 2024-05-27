@@ -169,7 +169,7 @@
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal">
-                                                        <imageReference key="image" image="line.3.horizontal.decrease.circle" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                                        <imageReference key="image" image="ic_filters" symbolScale="large" renderingMode="hierarchical-single">
                                                             <hierarchicalColors>
                                                                 <color name="grey100"/>
                                                                 <color systemColor="secondaryLabelColor"/>
@@ -292,7 +292,7 @@
     </objects>
     <resources>
         <image name="ic_alert_blue" width="41" height="41"/>
-        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
+        <image name="ic_filters" width="32" height="32"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="something_went_wrong_blue" width="149" height="149"/>
         <namedColor name="blue_lake_front">
@@ -302,13 +302,13 @@
             <color red="0.27843137254901962" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

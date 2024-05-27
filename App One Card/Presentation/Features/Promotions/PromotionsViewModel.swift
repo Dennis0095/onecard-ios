@@ -76,18 +76,26 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     }
     
     func showFilters() {
-        if let categories = promotionCategoriesUseCase.getCategories() {
+        if let categories = promotionCategoriesUseCase.getCategories(), !categories.isEmpty {
             router.toFilters(categories: categories) {
                 self.filterPromotions()
             }
         } else {
+            delegate?.showLoader()
+            
             let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
             let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
             promotionCategoriesUseCase.retryGetCategories(request: request) { [weak self] categories in
+                self?.delegate?.hideLoader()
                 self?.router.toFilters(categories: categories) {
                     self?.filterPromotions()
                 }
+            } error: { [weak self] apiError in
+                let error = apiError.error()
+                self?.delegate?.hideLoader()
+                self?.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
             }
+
         }
     }
     

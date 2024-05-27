@@ -10,7 +10,7 @@ import Combine
 
 protocol PromotionCategoriesUseCaseProtocol {
     func getCategories(request: BaseRequest)
-    func retryGetCategories(request: BaseRequest, success: @escaping (_ categories: [PromotionCategory]) -> Void)
+    func retryGetCategories(request: BaseRequest, success: @escaping ([PromotionCategory]) -> Void, error: @escaping (APIError) -> Void)
     func getCategories() -> [PromotionCategory]?
     func resetCategories(beforeCategories: [PromotionCategory]) -> [PromotionCategory]
     func saveChoosedCategories(categories: [PromotionCategory])
@@ -32,8 +32,8 @@ class PromotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol {
         repository.getCategories(request: request)
     }
     
-    func retryGetCategories(request: BaseRequest, success: @escaping (_ categories: [PromotionCategory]) -> Void) {
-        return repository.retryGetCategories(request: request, success: success)
+    func retryGetCategories(request: BaseRequest, success: @escaping ([PromotionCategory]) -> Void, error: @escaping (APIError) -> Void) {
+        return repository.retryGetCategories(request: request, success: success, error: error)
     }
     
     func getCategories() -> [PromotionCategory]? {

@@ -43,7 +43,7 @@ class AlertErrorViewController: UIViewController {
         let countString = "60 seg"
         
         if description.contains(countString) {
-            let longString = "Verifica el código o vuelva a enviar uno nuevo dentro de " + countString
+            let longString = "Verifica el código o vuelve a enviar uno nuevo dentro de " + countString
             let longestWordRange = (longString as NSString).range(of: countString)
             
             let attributedString = NSMutableAttributedString(string: longString, attributes: [NSAttributedString.Key.font : UIFont(name: "ProximaNova-Medium", size: 15)!])

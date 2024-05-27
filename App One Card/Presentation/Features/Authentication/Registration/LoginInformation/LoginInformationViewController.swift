@@ -34,7 +34,7 @@ class LoginInformationViewController: BaseViewController {
     }
     
     override func initView() {
-        txtUser.configure(placeholder: Constants.placeholder_user, status: .activated)
+        txtUser.configure(placeholder: Constants.placeholder_user, status: .activated, maxLength: 12)
         txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 12)
         txtConfirmPassword.configure(placeholder: Constants.confirm_your_digital_key, status: .activated, isPassword: true, maxLength: 12)
         btnNext.configure(text: Constants.next_btn, status: .enabled)

@@ -93,4 +93,5 @@ class Constants {
     static let keyLinkRegister = "linkRegister"
     static let keyLinkDataTreatment = "linkDataTreatment"
     static let keyLinkRecovery = "linkRecovery"
+    static let keyLinkRecovery2222 = "linkRecovery2222"
 }

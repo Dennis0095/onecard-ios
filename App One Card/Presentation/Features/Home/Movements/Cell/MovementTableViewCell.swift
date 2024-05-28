@@ -25,7 +25,7 @@ class MovementTableViewCell: UITableViewCell {
     }
     
     private func getAmountRealMovement(amount: String) -> String {
-        if amount.count < 4 {
+        if amount.count < 3 {
             return "0.00"
         }
         

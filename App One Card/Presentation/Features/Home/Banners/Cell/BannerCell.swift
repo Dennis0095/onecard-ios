@@ -14,6 +14,9 @@ class BannerCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        ivwBanner.layer.masksToBounds = true
+        ivwBanner.layer.cornerRadius = 4
     }
 
     func setData(banner: BannerResponse) {

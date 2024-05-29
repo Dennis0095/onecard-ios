@@ -57,7 +57,7 @@ class MovementDetailViewController: BaseViewController {
         let amount = getAmountRealMovement(amount: m.amount ?? "").convertStringToDecimalAndFormat(sign: m.amountSign ?? "")
         lblAmount.textColor = m.amountSign == "-" ? #colorLiteral(red: 0.4235294118, green: 0.4352941176, blue: 0.4431372549, alpha: 1) : #colorLiteral(red: 0, green: 0.337254902, blue: 0.6235294118, alpha: 1)
         lblAmount.text = amount
-        lblTrade.text = m.trade ?? ""
+        lblTrade.text = (m.trade ?? "").trimmingCharacters(in: .whitespaces)
         
         lblDate.text = DateUtils.shared.parseDateToString(string: m.date ?? "", format: "yyyyMMdd", outputFormat: "d MMM yyyy")
         

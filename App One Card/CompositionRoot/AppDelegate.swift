@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appRouter: Router?
     var window: UIWindow?
     var count: Int = 0
+    var backgroundTime : Date?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -32,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         backgroundTask = application.beginBackgroundTask { [weak self] in
             // Clean up the background task and timer when it expires
             self?.endBackgroundTask()
-            //self?.invalidateTimer()
         }
         
         guard let _ = UserSessionManager.shared.getUser() else {
@@ -44,14 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         endBackgroundTask()
-        //invalidateTimer()
-        
-        print("Count entrando a foreground:", count)
         
         guard let _ = UserSessionManager.shared.getUser() else {
+            self.invalidateTimer()
             return
         }
         
+        count = secondsInterval()
         resumeTimer()
     }
     
@@ -65,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func resetTimer() {
         count = 0
         invalidateTimer()
+        backgroundTime = Date()
 
         guard let _ = UserSessionManager.shared.getUser() else {
             return
@@ -76,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if self.count == Constants.question_time {
                 appRouter?.confirmInactivity(closeSession: {
                     self.invalidateTimer()
+                    self.backgroundTime = nil
                     self.appRouter?.logout(isManual: true)
                 }, accept: {
                     self.resetTimer()
@@ -100,20 +101,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if self.count == Constants.question_time {
                     appRouter?.confirmInactivity(closeSession: {
                         self.invalidateTimer()
+                        self.backgroundTime = nil
                         self.appRouter?.logout(isManual: true)
                     }, accept: {
                         self.resetTimer()
                     })
-                } 
-//                else if self.count == Constants.end_time {
-//                    self.invalidateTimer()
-//                    appRouter?.logout(isManual: false)
-//                }
+                }
             }
         } else {
             self.invalidateTimer()
             appRouter?.logout(isManual: false)
         }
+    }
+    
+    func secondsInterval() -> Int {
+        return Int(Date().timeIntervalSince(backgroundTime ?? Date()))
     }
 }
 

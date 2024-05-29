@@ -46,9 +46,9 @@ class AppRouter: Router {
     func logout(isManual: Bool) {
         let authTrackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let logoutRequest = LogoutRequest(authTrackingCode: authTrackingCode)
-        let cancellable = logoutUseCase.logout(request: logoutRequest)
-            .sink { [weak self] publisher in
-                if isManual {
+        if isManual {
+            let cancellable = logoutUseCase.logout(request: logoutRequest)
+                .sink { [weak self] publisher in
                     switch publisher {
                     case .failure(let apiError):
                         let error = apiError.error()
@@ -66,11 +66,12 @@ class AppRouter: Router {
                     case .finished:
                         self?.navigateToLogin()
                     }
-                } else {
-                    self?.navigateToLogin()
-                }
-            } receiveValue: { _ in }
-        cancellable.store(in: &cancellables)
+                } receiveValue: { _ in }
+            cancellable.store(in: &cancellables)
+        } else {
+            _ = logoutUseCase.logout(request: logoutRequest)
+            navigateToLogin()
+        }
     }
     
     private func showLogoutError(title: String, description: String, onAccept: VoidActionHandler?) {

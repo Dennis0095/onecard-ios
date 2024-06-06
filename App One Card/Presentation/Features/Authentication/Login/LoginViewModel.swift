@@ -16,7 +16,7 @@ protocol LoginViewModelProtocol {
     func toForgotPassword()
     func toForgotUser()
     func login()
-    func getStatusCard(token: String)
+    func getStatusCard()
     func onAppear()
 }
 
@@ -74,7 +74,7 @@ class LoginViewModel: LoginViewModelProtocol {
                         UserSessionManager.shared.saveToken(token: response.token ?? "")
                         let decodeUser = UserSessionManager.shared.decodedJWT(jwt: response.token ?? "")
                         UserSessionManager.shared.saveUser(user: decodeUser)
-                        self.getStatusCard(token: response.token ?? "")
+                        self.getStatusCard()
                     } else {
                         self.delegate?.showError(title: response.title ?? "", description: response.message ?? "", onAccept: nil)
                     }
@@ -83,7 +83,7 @@ class LoginViewModel: LoginViewModelProtocol {
         }
     }
     
-    func getStatusCard(token: String) {
+    func getStatusCard() {
         delegate?.showLoader()
         
         let trackingCode = UserSessionManager.shared.getUser()?.cardTrackingCode ?? ""
@@ -107,7 +107,7 @@ class LoginViewModel: LoginViewModelProtocol {
                     if response.status == StatusCard.NOT_ACTIVE.rawValue {
                         self.router.navigateToActivateUser()
                     } else if response.status == StatusCard.CANCEL.rawValue {
-                        self.delegate?.showError(title: "Tarjeta inválida", description: "El estado de la tsrjeta es inválida para el inicio de sesión", onAccept: nil)
+                        self.delegate?.showError(title: Constants.invalid_card, description: Constants.card_status_is_invalid_to_login, onAccept: nil)
                     } else {
                         self.router.navigateToHome()
                     }

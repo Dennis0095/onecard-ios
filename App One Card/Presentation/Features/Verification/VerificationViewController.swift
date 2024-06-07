@@ -186,6 +186,7 @@ class VerificationViewController: BaseViewController {
     }
     
     @IBAction func resend(_ sender: Any) {
+        txtCode.clearTextField()
         sendOTP()
     }
     
@@ -200,6 +201,7 @@ class VerificationViewController: BaseViewController {
     }
     
     @IBAction func send(_ sender: Any) {
+        txtCode.clearTextField()
         sendToNumber = !sendToNumber
         sendOTP()
     }

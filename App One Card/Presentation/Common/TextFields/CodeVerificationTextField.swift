@@ -144,6 +144,19 @@ class CodeVerificationTextField: UITextField {
             return false
         }
     }
+    
+    func clearTextField() {
+        for i in 0 ..< digitLabels.count {
+            let currentLabel = digitLabels[i]
+            
+            currentLabel.layer.borderColor = Design.color(.grey40).cgColor
+            currentLabel.text?.removeAll()
+        }
+        
+        self.text = ""
+        didEnterDigits?("")
+        isValid = false
+    }
 }
 
 extension CodeVerificationTextField: UITextFieldDelegate {

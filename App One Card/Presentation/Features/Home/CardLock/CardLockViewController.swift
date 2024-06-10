@@ -75,6 +75,10 @@ class CardLockViewController: BaseViewController {
         self.timer.invalidate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        txtCode.clearTextField()
+    }
+    
     override func setActions() {
         let tapBack = UITapGestureRecognizer(target: self, action: #selector(tapBack))
         imgBack.isUserInteractionEnabled = true

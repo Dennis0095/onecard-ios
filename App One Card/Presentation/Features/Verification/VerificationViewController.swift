@@ -84,6 +84,7 @@ class VerificationViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        txtCode.clearTextField()
         if hasAppearedBefore {
             self.resetTime()
         }

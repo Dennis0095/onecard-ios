@@ -22,7 +22,7 @@ struct PromotionCategoriesResponse: Codable {
         case message = "MENSAJE"
     }
     
-    func toPromotionCategories() -> PromotionCategories {
-        return PromotionCategories(categories: self.categories?.map { $0.toPromotionCategory() } )
+    func toPromotionCategories() -> [PromotionCategory]? {
+        return self.categories?.map { $0.toPromotionCategory() }
     }
 }

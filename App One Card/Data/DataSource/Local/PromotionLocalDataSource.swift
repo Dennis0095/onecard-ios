@@ -1,19 +1,14 @@
 //
-//  PromotionsCategoriesLocalDataSourceImpl.swift
+//  PromotionLocalDataSource.swift
 //  App One Card
 //
-//  Created by Paolo Arámbulo on 24/05/24.
+//  Created by Paolo Arámbulo on 13/06/24.
 //
 
 import Foundation
 import Combine
 
-protocol PromotionsCategoriesLocalDataSource {
-    func saveCategories(categories: [PromotionCategory]?)
-    func getCategories() -> [PromotionCategory]?
-}
-
-class PromotionsCategoriesLocalDataSourceImpl: PromotionsCategoriesLocalDataSource {
+class PromotionLocalDataSource: PromotionLocalDataSourceProtocol {
     
     private let session: PromotionCategoriesSessionManagerProtocol
     
@@ -29,4 +24,3 @@ class PromotionsCategoriesLocalDataSourceImpl: PromotionsCategoriesLocalDataSour
         return session.getCategories()
     }
 }
-

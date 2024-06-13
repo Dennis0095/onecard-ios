@@ -642,14 +642,18 @@ extension AppRouter: PromotionsRouterDelegate {
     
     func toFilters(categories: [PromotionCategory], filter: VoidActionHandler?) {
         DispatchQueue.main.async {
-            let dataSource = PromotionsCategoriesDataSourceImpl()
-            let localDataSource = PromotionsCategoriesLocalDataSourceImpl()
-            let repository = PromotionCategoriesDataRepository(dataSource: dataSource,
+            let dataSource = PromotionDataSource()
+            let localDataSource = PromotionLocalDataSource()
+            let repository = PromotionDataRepository(dataSource: dataSource,
                                                                localDataSource: localDataSource)
-            let localRepository = PromotionCategoriesLocalDataRepository()
-            let useCase = PromotionCategoriesUseCase(repository: repository,
-                                                     localRepository: localRepository)
-            let viewModel = PromotionFiltersViewModel(useCase: useCase,
+            let localRepository = PromotionLocalDataRepository()
+            let fetchPromotionCategoriesUseCase = FetchPromotionCategoriesUseCase(cloudRepository: repository,
+                                                          localRepository: localRepository)
+            let resetPromotionCategoriesUseCase = ResetPromotionCategoriesUseCase(localRepository: localRepository)
+            let saveChoosedPromotionCategoriesUseCase = SaveChoosedPromotionCategoriesUseCase(localRepository: localRepository)
+            let viewModel = PromotionFiltersViewModel(fetchUseCase: fetchPromotionCategoriesUseCase,
+                                                      resetUseCase: resetPromotionCategoriesUseCase,
+                                                      saveChooseUseCase: saveChoosedPromotionCategoriesUseCase,
                                                       categories: categories)
             let promotionFiltersDelegateDataSource = PromotionFiltersDelegateDataSource(viewModel: viewModel)
             let filterViewController = PromotionFiltersViewController(viewModel: viewModel, promotionFiltersDelegateDataSource: promotionFiltersDelegateDataSource)

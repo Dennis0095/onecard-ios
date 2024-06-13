@@ -1,5 +1,5 @@
 //
-//  PromotionCategoriesLocalDataRepository.swift
+//  PromotionLocalDataRepository.swift
 //  App One Card
 //
 //  Created by Paolo Arámbulo on 23/05/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class PromotionCategoriesLocalDataRepository: PromotionCategoriesLocalRepository {
+class PromotionLocalDataRepository: PromotionLocalRepository {
     
     private let session: PromotionCategoriesSessionManagerProtocol
     

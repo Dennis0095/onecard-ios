@@ -29,14 +29,20 @@ protocol PromotionFiltersViewModelDelegate {
 
 class PromotionFiltersViewModel: PromotionFiltersViewModelProtocol {
     
-    private let useCase: PromotionCategoriesUseCaseProtocol
+    private let fetchUseCase: FetchPromotionCategoriesUseCaseProtocol
+    private let resetUseCase: ResetPromotionCategoriesUseCaseProtocol
+    private let saveChooseUseCase: SaveChoosedPromotionCategoriesUseCaseProtocol
     private var categories: [PromotionCategory]
     
     var delegate: PromotionFiltersViewModelDelegate?
     
-    init(useCase: PromotionCategoriesUseCaseProtocol, 
+    init(fetchUseCase: FetchPromotionCategoriesUseCaseProtocol,
+         resetUseCase: ResetPromotionCategoriesUseCaseProtocol,
+         saveChooseUseCase: SaveChoosedPromotionCategoriesUseCaseProtocol,
          categories: [PromotionCategory]) {
-        self.useCase = useCase
+        self.fetchUseCase = fetchUseCase
+        self.resetUseCase = resetUseCase
+        self.saveChooseUseCase = saveChooseUseCase
         self.categories = categories
     }
     
@@ -65,12 +71,12 @@ class PromotionFiltersViewModel: PromotionFiltersViewModelProtocol {
     }
     
     func applyFilters() {
-        useCase.saveChoosedCategories(categories: categories)
+        saveChooseUseCase.execute(categories: categories)
         delegate?.clearFilters()
     }
     
     func clearFilters() {
-        self.categories = useCase.resetCategories(beforeCategories: self.categories)
+        self.categories = resetUseCase.execute(beforeCategories: self.categories)
         delegate?.clearFilters()
     }
 

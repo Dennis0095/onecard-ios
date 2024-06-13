@@ -46,7 +46,7 @@ class HomeViewModel: HomeViewModelProtocol {
     private let balanceUseCase: BalanceUseCaseProtocol
     private let movementUseCase: MovementUseCaseProtocol
     private let bannersUseCase: BannersUseCaseProtocol
-    private let promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol
+    private let fetchPromotionCategoriesUseCase: FetchPromotionCategoriesUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -56,14 +56,14 @@ class HomeViewModel: HomeViewModelProtocol {
          balanceUseCase: BalanceUseCaseProtocol,
          movementUseCase: MovementUseCaseProtocol,
          bannersUseCase: BannersUseCase,
-         promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol) {
+         fetchPromotionCategoriesUseCase: FetchPromotionCategoriesUseCaseProtocol) {
         self.router = router
         self.successfulRouter = successfulRouter
         self.balanceUseCase = balanceUseCase
         self.movementUseCase = movementUseCase
         self.bannersUseCase = bannersUseCase
         self.authRouter = authRouter
-        self.promotionCategoriesUseCase = promotionCategoriesUseCase
+        self.fetchPromotionCategoriesUseCase = fetchPromotionCategoriesUseCase
     }
     
     deinit {
@@ -182,7 +182,7 @@ class HomeViewModel: HomeViewModelProtocol {
     func getPromotionCategories() {
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
         let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
-        promotionCategoriesUseCase.getCategories(request: request)
+        fetchPromotionCategoriesUseCase.execute(request: request) {} onHideLoading: {} onSuccess: { _ in } onError: { _ in }
     }
     
     func consultMovements() {

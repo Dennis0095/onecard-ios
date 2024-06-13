@@ -78,39 +78,42 @@ class MenuTabBarController: UITabBarController {
         let movementUseCase = MovementUseCase(movementRepository: movementRepository)
         let bannersRepository = BannersDataRepository()
         let bannersUseCase = BannersUseCase(bannersRepository: bannersRepository)
-        let promotionCategoriesDataSource = PromotionsCategoriesDataSourceImpl()
-        let promotionCategoriesLocalDataSource = PromotionsCategoriesLocalDataSourceImpl()
-        let promotionCategoriesRepository = PromotionCategoriesDataRepository(dataSource: promotionCategoriesDataSource,
-                                                                              localDataSource: promotionCategoriesLocalDataSource)
-        let promotionCategoriesLocalRepository = PromotionCategoriesLocalDataRepository()
-        let promotionCategoriesUseCase = PromotionCategoriesUseCase(repository: promotionCategoriesRepository,
-                                                                    localRepository: promotionCategoriesLocalRepository)
+        
+        let promotionCloudDataSource = PromotionDataSource()
+        let promotionLocalDataSource = PromotionLocalDataSource()
+        let promotionCloudRepository = PromotionDataRepository(dataSource: promotionCloudDataSource,
+                                                               localDataSource: promotionLocalDataSource)
+        let promotionLocalRepository = PromotionLocalDataRepository()
+        let fetchPromotionCategoriesUseCase = FetchPromotionCategoriesUseCase(cloudRepository: promotionCloudRepository,
+                                                                              localRepository: promotionLocalRepository)
         let viewModel = HomeViewModel(router: homeRouter,
                                       authRouter: authRouter,
                                       successfulRouter: successfulRouter,
                                       balanceUseCase: useCase,
                                       movementUseCase: movementUseCase,
                                       bannersUseCase: bannersUseCase,
-                                      promotionCategoriesUseCase: promotionCategoriesUseCase)
+                                      fetchPromotionCategoriesUseCase: fetchPromotionCategoriesUseCase)
         let home = HomeViewController(viewModel: viewModel)
         viewModel.delegate = home
         return home
     }
     
     private func setupPromotions() -> PromotionsViewController {
-        let promotionRepository = PromotionDataRepository()
-        let promotionUseCase = PromotionUseCase(promotionRepository: promotionRepository)
+        let promotionCloudDataSource = PromotionDataSource()
+        let promotionLocalDataSource = PromotionLocalDataSource()
+        let promotionCloudRepository = PromotionDataRepository(dataSource: promotionCloudDataSource,
+                                                               localDataSource: promotionLocalDataSource)
+        let promotionLocalRepository = PromotionLocalDataRepository()
         
-        let promotionsCategoriesDataSource = PromotionsCategoriesDataSourceImpl()
-        let promotionsCategoriesLocalDataSource = PromotionsCategoriesLocalDataSourceImpl()
-        let promotionCategoriesRepository = PromotionCategoriesDataRepository(dataSource: promotionsCategoriesDataSource,
-                                                                              localDataSource: promotionsCategoriesLocalDataSource)
-        let promotionCategoriesLocalRepository = PromotionCategoriesLocalDataRepository()
-        let promotionCategoriesUseCase = PromotionCategoriesUseCase(repository: promotionCategoriesRepository,
-                                                                            localRepository: promotionCategoriesLocalRepository)
+        let promotionUseCase = PromotionUseCase(promotionRepository: promotionCloudRepository)
+        let fetchPromotionCategoriesUseCase = FetchPromotionCategoriesUseCase(cloudRepository: promotionCloudRepository,
+                                                                            localRepository: promotionLocalRepository)
+        let fetchChoosedPromotionCategoriesUseCase = FetchChoosedPromotionCategoriesUseCase(localRepository: promotionLocalRepository)
+        
         let viewModel = PromotionsViewModel(router: promotionsRouter,
-                                            promotionUseCase: promotionUseCase,
-                                            promotionCategoriesUseCase: promotionCategoriesUseCase)
+                                            promotionUseCase: promotionUseCase, 
+                                            fetchChoosedPromotionCategoriesUseCase: fetchChoosedPromotionCategoriesUseCase,
+                                            fetchPromotionCategoriesUseCase: fetchPromotionCategoriesUseCase)
         let promotionsDelegateDataSource = PromotionsDelegateDataSource(viewModel: viewModel)
         let promotions = PromotionsViewController(viewModel: viewModel, promotionsDelegateDataSource: promotionsDelegateDataSource)
         viewModel.delegate = promotions

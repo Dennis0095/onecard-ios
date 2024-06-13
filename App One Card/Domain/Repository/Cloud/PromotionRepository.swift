@@ -10,4 +10,5 @@ import Combine
 protocol PromotionRepository {
     func consult(request: ConsultPromotionsRequest) -> AnyPublisher<ConsultPromotionsResponse, APIError>
     func detail(request: PromotionDetailRequest) -> AnyPublisher<PromotionDetailResponse, APIError>
+    func getCategories(request: PromotionCategoriesRequest) -> AnyPublisher<PromotionCategoriesResponse, APIError>
 }

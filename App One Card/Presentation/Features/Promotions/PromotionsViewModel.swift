@@ -36,7 +36,8 @@ protocol PromotionsViewModelDelegate: LoaderDisplaying {
 
 class PromotionsViewModel: PromotionsViewModelProtocol {
     private let promotionUseCase: PromotionUseCaseProtocol
-    private let promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol
+    private let fetchChoosedPromotionCategoriesUseCase: FetchChoosedPromotionCategoriesUseCaseProtocol
+    private let fetchPromotionCategoriesUseCase: FetchPromotionCategoriesUseCaseProtocol
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -53,10 +54,12 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     
     init(router: PromotionsRouterDelegate,
          promotionUseCase: PromotionUseCaseProtocol,
-         promotionCategoriesUseCase: PromotionCategoriesUseCaseProtocol) {
+         fetchChoosedPromotionCategoriesUseCase: FetchChoosedPromotionCategoriesUseCaseProtocol,
+         fetchPromotionCategoriesUseCase: FetchPromotionCategoriesUseCaseProtocol) {
         self.router = router
         self.promotionUseCase = promotionUseCase
-        self.promotionCategoriesUseCase = promotionCategoriesUseCase
+        self.fetchChoosedPromotionCategoriesUseCase = fetchChoosedPromotionCategoriesUseCase
+        self.fetchPromotionCategoriesUseCase = fetchPromotionCategoriesUseCase
     }
     
     deinit {
@@ -76,26 +79,19 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
     }
     
     func showFilters() {
-        if let categories = promotionCategoriesUseCase.getCategories(), !categories.isEmpty {
-            router.toFilters(categories: categories) {
-                self.filterPromotions()
+        let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
+        let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
+        
+        fetchPromotionCategoriesUseCase.execute(request: request) {
+            self.delegate?.showLoader()
+        } onHideLoading: {
+            self.delegate?.hideLoader()
+        } onSuccess: { [weak self] categories in
+            self?.router.toFilters(categories: categories) {
+                self?.filterPromotions()
             }
-        } else {
-            delegate?.showLoader()
-            
-            let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
-            let request = PromotionCategoriesRequest(authTrackingCode: trackingCode)
-            promotionCategoriesUseCase.retryGetCategories(request: request) { [weak self] categories in
-                self?.delegate?.hideLoader()
-                self?.router.toFilters(categories: categories) {
-                    self?.filterPromotions()
-                }
-            } error: { [weak self] apiError in
-                let error = apiError.error()
-                self?.delegate?.hideLoader()
-                self?.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
-            }
-
+        } onError: { [weak self] error in
+            self?.delegate?.showError(title: error.title, description: error.description, onAccept: nil)
         }
     }
     
@@ -106,7 +102,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         isLoadingPage = true
         
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
-        let categoryFilterRequest = promotionCategoriesUseCase.getChoosedCategories()
+        let categoryFilterRequest = fetchChoosedPromotionCategoriesUseCase.execute()
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
                                                pageSize: String(pageSize),
                                                page: String(currentPage),
@@ -160,7 +156,7 @@ class PromotionsViewModel: PromotionsViewModelProtocol {
         isLoadingPage = true
         
         let trackingCode = UserSessionManager.shared.getUser()?.authTrackingCode ?? ""
-        let categoryFilterRequest = promotionCategoriesUseCase.getChoosedCategories()
+        let categoryFilterRequest = fetchChoosedPromotionCategoriesUseCase.execute()
         let request = ConsultPromotionsRequest(authTrackingCode: trackingCode,
                                                pageSize: String(pageSize),
                                                page: String(currentPage),

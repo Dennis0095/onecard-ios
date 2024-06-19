@@ -30,8 +30,8 @@ class RecoverPasswordViewController: BaseViewController {
     }
     
     override func initView() {
-        txtPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true)
-        txtConfirmPassword.configure(placeholder: "Confirma tu nueva clave digital", status: .activated, isPassword: true)
+        txtPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true, maxLength: 30)
+        txtConfirmPassword.configure(placeholder: "Confirma tu nueva clave digital", status: .activated, isPassword: true, maxLength: 30)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         txtPassword.txt.textContentType = .oneTimeCode

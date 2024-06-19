@@ -29,7 +29,7 @@ class LoginViewController: BaseViewController {
     
     override func initView() {
         txtUser.configure(placeholder: Constants.placeholder_digital_user, status: .activated)
-        txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true)
+        txtPassword.configure(placeholder: Constants.placeholder_password, status: .activated, isPassword: true, maxLength: 30)
         btnLogin.configure(text: Constants.login_btn, status: .enabled)
         btnRegister.configure(text: Constants.login_register_btn)
         

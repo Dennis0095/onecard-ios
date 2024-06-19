@@ -29,9 +29,9 @@ class ChangePasswordViewController: BaseViewController {
     }
     
     override func initView() {
-        txtCurrentPassword.configure(placeholder: "Clave actual", status: .activated, isPassword: true, maxLength: 12)
-        txtNewPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true, maxLength: 12)
-        txtConfirmPassword.configure(placeholder: "Confirmación de clave", status: .activated, isPassword: true, maxLength: 12)
+        txtCurrentPassword.configure(placeholder: "Clave actual", status: .activated, isPassword: true, maxLength: 30)
+        txtNewPassword.configure(placeholder: "Nueva clave digital", status: .activated, isPassword: true, maxLength: 30)
+        txtConfirmPassword.configure(placeholder: "Confirmación de clave", status: .activated, isPassword: true, maxLength: 30)
         btnNext.configure(text: Constants.next_btn, status: .enabled)
         
         connectFields(textFields: txtCurrentPassword.txt, txtNewPassword.txt, txtConfirmPassword.txt)
